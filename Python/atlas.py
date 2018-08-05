@@ -1,4 +1,3 @@
-# cython: language_level=3, boundscheck=False
 import sys
 import random
 import os
