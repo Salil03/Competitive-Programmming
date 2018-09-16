@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -10,11 +10,14 @@ int main()
     while (t--)
     {
         cin >> n >> k;
-        long long arr[k];
+        long long ans = 0;
         for (long long i = 1; i <= k; i++)
         {
-            arr[i - 1] = n % k;
+            if (n % i > ans)
+            {
+                ans = n % i;
+            }
         }
-        cout << *max_element(arr, arr + k) << "\n";
+        cout << ans << "\n";
     }
 }
