@@ -1,0 +1,968 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.849 --> 00:00:05.169
+So, we are looking at the problem of constructing
+a minimum cost spanning tree in a weighted
+
+00:00:05.169 --> 00:00:12.180
+graph. We said there we have two basic strategies
+one could think of to do this. The first one
+
+00:00:12.180 --> 00:00:16.340
+leads to an algorithm called Prim's algorithm,
+and the second one leads to an algorithm called
+
+00:00:16.340 --> 00:00:20.560
+Kruskal's algorithm. So, in this lecture we
+would look at Prim's algorithm.
+
+00:00:20.560 --> 00:00:26.050
+So, the problem domain is the following. We
+have a weighted undirected graph. So, V is
+
+00:00:26.050 --> 00:00:31.060
+the set of vertices, E is the set of edges
+and w is a weight function. We assumed that
+
+00:00:31.060 --> 00:00:36.520
+G is connected, because if G is not connected
+and there is no way to build a spanning tree.
+
+00:00:36.520 --> 00:00:41.609
+Spanning tree, remember is a sub set of the
+edges which connects all the vertices in G.
+
+00:00:41.609 --> 00:00:45.030
+So, G is not already connected, then there
+is no way we can actually connect using a
+
+00:00:45.030 --> 00:00:50.730
+subset of edges. So, G is a connected weighted
+undirected graph, and now we want to identify
+
+00:00:50.730 --> 00:00:57.180
+spanning tree with minimum weight. So, this
+strategy in Prim's algorithm starts with the
+
+00:00:57.180 --> 00:01:02.100
+minimum cost edge, and keep extending the
+tree with the smallest edge connected to the
+
+00:01:02.100 --> 00:01:04.019
+current tree.
+
+00:01:04.019 --> 00:01:09.740
+So, here is a kind of high level version of
+prim's algorithm, right. So, we start with
+
+00:01:09.740 --> 00:01:17.409
+minimum cost edge and we add it to the list.
+So, TE is a list of edges that form a tree.
+
+00:01:17.409 --> 00:01:23.020
+So, we will describe the tree as a collection
+of edges, and then we note that we have added
+
+00:01:23.020 --> 00:01:30.079
+i and j to the tree. So, i and j are now connected.
+So, this leaves n minus 2 vertices which have
+
+00:01:30.079 --> 00:01:35.009
+to be connected. So, we have to do something
+n minus 2 times. So, n minus 2 times we have
+
+00:01:35.009 --> 00:01:38.140
+to add an edge. Each time we add an edge;
+one more vertex would be connected. So, we
+
+00:01:38.140 --> 00:01:41.869
+know that after that many edges, you will
+have a tree. Remember that the tree has totally
+
+00:01:41.869 --> 00:01:46.259
+n minus 1 edge. So, we have added the first
+edge by starting with a minimum cost edge.
+
+00:01:46.259 --> 00:01:51.829
+So, we can add n minus 2.
+So, what we do is, n minus 2 times, we choose
+
+00:01:51.829 --> 00:01:58.049
+the smallest edge which has one end point
+in the tree and one end point outside the
+
+00:01:58.049 --> 00:02:04.259
+tree. So, this is a vertex v now which is
+not connected to the tree. So, we connect
+
+00:02:04.259 --> 00:02:12.940
+it. So, we append this new edge to our list
+of tree edges and we add this vertex to our
+
+00:02:12.940 --> 00:02:18.870
+list of tree vertices, and at the end after
+doing this n minus 2 times, it claim as we
+
+00:02:18.870 --> 00:02:23.140
+connected all the edges, we have a spanning
+tree and more over the claim is because we
+
+00:02:23.140 --> 00:02:27.440
+are choosing the minimum cost edge to add
+a each point. The overall thing is a minimum
+
+00:02:27.440 --> 00:02:31.050
+cost spanning tree. Of course, we will not
+prove all this, but this is what we aim as
+
+00:02:31.050 --> 00:02:33.520
+prim's algorithm, right.
+
+00:02:33.520 --> 00:02:39.690
+So, why do we need to prove something? Well,
+you can see that like Dijkstra's algorithm,
+
+00:02:39.690 --> 00:02:44.970
+prim's algorithm is a very greedy algorithm,
+right. At each point, we have to decide how
+
+00:02:44.970 --> 00:02:50.090
+to extend the tree. So, we look in the neighbourhood
+that the current tree, we look for the nearest
+
+00:02:50.090 --> 00:02:54.410
+vertex which is connected to the tree, but
+the shortest edge and we add it. So, this
+
+00:02:54.410 --> 00:02:59.030
+is a local choice, and then we keep making
+these sequences of local choices and ultimately,
+
+00:02:59.030 --> 00:03:03.760
+we arrive globally at a spanning tree and
+out claim is globally we have built the best
+
+00:03:03.760 --> 00:03:08.930
+possible tree, right. So, this is always an
+example of a greedy algorithm where you make
+
+00:03:08.930 --> 00:03:14.160
+a sequence of local choices. Never go back
+and reconsider them and finally, achieve a
+
+00:03:14.160 --> 00:03:18.090
+global optimum and very often as we mentioned
+before with the Dijkstra's algorithm, such
+
+00:03:18.090 --> 00:03:22.640
+a strategy may not give you the right thing.
+So, you have to always justify that this works.
+
+00:03:22.640 --> 00:03:28.950
+So, in order to prove prim's algorithm correct
+and indeed, we will also use this to prove
+
+00:03:28.950 --> 00:03:32.920
+Kruskal's algorithm, correct later on. We
+prove a very useful lemma all the minimum
+
+00:03:32.920 --> 00:03:39.960
+separator lemma. So, let us assume that we
+have this weighted undirected graph and we
+
+00:03:39.960 --> 00:03:45.240
+look at the set of vertices v, right and we
+assume that it is divided into two paths,
+
+00:03:45.240 --> 00:03:50.160
+right. So, this is called partitioning. So,
+there are two separate disjoint paths which
+
+00:03:50.160 --> 00:03:55.040
+I will call u and w, and I am assuming that
+both of these are non-empty. So, there is
+
+00:03:55.040 --> 00:03:59.460
+at least one vertex u and one vertex w. Now,
+let me look at the smallest edge which goes
+
+00:03:59.460 --> 00:04:03.790
+across this partition. Remember that the whole
+graph is connected. So, there must be a way
+
+00:04:03.790 --> 00:04:07.590
+to go from u to w. So among all the ways I
+can go from u to w. Let me check the smallest
+
+00:04:07.590 --> 00:04:11.100
+edge. Let me call the end point small u and
+small w.
+
+00:04:11.100 --> 00:04:17.600
+So, now, the claim is that every minimum cost
+spanning tree must include this edge. This
+
+00:04:17.600 --> 00:04:22.750
+is a very powerful claim. Of course, there
+is a side condition which is that we are assuming
+
+00:04:22.750 --> 00:04:27.370
+for a moment at no two edges have the same
+way. We will see later on how we will relax
+
+00:04:27.370 --> 00:04:31.600
+this condition, right. So, under the condition
+that no two the edges at the same weight,
+
+00:04:31.600 --> 00:04:36.150
+the minimum separator lemma says that whenever
+you separate V in to do parts which are not
+
+00:04:36.150 --> 00:04:40.470
+empty, then the smallest edge connecting these
+two parts must lie in every spanning tree,
+
+00:04:40.470 --> 00:04:43.400
+every minimum cost spanning tree.
+
+00:04:43.400 --> 00:04:51.060
+So, now why is the case? So, let us assume
+that we have these two parts. So, I will draw
+
+00:04:51.060 --> 00:04:57.400
+one part say this yellow thing and let us
+call this u and which have not drawn a boundary
+
+00:04:57.400 --> 00:04:59.670
+for, this is v, and this is w.
+
+00:04:59.670 --> 00:05:09.650
+So, now let us look at the smallest edge connecting
+u and w, right. So, now the claim is that
+
+00:05:09.650 --> 00:05:15.780
+this must be in every minimum cost spanning
+tree. So, suppose it is not. So, then suppose
+
+00:05:15.780 --> 00:05:19.490
+there must be some minimum cost spanning tree,
+because we know that the graph is connected.
+
+00:05:19.490 --> 00:05:22.930
+So, there are many spanning trees and let
+us assume that the minimum cost spanning tree
+
+00:05:22.930 --> 00:05:27.210
+T which does not include this edge.
+
+00:05:27.210 --> 00:05:34.320
+So, in that tree u must be connected to the
+tree, because any spanning tree connects all
+
+00:05:34.320 --> 00:05:40.790
+the vertices. So, there is a red path from
+u to w in my hypothetical spanning tree T
+
+00:05:40.790 --> 00:05:46.210
+which does not include this edge. So, now
+the claim is if I take that particular tree,
+
+00:05:46.210 --> 00:05:54.310
+and then I remove the edge u prime v prime
+and replace it by the edge u v get a new tree,
+
+00:05:54.310 --> 00:06:01.520
+right. I get tree T prime . So, T prime is
+T minus edge u prime v prime plus the edge
+
+00:06:01.520 --> 00:06:08.280
+u v, but now by assumption u v was the smallest
+vertex, smallest weight edge going from inside
+
+00:06:08.280 --> 00:06:13.930
+u to outside u, right. So, therefore, u v
+has weight strictly less than u prime v prime.
+
+00:06:13.930 --> 00:06:18.050
+Therefore, T prime has a weight strictly less
+than T and you can check that everything else
+
+00:06:18.050 --> 00:06:22.919
+is connected because anything which have connected,
+so u prime is now connected v prime through
+
+00:06:22.919 --> 00:06:27.430
+this long thing and therefore, all other vertices
+which connect by T remain connected by T prime.
+
+00:06:27.430 --> 00:06:32.280
+Therefore, T prime is a valid spanning tree.
+It is of smaller cost and therefore, T could
+
+00:06:32.280 --> 00:06:36.950
+not have been a minimum cost spanning tree.
+So, this is a proof that the smallest cost
+
+00:06:36.950 --> 00:06:42.030
+edge from inside the partition to outside
+the partition must lie in every minimum cost
+
+00:06:42.030 --> 00:06:43.710
+spanning tree.
+
+00:06:43.710 --> 00:06:51.020
+Before we move ahead, I just want to make
+one small remark. So, we would have to be
+
+00:06:51.020 --> 00:06:57.450
+careful when we prove this lemma a little
+bit. So, it is true that among all the edges
+
+00:06:57.450 --> 00:07:02.630
+going from inside to outside, u v is the smallest
+one. So, we might be tempted to just say,
+
+00:07:02.630 --> 00:07:07.030
+so uv is the smallest one, pick any edge in
+my given tree T prime given tree T which goes
+
+00:07:07.030 --> 00:07:12.890
+from inside to outside, then replace. So,
+for instance, we might accidentally pick up
+
+00:07:12.890 --> 00:07:17.460
+this edge and replace it with this edge. Notice
+by picking up this edge and replace it with
+
+00:07:17.460 --> 00:07:21.220
+this edge, then perhaps there is no other
+way to get a double prime, right. So, it is
+
+00:07:21.220 --> 00:07:25.960
+very crucial that we choose that correct edge
+to replace. So, we have a target and we want
+
+00:07:25.960 --> 00:07:32.410
+to introduce u to v. Therefore, we must follow
+the path in T from u to v and that path must
+
+00:07:32.410 --> 00:07:36.471
+start inside and go outside. So, it must cost
+the boundary somewhere, and this is the edge
+
+00:07:36.471 --> 00:07:42.020
+to replace. So, we should not make the mistake
+of replacing some arbitrary edge. We must
+
+00:07:42.020 --> 00:07:46.731
+replace that edge which allows us to go from
+u to v in the hypothetical tree, not at to
+
+00:07:46.731 --> 00:07:50.190
+make the new tree.
+
+00:07:50.190 --> 00:07:57.070
+So, once we had this lemma, the correctness
+of prim's algorithm is very obvious. So, at
+
+00:07:57.070 --> 00:08:01.340
+every stage remember in prim's algorithm,
+we have built this tree TV which consists
+
+00:08:01.340 --> 00:08:04.919
+of a few edges, and then we have everything
+just lying outside and now among these we
+
+00:08:04.919 --> 00:08:11.240
+want to connect one of them, right. So, if
+you think of this set the set inside is my
+
+00:08:11.240 --> 00:08:15.949
+u and the set outside is my w, and we are
+picking by assumption in prim's algorithm,
+
+00:08:15.949 --> 00:08:21.949
+the smallest weight edge which connects u
+to w. By this minimum separator lemma, this
+
+00:08:21.949 --> 00:08:26.040
+edge must line every spanning tree. So, the
+algorithm, the prim's algorithm, the edge
+
+00:08:26.040 --> 00:08:31.470
+that the prim's algorithm picks is in fact
+the edge that the lemma forces us to pick.
+
+00:08:31.470 --> 00:08:33.969
+So, therefore, prim's algorithm is definitely
+correct.
+
+00:08:33.969 --> 00:08:42.860
+So, in fact we can use the lemma to make prim's
+algorithm little more relaxed. Recall that
+
+00:08:42.860 --> 00:08:48.610
+narrow regional formulation we started with
+the smallest edge, but now it is easy to see
+
+00:08:48.610 --> 00:08:54.050
+that if I take any vertex, right and I look
+at all the edges going out of it, then I can
+
+00:08:54.050 --> 00:09:01.380
+take u to v the vertex itself and I can take
+w to be everything else, the set minus this
+
+00:09:01.380 --> 00:09:07.720
+vertex. Then, I know that the smallest edge
+which goes from v to this edge must be in
+
+00:09:07.720 --> 00:09:11.519
+every spanning tree. In other words, if I
+start at any vertex and look at the smallest
+
+00:09:11.519 --> 00:09:14.800
+edge attached to it, I can start with that
+because that must be in every spanning tree
+
+00:09:14.800 --> 00:09:18.290
+by the minimum separator lemma.
+
+00:09:18.290 --> 00:09:25.139
+So, this gives us the following algorithm
+for prim's strategy. So, we start with any
+
+00:09:25.139 --> 00:09:34.420
+vertex s. Now, for each vertex which is not
+in our current set of tree vertices, we maintain
+
+00:09:34.420 --> 00:09:39.290
+the smallest edge weight from that vertex
+to some tree vertex so we called that distance
+
+00:09:39.290 --> 00:09:44.480
+of v and also because we want to build up
+the tree the set of edges, we remember where
+
+00:09:44.480 --> 00:09:48.250
+that edge goes to. So, we remember it does
+have a neighbour, right. So, if I have some
+
+00:09:48.250 --> 00:09:59.290
+tree at any given point and I know that for
+this v, this neighbour u is the smallest edge
+
+00:09:59.290 --> 00:10:04.189
+connecting it to v, then here I will keep
+it as distance as the weight of the edge,
+
+00:10:04.189 --> 00:10:09.189
+I will keep it as neighbour as u. This will
+allow me to keep track of which edges are
+
+00:10:09.189 --> 00:10:15.279
+added. So, now, at every stage I look for
+the smallest vertex which is outside in terms
+
+00:10:15.279 --> 00:10:20.720
+of the distance. Then, I add it to the set
+and I update its neighbour’s distances and
+
+00:10:20.720 --> 00:10:25.241
+values, right. So, this is very similar to
+Dijkstra's algorithm, right. The only thing
+
+00:10:25.241 --> 00:10:29.920
+is the update of the distance does not involve
+adding my distance plus the weight. It only
+
+00:10:29.920 --> 00:10:34.060
+involves considering the weight. So, when
+see the algorithm itself, we will see the
+
+00:10:34.060 --> 00:10:36.680
+parallel Dijkstra's algorithm even clearer.
+
+00:10:36.680 --> 00:10:43.949
+So, here is the final algorithm for prim's
+shortest or minimum cost spanning tree right.
+
+00:10:43.949 --> 00:10:48.560
+So, you initialize all vertices to be unvisited.
+This is the burnt thing. We initialize them
+
+00:10:48.560 --> 00:10:50.860
+all to have no neighbours, because nothing
+is in the tree. So, they have no neighbours
+
+00:10:50.860 --> 00:10:58.269
+in the tree and they are all distance infinity.
+This is initialisation. Now, I pick some initials
+
+00:10:58.269 --> 00:11:03.850
+starting vertex, say 1 and mark it to be visited,
+but I do not have any edges, right. So, now
+
+00:11:03.850 --> 00:11:09.569
+for each edge going out of 1, I update its
+status. So, I say for every edge one of the
+
+00:11:09.569 --> 00:11:16.019
+form 1, j, I said that the neighbour of j
+in the tree, so the tree now consists of just
+
+00:11:16.019 --> 00:11:21.430
+this one vertex and trivial tree which has
+one vertex and therefore, 1 -1 0 edges, right.
+
+00:11:21.430 --> 00:11:28.750
+So, the neighbour of j is 1 because that is
+its connection and the distance is the weight
+
+00:11:28.750 --> 00:11:31.360
+of this edge, right. So, this is my first
+step.
+
+00:11:31.360 --> 00:11:36.939
+Now, I have to add the remaining n minus 1
+edges to my tree. So, n minus 1 times I do
+
+00:11:36.939 --> 00:11:43.060
+what you do in Dijkstra's algorithm in different
+format. You pick that u which is not visited
+
+00:11:43.060 --> 00:11:48.819
+and whose distance is minimum. Mark it as
+visited. Now, you know how it is connected
+
+00:11:48.819 --> 00:11:55.259
+to the tree. So, you add the edge which tells
+us how it is connected u and neighbour of
+
+00:11:55.259 --> 00:12:02.200
+u. This edge we add to the set of tree edges.
+Now, for every edge out of u whose neighbour
+
+00:12:02.200 --> 00:12:08.389
+is not visited, if the current distance to
+the tree is more than the weight of this edge,
+
+00:12:08.389 --> 00:12:14.769
+so basically I had now added this u and there
+is another vertex v and it claims to be connected
+
+00:12:14.769 --> 00:12:22.139
+somewhere else, right. So, maybe this distance
+d and this distance d prime. Suppose d is
+
+00:12:22.139 --> 00:12:27.509
+bigger than d prime, then now that this is
+in the tree, now that u has been added in
+
+00:12:27.509 --> 00:12:31.249
+the tree, now v is connected by a smaller
+edge to the tree, right. So, the distance
+
+00:12:31.249 --> 00:12:35.679
+that I currently have for b is bigger than
+the weight of u v edge. Then, I will replace
+
+00:12:35.679 --> 00:12:40.009
+that weight by the weight of the u v h and
+I will say the neighbour of v is now u, so
+
+00:12:40.009 --> 00:12:44.100
+that when I add v to the tree, I will add
+the edge u.
+
+00:12:44.100 --> 00:12:49.529
+So, this is exactly what Dijkstra's algorithm
+does except for this update, in this update
+
+00:12:49.529 --> 00:12:56.459
+we add d of u plus the weight of u, right.
+So, we in Dijkstra's algorithm, we want cumulative
+
+00:12:56.459 --> 00:13:01.110
+distance. Here we want one step distance from
+the nearest node in the tree, but otherwise
+
+00:13:01.110 --> 00:13:05.149
+prim's algorithm is basically a restatement
+or Dijkstra's algorithm with a different update
+
+00:13:05.149 --> 00:13:09.629
+function and additionally we have this thing
+that we could have done it in Dijkstra's also.
+
+00:13:09.629 --> 00:13:13.379
+We could have maintained the Dijkstra's algorithm
+the path, right. So, had we maintained the
+
+00:13:13.379 --> 00:13:17.050
+path, it will be exactly like this neighbour
+relation here. We want to know when these
+
+00:13:17.050 --> 00:13:21.870
+edges added to my shortest paths set, the
+burnt set, why it was added, right. So, here
+
+00:13:21.870 --> 00:13:27.059
+we are doing that we are adding it and we
+are also remembering the edge to that.
+
+00:13:27.059 --> 00:13:33.540
+So, let us try and execute before during the
+complexity analysis of these things. So, remember
+
+00:13:33.540 --> 00:13:39.720
+we can start anywhere. So, let us start at
+1, right. We start at 1 and we mark our tree
+
+00:13:39.720 --> 00:13:45.739
+consisting of 1. Now, since this is an edge
+start at 1, we have to update the values in
+
+00:13:45.739 --> 00:13:51.980
+the neighbours of 1, namely at 2. So, we mark
+for 3. We say that is the distance which we
+
+00:13:51.980 --> 00:13:56.939
+mark in green, so the tree is 18 because the
+tree consist vertex 1 and it is neighbour
+
+00:13:56.939 --> 00:14:01.480
+in the tree which is at the distance is the
+vertex 1. Similarly, the other neighbour of
+
+00:14:01.480 --> 00:14:08.059
+1 is 2. So, we will say is its distance is
+10, and its neighbour is 1, right. So, everywhere
+
+00:14:08.059 --> 00:14:12.459
+else I have not mentioned it explicitly, but
+everywhere else the values are minus 1 and
+
+00:14:12.459 --> 00:14:19.209
+sorry, infinity and minus 1. So, this is infinity
+and neighbour is minus 1. So, this is the
+
+00:14:19.209 --> 00:14:23.879
+default value. So, wherever the default value
+is present, we will just leave it out indicating
+
+00:14:23.879 --> 00:14:29.899
+that the value is effectively not been cyclic.
+We know it is a connected graph. So, we will
+
+00:14:29.899 --> 00:14:32.129
+eventually set it. So, you do not have worry
+about it, but in this discussion we just leave
+
+00:14:32.129 --> 00:14:39.689
+it out. So, we have these two candidates now
+which are not visited and which have some
+
+00:14:39.689 --> 00:14:43.549
+reasonable distance associated. So, we will
+pick smaller than 2. So, we pick this one
+
+00:14:43.549 --> 00:14:49.119
+which is 10, and therefore at a next step
+we visit the vertex 2 and we add this edge
+
+00:14:49.119 --> 00:14:50.670
+1 2 to our tree.
+
+00:14:50.670 --> 00:14:54.870
+Now, having added 2, we have this update.
+So, we look at the neighbours. So, the neighbours
+
+00:14:54.870 --> 00:15:00.709
+of 2 are the vertex 3 and vertex 5. So, for
+the vertex 2, from 2 we have a new distance
+
+00:15:00.709 --> 00:15:07.499
+6. So, if you go via to the distance of 3
+to the tree is 6 and there it could be connected
+
+00:15:07.499 --> 00:15:13.129
+to 2 which is 6 is smaller than 18, right.
+So, 18 was earlier best estimate of how far
+
+00:15:13.129 --> 00:15:14.129
+3 were in the tree.
+
+00:15:14.129 --> 00:15:21.459
+So, you will replace 18, 1 by 6, 2 indicating
+now the vertex 3 is 6 distance away from the
+
+00:15:21.459 --> 00:15:27.100
+tree, and if it were to be connected at the
+distance, it could be connected to 2. Similarly,
+
+00:15:27.100 --> 00:15:32.550
+5 which was earlier unlabelled, now becomes
+labelled as 22 indicating that its distance
+
+00:15:32.550 --> 00:15:37.889
+is 20 from the tree and its neighbour in the
+tree is the label vertex v. Now, we again
+
+00:15:37.889 --> 00:15:44.730
+pick the smaller of the two. So, we will pick
+this vertex 3 to add to the tree, right.
+
+00:15:44.730 --> 00:15:49.129
+Once we add it, you will obtain the status
+of 4 because that is the only new label we
+
+00:15:49.129 --> 00:15:52.459
+do not update the status of 1 because 1 is
+already been added to the tree. We only look
+
+00:15:52.459 --> 00:15:58.790
+at those neighbours of tree which are not
+visited. So, now 4 gets the distance 70 with
+
+00:15:58.790 --> 00:16:02.639
+the neighbour 3, and then among these two,
+now 20 is smaller than 70.
+
+00:16:02.639 --> 00:16:09.350
+So, we will add 5 to our tree, and then we
+will update the status of 6 and 7.
+
+00:16:09.350 --> 00:16:15.410
+So, 6 is now distance 10 with neighbour 5,
+7 is also is distance 10 with neighbour 5.
+
+00:16:15.410 --> 00:16:21.579
+Now, we have two vertices with distance 10.
+We could pick either one. So, let us for example
+
+00:16:21.579 --> 00:16:27.439
+pick 7. If we pick 7, then we add it to the
+tree and now, we update the status of the
+
+00:16:27.439 --> 00:16:32.549
+6. Earlier it was a distance 10 with neighbour
+5, but now it is a distance 5 with neighbour
+
+00:16:32.549 --> 00:16:38.569
+6. So, we reduce it with neighbour 7. We reduce
+its distance and we change its neighbour.
+
+00:16:38.569 --> 00:16:46.999
+Now, among 5 and 17, we have 6 as the vertex,
+6 as the newer one, and then we had finally
+
+00:16:46.999 --> 00:16:52.429
+4 and this is the tree that we get. This is
+how prim's algorithm works. It is very similar
+
+00:16:52.429 --> 00:16:57.970
+to Dijkstra in principle but it uses a very
+different update.
+
+00:16:57.970 --> 00:17:02.069
+So, the complexity also is similar to Dijkstra's
+algorithm. We have an outer loop which runs
+
+00:17:02.069 --> 00:17:08.461
+n times order n times because we have to add
+n minus 1 edge to form that tree and at each
+
+00:17:08.461 --> 00:17:14.761
+iteration, we add vertex with the tree. Now,
+there is this order n scan in order to find
+
+00:17:14.761 --> 00:17:21.620
+the minimum cost vertex to add. So, we already
+saw this is a bottleneck in dijkstra's algorithm
+
+00:17:21.620 --> 00:17:26.569
+to find the minimum distance vertex to add,
+and then when we add a vertex, we have to
+
+00:17:26.569 --> 00:17:31.309
+do and again a scan to update all the entries.
+So, we have an adjacency matrix. This will
+
+00:17:31.309 --> 00:17:35.590
+again take order n time and therefore, overall
+it takes order n square.
+
+00:17:35.590 --> 00:17:41.080
+So, exactly as Dijkstra's algorithm moving
+an adjacency matrix to adjacency list representation
+
+00:17:41.080 --> 00:17:47.620
+of the edges allows us to reduce the complexity
+of the updates. So, across the n iterations,
+
+00:17:47.620 --> 00:17:51.370
+we do a total of order m updates because we
+update only according to the neighbours, the
+
+00:17:51.370 --> 00:17:57.830
+degree, the sum of the degrees of all the
+vertices. However, in order to bring that
+
+00:17:57.830 --> 00:18:01.289
+the order n square, we also need to able to
+compute the minimum distance efficiently for
+
+00:18:01.289 --> 00:18:07.549
+which we need a heap, right. So, once we have
+a heap which we will examine in a later lecture,
+
+00:18:07.549 --> 00:18:12.679
+the claim is we can find the minimum and update
+the distance in n log time. So, this gives
+
+00:18:12.679 --> 00:18:17.770
+us overall complexity exactly like Dijkstra,
+m log n plus m log n.
+
+00:18:17.770 --> 00:18:25.019
+So, this comes from finding the minimum because
+n time we have to find the minimum and this
+
+00:18:25.019 --> 00:18:29.519
+comes from the updates, because we have to
+do m updates overall. Each updates takes log
+
+00:18:29.519 --> 00:18:36.250
+n times, so we get m plus n log n exactly
+as we did for Dijkstra's algorithm.
+
+00:18:36.250 --> 00:18:41.429
+So, one last point before we leave prim's
+algorithm. Remember that in the correctness
+
+00:18:41.429 --> 00:18:46.250
+we have to use that minimum separator lemma
+in which we had assumed that edge weights
+
+00:18:46.250 --> 00:18:51.529
+are distinct. So, of course we have seen in
+the example that we executed, we could have
+
+00:18:51.529 --> 00:18:57.250
+edges, multiple edges with the same weight.
+So, how do we deal with this in the lemma?
+
+00:18:57.250 --> 00:19:02.100
+Well, we could argue with that you can make
+that cost to be not just exactly the weight,
+
+00:19:02.100 --> 00:19:06.190
+but the weight plus some other term. So, in
+general we could say that we fix some overall
+
+00:19:06.190 --> 00:19:11.669
+ordering of the edges. There are m edges.
+So, we just number the edges arbitrarily 1
+
+00:19:11.669 --> 00:19:16.200
+to n and we say that one edge is smaller than
+the edges smaller way if either the weight
+
+00:19:16.200 --> 00:19:20.190
+is actually is smaller or the weights are
+equal, but the index in the ordering is small,
+
+00:19:20.190 --> 00:19:26.100
+right. So, e and f we have the weight of uv
+and the weight of u prime and v prime, but
+
+00:19:26.100 --> 00:19:30.440
+we also have the index i and j.
+So, this is some i between 1 to m and this
+
+00:19:30.440 --> 00:19:35.210
+is some j between 1 to m. So, either weight
+of e must be smaller than weight of f or the
+
+00:19:35.210 --> 00:19:39.410
+weights are equal, then i must be smaller
+than j, right. So, this gives us a time breaking
+
+00:19:39.410 --> 00:19:43.340
+rule. So, this will now basically tell us
+that we can always compare two edges and declare
+
+00:19:43.340 --> 00:19:47.929
+one is smaller than the other and what prim's
+algorithm will do is pick the smaller, right.
+
+00:19:47.929 --> 00:19:55.269
+So, we want this corresponds to saying is
+that we are actually giving a strategy for
+
+00:19:55.269 --> 00:20:00.330
+choosing when we have two equal things. So,
+the algorithm says choose the u such that
+
+00:20:00.330 --> 00:20:03.759
+distance which is minimum and if multiple
+use with the same minimum distance, we pick
+
+00:20:03.759 --> 00:20:07.299
+an arbitrary point. So, what is meant is to
+pick an arbitrary point whether it means some
+
+00:20:07.299 --> 00:20:12.360
+sense to choose an order among them and go
+in that order. Therefore, if you choose different
+
+00:20:12.360 --> 00:20:18.870
+orderings, then we get different trees. So,
+therefore we have multiple edges in a tree
+
+00:20:18.870 --> 00:20:23.700
+which have the same weight. In general, we
+may not get a unique spanning tree. In fact,
+
+00:20:23.700 --> 00:20:29.679
+you can check if you have all weights the
+same for example. Basically you have to keep
+
+00:20:29.679 --> 00:20:34.260
+adding or dropping different edges and you
+will have an exponential number of trees because
+
+00:20:34.260 --> 00:20:38.500
+an edge could be there in one tree and may
+not be there in another tree and so on, right.
+
+00:20:38.500 --> 00:20:43.081
+So, overall the number of possible minimum
+cost spanning tree could be very large. What
+
+00:20:43.081 --> 00:20:47.600
+prim's algorithm does and what Kruskal's also
+will do when we look at in the next lecture
+
+00:20:47.600 --> 00:20:52.799
+is to use a greedy strategy to efficiently
+pick out one of these possible things. Now,
+
+00:20:52.799 --> 00:20:56.279
+if the edge weights are unique, there is not
+much choice. You have to pick up same tree.
+
+00:20:56.279 --> 00:21:01.120
+If the edge weights are duplicated, you can
+definitely have multiple trees and this strategy
+
+00:21:01.120 --> 00:21:05.429
+of picking out the smallest one at each stage
+will give us a quick way to identify one of
+
+00:21:05.429 --> 00:21:06.830
+the smallest ones, but not a unique one.
+

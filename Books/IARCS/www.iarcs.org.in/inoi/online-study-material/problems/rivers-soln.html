@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp-trees.html">Dynamic programming on
+        trees</a>&rarr;Rivers (IOI 2005)
+      </h2>
+
+      <p>
+        Nearly all of the Kingdom of Byteland is covered by
+        forests and rivers. Small rivers meet to form bigger
+        rivers, which also meet and, in the end, all the rivers
+        flow together into one big river. The big river meets the
+        sea near Bytetown.
+      </p>
+
+      <p>
+        There are N lumberjacks' villages in Byteland, each
+        placed near a river. Currently, there is a big sawmill in
+        Bytetown that processes all trees cut in the Kingdom. The
+        trees float from the villages down the rivers to the
+        sawmill in Bytetown.
+      </p>
+
+      <p>
+        The king of Byteland decided to build K additional
+        sawmills in villages to reduce the cost of transporting
+        the trees downriver.
+      </p>
+
+      <p>
+        After building the sawmills, the trees need not float to
+        Bytetown, but can be processed in the first sawmill they
+        encounter downriver. Obviously, the trees cut near a
+        village with a sawmill need not be transported by
+        river. It should be noted that the rivers in Byteland do
+        not fork. Therefore, for each village, there is a unique
+        way downriver from the village to Bytetown.
+      </p>
+
+      <p>
+        The king's accountants calculated how many trees are cut
+        by each village per year. You must decide where to build
+        the sawmills to minimize the total cost of transporting
+        the trees per year. River transportation costs one cent
+        per kilometre, per tree.
+      </p>
+
+      <p>
+        Example:
+      </p>
+
+      <pre>
+   Bytetown        1            1
+      ---    1    ---    10    ---     5    ---
+     | 0 |<------| 1 |<-------| 2 |<-------| 3 | 10
+      ---         ---          --- <--      ---
+                                      |
+                                      |3
+                                      |     ---
+                                       ----| 4 | 1
+                                            ---
+                                            </pre>
+
+      <p>
+        The nodes {1,2,3,4} are villages and the edges are
+        rivers. The number of trees to be cut is written by the
+        side of each village.  The length of each river is
+        written by the edge.  2 sawmills are to be placed.
+      </p>
+
+      <p>
+        The solution in this case is to place the mills at
+        villages 2 and 3, which incurs a cost of 4.
+      </p>
+
+      <p>
+        <b>Input:</b> The number of villages N (&le; 100), the
+        number of additional sawmills to be built K (&le; 50),
+        the number of trees cut near each village W_i (&le;
+        10000), and descriptions of the rivers,
+      </p>
+
+      <p>
+        <b>Output:</b> The minimal cost of river transportation
+        after building additional sawmills.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        Observe that the rivers form a tree.  Use dynamic
+        programming.  What are the important parameters?
+      </p>
+
+      <p>
+        We need to consider every possible village as a
+        candidate.  If we place a sawmill at v, it "controls" a
+        subtree of which it is the root.  What is the cost of
+        this subtree?
+      </p>
+
+      <p>
+        We need to know how many sawmills have already been
+        placed in the subtree rooted at v, say r.
+      </p>
+
+      <p>
+        We also need to take care of the next sawmill downstream
+        between v and Byteland, where the logs at v will land up
+        if there is no sawmill at v.  Instead of considering the
+        identity of the village downstream, we will use as a
+        parameter the distance L of that village from Byteland.
+        This uniquely specifies the village.
+      </p>
+
+      <p>
+        As a simplifying assumption, assume we have at most two
+        children at each node.  We compute two quantities.
+      </p>
+
+      <p>
+        Thus, we want to compute two cost functions.
+      </p>
+
+      <ul>
+
+        <li>Cost1(v,r) : min cost in subtree rooted at v with r
+          sawmills with one mill at v</li>
+
+        <li> Cost2(v,r,L) : min cost in subtree rooted at v with
+          r sawmills without one mill at v, where L is the depth
+          from Byteland of the nearest sawmill downstream from
+          v</li>
+      </ul>
+
+      <p>
+        Let v have children w1 and w2.
+      </p>
+
+      <p>
+        Then
+      </p>
+
+      <pre>
+                         i sawmills below w1     i sawmills below w1
+                          one sawmill at w1       no sawmill at w1
+                                      \               /
+Cost1(v,r) =     min         { min[ Cost1(w1,i),Cost2(w1,i,depth(v))],
+             i,j s.t i+j=r-1   min[ Cost1(w2,j),Cost2(w2,j,depth(v))] }
+                                      /               \
+                         j sawmills below w2     j sawmills below w2
+                          one sawmill at w2       no sawmill at w2
+      </pre>
+
+
+      <p>
+        Thus
+      </p>
+
+      <pre>
+Cost2(v,r.L) =  Trees(v)*(depth(v) - L)  /*  Cost of trees at v travel upstream     */
+                  +
+                 min         { min[ Cost1(w1,i),Cost2(w1,i,L)],
+             i,j s.t i+j=r     min[ Cost1(w2,j),Cost2(w2,j,L)] }
+      </pre>
+
+      <p>
+        Now, what happens when we have more than 2 children?  We
+        have to analyze all ways of splitting r among the
+        children.
+      </p>
+
+      <p>
+        How do we efficiently deal with the problem of
+        considering all partitions of K as K<sub>U</sub>?
+      </p>
+
+      <p>
+        Restructure the children of a node as a skew tree:
+      </p>
+
+      <pre>
+     -- v--                         v
+    /  / \  \        ===>          / \
+   u1 u2 u3 u4                   u1   x1
+                                     /  \
+                                    u2   x2
+                                        /  \
+                                       u3   x3
+                                           /
+                                         u4
+      </pre>
+
+      <p>
+        We have reduced the degree of each node.  We set the
+        number of trees cut at {x1,x2,x3} to be 0.  We copy the
+        costs of (u2,v), (u3,v), (u4,v) to the edges (u2,x1),
+        (u3,x2), (u4,x3), respectively and set cost of the new
+        edges (x3,x2), (x2,x1), (x1,v) to be 0.  This ensures
+        that the modified tree has the same costs as the original
+        one.
+      </p>
+
+      <p>
+        In this way, we can transform the original tree into a
+        new one with the same cost function for which the cost is
+        easier to compute.
+      </p>
+
+      <p>
+        This process adds one node per child, so this at most
+        doubles the number of villages.
+      </p>
+
+      <p>
+        What happens if we put a sawmill at a fictitious village
+        xi?  We can argue that we can shift this sawmill upto v
+        and not change the complexity.
+      </p>
+         <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

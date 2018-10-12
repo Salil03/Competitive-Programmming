@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\range-queries.html">Range Queries</a>&rarr;From
+	inversions to permutations
+      </h2>
+
+      <p>
+	Given a permutation that maps each i to P(i),
+	Inversion(i) is the number of j &lt; i that appear to the
+	right of i in the permutation.  We can thus associate
+	with each permutation, an inversion sequence.  An example
+	is given below.
+      </p>
+
+      <pre>
+                     1  2  3  4  5  6  7  8
+Permutation P(i)     2  3  1  6  7  8  4  5
+Inversion   I(i)     0  1  1  0  0  2  2  2
+      </pre>
+
+      <p>
+	How do we recover the permutation from the inversion
+	sequence?
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <ol>
+	<li>
+	  <p>
+	    Start with largest number, here 8.  I(8) = 2, so
+	    there are two blank space to the right of 8, so we
+	    place 8 in position 6.
+	  </p>
+	</li>
+
+	<pre>
+                     1  2  3  4  5  6  7  8
+                     -  -  -  -  -  8  -  -
+	</pre>
+
+	<li>
+	  <p>
+	    Next, omit the position where 8 has been placed and
+	    examine I(7) with respect to the remaining seven
+	    positions.  Since I(7) = 2, 7 has two elements to its
+	    right among the seven blank, and hence it goes in
+	    slot 5 (slot 6 is already filled by 8).
+	  </p>
+</li>
+
+	<pre>
+                     1  2  3  4  5  6  7  8
+                     -  -  -  -  7  8  -  -
+	</pre>
+
+	<li>
+	  <p>
+	    Omit the positions where 8 and 7 have been placed and
+	    examine I(6).  We need to leave two blank, so it goes
+	    in slot 5 (slots 5 and 6 are already filled by 7 and
+	    8).
+	  </p>
+	</li>
+
+	<pre>
+                     1  2  3  4  5  6  7  8
+                     -  -  -  6  7  8  -  -
+	</pre>
+
+	<li>
+	  <p>
+	    Omit the positions where 8, 7 and 6 have been placed
+	    and examine I(5).  We need to leave zero blank, so it
+	    goes in the last slot.
+	  </p>
+	</li>
+
+
+	<pre>
+                     1  2  3  4  5  6  7  8
+                     -  -  -  6  7  8  -  5
+	</pre>
+
+	<p>
+	  &hellip;
+	</p>
+
+	<p>
+	  In general, at each step, use I(j) to determine how
+	  many blank slots to leave empty at the right of the
+	  current set of slots.
+	</p>
+      </ol>
+
+      <p>
+	<b>Complexity</b>
+      </p>
+
+      <p>
+	In each pass, we have to scan the array to find the kth
+	blank slot remaining.  This takes O(N) time, so
+	overall, this takes O(N<sup>2</sup>) time.
+      </p>
+
+      <p>
+	Can we do this in time N log N using a segment tree?
+      </p>
+
+      <p>
+	We maintain a segment tree in which we maintain the
+	number of blanks to the right in each interval.
+	Initially, all leaves are empty and the tree looks like
+	this.
+      </p>
+
+
+      <pre>
+           ---8---
+          /       \
+         4         4
+        /  \      /  \
+       2    2    2    2
+      /\   /\   /\   /\
+     1  1 1  1 1  1 1  1
+      </pre>
+
+      <p>
+	Now consider I(2) = 1.  This tells us that 8 must go in
+	the 3nd blank leaf from the right, or, equivalently,
+	the 6th blank leaf from the left since the value at the
+	root tells us there are totally 8 blank positions
+	available.  We walk down to this leaf, set the number
+	of blanks in the interval [6,6] to 0 and propagate the
+	change up.
+      </p>
+
+
+      <pre>
+          ---7---
+         /       \
+        4         3
+       /  \      /  \
+      2    2    1    2
+     /\   /\   /\   /\
+    1  1 1  1 1  0 1  1
+                 |
+                 8
+      </pre>
+
+      <p>
+	Now, we examine I(7) = 2.  We need to put it in the 3rd
+	position from the right or, since the root reports 7
+	blank positions, we need the 5th blank position from
+	the left.  The root has only 4 blank leaves on the
+	left, so we have to go right and look for the (5-4) =
+	first blank leaf on the right.  Next, walk left and
+	left and, updating intermediate values, we get.
+      </p>
+
+      <pre>
+          ---6---
+         /       \
+        4         2
+       /  \      /  \
+      2    2    0    2
+     /\   /\   /\   /\
+    1  1 1  1 0  0 1  1
+              |  |
+              7  8
+      </pre>
+
+      <p>
+	&hellip;
+      </p>
+
+      <p>
+	In this way, we can insert each number in log N steps
+	into its correct position in the permutation.  There
+	are N numbers to insert, so this takes N log N steps.
+      </p>
+
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

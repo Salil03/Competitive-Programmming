@@ -1,0 +1,1118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.670 --> 00:00:05.640
+We have seen how to use Breadth First and
+Depth First search to explore whether there
+
+00:00:05.640 --> 00:00:07.500
+is a path from a source to a target vertex.
+
+00:00:07.500 --> 00:00:11.280
+But one can do a lot more with these two procedures.
+
+00:00:11.280 --> 00:00:16.840
+So, recall that a graph is a set of vertices
+and a set of edges which are connections between
+
+00:00:16.840 --> 00:00:20.060
+the vertices, and these maybe directed or
+undirected.
+
+00:00:20.060 --> 00:00:25.150
+Now, when we do breadth first search, we do
+a level by level explorations starting at
+
+00:00:25.150 --> 00:00:30.210
+one vertex, when we do depth first search
+each time we go to a new vertex, we switch
+
+00:00:30.210 --> 00:00:34.809
+the exploration to that vertex and whenever
+we reach a dead end we backup.
+
+00:00:34.809 --> 00:00:38.920
+And one of the features of depth first search
+is that we can keep track of the order in
+
+00:00:38.920 --> 00:00:42.100
+which we enter and exit vertices in this recursive
+procedure.
+
+00:00:42.100 --> 00:00:47.370
+So, now let us see how we can use BFS and
+DFS to find out more about the structure of
+
+00:00:47.370 --> 00:00:48.519
+the underlying graph.
+
+00:00:48.519 --> 00:00:54.619
+So, one fundamental property of an undirected
+graph is whether or not it is connected, can
+
+00:00:54.619 --> 00:00:57.420
+we go from every vertex to every other vertex.
+
+00:00:57.420 --> 00:01:01.371
+So, you can see in these two pictures that
+the graph on the left is connected, because
+
+00:01:01.371 --> 00:01:04.180
+you can go from every vertex to every other
+vertex.
+
+00:01:04.180 --> 00:01:08.030
+On the other hand, on the right hand side
+some vertices cannot be reached from other
+
+00:01:08.030 --> 00:01:09.030
+vertices.
+
+00:01:09.030 --> 00:01:12.979
+For example, one cannot go from 2 to 7 or
+from 6 to anywhere else.
+
+00:01:12.979 --> 00:01:17.890
+Now, when we have an undirected graph which
+is disconnected, we are also interested in
+
+00:01:17.890 --> 00:01:20.759
+finding out what the connected components
+are....
+
+00:01:20.759 --> 00:01:24.530
+So, we want to group together those vertices
+which are connected to each other into one
+
+00:01:24.530 --> 00:01:28.990
+unit and find out which of these units are
+there and how many such units are there, and
+
+00:01:28.990 --> 00:01:32.359
+which vertices belong to the same unit.
+
+00:01:32.359 --> 00:01:40.060
+So, our first target is to used BFS or DFS
+to identify connected components.
+
+00:01:40.060 --> 00:01:47.390
+So, this is quite easy to do we start with
+the node label 1 or any other node.
+
+00:01:47.390 --> 00:01:53.729
+Now, we run BFS or DFS from this node and
+in this process we will mark a number of nodes
+
+00:01:53.729 --> 00:01:59.609
+as visited, at this point if there are any
+vertices which are not visited by BFS or DFS
+
+00:01:59.609 --> 00:02:03.740
+starting from the first node, this means that
+they do not belong to the same connected component.
+
+00:02:03.740 --> 00:02:14.569
+So, it is easy to show that what is marked
+visited is equal to the connected component.
+
+00:02:14.569 --> 00:02:21.549
+So, the connected component containing the
+start node, so now we go back and we look
+
+00:02:21.549 --> 00:02:27.040
+at the first node in the list which is not
+mark visited and we restart BFS or DFS from
+
+00:02:27.040 --> 00:02:28.040
+that node.
+
+00:02:28.040 --> 00:02:32.769
+So, we will get a new connected component,
+consisting of those vertices which are reachable
+
+00:02:32.769 --> 00:02:34.930
+from the first node which was marked unconnected.
+
+00:02:34.930 --> 00:02:39.069
+Now, if there are still nodes which are unvisited,
+we restart from one of those and go on.
+
+00:02:39.069 --> 00:02:44.319
+So, what we can do now is, we can label each
+DFS with a different number, so at the end
+
+00:02:44.319 --> 00:02:48.569
+we can associate with each vertex, the number
+of the component in which it was discovered.
+
+00:02:48.569 --> 00:02:57.310
+So, let us look at an example of this, so
+supposing we have this graph, we begin by
+
+00:02:57.310 --> 00:03:04.409
+having an extra variable in our BFS for example,
+or even DFS call comp to number the components.
+
+00:03:04.409 --> 00:03:09.790
+So, we initially said comp 1 and maybe we
+start our DFS or BFS from node 1.
+
+00:03:09.790 --> 00:03:16.049
+So, in this process we will visit 1, 2, 5,
+9 and 10 and for all of these we will set
+
+00:03:16.049 --> 00:03:17.989
+component of j equal to comp.
+
+00:03:17.989 --> 00:03:23.930
+Now, at this point we will realize that not
+all nodes have been visited only 5 out of
+
+00:03:23.930 --> 00:03:25.319
+the 12 nodes have been visited.
+
+00:03:25.319 --> 00:03:30.140
+So, we go to the smallest node which is not
+visited namely 3 and restart, but before we
+
+00:03:30.140 --> 00:03:32.409
+restart we update comp to 2.
+
+00:03:32.409 --> 00:03:38.599
+Now, we start a BFS or a DFS at node 3 and
+visit everything that we can reach, and in
+
+00:03:38.599 --> 00:03:45.240
+this process we will identify these 6 nodes
+as being in component 2, at this point node
+
+00:03:45.240 --> 00:03:47.040
+6 is still not marked visited.
+
+00:03:47.040 --> 00:03:52.810
+So, we restart a 3rd round of BFS or DFS with
+comp set to 3 and identify a 3rd component.
+
+00:03:52.810 --> 00:03:58.909
+Now, there are no more unvisited nodes, so
+we can stop and in the... as a result of this
+
+00:03:58.909 --> 00:04:04.540
+repeated application of BFS and DFS, we have
+identified all the components and also clustered
+
+00:04:04.540 --> 00:04:13.250
+them so that all nodes in the same component
+are associated with the same component number.
+
+00:04:13.250 --> 00:04:18.320
+Another interesting structural property of
+a graph is whether or not it has cycles.
+
+00:04:18.320 --> 00:04:24.590
+So, a acyclic graph is a graph such as the
+left, in which you cannot start at any node
+
+00:04:24.590 --> 00:04:28.280
+and follow a sequence of edges and come back
+to the node.
+
+00:04:28.280 --> 00:04:30.060
+On the right we see a graph with cycles.
+
+00:04:30.060 --> 00:04:34.660
+So, for instance 5, 9 and 10 forms a cycle,
+there are also other cycles, there are several
+
+00:04:34.660 --> 00:04:39.510
+cycles for example, 3, 4, 7, 8 as a whole
+form a cycle but there are also smaller cycles
+
+00:04:39.510 --> 00:04:46.940
+within it like 3, 4, 8 and 3, 7, 8 and 7,
+8, 11 is also a cycle and so on.
+
+00:04:46.940 --> 00:04:54.670
+So, one of the things we can do when we execute
+BFS is to keep track of those edges which
+
+00:04:54.670 --> 00:04:57.440
+are actually used to mark vertices as visited.
+
+00:04:57.440 --> 00:05:03.110
+Now, if you are a acyclic graph such as one
+on the left, you can check that every edge
+
+00:05:03.110 --> 00:05:07.070
+that is in the graph will actually be used
+as part of the BFS search.
+
+00:05:07.070 --> 00:05:12.840
+On the other hand, if you run BFS on a graph
+which has cycles then you will find that some
+
+00:05:12.840 --> 00:05:17.100
+edges are not used, because when you try to
+explore those edges, you find that target
+
+00:05:17.100 --> 00:05:19.000
+vertex is already visited.
+
+00:05:19.000 --> 00:05:23.780
+For instance, since 10 is already visited
+as a neighbor of 5 when we start exploring
+
+00:05:23.780 --> 00:05:26.440
+9 we do not use the edge 9, 10.
+
+00:05:26.440 --> 00:05:31.130
+Likewise, we do not use the edge 4, 8, because
+it is already visited as a set of neighbors
+
+00:05:31.130 --> 00:05:35.580
+of 3, remember in breadth first search we
+will go to 3 and explore all its 1 step neighbors.
+
+00:05:35.580 --> 00:05:40.780
+So, we will mark directly 4, 8 and 7 as visited,
+so when we come to 4 we do not need to use
+
+00:05:40.780 --> 00:05:44.380
+the edge 4, 8 when we come to 7 we do not
+need to use 7, 8 and so on.
+
+00:05:44.380 --> 00:05:48.780
+So, there are these edges which are left out.
+
+00:05:48.780 --> 00:05:57.290
+Now, it is easy to see that if we have a graph
+with n vertices and it is connected and it
+
+00:05:57.290 --> 00:06:02.770
+does not have cycles, then it will have exactly
+n minus 1 edges, this kind of a graph is called
+
+00:06:02.770 --> 00:06:03.770
+a tree.
+
+00:06:03.770 --> 00:06:10.570
+So, there are many definitions of trees, but
+a tree is basically a connected acyclic graph,
+
+00:06:10.570 --> 00:06:14.070
+connected means you can go from everywhere
+to everywhere, acyclic means there are no
+
+00:06:14.070 --> 00:06:20.030
+loops and any connected acyclic graph on n
+vertices will have exactly n minus 1 edges.
+
+00:06:20.030 --> 00:06:28.680
+So, in any graph if we explore BFS, the edges
+that BFS actually uses will form a tree and
+
+00:06:28.680 --> 00:06:30.210
+this is called a BFS tree.
+
+00:06:30.210 --> 00:06:35.551
+Now, what happens about the remaining edges,
+well these are called non tree edges, what
+
+00:06:35.551 --> 00:06:40.340
+you can check very easily is that any non
+tree edge will combine with the tree edges
+
+00:06:40.340 --> 00:06:42.740
+already there to form a cycle.
+
+00:06:42.740 --> 00:06:48.340
+In other words, when we run BFS if we find
+that there are some vertices or some edges
+
+00:06:48.340 --> 00:06:53.200
+rather which are not used, in other words
+there are any non tree edges then this graph
+
+00:06:53.200 --> 00:06:54.500
+will definitely have a cycle.
+
+00:06:54.500 --> 00:07:00.220
+So, having a cycle is to equivalent to finding
+a non tree edge while doing BFS, what is a
+
+00:07:00.220 --> 00:07:05.940
+non tree edge it is just an edge when we come
+to explore i comma j and find the j has already
+
+00:07:05.940 --> 00:07:06.940
+been marked visited.
+
+00:07:06.940 --> 00:07:10.880
+So, we do not go to i, I do not use i comma
+j in BFS.
+
+00:07:10.880 --> 00:07:18.530
+So, let us do the same thing, with DFS and
+let us compute the pre and post numbers.
+
+00:07:18.530 --> 00:07:25.550
+So, that we get some practice at this, so
+we start our DFS at vertex 1 and we mark its
+
+00:07:25.550 --> 00:07:26.550
+counter as 0.
+
+00:07:26.550 --> 00:07:32.550
+So, we enter vertex 0, vertex 1 at step 0,
+so this is the pre number of vertex 0.
+
+00:07:32.550 --> 00:07:39.620
+The first neighbor we explore from 1 is 2,
+so it has pre number 1, but 2 has no further
+
+00:07:39.620 --> 00:07:40.620
+successors.
+
+00:07:40.620 --> 00:07:45.800
+So, we exit from 2, so it has post number
+2, so remember every time we enter we increment
+
+00:07:45.800 --> 00:07:48.780
+the counter, every time we exit we increment
+the counter.
+
+00:07:48.780 --> 00:07:54.090
+So, we enter and exit vertex 2 in one step
+come back to 1 and explore its next neighbor
+
+00:07:54.090 --> 00:08:01.780
+which is 5 which we enter at time 3, then
+we move vertex 9 at time 4 then from 9 we
+
+00:08:01.780 --> 00:08:06.320
+go to 10 at time 5, now 10 has no further
+neighbors to explore.
+
+00:08:06.320 --> 00:08:13.680
+So, we exit 10 at time 6, 9 has no further
+neighbors, so exit 9 at time 7 come back to
+
+00:08:13.680 --> 00:08:18.550
+5, then 5 has no further neighbors, so we
+exit 5, and then finally we exit 1.
+
+00:08:18.550 --> 00:08:21.700
+So, at step 9 we have completed processing
+1.
+
+00:08:21.700 --> 00:08:27.030
+Now, we move to the first vertex which is
+not marked namely 3, we restart a new DFS
+
+00:08:27.030 --> 00:08:28.030
+from there.
+
+00:08:28.030 --> 00:08:35.029
+So, we enter 3 at time 10 from 3 we move to
+4 at time 11, from 4 we move to 8 at time
+
+00:08:35.029 --> 00:08:41.279
+12, from 8 we move to its smallest neighbors
+unvisited which is 7 at time 13 from 7 we
+
+00:08:41.279 --> 00:08:47.470
+go to 11 at time 14, now 11 has no new neighbors
+to explore both 7 and 8 have been seen.
+
+00:08:47.470 --> 00:08:53.939
+So, we exit from 11, 7 has no more neighbors
+explore, so we exit from 7, we exit from 8,
+
+00:08:53.939 --> 00:08:56.990
+no we do not exit from 8, from 8 we still
+have to explore 12.
+
+00:08:56.990 --> 00:09:04.600
+So, we enter 12 at step 17, then we exit from
+12 and now 8 is finished, so we exit from
+
+00:09:04.600 --> 00:09:05.600
+8.
+
+00:09:05.600 --> 00:09:11.790
+Now, we come back to 4, 4 obviously, has no
+other vertices, so we come back to 3 and finally,
+
+00:09:11.790 --> 00:09:15.850
+we exit from 3 at time 21 at this point 6
+is still not marked.
+
+00:09:15.850 --> 00:09:22.259
+So, we start a new DFS from 6, so we enter
+6 at time 22 but 6 has no new neighbors, so
+
+00:09:22.259 --> 00:09:26.050
+we exit from 6 at time 23.
+
+00:09:26.050 --> 00:09:29.290
+So, this like BFS generates a collection of
+trees.
+
+00:09:29.290 --> 00:09:36.630
+So, when we do DFS on a disconnected graph,
+each connected component will generated tree.
+
+00:09:36.630 --> 00:09:41.490
+Now, if we look at the edges which we did
+not explore, these will again be the edges
+
+00:09:41.490 --> 00:09:43.139
+which are outside the tree.
+
+00:09:43.139 --> 00:09:47.000
+So, we can draw them in a different color,
+so we have the edge between 5 and 10 which
+
+00:09:47.000 --> 00:09:53.220
+we did not explore, because we explored 10
+directly from 9 and so on.
+
+00:09:53.220 --> 00:09:58.770
+So, once again just like in BFS, once we have
+finished DFS if there are non tree edges,
+
+00:09:58.770 --> 00:09:59.770
+then we have a cycle.
+
+00:09:59.770 --> 00:10:04.980
+So, both BFS and DFS on an undirected graph
+can reveal a cycle through the presence of
+
+00:10:04.980 --> 00:10:07.730
+a non tree edge.
+
+00:10:07.730 --> 00:10:15.279
+So, the situation with directed graphs is
+a little more complicated, so let us see what
+
+00:10:15.279 --> 00:10:18.670
+happens when we have cycles in directed graphs.
+
+00:10:18.670 --> 00:10:24.769
+So, in a directed graph we need to follow
+the edge arrows, arrows along the edges.
+
+00:10:24.769 --> 00:10:30.170
+So, for example, 1, 3, 4, 1 is cycle, because
+we can go around without changing direction,
+
+00:10:30.170 --> 00:10:35.689
+whereas 1, 6, 2, 1 is not a cycle, because
+on the way back I have to switch directions
+
+00:10:35.689 --> 00:10:37.839
+from 2 to 1 which I cannot do.
+
+00:10:37.839 --> 00:10:43.139
+So, let us do a DFS and see what this can
+tells us about cycles in this graph.
+
+00:10:43.139 --> 00:10:49.649
+So, we begin with vertex 1 as usual, so 1
+has pre number 0 its smallest neighbor is
+
+00:10:49.649 --> 00:10:58.600
+2 and the smallest neighbor of 2 is 5, and
+the smallest neighbor of 5 is 6, and the smallest
+
+00:10:58.600 --> 00:11:04.330
+neighbor of 6 is 7, now from 7 that are no
+outgoing edges.
+
+00:11:04.330 --> 00:11:10.910
+So, we back track to 6 from 6 the only node
+that we can go to is 2 which have seen before,
+
+00:11:10.910 --> 00:11:12.670
+so we leave at 6.
+
+00:11:12.670 --> 00:11:20.670
+Now, we come to 5, 5 still has an outgoing
+edge which is 8, so we come to 8.
+
+00:11:20.670 --> 00:11:27.319
+Now, from 8 we cannot do anything, so we return
+from 8 back to 5, now 5 has nothing left to
+
+00:11:27.319 --> 00:11:28.319
+explore.
+
+00:11:28.319 --> 00:11:35.819
+So, we leave 5 likewise we leave 2 finally,
+we come back to 1, now at 1 we have explored
+
+00:11:35.819 --> 00:11:36.819
+this left path.
+
+00:11:36.819 --> 00:11:41.959
+So, now we can... we do not look there we
+look at other direction we go to 3.
+
+00:11:41.959 --> 00:11:49.000
+So, we explore 3, 3 will explore 4, but 4
+cannot go to 8 or 1, because 1 has already
+
+00:11:49.000 --> 00:11:55.959
+been seen and so is 8, so 4 will exit, so
+3 will exit and then 1 will exit.
+
+00:11:55.959 --> 00:12:02.110
+So, this happens to be a single connected
+graph, but it has cycles, so now if we first
+
+00:12:02.110 --> 00:12:06.170
+look at these edges, the edges that we have
+drawn are tree edges as before.
+
+00:12:06.170 --> 00:12:11.850
+Now, if you look at the edges that have not
+been part of the tree, they fall into 3 groups.
+
+00:12:11.850 --> 00:12:16.680
+So, the first type of edge which is not a
+part of the tree is what we call a forward
+
+00:12:16.680 --> 00:12:22.720
+edge, so a forward edge is an edge which goes
+form a node to a node below it in the tree.
+
+00:12:22.720 --> 00:12:24.959
+So, we have a node from 1 to 6 for example,.
+
+00:12:24.959 --> 00:12:30.899
+So, this edge is a tree edge is not a tree
+edge, but it is a forward edge because 1 was
+
+00:12:30.899 --> 00:12:33.029
+above 6 in the tree.
+
+00:12:33.029 --> 00:12:38.800
+Likewise the node from 5 to 7, because we
+actually explore this graph as 5, 6, 7, so
+
+00:12:38.800 --> 00:12:40.240
+5 to 7 is not tree edge.
+
+00:12:40.240 --> 00:12:45.529
+So, these are forward edges, the other category
+of edges which are there in the graph which
+
+00:12:45.529 --> 00:12:50.630
+are not in the tree are backward edges, they
+go up the tree.
+
+00:12:50.630 --> 00:12:55.930
+So, from 6 there is this edge back to 2 which
+we did not use, because 2 had already been
+
+00:12:55.930 --> 00:12:56.930
+explored.
+
+00:12:56.930 --> 00:13:02.389
+Likewise from 4 back to 1 there is this edge
+we did not explore, because that was already
+
+00:13:02.389 --> 00:13:03.389
+there.
+
+00:13:03.389 --> 00:13:06.500
+There is another category of edges which are
+not there in the tree, but which are there
+
+00:13:06.500 --> 00:13:15.899
+in the graph and these are edges such as from
+6 back to 2.
+
+00:13:15.899 --> 00:13:22.319
+So, this is an edge from a later vertex to
+an earlier vertex or from 4 back to 1, so
+
+00:13:22.319 --> 00:13:24.940
+these are what are called back edges.
+
+00:13:24.940 --> 00:13:31.230
+So, back edge is an edge in the graph which
+in the DFS tree goes from a lower vertex to
+
+00:13:31.230 --> 00:13:32.990
+a higher vertex.
+
+00:13:32.990 --> 00:13:38.000
+And finally, there are some edges which are
+neither going forward nor backward, but sideways.
+
+00:13:38.000 --> 00:13:48.529
+So, these are edges like 8 to 7 and from 4
+to 8, so these cross, so 4 is not below 8
+
+00:13:48.529 --> 00:13:53.209
+nor is 8 below 4, 7 is not below 8 because
+they are both below 5 and so on.
+
+00:13:53.209 --> 00:13:59.269
+So, these we call cross edges, now it is easy
+to argue that a cross edge will only go from
+
+00:13:59.269 --> 00:14:00.269
+right to left.
+
+00:14:00.269 --> 00:14:04.279
+In other words, it can only go from higher
+number to lower number, because if you wanted
+
+00:14:04.279 --> 00:14:08.189
+to draw an edge like this for instance, then
+this would mean that there was an edge from
+
+00:14:08.189 --> 00:14:09.189
+2 to 4.
+
+00:14:09.189 --> 00:14:13.170
+So, we would explore 4 through 2 rather than
+wait and go back 1 and explore.
+
+00:14:13.170 --> 00:14:17.430
+So, we cannot have cross edges which go from
+lower numbers to higher numbers, it must go
+
+00:14:17.430 --> 00:14:19.629
+from higher numbers to lower numbers.
+
+00:14:19.629 --> 00:14:25.579
+So, now we have not one, but 3 types of non
+tree edges, unlike the directed case when
+
+00:14:25.579 --> 00:14:30.720
+we had the clear distinction between tree
+edges and non tree edges, here we have 3 types
+
+00:14:30.720 --> 00:14:31.839
+of non tree edges.
+
+00:14:31.839 --> 00:14:42.180
+Now, which ones of these correspond to cycles,
+so if I look at this 1, 3 edge, so this 1
+
+00:14:42.180 --> 00:14:43.189
+6 edge.
+
+00:14:43.189 --> 00:14:49.029
+So, this 1 6 edge does not actually create
+a cycle, because we already saw that this
+
+00:14:49.029 --> 00:14:51.189
+is not a cycle.
+
+00:14:51.189 --> 00:14:57.029
+So, in order for it to complete a cycle, it
+must be the case that there is a path including
+
+00:14:57.029 --> 00:14:59.230
+the edge which forms a directed cycle.
+
+00:14:59.230 --> 00:15:02.901
+Now, it is easy to see that the only situation
+where this will actually happen is if there
+
+00:15:02.901 --> 00:15:07.809
+is a back edge, because when there is a back
+edge we know that there is a path coming from
+
+00:15:07.809 --> 00:15:13.819
+2 down to 6 and then by following the back
+edge this forms a directed cycle.
+
+00:15:13.819 --> 00:15:17.920
+Likewise, we know that there is a path coming
+from 1 down to 4 by following this back edge
+
+00:15:17.920 --> 00:15:19.660
+we form a directed cycle.
+
+00:15:19.660 --> 00:15:25.110
+On the other hand, if we look at the other
+types of edges for instance, then we have
+
+00:15:25.110 --> 00:15:32.050
+this path here for this is parallel to the
+other path here.
+
+00:15:32.050 --> 00:15:36.490
+So, together these are both two different
+ways of going from 1 to 6, but they are not
+
+00:15:36.490 --> 00:15:42.999
+a cycle, in same way we can see that if we
+have a cross edge like this, then we have
+
+00:15:42.999 --> 00:15:46.010
+some path coming from here and some path going
+from there.
+
+00:15:46.010 --> 00:15:50.430
+But, again they are just two different ways
+of reaching 7 from 5 and they are not really
+
+00:15:50.430 --> 00:15:51.430
+a cycle.
+
+00:15:51.430 --> 00:15:56.499
+So, in terms of... by a little analysis that
+only back edges form cycles and this is actually
+
+00:15:56.499 --> 00:16:01.179
+something that you can prove we will not prove
+it formally, but it is argued the way we did
+
+00:16:01.179 --> 00:16:02.179
+just now.
+
+00:16:02.179 --> 00:16:09.240
+But, a directed graph has a cycle if and only
+if DFS will reveals a back edge, now it turns
+
+00:16:09.240 --> 00:16:13.379
+out that these pre and post numberings are
+very useful to help as classify the types
+
+00:16:13.379 --> 00:16:15.689
+of edges that are there in the graph.
+
+00:16:15.689 --> 00:16:21.600
+So, for both tree and forward edges, so you
+will notice that if you go back to this numbering
+
+00:16:21.600 --> 00:16:28.790
+that these things form an interval that you
+can think of this as from 0 to 15, from step
+
+00:16:28.790 --> 00:16:35.490
+0 to 15 I was exploring 1, from step 11 to
+14 I was exploring 3 from step 2 to 9, I was
+
+00:16:35.490 --> 00:16:36.490
+exploring 5 and so on.
+
+00:16:36.490 --> 00:16:40.619
+So, if you look at the pre and the post number
+it says I started exploring the number at
+
+00:16:40.619 --> 00:16:44.889
+the pre and I finished exploring at post and
+everything else that was below happened in
+
+00:16:44.889 --> 00:16:45.889
+between.
+
+00:16:45.889 --> 00:16:51.879
+So, for a forward edge the internal above
+will be bigger than the interval below.
+
+00:16:51.879 --> 00:16:55.879
+Because, I went below during this period I
+came back before it ended.
+
+00:16:55.879 --> 00:17:01.040
+So, for instance the forward edge from 0,
+15 to 3 comma 6.
+
+00:17:01.040 --> 00:17:06.680
+So, the interval 3, 6 is inside 0, 15 this
+is also true for tree edges, because in a
+
+00:17:06.680 --> 00:17:10.950
+tree edge also if I am going the forwards
+I enter then lower node after I enter this.
+
+00:17:10.950 --> 00:17:15.050
+So, its starting point will be later and its
+ending point will be earlier.
+
+00:17:15.050 --> 00:17:20.700
+So, for both tree edges and forward edges,
+if I am going from u to v then the interval
+
+00:17:20.700 --> 00:17:23.730
+with the start node u will contain the other
+one.
+
+00:17:23.730 --> 00:17:28.820
+So, this will be sitting inside this one,
+pre v post v will be sitting inside pre u
+
+00:17:28.820 --> 00:17:31.751
+post u, so I will have this picture.
+
+00:17:31.751 --> 00:17:38.180
+So, this is the internal for u and this is
+the interval for v. Conversely it is exactly
+
+00:17:38.180 --> 00:17:42.140
+the opposite for backward edges I start from
+a smaller interval and I go to a bigger interval.
+
+00:17:42.140 --> 00:17:46.460
+So, the smaller integral will be the starting
+point of the edge, then the bigger integral
+
+00:17:46.460 --> 00:17:47.460
+will be the ending point.
+
+00:17:47.460 --> 00:17:52.090
+So, if I look at an edge in my DFS tree and
+if I look at the pre and post numbers associated
+
+00:17:52.090 --> 00:17:57.640
+with the end points I can determine whether
+it is forward edge or backward edge and finally,
+
+00:17:57.640 --> 00:18:01.270
+it will turn out that for cross edges the
+intervals are disjoint.
+
+00:18:01.270 --> 00:18:07.390
+So, we can see here that we have finished
+processing 4... vertex 7 before we get to
+
+00:18:07.390 --> 00:18:08.390
+8.
+
+00:18:08.390 --> 00:18:12.210
+So, there is no intersection between the interval
+7, 8 and 4, 5 likewise we have finished processing
+
+00:18:12.210 --> 00:18:16.050
+8 before we went to 4 that is why it is a
+cross edge, they are on different branches
+
+00:18:16.050 --> 00:18:17.050
+of the tree.
+
+00:18:17.050 --> 00:18:23.830
+So, there is no intersection 7, 8 and 12,
+13, so therefore a directed graph has a cycle
+
+00:18:23.830 --> 00:18:29.430
+if only if DFS reveals a back edge, and we
+can classify edges as being forward edges,
+
+00:18:29.430 --> 00:18:33.560
+backward edges or cross edges by just looking
+at the pre and post numbering of the end points
+
+00:18:33.560 --> 00:18:35.990
+of the edge.
+
+00:18:35.990 --> 00:18:41.830
+Now, it is important to identify cycles, because
+if we do not have cycles we have a very nice
+
+00:18:41.830 --> 00:18:45.080
+class of graphs called directed acyclic graphs.
+
+00:18:45.080 --> 00:18:47.030
+These are useful for modeling dependencies.
+
+00:18:47.030 --> 00:18:50.730
+For instance if you want to list out a bunch
+of courses which are being offered and they
+
+00:18:50.730 --> 00:18:55.580
+have prerequisites, then a natural way to
+model this is using a directed graph where
+
+00:18:55.580 --> 00:19:00.230
+the edges represent prerequisites, for instance
+if they have an edge from algebra to calculus
+
+00:19:00.230 --> 00:19:04.590
+it indicates algebra is a prerequisite for
+calculus, it will not have cycles.
+
+00:19:04.590 --> 00:19:07.750
+Because we cannot have two courses which are
+prerequisites for each other; otherwise, we
+
+00:19:07.750 --> 00:19:09.660
+will not be able to take either course.
+
+00:19:09.660 --> 00:19:18.160
+So, we will look at directed acyclic graphs
+or DAGs soon in a later lecture.
+
+00:19:18.160 --> 00:19:20.530
+What about connectivity in directed graphs?
+
+00:19:20.530 --> 00:19:25.020
+So connectivity in a directed graph is not
+just a question of having these edges between
+
+00:19:25.020 --> 00:19:27.830
+the graphs, but having them in the right direction.
+
+00:19:27.830 --> 00:19:36.302
+So, we say that two nodes are strongly connected,
+if I can go from i to j by a path and I can
+
+00:19:36.302 --> 00:19:38.630
+come back from j to i by a path.
+
+00:19:38.630 --> 00:19:42.680
+So, it is not enough to just have edges in
+some haphazard direction I must be able to
+
+00:19:42.680 --> 00:19:46.800
+go from i to j and come back from j to i in
+which case I say that it is strongly connected.
+
+00:19:46.800 --> 00:19:51.210
+So, it turns out that a directed graph can
+always be decomposed into what are called
+
+00:19:51.210 --> 00:19:54.130
+strongly connected components.
+
+00:19:54.130 --> 00:19:58.630
+A strongly connected component has a property
+that every pair of nodes in that component
+
+00:19:58.630 --> 00:20:02.160
+is strongly connected from every node in the
+component you can go to every other node in
+
+00:20:02.160 --> 00:20:03.840
+the component and come back.
+
+00:20:03.840 --> 00:20:10.030
+So, for instance if will look at this graph
+then strongly connected components, one is
+
+00:20:10.030 --> 00:20:13.640
+the cycle 1, 3, 4 we can go from 1, 2, 3 to
+4 and come back.
+
+00:20:13.640 --> 00:20:17.540
+So, from any node in this cycle we can come
+back to any other node.
+
+00:20:17.540 --> 00:20:25.780
+Likewise 2, 5 and 6 forms are strongly connected
+component, 7 on its own is a strongly connected
+
+00:20:25.780 --> 00:20:26.780
+component.
+
+00:20:26.780 --> 00:20:30.970
+Because, we cannot go anywhere and 8 also
+is a strongly connected component, because
+
+00:20:30.970 --> 00:20:34.000
+if we leave 8 we cannot come back to 8 the
+way this graphic is structured.
+
+00:20:34.000 --> 00:20:40.820
+So, this graph has 4 strongly connected components,
+now it turns out that DFS numbering using
+
+00:20:40.820 --> 00:20:45.690
+pre and post numbers can be used compute strongly
+connect components a very elegant algorithm
+
+00:20:45.690 --> 00:20:49.610
+is given in the book by Dasgupta Papadimitriou
+and Vazirani and if you are interested you
+
+00:20:49.610 --> 00:20:52.340
+can look it up in that book.
+
+00:20:52.340 --> 00:20:56.240
+So, we have seen some concrete examples of
+what you can compute, there are many other
+
+00:20:56.240 --> 00:21:00.040
+properties that you can compute using BFS
+and DFS.
+
+00:21:00.040 --> 00:21:03.600
+For instance, there are these things called
+articulation points, if you your graph looks
+
+00:21:03.600 --> 00:21:11.160
+like this where I have some vertex which is
+a crucial vertex, if I remove this vertex
+
+00:21:11.160 --> 00:21:15.871
+this graph falls apart into disconnect components,
+I can identify such vertices using BFS and
+
+00:21:15.871 --> 00:21:18.290
+DFS in particular using DFS.
+
+00:21:18.290 --> 00:21:25.810
+Similarly, if I have a situation where I have
+an edge like this, where if I remove this
+
+00:21:25.810 --> 00:21:32.090
+edge then the graph gets disconnected, then
+I can again identify such an edge using DFS.
+
+00:21:32.090 --> 00:21:36.190
+Now, these are important, because if these
+represents some kind of communication network
+
+00:21:36.190 --> 00:21:40.870
+or some road network, in these are bottle
+necks, these are critical points, if this
+
+00:21:40.870 --> 00:21:44.750
+is an intersection and there is an accident
+no traffic and go from any part on the left
+
+00:21:44.750 --> 00:21:50.020
+to any part on the right or if this is a network
+if this cable gets cut then the network will
+
+00:21:50.020 --> 00:21:51.900
+get cut disconnected into components.
+
+00:21:51.900 --> 00:21:56.480
+So, these kinds of properties can also be
+computed during BFS and DFS.
+
+00:21:56.480 --> 00:22:00.920
+So, it is important to realize therefore,
+that BFS and DFS is not just for connectivity,
+
+00:22:00.920 --> 00:22:05.520
+to finding out whether vertex s can reach
+vertex t, you can get a wealth of information
+
+00:22:05.520 --> 00:22:09.030
+and these are linear time algorithms and these
+are all operations which can be performed
+
+00:22:09.030 --> 00:22:10.460
+during BFS and DFS.
+
+00:22:10.460 --> 00:22:15.980
+So, very efficiently you can compute various
+properties of the graph and use these to exploit
+
+00:22:15.980 --> 00:22:20.100
+these to design more efficient procedures
+or to identify other things that need to be
+
+00:22:20.100 --> 00:22:20.110
+done.
+

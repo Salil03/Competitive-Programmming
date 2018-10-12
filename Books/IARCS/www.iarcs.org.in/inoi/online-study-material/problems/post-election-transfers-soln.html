@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\binarysearch.html">Searching</a>&rarr;Post Election Transfers(IOITC 2006)
+      </h2>
+
+      <p>
+	A new government has been elected in Siruseri and has
+	begun the usual process of shuffling all the officials
+	appointed by the previous regime.  One of the departments
+	affected is the railways.
+      </p>
+
+      <p>
+	The railway network in Siruseri is just a single straight
+	line, with N stations.  Of these N stations, L have
+	station masters, distributed at various stations along
+	the line.  The government has decided to transfer all
+	station masters so as to keep them as far apart as
+	possible.  Unfortunately for the government, there is a
+	clause in the contract negotiated with the railway union
+	by which a station master may be transferred at most K
+	stations from his current posting.  The task before the
+	government is to achieve its goal of transferring station
+	masters to maximize the minimum distance between any pair
+	within the restrictions of the contract.
+      </p>
+
+      <p>
+	For instance, suppose there are 10 stations, numbered
+	1,2,...,10, and there are 3 station masters, currently
+	assigned to stations 5, 7 and 8.  Further, let us suppose
+	that no station master can move more than 2 stations away
+	from the current station.  Then, the best the government
+	can do is to move the station master at station 5 to
+	station 3 and the station master at station 8 to station
+	10.  In the new arrangement, the station masters are at
+	stations 3, 7 and 10 and the minimum gap is 2 stations,
+	between stations 7 and 10.  (Note that, in addition, the
+	station master at station 7 could be moved to station 6,
+	in which case the minimum gap of 2 would be betweens
+	stations 3 and 6.)
+      </p>
+
+      <p>
+	Input bounds:  L &le; 10<sup>5</sup>, N and K are integers.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+	Suppose we fix an answer A for the distanct separating
+	the station masters.  Can we arrange the station masters
+	if we insist that they are all separated by A?
+      </p>
+
+      <p>
+	Let OP(i) be the original position of station master i
+	and let NP(i) be the new position to which we move
+	station master i.
+      </p>
+
+      <p>
+	We move the first station master as far left as possible,
+	given that we can shift him by at most K.
+      </p>
+
+      <p>
+	NP(1) = max(1,P(1)-K)
+      </p>
+
+      <p>
+	For i+1,
+      </p>
+
+      <table>
+	<tr>
+	  <td>NP(i+1) = </td>
+	  <td>max(NP(i)+A,P(i+1)-K)&nbsp;&nbsp;&nbsp;</td>
+	  <td>if NP(i)+A &lt; P(i+1)</td>
+	</tr>
+	<tr>
+	  <td></td>
+	  <td>NP(i)+A,</td>
+	  <td>if P(i+1) &le; NP(i)+A &le; P(i+1)+K</td>
+				      </tr>
+	<tr>
+	  <td></td>
+	  <td>impossible</td>
+	  <td>otherwise
+	</td></tr>
+      </table>
+      <br>
+
+      <p>
+	Thus, in one linear scan, we can check if a solution
+	exists for a fixed A.
+      </p>
+
+      <p>
+	We know that the final solution lies between 1 and N.
+	Since we can solve this problem easily for a fixed A, we
+	can find a good choice of A by binary search by starting
+	with A = N.
+      </p>
+
+      <p>
+	This takes time L log N.
+      </p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.569 --> 00:00:06.279
+So for our final example before we really
+get into the course, let us look at a problem
+
+00:00:06.279 --> 00:00:14.419
+involving documents. So, we have two documents
+and our goal is to find out how similar they
+
+00:00:14.419 --> 00:00:19.250
+are, right. So, are these two documents really
+variations of the same thing. Now, there may
+
+00:00:19.250 --> 00:00:25.119
+be many different scenarios where this problem
+is interesting. So, one question may be for
+
+00:00:25.119 --> 00:00:29.769
+plagiarism detection. So, it could be that
+somebody has posted an article in a newspaper
+
+00:00:29.769 --> 00:00:34.120
+or on a website and you believe that this
+author has not really written the article
+
+00:00:34.120 --> 00:00:37.990
+themselves. They have copied this article
+from somewhere else or if you are a teacher
+
+00:00:37.990 --> 00:00:42.280
+in a course, you might be worried that the
+student, two students have submitted the same
+
+00:00:42.280 --> 00:00:47.420
+assignments or one student has copied an assignment
+from some source on the Internet. So, by looking
+
+00:00:47.420 --> 00:00:52.329
+at how similar, if you can measure how similar
+two documents are, you can try to quantify
+
+00:00:52.329 --> 00:00:55.620
+this notion that somebody has copied from
+somebody else.
+
+00:00:55.620 --> 00:01:02.170
+Now, it may not always have a negative connotation
+like this. It might also be to look at some
+
+00:01:02.170 --> 00:01:08.080
+kind of things when some people are writing
+code typically writing programs for some application,
+
+00:01:08.080 --> 00:01:14.920
+over a period of time documents evolve in
+the sense the program evolves, right. So,
+
+00:01:14.920 --> 00:01:19.579
+people add features. Now, you might want to
+look at two different pieces of code and try
+
+00:01:19.579 --> 00:01:23.090
+to figure out what are the changes that had
+happened. How similar they are, how different
+
+00:01:23.090 --> 00:01:27.310
+they are, what the actual changes that have
+happened.
+
+00:01:27.310 --> 00:01:33.700
+Another place where there is positive notion
+towards documents similarity is to look for
+
+00:01:33.700 --> 00:01:41.360
+web search. If you ask a question to a search
+engine and it reports results, typically it
+
+00:01:41.360 --> 00:01:45.860
+tries to group together results which are
+similar because they are not really different
+
+00:01:45.860 --> 00:01:50.290
+answers. Now, if there are 10 different copies
+or similar copies of a document saying more
+
+00:01:50.290 --> 00:01:55.439
+or less the same thing and these show up as
+your first 10 search results, then another
+
+00:01:55.439 --> 00:02:00.119
+document will be highly relevant and quite
+different from these will now be lost because
+
+00:02:00.119 --> 00:02:04.399
+it will be off the first page of searches.
+So, it is useful to be able to group together
+
+00:02:04.399 --> 00:02:09.090
+the results of a search query by similarity,
+so that the user is actually presented by
+
+00:02:09.090 --> 00:02:13.690
+an effective choice between different answers
+to the search query and not just a large number
+
+00:02:13.690 --> 00:02:16.080
+of variations of the same answer.
+
+00:02:16.080 --> 00:02:23.100
+So, if this is our motivation, we need a way
+of comparing documents what is a good measure
+
+00:02:23.100 --> 00:02:27.930
+of similarity of documents. Now, there are
+many different notions that people have come
+
+00:02:27.930 --> 00:02:34.830
+up with. Obviously, it has to do something
+with the order of the words and the choice
+
+00:02:34.830 --> 00:02:43.840
+of letters and so on, but one way of quantifying
+the distance between two documents is to use
+
+00:02:43.840 --> 00:02:50.060
+what is called the edit distance, namely how
+many changes do you have to make to transform
+
+00:02:50.060 --> 00:02:56.300
+one document into another document, and by
+edit we mean supposing you actually loaded
+
+00:02:56.300 --> 00:03:00.770
+the document in a text editor or word processor,
+what would be the kind of things that you
+
+00:03:00.770 --> 00:03:05.910
+could do where we could limit because you
+could of course block out and delete the entire
+
+00:03:05.910 --> 00:03:10.810
+document and then cut and paste another document
+and say I did it in two steps, but this could
+
+00:03:10.810 --> 00:03:15.170
+be kind of cheating. So, we have to limit
+what operations you do, so that we have a
+
+00:03:15.170 --> 00:03:20.860
+uniform way of counting this. So, we could
+say that edit involves how many characters
+
+00:03:20.860 --> 00:03:25.580
+you are changing. So, each step of editing
+will either add or remove a letter and perhaps
+
+00:03:25.580 --> 00:03:30.710
+we can allow you to replace one letter by
+another letter and call that one change. So,
+
+00:03:30.710 --> 00:03:34.840
+now we want to count these as our basic steps
+adding or removing a letter or replacing one
+
+00:03:34.840 --> 00:03:41.490
+letter by another, and find out how many steps
+it takes to edit one document to make it into
+
+00:03:41.490 --> 00:03:43.240
+another document.
+
+00:03:43.240 --> 00:03:48.590
+So, the minimum number of edit operations
+will then determine the distance. Now, the
+
+00:03:48.590 --> 00:03:54.340
+question that we have as an algorithm problem
+is how to compute this minimum distance, right.
+
+00:03:54.340 --> 00:03:59.160
+How do you decide what is the best way to
+edit one document and make it another document.
+
+00:03:59.160 --> 00:04:04.080
+Of course, there is always a trivial solution
+like that block cut and block paste. You can
+
+00:04:04.080 --> 00:04:08.510
+just delete all the letters and then type
+in the new documents. So, there is a brute
+
+00:04:08.510 --> 00:04:13.110
+force way of doing it, but this is not likely
+to be the best possible way, right. So, you
+
+00:04:13.110 --> 00:04:19.850
+can also try out all possible delete and insert
+sequences and see which among them gives you
+
+00:04:19.850 --> 00:04:25.510
+the best solution, but all of these are very
+inefficient kind of solutions.
+
+00:04:25.510 --> 00:04:33.930
+So, again we can go to this question of decomposing
+the problem. So, supposing our first goal
+
+00:04:33.930 --> 00:04:38.150
+is to just make the first character of the
+two documents same, if they are already the
+
+00:04:38.150 --> 00:04:43.540
+same, we leave and go on. If they are not
+the same, well then we have two options, right.
+
+00:04:43.540 --> 00:04:48.870
+We can either transform the character, the
+first character to be equal or we can insert
+
+00:04:48.870 --> 00:04:52.410
+a character in one of the two documents. So,
+supposing the document, first document starts
+
+00:04:52.410 --> 00:04:57.590
+with an x and the second document starts with
+a z. Either we can say we do one operation
+
+00:04:57.590 --> 00:05:03.720
+to make x into z or z into x or we can insert
+an x before the z or insert a z before the
+
+00:05:03.720 --> 00:05:08.710
+x or we can delete the x, but then we do not
+necessarily get the same answer. Then, once
+
+00:05:08.710 --> 00:05:12.540
+we have done this, once we have made the first
+character the same, then we can recursively
+
+00:05:12.540 --> 00:05:15.350
+try to fix the rest of the document.
+
+00:05:15.350 --> 00:05:21.190
+So, now one of the difficulties we face when
+we do recursion in this manner is that the
+
+00:05:21.190 --> 00:05:30.430
+same sub-problem becomes up for solution many
+times. So, a typical example of this is the
+
+00:05:30.430 --> 00:05:36.570
+recursive solution to finding the nth Fibonacci
+number. So, the Fibonacci numbers are defined,
+
+00:05:36.570 --> 00:05:43.020
+it is a very classical sequence. So, the first
+two Fibonacci numbers are 1 and 1. After this
+
+00:05:43.020 --> 00:05:47.170
+you get the next Fibonacci number adding the
+previous two. So, after 1 and 1, the next
+
+00:05:47.170 --> 00:05:52.960
+one is 2 which is 1 plus 1. The next one is
+3 which is 1 plus 2 and so on. 5 is 2 plus
+
+00:05:52.960 --> 00:05:59.120
+3 and so on. So, in general the recursive
+relationship is given by the fact that f n
+
+00:05:59.120 --> 00:06:04.830
+is the sum of the previous two numbers, n
+minus 1 n minus 2, and then you have as a
+
+00:06:04.830 --> 00:06:10.660
+base case that the first two numbers f 1 and
+f 2 for which n minus 1 and n minus 2 may
+
+00:06:10.660 --> 00:06:13.860
+not be defined for these two numbers, the
+value is 1.
+
+00:06:13.860 --> 00:06:18.580
+Now, the problem is that when you apply the
+recursion directly, so if you try to compute
+
+00:06:18.580 --> 00:06:22.760
+the seventh Fibonacci number for example,
+it will say for this I need to compute f 6
+
+00:06:22.760 --> 00:06:29.290
+plus f 5, but if I then recursively apply
+this to f 6 and f 5, we find things like f
+
+00:06:29.290 --> 00:06:35.190
+4 coming up twice. So, we have an f 4 which
+comes here and an f 4 which comes here because
+
+00:06:35.190 --> 00:06:41.630
+when I do f 5, I need to apply this recurrence,
+and when I do f 6, I need to apply this recurrence.
+
+00:06:41.630 --> 00:06:44.840
+So, If I naively do it, I compute f 4 twice
+and in fact, when I compute this f 5, I actually
+
+00:06:44.840 --> 00:06:49.780
+get another f 4. I am computing f 4 a number
+of times, f 3 a number of times and so on.
+
+00:06:49.780 --> 00:06:54.550
+So, this is really an inefficient way to calculate
+it whereas, if I just do it for instance here,
+
+00:06:54.550 --> 00:07:02.280
+I get 1 1 2 3 5 8 13 21 and I find that the
+seventh Fibonacci number is actually in the
+
+00:07:02.280 --> 00:07:10.080
+sequence is 13, right. So, there is intuitively
+a very fast way to do this. The recurrence
+
+00:07:10.080 --> 00:07:15.230
+is respected, but if I do it recursively,
+I end up solving a lot of problems again and
+
+00:07:15.230 --> 00:07:19.710
+again. So, how do we get around it and this
+is what we call dynamic program.
+
+00:07:19.710 --> 00:07:26.030
+So, dynamic programming says do not compute
+same sub-problems twice. Whenever we have
+
+00:07:26.030 --> 00:07:31.060
+solved a problem, if have found f of 4, just
+look it up, store it somewhere, look it up
+
+00:07:31.060 --> 00:07:36.830
+and make sure that you do not do f 4 again.
+So, this is one of the techniques that we
+
+00:07:36.830 --> 00:07:41.280
+have seen in beginning as that we are going
+to do in this course, and it is important
+
+00:07:41.280 --> 00:07:47.110
+that when we break-up problems into sub-problems,
+it is not always the case that the sub problems
+
+00:07:47.110 --> 00:07:51.870
+can be solved efficiently unless we look slightly
+more deeply into the structure of sub-problems
+
+00:07:51.870 --> 00:07:55.620
+and make sure we solve them in an effective
+sequence.
+
+00:07:55.620 --> 00:08:04.310
+Now, as usual this problem of the difference
+or similarity between two documents can be
+
+00:08:04.310 --> 00:08:12.790
+at many different levels. So, we are focused
+on the words, the actual text, but if we do
+
+00:08:12.790 --> 00:08:20.020
+not really look at the sequence of words,
+we just want a set of words, then they might
+
+00:08:20.020 --> 00:08:24.890
+be far apart in terms of edit distance because
+we need to rearrange the words, but the content
+
+00:08:24.890 --> 00:08:28.449
+if we just measure in terms of what types
+of words are there, this might give us an
+
+00:08:28.449 --> 00:08:34.270
+accurate understanding of the meaning of the
+documents. So, if you actually search for
+
+00:08:34.270 --> 00:08:40.360
+a document in a typical search engine, you
+will often find that the words that you ask
+
+00:08:40.360 --> 00:08:44.440
+for may not occur together, may not occur
+in the sequence that you mention. It will
+
+00:08:44.440 --> 00:08:49.180
+just find documents which have that collection
+of words. So, this is very useful for web
+
+00:08:49.180 --> 00:08:54.550
+search and the other thing that you might
+want to do is, measure similarity of words
+
+00:08:54.550 --> 00:08:58.300
+in terms of meaning.
+So, if you search for a document which contains
+
+00:08:58.300 --> 00:09:02.580
+the word car and there is another document
+which contains the word automobile, it might
+
+00:09:02.580 --> 00:09:07.550
+to be a good idea for the search engine to
+report the documents containing automobile,
+
+00:09:07.550 --> 00:09:12.650
+because automobile and car are essentially
+the same thing. So, like the other example
+
+00:09:12.650 --> 00:09:17.700
+you have seen before, there can be variations
+on the problem and the solution that you have
+
+00:09:17.700 --> 00:09:21.920
+for the original problem, may or may not be
+valid for these variations. So, there is always
+
+00:09:21.920 --> 00:09:25.709
+a whole space of new and interesting problem
+to solve in all these things.
+

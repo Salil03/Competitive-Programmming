@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\range-queries.html">Range Queries</a>&rarr;Mobiles (IOI 2001)
+      </h2>
+
+      <p>
+        Suppose that the fourth generation mobile phone base
+        stations in the Tampere area operate as follows. The area
+        is divided into squares. The squares form an S&times;S
+        matrix with the rows and columns numbered from 0 to
+        S-1. Each square contains a base station. The number of
+        active mobile phones inside a square can change because a
+        phone is moved from a square to another or a phone is
+        switched on or off. At times, each base station reports
+        the change in the number of active phones to the main
+        base station along with the row and the column of the
+        matrix.
+      </p>
+      <p>
+        Write a program, which receives these reports and answers
+        queries about the current total number of active mobile
+        phones in any rectangle-shaped area.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        We need a two dimensional version of a binary indexed
+        tree.
+      </p>
+
+      <p>
+        BIT[x,y] stores the sum of the rectangle bounded by
+        x-2<sup>k</sup>....x and y-2<sup>l</sup>...y where k is
+        the number of trailing zeros in x and l is the number of
+        trailing zeros in y
+      </p>
+
+      <pre>
+    |
+    |       ((x-2<sup>k</sup>)+1,y)               (x,y)
+    |            o------------------------o
+    |            |                        |
+    |            |                        |
+    |            |                        |
+    |            |                        |
+    |            o------------------------o
+    |       ((x-2<sup>k</sup>)+1,                (x,(y-2<sup>l</sup>)+1)
+    |        (y-2<sup>l</sup>)+1)
+    |
+    |
+     ----------------------------------------------------
+      </pre>
+
+      <p>
+        To compute segment sums, we compute prefix sums with
+        respect to the starting position.  In the two dimensional
+        version, for every point (x,y) we would like to calculate
+        the sum in the rectangle from (0,0) to (x,y).  Call this
+        sum Rect(x,y).
+      </p>
+
+      <p>
+        If we start with BIT[x,y] we get the rectangle above.
+        The next rectangle to its left is stored in
+        BIT(next(x),y).  The next rectangle below is
+        BIT(x,next(y)).  In this way, by walking back applying
+        next() repeatedly in each coordinate, we can tile the
+        space from (0,0) to (x,y) with rectangles whose values
+        are stored in BIT.  There are log N rectangles in each
+        dimension, so there are log<sup>2</sup> N rectangles
+        overall in this tiling.
+      </p>
+
+      <pre>
+    |
+    |                  ((x-2<sup>k</sup>)+1,y)          (x,y)
+    | ...  o-----o------------o-------------o
+    |      |     |            |             |
+    |      |     |BIT[x-2<sup>k</sup>+1, |  BIT[x,y]   |
+    | ...  | ... |    y]      |             |
+    |      |     |            |             |
+    |      o-----o--------------------------o (x,(y-2<sup>l</sup>)+1)
+    |      |  .  |BIT[x-2<sup>k</sup>+1, | BIT[x,      |
+    | ...  |  .  |    y-2<sup>l</sup>+1] |     y-2<sup>l</sup>+1] |
+    |      o-----o------------o-------------o
+    |        ..        ...          ...
+     ----------------------------------------------------
+      </pre>
+
+      <p>
+        So, we have
+      </p>
+
+      <p>
+        <table width="80%">
+          <tr>
+            <td width="25%" align="right">Rect(x,y)</td>
+            <td width="5%">=</td>
+            <td width="25%">        
+              <table>
+                <tr><td align="center">Sum</td></tr>
+                <tr><td align="center">i in {x, next(x),...}</td></tr>
+                <tr><td align="center">j in {y, next(y),...}</td></tr>
+              </table>
+            </td>
+            <td width="30%" align="left">BIT[i,j]}</td>
+        </tr></table>
+      </p>
+
+      <p>
+        If we update a value A[x,y], we can update all affected
+        values BIT[x,y] by walking up throught Unext(x),
+        Unext(Unext(x)),... and Unext(y),
+        Unext(Unext(y)),... independently in each coordinate.
+      </p>
+
+      <p>
+        As in the 1 dimensional case, we can build the initial
+        2-D indexed tree by starting with 0's everywhere and
+        updating the initial values one by one.  This takes time
+        N<sup>2</sup> (log N)<sup>2</sup>.
+      </p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

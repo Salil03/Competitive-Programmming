@@ -1,0 +1,1706 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.400 --> 00:00:04.830
+We now look at another data structure called
+a Search Tree.
+
+00:00:04.830 --> 00:00:10.469
+So, to motivate search trees let us consider
+the following example.
+
+00:00:10.469 --> 00:00:15.230
+So, supposing you are an air traffic controller
+and you controlling access to a single run
+
+00:00:15.230 --> 00:00:18.140
+way, flights have to land and takeoff.
+
+00:00:18.140 --> 00:00:24.050
+So, the air traffic control tower receives
+request from the air craft about the expected
+
+00:00:24.050 --> 00:00:29.279
+arrival and departure times and these request
+come at random time.
+
+00:00:29.279 --> 00:00:34.410
+So, it is not that they come in order of the
+time of the actual event.
+
+00:00:34.410 --> 00:00:39.730
+So, we might first get a request for a landing
+in Chennai at 16:23 and later on we might
+
+00:00:39.730 --> 00:00:43.330
+get a request for a takeoff at 16:12 which
+is actually earlier.
+
+00:00:43.330 --> 00:00:49.500
+And then, we might get another arrival information
+at 16:55, then other earlier arrival information
+
+00:00:49.500 --> 00:00:55.990
+at 16:18 and the strategy with the control
+tower is supposed to follow is to give priority
+
+00:00:55.990 --> 00:00:59.850
+to the flight with the earliest usage time.
+
+00:00:59.850 --> 00:01:05.870
+So, this is a priority queue, each request
+goes into the queue, but it has a priority
+
+00:01:05.870 --> 00:01:09.480
+depending on the expected time that it is
+going to take place.
+
+00:01:09.480 --> 00:01:15.830
+So, we could give a min heap representation
+and if you take the 6 request in the order
+
+00:01:15.830 --> 00:01:19.720
+that they come we insert them into the min
+heap, then we will get the min heap that we
+
+00:01:19.720 --> 00:01:21.940
+see on the right hand side.
+
+00:01:21.940 --> 00:01:28.830
+And so in this, because 16:12 happens to be
+the earliest event among these 6, it will
+
+00:01:28.830 --> 00:01:33.970
+automatically float up to the route and so
+it will be available to us is the next event
+
+00:01:33.970 --> 00:01:38.470
+to the process and then maybe 2 minutes before
+that event may happens, we get send signal
+
+00:01:38.470 --> 00:01:42.900
+to the flight giving a clearance to take off.
+
+00:01:42.900 --> 00:01:48.890
+So, suppose we have an extra requirement on
+this, not only do we have to want to give
+
+00:01:48.890 --> 00:01:54.880
+priority to the earliest event to happen,
+but we also want to impose some minimum separation
+
+00:01:54.880 --> 00:01:58.260
+of planes to avoid any possibility of collisions
+on the run way.
+
+00:01:58.260 --> 00:02:03.950
+So, we say that 2 planes accessing the run
+way must be a minimum of 3 minutes apart.
+
+00:02:03.950 --> 00:02:12.870
+Now, in this example we can see that the rule
+is violated by the 2 events at 16:53 and 16:55.
+
+00:02:12.870 --> 00:02:19.200
+So, what happens is that we should when we
+insert or we accept the request for 16:55
+
+00:02:19.200 --> 00:02:21.660
+assuming it came after 16:53.
+
+00:02:21.660 --> 00:02:26.599
+At this point, we should check that whether
+it is at least 3 minutes apart from all the
+
+00:02:26.599 --> 00:02:31.299
+current pending request, if not we should
+send a message to the pilot saying 16:55 is
+
+00:02:31.299 --> 00:02:37.189
+not possible, you must move your takeoff or
+landing to 16:56 or later.
+
+00:02:37.189 --> 00:02:41.269
+Now, unfortunately in the heap data structure
+there is no easy way to do this.
+
+00:02:41.269 --> 00:02:46.150
+So, when 16:55 is added to the heap, we have
+to scan it against all the elements in the
+
+00:02:46.150 --> 00:02:49.500
+heap in order to find out whether it is within
+3 minutes or any of them.
+
+00:02:49.500 --> 00:02:54.549
+So, this would be a linear scan, so all other
+operations insert and delete on a heap for
+
+00:02:54.549 --> 00:02:55.549
+logarithmic.
+
+00:02:55.549 --> 00:03:00.209
+But, this if you want to impose this constraint
+that no two elements in the heap of within
+
+00:03:00.209 --> 00:03:06.650
+3 minutes of each other, then we would add
+an extra linear time cost to every insert
+
+00:03:06.650 --> 00:03:12.219
+and this would then make a heap unviable for
+this kind of data.
+
+00:03:12.219 --> 00:03:20.120
+So, one way to compute this kind of requirement
+is to be able to check the predecessor and
+
+00:03:20.120 --> 00:03:21.120
+the successor.
+
+00:03:21.120 --> 00:03:28.059
+In other words, given the list of value set
+we have for any value can we quickly compute
+
+00:03:28.059 --> 00:03:33.750
+what is the previous in terms of the nearest
+a smaller value and then next successor what
+
+00:03:33.750 --> 00:03:35.709
+is the nearest bigger value.
+
+00:03:35.709 --> 00:03:41.290
+So, if you look at 16:18 for example, then
+the next smaller value is here, so this is
+
+00:03:41.290 --> 00:03:47.599
+the predecessor 16:12 and the next bigger
+value is here, so this is the successor.
+
+00:03:47.599 --> 00:03:52.139
+Now, this happens to be it looks like there
+is some nice relationship within the heap
+
+00:03:52.139 --> 00:03:54.809
+in terms of the tree structure between predecessor
+and successor.
+
+00:03:54.809 --> 00:03:59.450
+But, if you look at a different value for
+example, 16:53 then we will find that the
+
+00:03:59.450 --> 00:04:04.510
+predecessor lies in a different branch of
+the tree and the successor lies in the same
+
+00:04:04.510 --> 00:04:05.510
+branch.
+
+00:04:05.510 --> 00:04:09.799
+So, there is no direct relationship between
+the tree structure of the heap and the predecessor
+
+00:04:09.799 --> 00:04:12.499
+and the successor relation that we need.
+
+00:04:12.499 --> 00:04:17.340
+However, the important thing to notice if
+we could compute predecessor and successor,
+
+00:04:17.340 --> 00:04:18.699
+then we can solve this problem.
+
+00:04:18.699 --> 00:04:21.970
+Because, once we look at the successor or
+the predecessor and we find something which
+
+00:04:21.970 --> 00:04:27.129
+is within 3 minutes, then we can fix, flag
+the warning and signal to that aircraft that
+
+00:04:27.129 --> 00:04:30.180
+request is not tenable.
+
+00:04:30.180 --> 00:04:36.800
+So, if you want to maintain this information,
+let us try and look at the different data
+
+00:04:36.800 --> 00:04:39.199
+structures we have seen, so far.
+
+00:04:39.199 --> 00:04:46.229
+So, we have unsorted array, sorted arrays
+and min heaps, now in this particular structure
+
+00:04:46.229 --> 00:04:50.900
+we are not going to look at directly a delete
+min or a delete max.
+
+00:04:50.900 --> 00:04:55.870
+But, two separate operations one which checks
+the minimum and maximum and one which deletes
+
+00:04:55.870 --> 00:04:57.210
+an element arbitrarily.
+
+00:04:57.210 --> 00:05:04.370
+So, for min and max as far as min and max
+go, then it is clear that the best data structure
+
+00:05:04.370 --> 00:05:08.870
+is sorted array, because these values are
+at the extreme ends of the array.
+
+00:05:08.870 --> 00:05:13.820
+The worst is an unsorted array, because it
+will be anywhere and both require linear time
+
+00:05:13.820 --> 00:05:17.840
+and then depending on whether we have a min
+heap or the max heap, one of them is good
+
+00:05:17.840 --> 00:05:18.879
+and the other one is bad.
+
+00:05:18.879 --> 00:05:23.050
+So, in a min heap we can find the minimum
+with the root, the maximum could be anywhere
+
+00:05:23.050 --> 00:05:27.129
+and likewise in a max heap a maximum would
+be at the root, minimum could be anywhere.
+
+00:05:27.129 --> 00:05:34.280
+So, if you look at the next set of operations,
+this is insert and delete, now here it turns
+
+00:05:34.280 --> 00:05:41.060
+out that an unsorted array is good for insert,
+because, we can just stick it at the end.
+
+00:05:41.060 --> 00:05:44.770
+For delete, we have to go through the array
+and look for the value and remove it, so it
+
+00:05:44.770 --> 00:05:45.770
+will take linear time.
+
+00:05:45.770 --> 00:05:52.879
+In a sorted array both will be slow, because
+we have to either insert in the correct position,
+
+00:05:52.879 --> 00:05:56.750
+like in insertion sort or when we delete we
+have to compress the array which will take
+
+00:05:56.750 --> 00:05:58.240
+linear time.
+
+00:05:58.240 --> 00:06:05.960
+Now, we know that in a min heap insert is
+logarithmic, delete is also logarithmic even
+
+00:06:05.960 --> 00:06:07.610
+though this is not delete min.
+
+00:06:07.610 --> 00:06:17.750
+So, this can be broken up as two steps, so
+update to the current minimum overall minus
+
+00:06:17.750 --> 00:06:19.970
+1 and then delete min.
+
+00:06:19.970 --> 00:06:25.330
+So, you can take the current value that you
+want to delete, reset it is value, so that
+
+00:06:25.330 --> 00:06:29.000
+it becomes the minimum, in which case as we
+saw when you update to a smaller value, it
+
+00:06:29.000 --> 00:06:31.250
+will propagate up to the root.
+
+00:06:31.250 --> 00:06:35.159
+And then, if you delete min that value is
+disappear and so we would effectively in two
+
+00:06:35.159 --> 00:06:39.669
+steps of log n each we would deleted it, so
+overall it is log n.
+
+00:06:39.669 --> 00:06:45.660
+And now as we just said predecessor and successor
+in a sorted list they are adjacent, so these
+
+00:06:45.660 --> 00:06:48.099
+are both constant operations.
+
+00:06:48.099 --> 00:06:52.009
+On the other hand, in an unsorted list we
+have to look through the whole array and we
+
+00:06:52.009 --> 00:06:53.520
+also said in a heap, we have to scan.
+
+00:06:53.520 --> 00:06:59.449
+Because, there is no particular order in which
+the adjacent elements are stored in the heap.
+
+00:06:59.449 --> 00:07:04.470
+So, what we are going to look at today and
+binary search trees and in a binary search
+
+00:07:04.470 --> 00:07:09.550
+tree we are going to argue that all of these
+operations are actually logarithmic, provided
+
+00:07:09.550 --> 00:07:13.400
+we maintain the binary search tree with a
+good structure.
+
+00:07:13.400 --> 00:07:18.069
+And also we will look at an operation called
+find, which searches for a value and this
+
+00:07:18.069 --> 00:07:19.130
+will also be logarithmic.
+
+00:07:19.130 --> 00:07:24.229
+So, we will simultaneously be able to optimize,
+all these 7 operations in a binary search
+
+00:07:24.229 --> 00:07:26.849
+tree.
+
+00:07:26.849 --> 00:07:34.939
+So, a binary tree is just a tree with a root
+in which every node has either 1, 2 or 3 children,
+
+00:07:34.939 --> 00:07:39.110
+the heap poses a very special kind of binary
+tree, which we filled up top to bottom left
+
+00:07:39.110 --> 00:07:42.380
+to right, but in general a binary tree has
+no constraint.
+
+00:07:42.380 --> 00:07:48.680
+So, we have values at each node and we will
+assume that not only do we have way to go
+
+00:07:48.680 --> 00:07:54.860
+from the parent to the child, but we also
+have a way to go from the child to the parent.
+
+00:07:54.860 --> 00:07:59.979
+So, every node we are going to assume will
+have a link to it is parent, left child and
+
+00:07:59.979 --> 00:08:04.849
+right child of course, these links maybe missing,
+but if they are there then they all three.
+
+00:08:04.849 --> 00:08:13.410
+So, we will can point up the tree and to the
+two nodes below it or down the tree.
+
+00:08:13.410 --> 00:08:17.259
+So, just in terms of terminology the root
+is the top most node, it has no parent, the
+
+00:08:17.259 --> 00:08:22.960
+leaf is any node which has no children and
+at any given point, if you look at a node,
+
+00:08:22.960 --> 00:08:28.900
+then it is a parent of it is left child and
+it is right child.
+
+00:08:28.900 --> 00:08:35.330
+So, now we take a binary tree and we further
+impose a constraint of the values.
+
+00:08:35.330 --> 00:08:39.420
+So, remember like in a heap we first at as
+structural condition that at a tree is filled
+
+00:08:39.420 --> 00:08:43.790
+top to bottom left to right and then we said,
+there is a heap property which says max heap
+
+00:08:43.790 --> 00:08:48.150
+or min heap, either a node is bigger than
+its 2 children or its smaller than its 2 children.
+
+00:08:48.150 --> 00:08:52.830
+So, they we have a property on the structure
+and they was a property on the value, so how
+
+00:08:52.830 --> 00:08:54.520
+they are arrange with this respect to each
+other.
+
+00:08:54.520 --> 00:08:59.650
+So, in a binary search tree, the binary tree
+could have an arbitrary structure that the
+
+00:08:59.650 --> 00:09:02.160
+values are arranged in a specific way.
+
+00:09:02.160 --> 00:09:09.890
+So, for each node with a value v, all the
+nodes below v, smaller than v are in the left
+
+00:09:09.890 --> 00:09:14.390
+sub tree and all the values bigger than v
+are in the rights sub tree.
+
+00:09:14.390 --> 00:09:17.510
+And we typically we will assume that there
+are no duplicate values.
+
+00:09:17.510 --> 00:09:22.790
+So, for example, here if you look at a root
+node 5, then the left sub tree of 5 contains
+
+00:09:22.790 --> 00:09:26.390
+values 1, 2, 4 which are all the nodes in
+these tree smaller than 5.
+
+00:09:26.390 --> 00:09:31.910
+And the right sub tree contains 8 and 9, now
+this is the property that is recursively satisfied
+
+00:09:31.910 --> 00:09:33.010
+throughout the tree.
+
+00:09:33.010 --> 00:09:37.780
+So, if you look at the node 2 for example,
+it is left child, left sub trees just a single
+
+00:09:37.780 --> 00:09:42.960
+node 1 which is value smaller than in the
+tree rooted at 2 and it is right sub trees
+
+00:09:42.960 --> 00:09:47.990
+the value 4 which is the right it is a bigger
+than 2, the only value bigger than 2 this
+
+00:09:47.990 --> 00:09:48.990
+sub tree.
+
+00:09:48.990 --> 00:09:53.990
+Likewise, if you look at 8 in this only one
+value other than 8 in the sub tree starting
+
+00:09:53.990 --> 00:09:58.000
+at 8 has the value 9 and since it is we go
+in the right sub tree and we have the left
+
+00:09:58.000 --> 00:09:59.000
+sub tree empty.
+
+00:09:59.000 --> 00:10:04.420
+So, we can have this kind of gaps unlike in
+heaps, we can have a gap, but we have this
+
+00:10:04.420 --> 00:10:09.280
+uniform property that at any node in the sub
+tree all the value smaller than the node are
+
+00:10:09.280 --> 00:10:14.420
+on the left, and all the values bigger are
+on the right.
+
+00:10:14.420 --> 00:10:20.600
+So, typically we would implement this as a
+link structure, where we have each node with
+
+00:10:20.600 --> 00:10:23.870
+3 fields other than the value.
+
+00:10:23.870 --> 00:10:30.200
+So, we have a pointed to the parent, a pointed
+to the left child and a pointed to the right
+
+00:10:30.200 --> 00:10:31.930
+child.
+
+00:10:31.930 --> 00:10:38.980
+So, the first thing that we can do with a
+binary search tree is to list out its values
+
+00:10:38.980 --> 00:10:42.730
+in sorted order, this is called a in order
+traversal.
+
+00:10:42.730 --> 00:10:47.630
+So, in order traversal is recursive traversal
+it is a way of walking through the tree.
+
+00:10:47.630 --> 00:10:52.640
+So, that we first walk through the left sub
+tree, then the current node and then the right
+
+00:10:52.640 --> 00:10:53.640
+sub tree.
+
+00:10:53.640 --> 00:10:59.730
+For example, if you perform a in order traversal
+here, we start at the root and then we have
+
+00:10:59.730 --> 00:11:03.660
+to first walk on the lefts up tree, so we
+walk to the left child.
+
+00:11:03.660 --> 00:11:07.570
+And then, once again we must walk on to the
+left of tree, so you walk to the left child.
+
+00:11:07.570 --> 00:11:10.940
+And now, there are no left child, so now we
+will print out 1.
+
+00:11:10.940 --> 00:11:15.310
+And move backup, because is no right child,
+now we print out 2.
+
+00:11:15.310 --> 00:11:19.850
+And go down to the right sub tree and now
+again because 4 has no left or right sub tree,
+
+00:11:19.850 --> 00:11:21.880
+so will print out and go backup.
+
+00:11:21.880 --> 00:11:24.530
+And since we already finish to we will end
+of that the root.
+
+00:11:24.530 --> 00:11:30.020
+Have we will print 5 move to the sub tree,
+then because there is no left sub tree will
+
+00:11:30.020 --> 00:11:32.190
+print 8 and go to the right sub tree.
+
+00:11:32.190 --> 00:11:33.580
+And finally, will print 9.
+
+00:11:33.580 --> 00:11:39.050
+So, it easy to see the because of this property,
+we know that everything to the left is smaller
+
+00:11:39.050 --> 00:11:41.980
+than that value and everything to the right
+is bigger than the value.
+
+00:11:41.980 --> 00:11:46.680
+So, this is like a recursive, in this is very
+similar to the partitioning of quick sort
+
+00:11:46.680 --> 00:11:47.680
+in a sense.
+
+00:11:47.680 --> 00:11:50.380
+So, we have already partition the values of
+the smaller values are to the left.
+
+00:11:50.380 --> 00:11:54.480
+So, there are bigger values to the right and
+if you recursively follow this partitioning
+
+00:11:54.480 --> 00:11:59.080
+to list out we will; obviously, get the values
+in sorted order.
+
+00:11:59.080 --> 00:12:06.270
+So, now searching for a tree a value in a
+binary search tree is very much like binary
+
+00:12:06.270 --> 00:12:07.270
+search.
+
+00:12:07.270 --> 00:12:13.740
+Remember, in binary search you have an array
+and then we start at the midpoint and then
+
+00:12:13.740 --> 00:12:17.070
+if you find it you say yes; otherwise, if
+it is smaller you go and to left; otherwise,
+
+00:12:17.070 --> 00:12:20.370
+one is bigger we look at the right.
+
+00:12:20.370 --> 00:12:25.800
+So, we have a very similar thing, so we want
+to find a value v in a tree, if the tree is
+
+00:12:25.800 --> 00:12:30.440
+empty of course, we say that is not there,
+so we return false.
+
+00:12:30.440 --> 00:12:35.540
+If the current node has the value, then we
+have found it and return 2, on the other hand
+
+00:12:35.540 --> 00:12:43.300
+if have you not founded it, then since we
+have a tree we look to see whether the value
+
+00:12:43.300 --> 00:12:47.540
+is smaller than the current value, it is smaller
+than we recursively search in the left and
+
+00:12:47.540 --> 00:12:51.240
+return whatever we find there .If it is found
+there we say to true, it is not found there
+
+00:12:51.240 --> 00:12:56.240
+which we say to the tree; otherwise, we search
+recursively the right, so this is very similar
+
+00:12:56.240 --> 00:12:57.870
+binary search.
+
+00:12:57.870 --> 00:13:03.550
+Now, like binary search you can do iterative
+version of this, so you start at the root
+
+00:13:03.550 --> 00:13:06.250
+and then so long as it is not nil you trust
+on the path.
+
+00:13:06.250 --> 00:13:11.000
+So, the current value is v return true; otherwise,
+you walked on to the left are you actually
+
+00:13:11.000 --> 00:13:14.690
+start to the root and you kind of trace a
+path you can values are that find.
+
+00:13:14.690 --> 00:13:19.660
+And then when you reach a node you say yes,
+on the other hand if you reach a point where
+
+00:13:19.660 --> 00:13:24.700
+you cannot going further, if you run out of
+nodes, if you come all the way down and then
+
+00:13:24.700 --> 00:13:29.410
+you say there is no extension, where I can
+find it then we will say false.
+
+00:13:29.410 --> 00:13:35.360
+So, this is the simple recursive and iterative
+version of find.
+
+00:13:35.360 --> 00:13:42.040
+So, the next two operations insert we want
+to do your finding the minimum and the maximum.
+
+00:13:42.040 --> 00:13:48.110
+So, the minimum node in the tree is the left
+most node, in other words it is the node that
+
+00:13:48.110 --> 00:13:52.600
+you reach if you go and as for as you can
+follow only left edges.
+
+00:13:52.600 --> 00:13:58.030
+So, in this case from 5 for go left I go to
+3, from 3 if I go to left I go to 1 and then
+
+00:13:58.030 --> 00:14:01.800
+I cannot go left there is something below
+one it is on the right, but never the less
+
+00:14:01.800 --> 00:14:05.500
+in cannot go left one must be the minimum
+element on the tree, because everything that
+
+00:14:05.500 --> 00:14:08.950
+is smaller than something will be 2 is left,
+so if I cannot go left is nothing smaller
+
+00:14:08.950 --> 00:14:09.950
+than 1.
+
+00:14:09.950 --> 00:14:14.490
+So, this is the reason why the left most value
+in the tree will be the minimum.
+
+00:14:14.490 --> 00:14:20.750
+So, we can easily find it recursively, now
+we will typically use this assuming the trees
+
+00:14:20.750 --> 00:14:23.930
+not empty, it simplifies a little bit of coding.
+
+00:14:23.930 --> 00:14:27.920
+So, assuming the trees not empty we do not
+have to check any special condition and given
+
+00:14:27.920 --> 00:14:30.600
+a error when it is not empty, when it is empty.
+
+00:14:30.600 --> 00:14:37.860
+So, we assume it is not empty, so if we can
+go left we can we do, so if the t dot left
+
+00:14:37.860 --> 00:14:43.340
+is nil then this is the minimum value and
+we return otherwise, we recursively search
+
+00:14:43.340 --> 00:14:46.250
+for the minimum value on the left.
+
+00:14:46.250 --> 00:14:49.620
+And again there is the very simple iterative
+version, we start with the current thing and
+
+00:14:49.620 --> 00:14:51.490
+we keep going left as long as we can.
+
+00:14:51.490 --> 00:14:55.750
+So, long as we do not it will nil and when
+reach this point why t dot left is nil, we
+
+00:14:55.750 --> 00:14:59.960
+come out with this loop and you return the
+value at this point, so here from since we
+
+00:14:59.960 --> 00:15:04.530
+would start with 5 t dot left is 3, t dot
+left is 1, t dot left is nil.
+
+00:15:04.530 --> 00:15:09.880
+So, this at this point we stop, so t is pointing
+to 1, so therefore t dot value is 1 and this
+
+00:15:09.880 --> 00:15:13.270
+is the value by return, so we can find the
+minimum.
+
+00:15:13.270 --> 00:15:18.410
+So, symmetrically the maximum is the right
+most value on the tree, as you go right you
+
+00:15:18.410 --> 00:15:21.730
+go bigger, if you cannot go right any more
+this is nothing which is bigger than that
+
+00:15:21.730 --> 00:15:22.730
+node.
+
+00:15:22.730 --> 00:15:26.510
+So, here from 5 we can go to 7 to 9 and 9
+is the biggest value, because a next node
+
+00:15:26.510 --> 00:15:30.130
+which all though it is below 9 in the tree
+it is through the left and therefore, smaller
+
+00:15:30.130 --> 00:15:31.130
+than 9.
+
+00:15:31.130 --> 00:15:36.260
+So, we have a symmetric recursive solution
+maxval, we checks the right if the right is
+
+00:15:36.260 --> 00:15:42.420
+nil then we are at the maximum we return the
+value if the right is not nil, then we recursively
+
+00:15:42.420 --> 00:15:45.240
+search the right for the maximum.
+
+00:15:45.240 --> 00:15:49.550
+And again iterative version of the same, we
+just follow chase point as to the right.
+
+00:15:49.550 --> 00:15:54.600
+So, as long as right t dot right is not nil,
+we move from t to t dot right and when we
+
+00:15:54.600 --> 00:16:00.090
+cannot move any we are at the maximum value,
+so we return that value.
+
+00:16:00.090 --> 00:16:09.180
+So, this point we have done find minimum and
+maximum in a search tree.
+
+00:16:09.180 --> 00:16:17.470
+So, these three operations we have done, now
+if you remember we have do predecessor and
+
+00:16:17.470 --> 00:16:19.290
+successor.
+
+00:16:19.290 --> 00:16:27.040
+So, let us first look at successor, so recall
+that the successor of x in the list, supposed
+
+00:16:27.040 --> 00:16:30.800
+to be the next value, the next smallest value
+after x the list.
+
+00:16:30.800 --> 00:16:35.280
+So, if we print it out in sorted order, it
+will be the value that would appear to the
+
+00:16:35.280 --> 00:16:41.650
+right of x and the in order traversal of a
+tree prints out the values in sorted order.
+
+00:16:41.650 --> 00:16:45.590
+So, it is effectively what in order would
+print immediately after x.
+
+00:16:45.590 --> 00:16:51.480
+So, we know that the way that in order works,
+it prints the left sub tree then it prints
+
+00:16:51.480 --> 00:16:53.800
+x, then it prints right sub tree.
+
+00:16:53.800 --> 00:16:58.970
+So, if you want to one that comes immediately
+after x, it will be the first value here.
+
+00:16:58.970 --> 00:17:04.350
+So, the smallest value in the right sub tree,
+in other words the minimum of the right sub
+
+00:17:04.350 --> 00:17:09.939
+tree and we already know how to compute the
+minimum of a tree, but they could be a possibility
+
+00:17:09.939 --> 00:17:14.020
+that we want to successor of a value with
+does not have a right sub tree, then what
+
+00:17:14.020 --> 00:17:15.089
+we do.
+
+00:17:15.089 --> 00:17:20.880
+So, the first observation is that if a value
+has no right sub tree, then it must be the
+
+00:17:20.880 --> 00:17:23.260
+maximum of the sub tree to which it belongs.
+
+00:17:23.260 --> 00:17:27.540
+So, in this case we look at the value x, it
+has no right sub trees, so it is the maximum
+
+00:17:27.540 --> 00:17:28.690
+of some sub tree.
+
+00:17:28.690 --> 00:17:33.550
+So, we have to first identify this sub tree,
+so how do we identify the sub tree, will be
+
+00:17:33.550 --> 00:17:37.190
+walk up and find out how this sub tree is
+connected.
+
+00:17:37.190 --> 00:17:40.290
+So, we get to x there following is sequence
+of right pointers.
+
+00:17:40.290 --> 00:17:44.100
+So, we follow those right pointers backwards
+and when we a follow a left pointer, we know
+
+00:17:44.100 --> 00:17:45.830
+that we have come out of this sub tree.
+
+00:17:45.830 --> 00:17:51.820
+So, therefore that node must be the root of
+the sub tree below is this is the left sub
+
+00:17:51.820 --> 00:17:53.490
+tree, therefore that is the next value.
+
+00:17:53.490 --> 00:17:59.760
+So, this entire red, block sub tree will be
+printed out and sorted order ending with x,
+
+00:17:59.760 --> 00:18:05.110
+after this the root will be printed thus which
+is this node which we have label as successor.
+
+00:18:05.110 --> 00:18:09.440
+So, therefore, that is the node that we want
+took a designate in the success for x.
+
+00:18:09.440 --> 00:18:20.210
+So, here is a simple pseudo code for this,
+so we want to find the successor of node t.
+
+00:18:20.210 --> 00:18:26.670
+Now, if this node has a right pointer, then
+we just return the minimum value of the right
+
+00:18:26.670 --> 00:18:31.550
+sub tree, on the other hand if it does not
+have a right, then we need to go up and find
+
+00:18:31.550 --> 00:18:34.040
+the first place where the path turns right.
+
+00:18:34.040 --> 00:18:40.060
+So, we start with t and then we compute it
+is parent which we call y now.
+
+00:18:40.060 --> 00:18:44.620
+So, long as this direction is right, we keep
+moving up's we go to one more parent and we
+
+00:18:44.620 --> 00:18:49.290
+move t up, so that is what happening in this
+loop here.
+
+00:18:49.290 --> 00:18:54.420
+So, we move t and y up and then at some point
+we have move t and y will go this way.
+
+00:18:54.420 --> 00:19:03.650
+So, it will be y dot left and therefore, this
+now this y is the successor of this original
+
+00:19:03.650 --> 00:19:08.880
+node t and then there is one special case
+where we have reach the top and we do not
+
+00:19:08.880 --> 00:19:13.230
+ever turn right and that is case where we
+as you as started from the maximum value overall
+
+00:19:13.230 --> 00:19:17.470
+in the tree, in which case we reach in then
+it has no successor of we will just return
+
+00:19:17.470 --> 00:19:18.470
+nil.
+
+00:19:18.470 --> 00:19:22.931
+So, let us look at this particular thing,
+so for 3 for incidents the right sub tree
+
+00:19:22.931 --> 00:19:25.150
+exists 4 and this smaller is value there is
+4.
+
+00:19:25.150 --> 00:19:29.690
+Therefore, there is a success of for 1 the
+smallest values 2, so that is the successor
+
+00:19:29.690 --> 00:19:34.050
+for 7 the minimum value in this sub tree is
+8.
+
+00:19:34.050 --> 00:19:40.270
+So, 8 is a successor or 7, so these all come
+out of the basic case for you have a right
+
+00:19:40.270 --> 00:19:42.690
+sub tree.
+
+00:19:42.690 --> 00:19:47.430
+On the other hand, if you do not have a right
+sub tree then for instance you started 2,
+
+00:19:47.430 --> 00:19:52.220
+then you walk up and that they where you turn
+right, you find that 3 is the successive or
+
+00:19:52.220 --> 00:19:55.960
+from 4 you walk up and you very term right
+you find that 5 is successive.
+
+00:19:55.960 --> 00:20:01.220
+Similarly, for I 8 you immediately turn right,
+so 9 is successive and finally, for 9 you
+
+00:20:01.220 --> 00:20:02.850
+will come in and you will reach this nil case.
+
+00:20:02.850 --> 00:20:09.330
+So, 9 will say that there is no successive,
+because it is the large possible value.
+
+00:20:09.330 --> 00:20:15.940
+So, the situation for the predecessor is symmetric,
+so if we have a left sub tree, then the predecessor
+
+00:20:15.940 --> 00:20:18.220
+is the maximum value in this.
+
+00:20:18.220 --> 00:20:23.630
+So, we go down left and then we go all the
+way right and if we do not have a left sub
+
+00:20:23.630 --> 00:20:29.600
+tree, then it means that this is already the
+minimum value in it is sub trees.
+
+00:20:29.600 --> 00:20:35.750
+So, we walk back up following these sequence
+of left pointers, until we turn the other
+
+00:20:35.750 --> 00:20:39.890
+way and then this node we have turn is predecessors.
+
+00:20:39.890 --> 00:20:45.180
+So, for example if you look at these values
+which have left sub trees, so for 5 we go
+
+00:20:45.180 --> 00:20:48.309
+down the left sub tree and we find the right
+most value which is 4.
+
+00:20:48.309 --> 00:20:54.250
+So, 4 is the predecessor are 5, likewise 2
+is the predecessor of 3 and 8 is the predecessor
+
+00:20:54.250 --> 00:20:57.620
+of 9, now we have this other value.
+
+00:20:57.620 --> 00:21:03.200
+So, which we cannot to left for example, we
+cannot go left it 2, we cannot go left it
+
+00:21:03.200 --> 00:21:06.770
+4, we cannot go left it 7, cannot go left
+it 8.
+
+00:21:06.770 --> 00:21:13.600
+So, what do we do in these cases we started
+2 for example, and then we try to go up and
+
+00:21:13.600 --> 00:21:20.410
+where we turn right there we find.
+
+00:21:20.410 --> 00:21:28.290
+So, we come here and we find that one is a
+predecessor simulate from 4 if you go and
+
+00:21:28.290 --> 00:21:33.180
+so we a goal is to go right and then where
+we turn left if find predecessor.
+
+00:21:33.180 --> 00:21:40.590
+So, immediately turn left of these three nodes
+and then 8 we go right and where we turn left
+
+00:21:40.590 --> 00:21:42.100
+we find the predecessor.
+
+00:21:42.100 --> 00:21:46.920
+So, this is how the predecessor works it is
+exactly symmetric to the successor function.
+
+00:21:46.920 --> 00:21:51.990
+So, now let us see how to insert a value,
+inserting a value in a search tree fairly
+
+00:21:51.990 --> 00:21:57.430
+straight forward, there is only one place
+because of remember that the tree is listed
+
+00:21:57.430 --> 00:21:59.050
+in order will give us a shorted list.
+
+00:21:59.050 --> 00:22:03.150
+So, now after adding this value it must second
+give us a sorted list, so it is like saying
+
+00:22:03.150 --> 00:22:06.100
+that they was only one place to insert a value
+in a shorted list.
+
+00:22:06.100 --> 00:22:10.380
+So, is like insertion in a shorted list, except
+we have to find that correct place in the
+
+00:22:10.380 --> 00:22:11.480
+tree to hang it.
+
+00:22:11.480 --> 00:22:16.100
+So, that when we do this in order traversal,
+it would be in the correct order when we list
+
+00:22:16.100 --> 00:22:17.100
+it out.
+
+00:22:17.100 --> 00:22:20.640
+And it turns out that basically we have to
+find out where it should be by searching for
+
+00:22:20.640 --> 00:22:24.750
+it and if it is not present, we add it by
+this search fields.
+
+00:22:24.750 --> 00:22:30.180
+So, for instance if you want to insert 21,
+then we will walked down the tree and we will
+
+00:22:30.180 --> 00:22:32.300
+look for the place where we should find 21.
+
+00:22:32.300 --> 00:22:37.430
+So, it is smaller than 52 we go a left, smaller
+than 37 we go a left, bigger than 16 we go
+
+00:22:37.430 --> 00:22:42.760
+right and then we find that at 28 those no
+value of 21, because there is no left, so
+
+00:22:42.760 --> 00:22:47.210
+this since it should be to the left it 28,
+we add it there.
+
+00:22:47.210 --> 00:22:54.670
+Now, for instance if we want to insert 65,
+then we will go right from 52 and now it is
+
+00:22:54.670 --> 00:22:57.170
+74 we will look left, where they is nothing
+to the left.
+
+00:22:57.170 --> 00:23:01.650
+So, we will insert it there, so it can happen
+at any position in the tree does not have
+
+00:23:01.650 --> 00:23:06.700
+to be at a leaf node like a 28, 28 was already
+a leaf and be inserted 21 below it.
+
+00:23:06.700 --> 00:23:10.661
+But, 74 had a right child, but we inserted
+something to it is left, because left child
+
+00:23:10.661 --> 00:23:16.230
+Now, it could be that we said try to insert
+a value that is already there, for instants
+
+00:23:16.230 --> 00:23:18.450
+in my prompt to insert 91.
+
+00:23:18.450 --> 00:23:23.670
+So, we look for 91 and we find it, so we will
+interpret the insertion of 91 has something
+
+00:23:23.670 --> 00:23:28.110
+which does not disturbed the tree, because
+we earlier said we do not want to have duplicate
+
+00:23:28.110 --> 00:23:29.110
+values.
+
+00:23:29.110 --> 00:23:33.900
+So, when we insert we try to find if the fine
+fields we insert, if find the succeeds we
+
+00:23:33.900 --> 00:23:34.960
+do nothing.
+
+00:23:34.960 --> 00:23:41.770
+So, this is very simple recursive way to do
+this, so first of all we have a special case
+
+00:23:41.770 --> 00:23:47.090
+which such as that trees empty, then we just
+create a new node and point to that node.
+
+00:23:47.090 --> 00:23:50.950
+So, this is an isolated node which has only
+a value v parent left and right to the all
+
+00:23:50.950 --> 00:23:58.110
+be nil, on the other hand if we find it, then
+we do nothing, now we have not found it.
+
+00:23:58.110 --> 00:24:03.740
+So, now if the values smaller then the value
+if the current node and if we have no left
+
+00:24:03.740 --> 00:24:07.780
+child, then we actually insert.
+
+00:24:07.780 --> 00:24:13.220
+If we have to go left and we cannot go left,
+then we create a new node to are left and
+
+00:24:13.220 --> 00:24:15.410
+we make that node point here by it is parents.
+
+00:24:15.410 --> 00:24:19.030
+So, we create a new node here and we say that
+it is parent is ourselves.
+
+00:24:19.030 --> 00:24:26.350
+So, t dot left dot parent is t; otherwise,
+we just recursively insert to our left.
+
+00:24:26.350 --> 00:24:31.060
+So, if you do have a left we recursively insert,
+if we do not have a left then we create a
+
+00:24:31.060 --> 00:24:37.140
+node with v, this is the actually insert operation
+and we make it point to us through its parent.
+
+00:24:37.140 --> 00:24:43.220
+Likewise, if we do want to go right and there
+is no right, we insert it to the right and
+
+00:24:43.220 --> 00:24:47.770
+we make it point to ourselves through it is
+parent; otherwise, we recursively insert to
+
+00:24:47.770 --> 00:24:52.520
+the right, so is the insert to the very straight
+forward function.
+
+00:24:52.520 --> 00:25:01.120
+So, how do we delete a node, so with delete
+says, but we given a value v which we find
+
+00:25:01.120 --> 00:25:03.930
+v in the tree, you must delete the node containing.
+
+00:25:03.930 --> 00:25:10.220
+So, the basic case that is very simple to
+handle is one the node is a leaf node, because
+
+00:25:10.220 --> 00:25:13.309
+then we can just delete it and then it is
+just falls of the tree at the bottom.
+
+00:25:13.309 --> 00:25:18.929
+So, for instants if you want to delete 65,
+then we will search for 65 find it by the
+
+00:25:18.929 --> 00:25:21.990
+usual mechanism of following the left and
+right paths.
+
+00:25:21.990 --> 00:25:25.800
+And then since it is a leaf node we can just
+remove this node from the tree and nothing
+
+00:25:25.800 --> 00:25:29.090
+happens, it remains valid search.
+
+00:25:29.090 --> 00:25:33.770
+Now, sometimes a deleted node might have only
+one child, for instance supposing we delete
+
+00:25:33.770 --> 00:25:34.770
+74.
+
+00:25:34.770 --> 00:25:39.160
+So, we come down to 74, now we want to delete
+this node, but it has the right child, but
+
+00:25:39.160 --> 00:25:45.640
+now what we can do, you can promote this child,
+so we can just kind of pretend that this link
+
+00:25:45.640 --> 00:25:50.440
+goes directly through this to 91.
+
+00:25:50.440 --> 00:25:57.340
+So, you just eliminate that node in between
+and the directly connect 52 to the successor
+
+00:25:57.340 --> 00:25:59.190
+of the node that is going to be delete.
+
+00:25:59.190 --> 00:26:04.500
+So, if there is only one child in this no
+problem, now what if the child delete, child
+
+00:26:04.500 --> 00:26:07.440
+is 2 deleted node as 2 children.
+
+00:26:07.440 --> 00:26:10.430
+So, supposing you want a delete 37 that is
+this one.
+
+00:26:10.430 --> 00:26:16.460
+So, we identify 37 now 37 must go to but we
+cannot arbitrarily re structure the tree,
+
+00:26:16.460 --> 00:26:19.820
+because we will have 2 children and we do
+not know what to do with it.
+
+00:26:19.820 --> 00:26:28.950
+So, now one strategy that works is to make
+a hole there to remove the 37 and replace
+
+00:26:28.950 --> 00:26:33.170
+it by either it is predecessor or successive.
+
+00:26:33.170 --> 00:26:37.800
+So, supposing we identify it is predecessor
+with predecessor remember will be the biggest
+
+00:26:37.800 --> 00:26:39.809
+node a maximum in it is left sub trees.
+
+00:26:39.809 --> 00:26:45.170
+So, here it will be 28, so what we will do
+is, we will copy the 28 to this node which
+
+00:26:45.170 --> 00:26:46.170
+is to be deleted.
+
+00:26:46.170 --> 00:26:51.040
+So, 37 the node is not be deleted, it is value
+has been replace by 28, now why is the valid
+
+00:26:51.040 --> 00:26:53.280
+valid, because we want to preserve the shorted
+thing.
+
+00:26:53.280 --> 00:26:59.580
+So, if we have some list of shorted values
+and I delete something here, then what happens
+
+00:26:59.580 --> 00:27:02.809
+is that everything is to the right of the
+predecessor.
+
+00:27:02.809 --> 00:27:07.070
+So, I have basically move the predecessor
+to this point, where preserve the order between
+
+00:27:07.070 --> 00:27:08.710
+these elements in the sorted order.
+
+00:27:08.710 --> 00:27:12.210
+So, moving the predecessor here I guaranty
+there anything that is to their height, remains
+
+00:27:12.210 --> 00:27:15.550
+bigger then this node and everything to the
+left remains smaller then this node, because
+
+00:27:15.550 --> 00:27:16.780
+that was the biggest values.
+
+00:27:16.780 --> 00:27:22.720
+Now of course, I have two copies at 28, so
+I am was remove that 28, so then I will focus
+
+00:27:22.720 --> 00:27:26.360
+on the left sub tree and I delete this predecessor
+value.
+
+00:27:26.360 --> 00:27:30.570
+But, the good thing of at the predecessor
+value is that is the right most valued, right
+
+00:27:30.570 --> 00:27:34.130
+most value means either it is a leaf or it
+has only left child.
+
+00:27:34.130 --> 00:27:36.920
+So, we have back in the simpler case one of
+these two cases.
+
+00:27:36.920 --> 00:27:41.600
+So, we can just delete the predecessor of
+the using one of these two cases, either it
+
+00:27:41.600 --> 00:27:44.900
+is going to be a leaf it is just falls off
+or I am going to promote this 21.
+
+00:27:44.900 --> 00:27:51.630
+So, in this case the 21 will get promoted,
+so deleting in general consist of moving the
+
+00:27:51.630 --> 00:27:58.230
+predecessor to the current value and then
+deleting the predecessor in the left sub tree.
+
+00:27:58.230 --> 00:28:04.559
+So, it is a long piece of code, because we
+have been many cases, so first of all you
+
+00:28:04.559 --> 00:28:07.330
+with empty tree we do not nothing to we cannot
+delete.
+
+00:28:07.330 --> 00:28:12.410
+If form the other hand that value at the current
+node is not v, so if it is strictly less than,
+
+00:28:12.410 --> 00:28:16.500
+then it there is something to the left we
+delete from there, if it is strictly greater
+
+00:28:16.500 --> 00:28:19.900
+then at there is something to the right we
+delete from there, so these are the two recursive
+
+00:28:19.900 --> 00:28:20.900
+cases.
+
+00:28:20.900 --> 00:28:25.179
+So, if it is not strictly less than and not
+strictly greater then in must be equal and
+
+00:28:25.179 --> 00:28:26.380
+we have to do some real deletes.
+
+00:28:26.380 --> 00:28:28.250
+So, now we have this three cases.
+
+00:28:28.250 --> 00:28:32.690
+So, the first case actually breaks up in two
+cases, if it is a leaf it could be a leaf
+
+00:28:32.690 --> 00:28:36.050
+because it is the root, the root and which
+is only one node.
+
+00:28:36.050 --> 00:28:42.220
+So, we will treat that slightly differently,
+so we will say that if it has no parent that
+
+00:28:42.220 --> 00:28:46.000
+is it is the root, then deleting the value
+actually makes it tree empty.
+
+00:28:46.000 --> 00:28:51.000
+So, we just a reset t to be the empty tree
+nil and the return.
+
+00:28:51.000 --> 00:29:00.750
+If on the other hand, it is a leaf node it
+has no children, then what we do is we try
+
+00:29:00.750 --> 00:29:05.500
+to delete it by just setting the parents value
+to be nil.
+
+00:29:05.500 --> 00:29:11.080
+So, supposing I come here and this my leaf
+node and I want to delete this, then I look
+
+00:29:11.080 --> 00:29:17.710
+up and then I basically set the right pointer
+of this to be nil, which is essentially kills
+
+00:29:17.710 --> 00:29:19.990
+of this link and says that there is no right
+pointers.
+
+00:29:19.990 --> 00:29:24.280
+So, if the current node is the left child
+of it is parent as said the left child with
+
+00:29:24.280 --> 00:29:25.280
+the parent to nil.
+
+00:29:25.280 --> 00:29:29.480
+Otherwise, said the right child with the parent
+to nil, so this of course, create some garbage
+
+00:29:29.480 --> 00:29:33.870
+because this node is now an accessible, in
+accessible from the tree.
+
+00:29:33.870 --> 00:29:37.040
+But, we assume that this should be recovered
+and we do not at you worry about it, if you
+
+00:29:37.040 --> 00:29:40.830
+are doing this in a language likes see, then
+you have to be very careful to this store
+
+00:29:40.830 --> 00:29:41.830
+this back to the free space.
+
+00:29:41.830 --> 00:29:45.170
+But, in a other language which have garbage
+collection, this will they automatically be
+
+00:29:45.170 --> 00:29:48.970
+restored and garbage collection takes a over,
+but the point is that we have just simply
+
+00:29:48.970 --> 00:29:54.190
+removing it by resetting are parents point
+at be there, so this is the leaf case.
+
+00:29:54.190 --> 00:29:59.401
+So, having consider into the leaf case, now
+let us consider the case if I will delete
+
+00:29:59.401 --> 00:30:01.260
+a node with a only one child.
+
+00:30:01.260 --> 00:30:05.950
+So, the first case we will look at this, when
+we have trying to delete a node which has
+
+00:30:05.950 --> 00:30:07.190
+only a left sub tree.
+
+00:30:07.190 --> 00:30:13.110
+So, left is not nil, right is nil, so what
+we do first of all is we look at this immediate
+
+00:30:13.110 --> 00:30:14.110
+left successor.
+
+00:30:14.110 --> 00:30:21.100
+So, this has a parent somewhere about it,
+so if first make this left child point directly
+
+00:30:21.100 --> 00:30:22.100
+to the parent.
+
+00:30:22.100 --> 00:30:29.400
+So, t dot left dot parent is t dot parent,
+then we look up and we decided whether this
+
+00:30:29.400 --> 00:30:32.410
+is the left parent or left child or a right
+child which parent.
+
+00:30:32.410 --> 00:30:37.870
+So, supposing the node we have is sitting
+to the left of its parent, if t dot parent
+
+00:30:37.870 --> 00:30:47.280
+are left is t, then what we do is we make
+this point directly.
+
+00:30:47.280 --> 00:30:57.670
+Now, on the other hand if it was not like
+this, but it was the other way, so this happened
+
+00:30:57.670 --> 00:31:04.960
+to be a right child of which parent, then
+the right child should not point directly,
+
+00:31:04.960 --> 00:31:07.840
+the right child of the parent is now my left
+child.
+
+00:31:07.840 --> 00:31:12.880
+So, this the way to splices out or remove
+this thing and promote the child they only
+
+00:31:12.880 --> 00:31:21.560
+child are we do a symmetrical thing if it
+is only the right child.
+
+00:31:21.560 --> 00:31:32.950
+So, we first take the right child and then
+we reset its parent to be your own parent
+
+00:31:32.950 --> 00:31:36.270
+and there after that depending on the case,
+we either make at this point like this, at
+
+00:31:36.270 --> 00:31:37.880
+this point like this.
+
+00:31:37.880 --> 00:31:41.620
+So, either t dot parent of left is t dot right,
+t dot parent of right is t dot left.
+
+00:31:41.620 --> 00:31:47.290
+So, if I have only one child we just remove
+the node if effectively from the tree.
+
+00:31:47.290 --> 00:31:53.270
+And finally, if we have a node with two children,
+what we do is if we first compute the predecessor
+
+00:31:53.270 --> 00:31:59.840
+at v and then we set the current nodes value
+to be the predecessor value and now we know
+
+00:31:59.840 --> 00:32:01.160
+that this value is duplicate.
+
+00:32:01.160 --> 00:32:05.970
+So, we go the left child and deleted are remember
+that when we deleted here, the left child
+
+00:32:05.970 --> 00:32:08.820
+we have deleting what we know is the maximum
+value.
+
+00:32:08.820 --> 00:32:13.090
+So, therefore it will have either no children
+it will be a leaf or it will have a single
+
+00:32:13.090 --> 00:32:14.090
+child.
+
+00:32:14.090 --> 00:32:16.760
+So, it will not come back to this case it
+will just stop at the earlier two cases and
+
+00:32:16.760 --> 00:32:18.770
+it will get successfully deleted.
+
+00:32:18.770 --> 00:32:22.820
+So, there is no problem it is just calling
+delete again.
+
+00:32:22.820 --> 00:32:28.420
+So, all these operations that we have to describe
+now walk down a single path.
+
+00:32:28.420 --> 00:32:32.809
+So, therefore, the worst case complexity to
+any one of these operations is the height
+
+00:32:32.809 --> 00:32:34.870
+of the current given tree.
+
+00:32:34.870 --> 00:32:40.610
+And if we have maintain some kind of a balance
+tree like a heat we saw, then the height is
+
+00:32:40.610 --> 00:32:42.120
+logarithmic in this sides.
+
+00:32:42.120 --> 00:32:44.490
+So, we have n nodes the height is order log
+n.
+
+00:32:44.490 --> 00:32:48.240
+So, you will see in the next lecture how to
+maintain the balance but, assuming that we
+
+00:32:48.240 --> 00:32:51.340
+maintain in the balance we have succeeded
+in what we have achieve, what it wanted to
+
+00:32:51.340 --> 00:32:56.920
+achieve which is we wanted all these 7 operations
+to be simultaneously efficient and there all
+
+00:32:56.920 --> 00:32:58.570
+now log n time.
+
+00:32:58.570 --> 00:33:03.970
+Because, each of them can be achieved in one
+traversal up or down a path in the tree.
+

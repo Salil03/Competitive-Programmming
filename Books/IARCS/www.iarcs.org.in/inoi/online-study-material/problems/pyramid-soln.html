@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp.html">Dynamic Programming</a>&rarr;Pyramid (IOI 2006)
+      </h2>
+
+      <p>
+	After winning a great battle, King Jaguar wants to build
+	a pyramid that will serve both as a monument to remember
+	his victory and as a tomb for the brave soldiers that
+	died in battle. The pyramid will be built in the
+	battlefield and will have a rectangular base of a columns
+	by b rows.  Inside it, at ground level, is a smaller,
+	rectangular chamber of c columns by d rows that will
+	contain the corpses and weapons of the fallen soldiers.
+      </p>
+
+      <p>
+	The King’s architects have surveyed the battlefield as an
+	m columns by n rows grid and have measured the elevation
+	of each square as an integer.
+      </p>
+
+      <p>
+	Both the pyramid and the chamber are to be built covering
+	complete squares of the grid and with their sides
+	parallel to those of the battlefield. The elevation of
+	the squares of the internal chamber must remain unchanged
+	but the remaining terrain of the base of pyramid will be
+	leveled by moving sand from higher squares to lower
+	ones. The final elevation of the base will be the average
+	elevation of all the squares of the base (excluding those
+	of the chamber). The architects are free to locate the
+	internal chamber anywhere within the pyramid as long as
+	they leave a wall at least one square thick surrounding
+	the chamber.
+      </p>
+
+      <p>
+	Help the architects pick the best place to locate the
+	pyramid and the internal chamber so that the final
+	elevation of the base is the maximum possible for the
+	sizes given.
+      </p>
+
+      <p>
+	The figure shows an example of an 8&times;5 battlefield
+	with a&times;b = 5&times;3 and c&times;d = 2&times;1; the
+	number in each square represents the elevation of the
+	terrain in that particular position of the field. The
+	larger marked rectangle the base of the pyramid while the
+	inner marked rectangle squares represent the
+	chamber. This figure illustrates an optimal placement.
+      </p>
+
+      <pre>
+                      -----------------------
+	1    5   10  | 3    7    1    2    5 |
+        |                       --------     |
+	6   12    4  | 4    3  | 3    1 |  5 |
+                     |          --------     |
+	2    4    3  | 1    6    6   19    8 |
+                      -----------------------
+	1    1    1    3    4    2    4    5
+
+	6    6    3    3    3    2    2    2
+      </pre>
+
+      <p>
+	Given the dimensions of the field, the pyramid, and the
+	chamber along with the elevation of every square in the
+	field, find the location of both the pyramid in the field
+	and the chamber inside the pyramid so that the elevation
+	of the base is the maximum possible.
+      </p>
+
+      <p>
+	Limits:  3&le;m,n&le;1000
+      </p>
+
+      <div id="solution">
+	<h2>Solution</h2>
+      </div>
+
+      <p>
+	We can do some preprocessing and compute in MN time for
+	each (i,j) the size of the a&times;b rectangles and
+	c&times;d rectangles with top left corner at (i,j).
+      </p>
+
+      <p>
+	Now, for each a&times;b "base" we have to find the
+	smallest c&times;d "chamber" that we can place within
+	this "base".  Since we have to leave a wall at the
+	boundary, we effectively need to find the minimum
+	c&times;d rectangle within this subrectangle of size
+	(a-2)&times;(b-2) sitting inside the base.  Henceforth,
+	let us denote the size (a-2)&times;(b-2) as e&times;f.
+      </p>
+
+      <p>
+	Let cd(i,j) denote the size of the c&times;d rectangle at
+	position (i,j).  We want to find the minimum such value
+	in each e&times;f rectangle in the whole grid.  We can do
+	this efficiently in MN time by tiling the whole space as
+	e&times;f rectangles and computing four quantities for
+	each point inside each tile (see two-dimensional version
+	of min-segment, Session 2, Day 3).
+      </p>
+
+      <p>
+	So, overall the problem can be computed in MN time.
+      </p>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

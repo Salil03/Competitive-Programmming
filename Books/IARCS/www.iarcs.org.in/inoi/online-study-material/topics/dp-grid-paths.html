@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="dp.html">Dynamic Programming</a></h2>
+
+      <h3><span>Counting paths in a grid</span></h3>
+
+      <p>
+	You have a rectangular grid of points with n rows and n
+	columns.  You start at the bottom left corner.  At each
+	step, you can either go up to the next point in the same
+	column or right to the next point in the same row.  How
+	many such paths are there from the bottom left corner to
+	the top right corner?
+      </p>
+
+      <p><b>Solution</b></p>
+      
+      <p>
+	We have to take 2n steps, of which we have to choose n to
+	be up moves and n to be right moves.  This gives (2n
+	choose n) paths.
+      </p>
+
+      <p>
+	Instead, we can use a recursive formulation:
+      </p>
+
+      <ul>
+	<li> Path(i,j) : No of ways of going from origin to (i,j)</li>
+	<li> Path(i,j) =   Path(i-1,j)     + Path(i,j-1)<br><br>
+
+	  i.e. Any path to (i,j) comes via (i-1,j) or (i,j-1) and
+	  no path can come via both these routes, so we can
+	  recursively solve the problems for these two
+	  predecessor points and add them. </li>
+
+	<li> Boundary conditions:</li>
+	  <ul>
+	    <li> Path(i,0) = 1</li>
+	    <li> Path(0,j) = 1</li>
+	  </ul>
+      </ul>
+
+      <p>
+	This is a recurrence relation.  Solving this naively is
+	inefficient, because Path(i,j) will be recomputed several
+	times.
+      </p>
+
+      <p>
+	Instead, start at bottom left corner and compute the
+	values along diagonals with points (i,j) where i+j is
+	constant.  Write a loop to store these values in an
+	array.  Takes time proportional to n*n (each grid point
+	is updated exactly once and read upto twice).
+      </p>
+
+      <p>
+	One way to structure the solution as a simple nested loop
+	is:
+      </p>
+
+      <pre>
+       for c = 0 to n*n
+         for each (i,j) such that i+j = c
+           update Path(i,j) using Path(i-1,j) and Path(i,j-1)
+      </pre>
+
+      <p>
+	This way, whenever a new value Path(i,j) has to be
+	computed, the values it depends on --- Path(i-1,j) and
+	Path(i,j-1) --- are already known.
+      </p>
+
+      <p>
+	Why is the recursive solution better?
+      </p>
+
+      <p>
+	What if some points are deleted (that is, no path can go
+	through these points)?
+      </p>
+
+      <p>
+	If there is one deleted point, we have to subtract the
+	number of paths that pass through these points.
+      </p>
+
+      <p>
+	In general, holes may be arbitrarily complicated: if we
+	have two holes, we subtract number of paths that pass
+	through either hole, but we have then subtracted twice
+	the paths that go through both holes, so we have to add
+	these back.
+      </p>
+
+      <p>
+	Instead, we can modify the recurrence to take into account the holes.
+      </p>
+
+      <ul>
+	<li>
+	  Path(i,j) =   Path(i-1,j), if (i-1,j) connected to (i,j)<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 + Path(i,j-1), if (i,j-1) connected to (i,j)</li>
+
+	<li> Path(i,0) = 0 or 1, depending on whether there is a
+          hole between (0,0) and (i,0)</li>
+
+	<li> Path(0,j) = 0 or 1, depending on whether there is a
+          hole between (0,0) and (0,j)</li>
+      </ul>
+
+      <div id="video-material">
+        <h3><span>Video material</span></h3>
+      </div>
+
+      <p>Video lecture on <em>Grid paths</em>,
+	<a href="https://onlinecourses.nptel.ac.in/explorer">
+	  NPTEL online course</a> on
+        <a href="https://onlinecourses.nptel.ac.in/noc15_cs02/preview">
+  	  Design and Analysis of Algorithms</a>
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week7/pdf/nptel-week7-module3-grid-paths.pdf" target="_blank">Lecture slides</a>)</p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/yTKJcpitONQ" frameborder="0" allowfullscreen=""></iframe>
+
+        <br><br>
+
+    </div>
+
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

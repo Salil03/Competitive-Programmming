@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="">Generating permutations</a></h2>
+
+      <p>
+	In many problems, we have to systematically search
+	through a set of possible "states" or "configurations" in
+	order to find the answer.  The overall solution is a loop
+	of the form
+      </p>
+
+      <pre>
+       while (there is one more state to examine){
+          generate the next state;
+          if (the new state has the desired property){
+             do something useful;
+          }
+       }
+      </pre>
+
+      <p>
+	In many such search problems, one needs to be able to
+	systematically generate all possible permutations of a
+	given sequence of symbols.
+      </p>
+
+      <p>
+	For instance, given the sequence s = "a b c d", the set
+	of permutations of s is {"a b c d", "a b d c", "a d b c",
+	"a d c b", ..., "d c b a"}.  Clearly, a sequence of
+	length n generates n!  permutations (we assume that all
+	symbols in the sequence are distinct).
+      </p>
+
+      <p>
+	Our problem is to systematically generate all
+	permutations of the sequence in lexicographic order; that
+	is, the order in which the permutations would be listed
+	in a dictionary.  To achieve this, we would like a simple
+	rule to determine the next permutation from the current
+	one.  We can then begin with the smallest permutation
+	(arrange the symbols in ascending order) and keep
+	applying this rule till we reach the largest permutation
+	(all symbols in descending order).
+      </p>
+
+      <p>
+	Consider the following permutation over the letters {a,b,...,l}
+      </p>
+
+      <p align="center">
+                f g j l b e c k i h d a
+      </p>
+
+      <p>
+	How do we get the next permutation?
+      </p>
+
+      <p>
+	Begin from the right and keep moving left as long as the
+	letters are increasing in value (where
+	a&lt;b&lt;c&lt;&hellip;&lt;l).  In this case, start with
+	a and scan past d, h, i, k.  Stop at c because c&lt;k.
+      </p>
+
+      <p>
+	Find the smallest value bigger than c in the sequence "k
+	i h d a" after c and swap it with c.  In this case, this
+	value is d, so rewrite the last 6 letters of the sequence
+	as "d k i h c a".  Having done this, reverse the letters
+	beyond d to get "d a c h i k".
+      </p>
+
+      <p>
+	The new permutation that we want is thus
+      </p>
+
+      <p align="center">
+                f g j l b e d a c h i k
+      </p>
+
+      <p>
+	Why does this work?  Given values a1&lt;a2&lt;...&lt;ak,
+	the smallest permutation is a1 a2 ... ak and the largest
+	permutation is ak ... a2 a1.
+      </p>
+
+      <p>
+	For the element we have identified in the current
+	permutation, there is no way to increment the permutation
+	keeping this element fixed because we have already
+	identified the largest permutation to its right.  Thus,
+	we have to increment the current element minimally, which
+	is achieved by picking the next largest element to its
+	right.
+      </p>
+
+      <p>
+	How do we implement this?
+      </p>
+
+      <ol>
+
+	<li> Initially, sort the elements to obtain the minimum
+	  permutation.</li>
+
+	<li> Scan from the right to find which element to
+	  increment.</li>
+
+	<li> We now scan back to the right to find the next
+          bigger element to replace this one.  Observe that the
+          sequence to the right is sorted in descending order, so
+          this can be done using binary search.</li>
+
+	<li> Finally, we have to reorder the elements to the
+	  right in ascending order.  If at Step 3 we swap the new
+	  value with the value we want to increment, the sequence
+	  to the right remains in descending order.  We just have
+	  to invert this sequence to put it in ascending order
+	  --- no sorting is required.</li>
+
+      </ol>
+
+      <h3><span>Some problems involving permutations</span></h3>
+
+      <ul>
+	<li> <a href="..\problems\depot.html">Depot (IOI 2001)</a></li>
+	<li> <a href="..\problems\beads.html">Beads (APIO 2008)</a></li>
+      </ul>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

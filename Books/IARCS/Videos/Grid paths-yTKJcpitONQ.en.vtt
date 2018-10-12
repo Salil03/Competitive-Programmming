@@ -1,0 +1,976 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.130 --> 00:00:06.000
+So, continuing our discussion about efficiently
+computing recursive functions, let us look
+
+00:00:06.000 --> 00:00:09.850
+at the problem of computing grid paths.
+
+00:00:09.850 --> 00:00:17.460
+So, we have a grid, a rectangular grid, where
+we start walking at the bottom left corner,
+
+00:00:17.460 --> 00:00:23.710
+and the rule is that we can only go up or
+right. So, we want to start at the bottom
+
+00:00:23.710 --> 00:00:27.919
+and we want to reach the top right corner.
+So, we can number the coordinates. So, the
+
+00:00:27.919 --> 00:00:34.551
+bottom right corner we call (. This particular
+grid has got 5 columns and 10 rows. So, the
+
+00:00:34.551 --> 00:00:41.000
+top right corner is (5, 10). And the question
+that we ask is how many different ways are
+
+00:00:41.000 --> 00:00:46.550
+going, are that go from (0, 0) to (5, 10).
+So, what do we mean by different ways. Well,
+
+00:00:46.550 --> 00:00:51.620
+here for instance is one grid path. This blue
+line takes us up from (0, 0), then right,
+
+00:00:51.620 --> 00:00:57.420
+then up, then right and so on. So, this traces
+out one particular sequence of edges along
+
+00:00:57.420 --> 00:01:02.560
+this grid taking us from the bottom left corner
+to the top right. So, we could, of course
+
+00:01:02.560 --> 00:01:07.310
+choose a different one, which in this particular
+one the red one and the blue one are completely
+
+00:01:07.310 --> 00:01:12.009
+disjoint. They do not use any of the same
+edges, but in general, I could have paths
+
+00:01:12.009 --> 00:01:17.389
+which overlap with the other ones. So, this
+yellow one partly overlaps with the blue at
+
+00:01:17.389 --> 00:01:20.630
+the middle, over here, and then it overlaps
+with the red one over here, right. We want
+
+00:01:20.630 --> 00:01:27.299
+to know how many such different paths are
+there from (0, 0) to (m, n).
+
+00:01:27.299 --> 00:01:33.720
+Now, it turns out this problem is actually
+a very classical problem in combinatorics
+
+00:01:33.720 --> 00:01:40.759
+(counting). So, the way to analyze this is
+to see, that if I want to go from the bottom
+
+00:01:40.759 --> 00:01:48.789
+to the top, then I must, on the, in one-dimensional
+I must go from 0 to 5. In the other dimensions,
+
+00:01:48.789 --> 00:01:54.119
+I must go to 0 to 10. So, totally I must make
+15 steps, right. There is no choice, I must
+
+00:01:54.119 --> 00:01:55.759
+walk 15 segments.
+
+00:01:55.759 --> 00:02:03.900
+In general, if I am going to some (m, n),
+I must walk m plus n segments. Now, if I have
+
+00:02:03.900 --> 00:02:11.030
+these 15 segments and I am going to (, that
+means, I have to go right, 5 times, right,
+
+00:02:11.030 --> 00:02:16.890
+and I have to go up 10 times. Now, in which
+sequence I do these rights and ups is what
+
+00:02:16.890 --> 00:02:23.610
+determines which path I take, right. But every
+path will have exactly 5 right moves and exactly
+
+00:02:23.610 --> 00:02:29.410
+10 up moves, right. So, there will be 10 up
+moves and 5 right moves.
+
+00:02:29.410 --> 00:02:34.480
+So, now if I take this and I think of this
+as an overall thing saying this is my 1st
+
+00:02:34.480 --> 00:02:38.890
+move, this is my 2nd move, this is my 3rd
+move and so on, up to the 15th move. Then
+
+00:02:38.890 --> 00:02:44.610
+if I tell you that you moved right, I moved
+right at these positions, at some five positions,
+
+00:02:44.610 --> 00:02:48.370
+then automatically I must have moved up at
+the remaining positions because I have to
+
+00:02:48.370 --> 00:02:55.540
+do exactly 5 and exactly 5 right and 10 up.
+So, therefore, all I need to do to determine
+
+00:02:55.540 --> 00:03:01.340
+exactly which path I am taking is to fix the
+position of the 5 rights moves among the total
+
+00:03:01.340 --> 00:03:08.850
+15, right. So, among 15 positions I choose
+5. This is usually written as 15 choose 5,
+
+00:03:08.850 --> 00:03:14.740
+right. So, this is a very standard, combinatorial
+thing, 15 choose 5 n choose k is n factorial
+
+00:03:14.740 --> 00:03:18.950
+divided by k factorial into n - k factorial,
+right. So, 15 factorial divided by 10 factorial
+
+00:03:18.950 --> 00:03:26.540
+times 5 factorial, it happens to be 3003 ((Refer
+Time:). So, for this particular grid there
+
+00:03:26.540 --> 00:03:30.230
+are 3003 ways.
+Now, of course, instead of choosing the right
+
+00:03:30.230 --> 00:03:36.830
+positions I could also have told you the 10
+positions where I moved up, that leaves 5
+
+00:03:36.830 --> 00:03:43.880
+open positions where I must move in right.
+So, this would give us 15 choose 10, and so
+
+00:03:43.880 --> 00:03:49.420
+it is not a coincidence that 15 choose 10
+and 15 choose 5 are in fact the same expression.
+
+00:03:49.420 --> 00:03:53.970
+So, whether you choose to compute it as 15
+choose 5 or 15 choose 10, it does not matter.
+
+00:03:53.970 --> 00:04:04.010
+So, in general it is going to be m plus n
+choose m or m plus n choose n where I am going
+
+00:04:04.010 --> 00:04:11.930
+from (0, 0) up to (m, n), right. I have to
+make m right moves and n up moves. So, I need
+
+00:04:11.930 --> 00:04:16.949
+to choose m out of m plus n total moves or
+n out of m plus n, both of them will give
+
+00:04:16.949 --> 00:04:22.630
+me the same expression, because that is why,
+n choose k, n choose k is n factorial k factorial
+
+00:04:22.630 --> 00:04:29.470
+n - k. So, if you just exchange k and n - k
+you get the same expression.
+
+00:04:29.470 --> 00:04:35.840
+So, that is all very well, but what, for example,
+if this is not a perfect grid. Supposing we
+
+00:04:35.840 --> 00:04:40.020
+have some intersections, which are blocked.
+So, in this particular case, if you look at
+
+00:04:40.020 --> 00:04:46.000
+this intersection, which is (2, 4), right,
+it is 1, 2 and then 1, 2, 3, 4. So, we have
+
+00:04:46.000 --> 00:04:49.919
+put a black mark to indicate that for the
+moment, you cannot go through it, right. So,
+
+00:04:49.919 --> 00:04:54.680
+any part that goes through (2, 4), should
+not be counted among the valid path from (0,
+
+00:04:54.680 --> 00:04:56.610
+0) to (5, 10).
+
+00:04:56.610 --> 00:05:00.740
+So, the blue path that we had drawn before
+actually goes through this intersection. So,
+
+00:05:00.740 --> 00:05:06.430
+this path is no longer a valid path. The red
+path is ok, because it bypasses it, but the
+
+00:05:06.430 --> 00:05:10.470
+yellow path unfortunately also goes through
+this intersection. So, of the three paths,
+
+00:05:10.470 --> 00:05:15.850
+that we had seen so far, two actually do not
+go through. So, the question now is, out of
+
+00:05:15.850 --> 00:05:21.460
+those 3003 paths that we said were there,
+from (0, 0) to (5, 10), how many of them are
+
+00:05:21.460 --> 00:05:25.610
+still valid if you are not allowed to go through
+this intersection.
+
+00:05:25.610 --> 00:05:30.820
+So, it turns over that actually this also
+has a combinatorial solution. So, what you
+
+00:05:30.820 --> 00:05:39.960
+can say is that in order to go from here and
+if I want to avoid a block intersection. So,
+
+00:05:39.960 --> 00:05:45.800
+let me see how many ways are there of going
+through it and just remove them, right. So,
+
+00:05:45.800 --> 00:05:51.590
+what I will do is, I will say, that every
+path it goes through the current block intersection
+
+00:05:51.590 --> 00:05:56.220
+is a path from (0, 0) to 92, 4) followed by
+a path from (2, 4) to (5, 10) because it goes
+
+00:05:56.220 --> 00:06:02.360
+through (2, 4). So, we can think of this as
+a smaller grid from (0, 0) to (2, 4), right.
+
+00:06:02.360 --> 00:06:08.720
+So, if we solve, this is, this general m plus
+n m plus n choose n, right. So, I get 6 choose
+
+00:06:08.720 --> 00:06:13.810
+2. So, I get there are 15 ways to go from
+(0, 0) to (2, 4). Likewise, if I consider
+
+00:06:13.810 --> 00:06:23.410
+this grid, then this is 3 and this is 6 because
+it was 10 and 5, I have done 2 and 4 respectively.
+
+00:06:23.410 --> 00:06:28.880
+So, after 2 there is still 3 left horizontally;
+after 4 there is still 6 left vertically.
+
+00:06:28.880 --> 00:06:35.830
+So, this is like going from a new (0, 0) to
+(3, 6), right. So, there I get 6 plus 3 choose
+
+00:06:35.830 --> 00:06:40.700
+3 and this turns out to be 84.
+Now, any part, which comes to the bottom 2
+
+00:06:40.700 --> 00:06:45.710
+to 4 followed by any part, that goes from
+there to the top is a valid path passing through
+
+00:06:45.710 --> 00:06:51.800
+2 to 4. So, I multiply these two numbers,
+I have to take 15 times 84 and again 1260.
+
+00:06:51.800 --> 00:06:57.290
+So, this is a total number of paths, which
+are going through (, but I do not want paths
+
+00:06:57.290 --> 00:07:03.320
+going through (. I am saying, that paths going
+2 to 4 are not allowed. So, I must count all
+
+00:07:03.320 --> 00:07:12.540
+these parts as invalid. So, I take the original
+3003 subtract. So, I take 3003 and I subtract
+
+00:07:12.540 --> 00:07:19.780
+1260 and I get 1743, right. So, taking the
+combinatorial exercise to the next step. I
+
+00:07:19.780 --> 00:07:26.669
+can find out how many paths go from the origin
+to the given point on the top right provided
+
+00:07:26.669 --> 00:07:28.970
+one path one position is blocked.
+
+00:07:28.970 --> 00:07:37.080
+So, this imperfection could be more complex.
+I could have two positions blocked, right.
+
+00:07:37.080 --> 00:07:43.020
+In this case, the blue, yellow and red paths
+are all invalid because the red path also
+
+00:07:43.020 --> 00:07:49.920
+happens to get blocked. So, now I have blocked
+at ( and also at (, right. So, if I count
+
+00:07:49.920 --> 00:07:55.020
+all the paths going through two, (, which
+I have already done, I can subtract this.
+
+00:07:55.020 --> 00:07:59.530
+Similarly, I can compute all the paths going
+through ( and subtract those.
+
+00:07:59.530 --> 00:08:04.960
+But now what happens is, this yellow path
+is subtracted twice because it is part of
+
+00:08:04.960 --> 00:08:11.680
+the paths going through ( and part of the
+paths going through (, right. So, I have accidentally
+
+00:08:11.680 --> 00:08:17.419
+removed it twice from my total, so I have
+to put it back. You have to now compute those
+
+00:08:17.419 --> 00:08:22.759
+paths, which go through both the intersections
+and add them back and this combinatorial is
+
+00:08:22.759 --> 00:08:26.990
+called inclusion and exclusion. You come across
+it also sometimes when you do Venn diagram,
+
+00:08:26.990 --> 00:08:29.750
+when you do sets.
+If you want to find out, now you say, how
+
+00:08:29.750 --> 00:08:33.960
+many people are, how many sets have one element,
+how many sets are in the intersection, how
+
+00:08:33.960 --> 00:08:39.030
+many sets you have, you know, you are, students
+taking three subjects, English, history and
+
+00:08:39.030 --> 00:08:42.870
+physics, and then so many taking English and
+history, so many taking history and physics
+
+00:08:42.870 --> 00:08:47.930
+and so on. So, when you do that kind of counting
+you will exactly do this inclusion exclusion,
+
+00:08:47.930 --> 00:08:54.710
+right. So, as we get more and more messy grids,
+this combinatorial question becomes more and
+
+00:08:54.710 --> 00:08:56.720
+more complicated to solve this way.
+
+00:08:56.720 --> 00:09:03.850
+So, let us look for a better solution. So,
+as you might guess, since we are looking at
+
+00:09:03.850 --> 00:09:09.350
+these kind of inductive formulations and recursive
+programs, what we are really looking for is
+
+00:09:09.350 --> 00:09:13.800
+the inductive formulation of the grid path.
+So, let us ask ourselves the following question.
+
+00:09:13.800 --> 00:09:20.830
+How do I get to a point (i,j) on the grid?
+So, I claim, that given our structure, which
+
+00:09:20.830 --> 00:09:25.370
+is, that we can go right or we can go up,
+there are only two ways I can come here. I
+
+00:09:25.370 --> 00:09:31.750
+can either come right from the neighbor on
+my left. So, from (i, j-1) I can make one
+
+00:09:31.750 --> 00:09:38.930
+step right and come to (i,j) or from (i-1,
+j), I can go up once there. So, if I have
+
+00:09:38.930 --> 00:09:47.740
+any paths, which starts at (, right, any path,
+which somehow comes to (i, j-1), then by taking
+
+00:09:47.740 --> 00:09:54.010
+one, exactly one step, that path becomes one
+path to (i,j) right. So, every path from ( to
+
+00:09:54.010 --> 00:10:00.540
+(i-1,j) (i,j -1) can be extended in a unique
+way to (i,j). Likewise, any path, which comes
+
+00:10:00.540 --> 00:10:05.420
+from ( to (i-1,j) can be extended in the unique
+way, right. So, if I count the task coming
+
+00:10:05.420 --> 00:10:10.290
+to the two neighbours, then each of those
+paths can be extended to reach the current
+
+00:10:10.290 --> 00:10:13.640
+node. So, therefore, I get the inductive formulation
+as follows.
+
+00:10:13.640 --> 00:10:19.330
+So, let us write paths (i,j) to denote the
+number of paths from ( to the current point
+
+00:10:19.330 --> 00:10:25.140
+(i,j). So, what we have just seen from our
+inductive analysis on the problem is, that
+
+00:10:25.140 --> 00:10:31.160
+if you are at (i,j), then the paths come from
+left or from below. So, the paths to (i,j)
+
+00:10:31.160 --> 00:10:38.050
+are the sum of paths to (i - 1,j) and the
+paths to (i,j - 1). So, there are, of course,
+
+00:10:38.050 --> 00:10:41.680
+some boundary conditions.
+So, if you look at our grid, in general, then
+
+00:10:41.680 --> 00:10:47.000
+if we look at the leftmost column, let us
+start the bottom row. So, we start the bottom
+
+00:10:47.000 --> 00:10:59.060
+row, right, then we know, that this is of
+the form (, then ( and so on to (, right.
+
+00:10:59.060 --> 00:11:04.030
+So, anything of the form (i,0) derives its
+value only from the left because there is
+
+00:11:04.030 --> 00:11:09.230
+no corresponding row from the left. Similarly,
+from the leftmost column, from this (, ( and
+
+00:11:09.230 --> 00:11:16.680
+so on up to (. And now, there is nothing from
+the left. So, I can only get it from j-1 from
+
+00:11:16.680 --> 00:11:20.730
+the row below.
+And finally, you have to ask ourselves what
+
+00:11:20.730 --> 00:11:24.959
+happens at the initial conditions. So, if
+I am at ( and I want to go to (, how many
+
+00:11:24.959 --> 00:11:28.770
+ways are there? Well, this is a trivial path,
+there is only one way, by just staying there.
+
+00:11:28.770 --> 00:11:32.870
+It is important that it is not 0 because remember,
+that if it is 0, then everywhere you are just
+
+00:11:32.870 --> 00:11:37.580
+adding things and nothing will come, you will
+get no paths. So, it is important, that there
+
+00:11:37.580 --> 00:11:40.279
+is exactly one path from ( to itself.
+
+00:11:40.279 --> 00:11:48.750
+So, how do we deal with holes in this setup?
+That is easy, we just say, that whenever there
+
+00:11:48.750 --> 00:11:54.650
+is a hole at a given point we just declare
+parts of (i,j) to be 0. In other words, if
+
+00:11:54.650 --> 00:11:59.360
+there is a hole at some point, then this thing
+is going to contribute 0 regardless of what
+
+00:11:59.360 --> 00:12:02.292
+is above or below. So, if I come, if I have
+something coming from here and here I will
+
+00:12:02.292 --> 00:12:08.000
+just ignore it and say this is 0. And likewise,
+when I compute the thing above, there will
+
+00:12:08.000 --> 00:12:11.730
+be some value x coming from the left. So,
+this will just be x+0. And similarly, over
+
+00:12:11.730 --> 00:12:17.050
+here there will be something coming from below,
+say y, and this will be 0+y, right.
+
+00:12:17.050 --> 00:12:22.580
+So, any hole will just have by declaration,
+paths (i,j) equal to 0 because nothing can
+
+00:12:22.580 --> 00:12:27.080
+go through it and this will automatically
+propagate to its neighbors correctly. The
+
+00:12:27.080 --> 00:12:30.700
+remaining inductive definition remains exactly
+as before, right. So, if it is not a hole,
+
+00:12:30.700 --> 00:12:35.250
+it depends on its two neighbors. Then we have
+the bottom row left column and the origin
+
+00:12:35.250 --> 00:12:37.459
+as base cases.
+
+00:12:37.459 --> 00:12:43.149
+So, the difficulty with this calculation is
+the same as involved with the Fibonacci, which
+
+00:12:43.149 --> 00:12:49.170
+is, that if I have a particular calculation,
+say for example, supposing we start a recursive
+
+00:12:49.170 --> 00:13:02.370
+calculation at (, then this will ask for ( and
+(. Now, these in turn will both ask for (, so
+
+00:13:02.370 --> 00:13:07.320
+(. if I just evaluate this paths function
+recursively, the way it is written in the
+
+00:13:07.320 --> 00:13:13.170
+inductive definition, it will end up calling
+paths of ( at least twice from this perspective
+
+00:13:13.170 --> 00:13:16.700
+and this wasteful recomputation will occur
+throughout and we will get an exponential
+
+00:13:16.700 --> 00:13:21.190
+number of calls to paths.
+So, we have seen before, we have two technologies
+
+00:13:21.190 --> 00:13:25.350
+to deal with this. So, one is memoization
+where we just make sure that we never call
+
+00:13:25.350 --> 00:13:32.640
+paths (i,j) the same value of i and j more
+than once. The other way is to, is to anticipate
+
+00:13:32.640 --> 00:13:38.100
+the subproblems, figure out how they depend
+on each other, then solve them directly iteratively
+
+00:13:38.100 --> 00:13:42.070
+in a suitable order and this is what we call
+dynamic programming.
+
+00:13:42.070 --> 00:13:49.720
+So, how would we use dynamic programming on
+the grid? So, this is our grid with the two
+
+00:13:49.720 --> 00:13:53.540
+holes at the ( and (. The first thing is to
+identify DAG structure of the dependencies,
+
+00:13:53.540 --> 00:14:01.350
+right. So, it is, we know, that every (i,j)
+depends on, it is left and bottom neighbor.
+
+00:14:01.350 --> 00:14:05.630
+So, this is how we do the DAG. If you remember,
+if these depends on the two values, left and
+
+00:14:05.630 --> 00:14:10.451
+below, we draw an edge from the left to this
+node and from below to this node.
+
+00:14:10.451 --> 00:14:13.890
+So, this is the DAG structure, right. So,
+the yellow edges represent, the DAG structure.
+
+00:14:13.890 --> 00:14:18.560
+So, the DAG structure goes naturally from
+the bottom left to the top, right. So, this
+
+00:14:18.560 --> 00:14:27.529
+is the only 0 in degree node, in this DAG.
+So, if you want to do a computation of this
+
+00:14:27.529 --> 00:14:33.920
+grid to grid paths directly using dynamic
+programming, the only place we can start is
+
+00:14:33.920 --> 00:14:34.920
+(, right.
+
+00:14:34.920 --> 00:14:39.880
+So, we start at ( and we fill the value there,
+which is 1. And now, we observe, that we have
+
+00:14:39.880 --> 00:14:43.450
+two possibilities. We can go to the right
+or we can go up because these two dependencies
+
+00:14:43.450 --> 00:14:49.740
+are now removed. So, let us just go row by
+row. So, if we do this value, then automatically
+
+00:14:49.740 --> 00:14:53.230
+this dependency will go. So, we will be able
+to do this value, when this will go, so we
+
+00:14:53.230 --> 00:14:54.230
+can do this value and so on.
+
+00:14:54.230 --> 00:14:58.480
+So, we can compute the entire bottom row and
+these are all inherited from the left using
+
+00:14:58.480 --> 00:15:01.250
+our base case, right. So, and it is very clear,
+I mean, intuitively there is only one way
+
+00:15:01.250 --> 00:15:07.800
+to get any of these places, which is just
+to go straight from left to right, no deviation
+
+00:15:07.800 --> 00:15:11.200
+is possible. So, there is only one path to
+every node at the bottom node.
+
+00:15:11.200 --> 00:15:17.770
+Now, we can move up one row. We can see, that
+this node in the first row from the second
+
+00:15:17.770 --> 00:15:21.770
+row is now available. It was already available,
+but if we do that we can also do that to the
+
+00:15:21.770 --> 00:15:25.600
+node to it’s right and the node to its right
+and so on, right. So, we can fill the entire
+
+00:15:25.600 --> 00:15:31.170
+second row and at each point we are just adding
+up. So, 2s, 2 plus 1 is 2, 1 plus 3 is 4 and
+
+00:15:31.170 --> 00:15:36.320
+so on. Likewise, we can do the next hole.
+So, for example, 6 plus 4 is 10 and so on.
+
+00:15:36.320 --> 00:15:39.940
+Likewise, you can do the next row, 20 plus
+15 is 35.
+
+00:15:39.940 --> 00:15:44.920
+Now, we come to the holes, right. So, at the
+holes we said, that these will be 0 regardless
+
+00:15:44.920 --> 00:15:48.470
+of what comes from below. Even though there
+is 10 coming from below, this first hole must
+
+00:15:48.470 --> 00:15:53.230
+be 0, 35 from below, the hole must be 0. So,
+we just compute this row exactly as before
+
+00:15:53.230 --> 00:15:58.470
+except that the holes we input as 0 regardless
+of what is coming into it. We do not count
+
+00:15:58.470 --> 00:16:01.880
+it as 5 plus 10, we just put 0. We do not
+count this hole as 20 plus 35, we put 0.
+
+00:16:01.880 --> 00:16:06.420
+Now, when we go to the next row, likewise
+this 0 contributes only 0. So, above it, because
+
+00:16:06.420 --> 00:16:11.200
+no paths can come through this, this direction,
+the number of paths coming here is only 6
+
+00:16:11.200 --> 00:16:15.630
+coming from the left. So, ((Refer Time:) number
+of paths coming here is only 26 coming from
+
+00:16:15.630 --> 00:16:19.790
+the left. So, the number of paths, which are
+coming to this point could not come from there.
+
+00:16:19.790 --> 00:16:24.331
+So, this 20 is copied there, this 56 is copied.
+So, we can do this row by row.
+
+00:16:24.331 --> 00:16:30.760
+And if you can just enumerate every row like
+this by copying, adding up the values to the
+
+00:16:30.760 --> 00:16:32.950
+left and below and we will find, that there
+are actually 1363 paths with these two obstructions.
+
+00:16:32.950 --> 00:16:38.570
+And if we move these obstructions around,
+we can redo these calculations, it will be
+
+00:16:38.570 --> 00:16:44.470
+as efficient, we do not have to worry about
+this inclusion and exclusion. So, this is
+
+00:16:44.470 --> 00:16:48.660
+one way to do the dynamic programming, but
+remember any topological sort will work.
+
+00:16:48.660 --> 00:16:54.209
+So, we could instead start with 1 and go column
+by column, right. So, we can go up and fill
+
+00:16:54.209 --> 00:16:57.740
+that and then we can fill up the entire first
+column. The first column will again be only
+
+00:16:57.740 --> 00:17:00.360
+once because there will be only way to do
+this.
+
+00:17:00.360 --> 00:17:04.030
+Having filled the first column, now we can
+fill the second column and then you can fill
+
+00:17:04.030 --> 00:17:08.709
+the third column and the fourth column and
+so on. And obviously, this is only a different
+
+00:17:08.709 --> 00:17:12.209
+way of enumerating the values. The value is
+going to change. So, we should eventually
+
+00:17:12.209 --> 00:17:15.750
+end up with the same values at every point.
+
+00:17:15.750 --> 00:17:23.380
+And finally, you can also do it by DAG. So,
+notice, that when I do this one, then these
+
+00:17:23.380 --> 00:17:29.600
+two points now are 0 indegree nodes. I can
+do both of them. Now, I have these three points,
+
+00:17:29.600 --> 00:17:35.200
+a 0 indegree nodes. So, I can do all three
+of these. Then I have these four points, as
+
+00:17:35.200 --> 00:17:39.540
+0 indegree nodes. So, I can do all of these
+and so on. So, this is just to emphasize,
+
+00:17:39.540 --> 00:17:47.419
+that the choice of topological sort is entirely
+up to you. Very often, it will be more complicated
+
+00:17:47.419 --> 00:17:50.940
+to program this kind of diagonal things
+So, usually what one tries to do, is a row
+
+00:17:50.940 --> 00:17:57.110
+and column, but any topological ordering of
+the, of the base values can be used in order
+
+00:17:57.110 --> 00:18:01.390
+to compute them. All you need to know is,
+when you come a node, the value you want to
+
+00:18:01.390 --> 00:18:05.650
+compute, all its dependencies must have already
+been computed, that is what this DAG’s structure
+
+00:18:05.650 --> 00:18:10.122
+gives you, right. So, the sub problems form
+a DAG and you have to navigate your way through
+
+00:18:10.122 --> 00:18:15.100
+the DAG in a most effective way as far as
+programming it. It is usually by a row or
+
+00:18:15.100 --> 00:18:19.420
+a column in a table, but it could be by diagonal
+also.
+
+00:18:19.420 --> 00:18:25.650
+So, finally, before we conclude, let us just
+look at an instructive illustration of the
+
+00:18:25.650 --> 00:18:34.350
+difference between a memoization and dynamic
+programming. So, so if we have a bunch of
+
+00:18:34.350 --> 00:18:38.050
+holes which are along the border, then intuitively
+what it says is, that if I start from here
+
+00:18:38.050 --> 00:18:44.280
+and I go anyway like this, I am going to get
+stuck, ok. So, if I start my memoization from
+
+00:18:44.280 --> 00:18:49.380
+there, then everywhere it is just going to
+see a 0. So, all these values are going to
+
+00:18:49.380 --> 00:18:54.080
+be 0, and memoization is not going to look
+further around these.
+
+00:18:54.080 --> 00:19:01.900
+So, memoriation, I claim, is only going to
+look along this outer boundary, only these
+
+00:19:01.900 --> 00:19:05.250
+grid points will actually be computed by memoization.
+Whereas, if I do dynamic programming, I will
+
+00:19:05.250 --> 00:19:11.300
+start from here and I would blindly fill up.
+Only when I reach the 0, I have realized,
+
+00:19:11.300 --> 00:19:14.110
+that the values are kind of computed inside
+the grid, do not worry, right.
+
+00:19:14.110 --> 00:19:19.700
+So, there is this entire shaded region in
+this grid whose values are not needed because
+
+00:19:19.700 --> 00:19:23.070
+they cannot contribute to any path from, from
+the bottom to the top because every path going
+
+00:19:23.070 --> 00:19:27.630
+through them, you get blocked by one of these
+holes, right. Whereas, the dynamic programming
+
+00:19:27.630 --> 00:19:31.330
+is now going to blindly compute the values
+for these points even though they are useless.
+
+00:19:31.330 --> 00:19:35.559
+Memoization, will not - because it only computes
+by need and it will never reach these points,
+
+00:19:35.559 --> 00:19:36.559
+right.
+
+00:19:36.559 --> 00:19:41.010
+So, therefore, the memo table will have a
+linear number of entries, right. It will have,
+
+00:19:41.010 --> 00:19:46.440
+say, 2 m plus 2 n entries. It will only have
+the outer boundary of this grid to be covered.
+
+00:19:46.440 --> 00:19:50.650
+So, it will have linear number of entries
+in terms of the two dimensions, whereas dynamic
+
+00:19:50.650 --> 00:19:55.160
+programming will have m times n entries. It
+will have every grid point will be computed
+
+00:19:55.160 --> 00:19:57.310
+in the table even though most of them are
+useless.
+
+00:19:57.310 --> 00:20:04.710
+So, in a sense, in this example, dynamic programming
+is wastefully computing values, which we can
+
+00:20:04.710 --> 00:20:10.320
+by little bit of analysis realize will never
+be used because it is just blindly computing
+
+00:20:10.320 --> 00:20:17.360
+every sub problem on its way from the origin
+to the top. However, as we said before, dynamic
+
+00:20:17.360 --> 00:20:22.780
+programming is iterative. It is going to be
+just the simple, memoization is going to be
+
+00:20:22.780 --> 00:20:27.300
+recursive. It is going to be optimized to
+not make the same recursive call twice, but
+
+00:20:27.300 --> 00:20:31.559
+nevertheless it is recursive and recursion
+carries a cost in terms of execution in a
+
+00:20:31.559 --> 00:20:34.510
+programming language.
+So, therefore though this looks like a wasteful
+
+00:20:34.510 --> 00:20:39.049
+dynamic programming strategy in case the holes
+are distributed in a bad way. Actually, it
+
+00:20:39.049 --> 00:20:43.460
+does not matter. It usually turns out, that
+a dynamic programming implementation will
+
+00:20:43.460 --> 00:20:48.360
+be usually more efficient than a memoization
+implementation. So, the memoized implementation
+
+00:20:48.360 --> 00:20:53.330
+is easy to do because we know, that we can
+go from an inductive definition directly to
+
+00:20:53.330 --> 00:20:56.400
+a recursive program.
+And we saw last time, that there is a generic
+
+00:20:56.400 --> 00:21:00.580
+formula, or a recipe, to make any recursive
+program memoized. You just have to insert
+
+00:21:00.580 --> 00:21:05.130
+a couple of steps saying, look up the table
+and feed the table, right. So, therefore,
+
+00:21:05.130 --> 00:21:10.480
+getting a memoized implementation is very
+easy, getting a dynamic programing implementation
+
+00:21:10.480 --> 00:21:15.110
+requires some analysis of the subproblems
+and figuring out a good order in which to
+
+00:21:15.110 --> 00:21:19.320
+evaluate the sub problems. So, it is more
+work, but this extra work usually pays off,
+
+00:21:19.320 --> 00:21:23.169
+because then you can get an interactive computation
+of all the subproblems rather than a recursive
+
+00:21:23.169 --> 00:21:23.230
+one.
+

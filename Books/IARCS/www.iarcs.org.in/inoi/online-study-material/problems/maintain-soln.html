@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\advanced-graph-algorithms.html">Advanced Graph Algorithms</a>&rarr;Maintain (IOI 2003)
+      </h2>
+
+      <p>
+        Farmer John's cows wish to travel freely among the N (1
+        &le; N &le; 200) fields (numbered 1...N) on the farm,
+        even though the fields are separated by forest. The cows
+        wish to maintain trails between pairs of fields so that
+        they can travel from any field to any other field using
+        the maintained trails. Cows may travel along a maintained
+        trail in either direction.
+      </p>
+
+      <p>
+        The cows do not build trails. Instead, they maintain wild
+        animal trails that they have discovered. On any week,
+        they can choose to maintain any or all of the wild animal
+        trails they know about.
+      </p>
+
+      <p>
+        Always curious, the cows discover one new wild animal
+        trail at the beginning of each week. They must then
+        decide the set of trails to maintain for that week so
+        that they can travel from any field to any other
+        field. Cows can only use trails which they are currently
+        maintaining.
+      </p>
+
+      <p>
+        The cows always want to minimize the total length of
+        trail they must maintain. The cows can choose to maintain
+        any subset of the wild animal trails they know about,
+        regardless of which trails were maintained the previous
+        week.
+      </p>
+
+      <p>
+        Wild animal trails (even when maintained) are never
+        straight. Two trails that connect the same two fields
+        might have different lengths. While two trails might
+        cross, cows are so focused, they refuse to switch trails
+        except when they are in a field.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        Given G and an MST T for G.  Add an edge e with weight
+        w(e) to G.  Find MST for G+e.
+      </p>
+
+      <ol>
+
+        <li> Recompute MST : O (m log m) </li>
+
+        <li> 
+          <p>Find MST on T+e : O(n log n) </p>
+
+          <p>Alternatively</p></li>
+
+        <li> Include e and delete heaviest edge in cycle formed
+          by e in T+e : O(n)</li>
+
+      </ol>
+
+      <p>
+        What if we delete an edge from G and look for MST in G-e?
+      </p>
+
+      <ol>
+
+        <li> Recompute MST : O (m log m)</li>
+
+        <li> If e is not in T, do nothing.  If e belongs to T,
+          delete e, which separates T into a cut (U,V).  Include
+          smallest weight edge between U and V.
+          O(n<sup>2</sup>). </li>
+
+      </ol>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

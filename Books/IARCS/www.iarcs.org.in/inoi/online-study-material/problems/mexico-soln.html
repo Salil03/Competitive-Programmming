@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp.html">Dynamic Programming</a>&rarr;Mexico (IOI 2006)
+      </h2>
+
+      <p>
+	Mexico City is built in a beautiful valley known as the Valley of Mexico
+	which, years ago, was mostly a lake. Around the year 1300, Aztec religious
+	leaders decreed that the lake's center be filled in order to build the
+	capital of their empire. Today, the lake is completely covered.
+      </p>
+
+      <p>
+	Before the Aztecs arrived, c cities were located around the lake on its
+	shores. Some of these cities established commercial agreements. Goods were
+	traded, using boats, between cities that had a commercial agreement. It was
+	possible to connect any two cities by a line segment through the lake.
+      </p>
+
+      <p>
+	Eventually, the kings of the cities decided to organize this commerce. They
+	designed a commerce route that connected every city around the lake. The
+	route met the following requirements:
+      </p>
+
+      <ul>
+
+	<li>
+	  It could start in any of the cities, visited each of the cities around
+	  the lake, and finally ended in another city different from the starting
+	  city.
+	</li>
+
+	<li>
+	  The route visited each city exactly once.
+	</li>
+
+	<li>
+	  Every pair of consecutively visited cities in the route had a commercial
+	  agreement.
+	</li>
+
+	<li>
+	  Every pair of consecutively visited cities in the route was connected by
+	  a line segment.
+	</li>
+
+	<li>
+	  To avoid crashes between boats, the route never crossed itself.
+	</li>
+
+      </ul>
+
+      <p>
+	The figure below shows the lake and the cities around it.  The lines (both
+	* and -) represent commercial agreements between cities.  The lines with *
+	represent a commerce route starting in city 2 and ending in city 5.
+      </p>
+
+      <p>
+	This route never crosses itself.  It would not be legal, for example, to
+	construct a route that went from 2 to 6 to 5 to 1, since the route would
+	cross itself.
+      </p>
+
+      <pre>
+             * 1
+           *   |*     2 *
+        7*     |  * /      *
+         *     |  / *         *
+         *     |/     *          3
+         *    /|        *       *
+         *  /  |          *   *
+          6 ---+----------- 4
+            *  |
+              *
+               5
+      </pre>
+
+      <p>
+	Cities in the lake are numbered from 1 through c moving
+	in clockwise direction.
+      </p>
+
+      <p>
+	Write a program that, given both the count c of cities
+	and a list of the commercial agreements between them,
+	constructs a commerce route that meets the above
+	requirements.
+      </p>
+
+      <div id="solution">
+	<h2>Solution</h2>
+      </div>
+      <p>
+	Pick a pair of cities (u,v) around the lake such that there is an edge
+	(u,v).  Assuming this is part of the final route, this divides the circle
+	into two disjoint parts.  Solve them separately.  In one part, find a
+	solution that ends at u and in the other part, find a solution that ends at
+	v.  The sub-solutions will not cross each other or cross the edge (u,v), so
+	we can combine these sub-solutions with the edge (u,v) to get a solution
+	overall.
+      </p>
+
+      <p>
+	This solution will work, in general, but it becomes difficult to program
+	because at recursive steps we have to maintain the current list of cities
+	along the periphery that are being handled in the recursive call.
+      </p>
+
+      <p>
+	Instead, we adopt a different approach (which is NOT the same as the
+	earlier divide-and-conquer).
+      </p>
+
+      <p>
+	Let i and j be any distinct cities along the periphery and consider the
+	ordered pair (i,j).  We define
+      </p>
+
+      <ul>
+
+	<li>
+	  Clockwise(i,j) : there is a valid tour among the cities in the
+          arc i,i+1,...,j ending at j</li>
+
+	<li>
+	  Anticlockwise(i,j) : there is a valid tour among the cities in
+          the arc j,j+1,...,i ending at j</li>
+      </ul>
+
+      <p>
+	Let us write an inductive definition for Clockwise(i,j).  Since the path
+	ends at j, the last edge in the path is either (j-1,j) or (i,j).  Any other
+	edge to j would cut through the centre of the lake and not allow a
+	nonintersecting path among all cities.
+      </p>
+
+      <p>
+	If the last edge in the path Clockwise(i,j) is (j-1,j), there is an edge
+	(j-1,j) and, inductively, a path in i,i+1,...,j-1 ending at j-1.  This is
+	the same as Clockwise(i,j-1).
+      </p>
+
+      <p>
+	On the other hand, if the last path in Clockwise(i,j) is (i,j), we need a
+	path in (i,...,j-1) ending at i to which we add (i,j) to get the overall
+	path.  This requirement can be expressed as Anticlockwise(j-1,i).
+      </p>
+
+      <p>
+	Thus, we have
+
+	<ul>
+
+	  <li>
+	    Clockwise(i,j) = (Clockwise(i,j-1) AND Edge(j-1,j))
+            OR
+            (Anticlockwise(j-1,i) AND Edge(i,j))
+	  </li>
+	</ul>
+
+      <p>
+	Symmetrically, for Anticlockwise(i,j), we either end with an edge
+	(j+1,j) or an edge (i,j).  Similar to the above, we have
+
+	<ul>
+
+	  <li>
+	    Anticlockwise(i,j) = (Anticlockwise(i,j+1) AND Edge(j+1,j))
+            OR
+            (Clockwise(j+1,i) AND Edge(i,j))
+	  </li>
+	</ul>
+
+      <p>
+	Notice that whenever we refer to Clockwise(i,j) or Anticlockwise(i,j) in
+	this formulation, we are always referring to the entire segment between i
+	and j (or j and i) along the circumference, so there is no problem keeping
+	track of which cities are part of the subproblem being considered.
+      </p>
+
+      <p>
+	The base cases are
+      </p>
+
+      <ul>
+	<li>  Clockwise(j,j+1)  = True iff Edge(j,j+1)</li>
+	<li>  Anticlockwise(j+1,j) = True iff Edge(j,j+1)</li>
+      </ul>
+
+      <p>
+	Finally, we have a solution to the problem if there exists a city
+	i such that Clockwise(i+1,i) (or equivalently,
+	Anticlockwise(i+1,i)).  Here, i would be one end point of the
+	valid route.
+      </p>
+
+      <p>
+	Alternatively, we could look for i and j such that
+	Clockwise(i,j) AND Anticlockwise(i-1,j).
+	Both these paths end in j and can be combined into a nonoverlapping path
+	for all the cities.
+      </p>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

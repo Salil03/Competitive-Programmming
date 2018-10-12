@@ -1,0 +1,886 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.490 --> 00:00:07.500
+So, let us look at a formal algorithm to explore
+a graph. So, recall that a graph consists
+
+00:00:07.500 --> 00:00:12.130
+of a set of vertices and a set of edges, the
+edges are the connections between the vertices,
+
+00:00:12.130 --> 00:00:14.410
+they may be directed or undirected.
+
+00:00:14.410 --> 00:00:20.900
+So, if we look at undirected graph, the problem
+we are looking at is to find out, whether
+
+00:00:20.900 --> 00:00:25.609
+a source vertex is connected to a target vertex.
+And we said that this amounts to finding a
+
+00:00:25.609 --> 00:00:32.070
+path from v 0 the source vertex to v k the
+target vertex, where each pair of vertices
+
+00:00:32.070 --> 00:00:35.480
+on the path is connected by an edge in the
+graph.
+
+00:00:35.480 --> 00:00:42.180
+So, we argued that we could easily do this
+for small graphs visually, but if you want
+
+00:00:42.180 --> 00:00:46.650
+to write an algorithm, we need a way of representing
+the graph. So, the first thing we decided
+
+00:00:46.650 --> 00:00:51.060
+was, that we would name the vertices 1 to
+n. So, we have n vertices, we will just call
+
+00:00:51.060 --> 00:00:55.890
+them 1, 2, 3, 4 up to n. Then we can represent
+the structure of the graph through an adjacency
+
+00:00:55.890 --> 00:01:00.350
+matrix.
+In this adjacency matrix, the i j’th entry
+
+00:01:00.350 --> 00:01:06.329
+indicates the presence or absence of an edge
+from vertex i to vertex j. So, a i j is 1,
+
+00:01:06.329 --> 00:01:12.259
+there is an edge, a i j is 0, if there is
+no edge. In this matrix, if you want to find
+
+00:01:12.259 --> 00:01:16.109
+out, whether pair of vertices are directly
+connecting, we just have to probe the appropriate
+
+00:01:16.109 --> 00:01:21.630
+entry, we can do that in constant time. To
+find all the outgoing neighbors of a vertex,
+
+00:01:21.630 --> 00:01:26.170
+we have to scan the row for that vertex. So,
+that takes linear time in terms of the number
+
+00:01:26.170 --> 00:01:32.409
+of vertices. Now, one thing we observed is
+that, typically in many graphs, this matrix
+
+00:01:32.409 --> 00:01:35.450
+is largely 0, most pairs are not connected.
+
+00:01:35.450 --> 00:01:39.890
+So, we can get a more compact representation
+by just listing out the neighbors of each
+
+00:01:39.890 --> 00:01:44.520
+vertex. So, instead of keeping a row of 1’s
+and 0’s, we just record those vertices,
+
+00:01:44.520 --> 00:01:49.619
+whose entries are 1. So, this gives us a more
+efficient representation for graphs, where
+
+00:01:49.619 --> 00:01:54.280
+the number of edges is closer to the number
+of vertices. But, in this case in order to
+
+00:01:54.280 --> 00:01:58.770
+find out, whether a given pair i j is connected,
+we have to look at the list for i and see,
+
+00:01:58.770 --> 00:02:01.170
+if j appears in it.
+
+00:02:01.170 --> 00:02:07.110
+Now, our strategy for finding a path connecting
+a source vertex and a target vertex, goes
+
+00:02:07.110 --> 00:02:11.780
+as follows, we would start at the source vertex
+and keep exploring the graph systematically.
+
+00:02:11.780 --> 00:02:17.190
+Each time, we went to a vertex, we would mark
+it as visited, and then we have to make sure,
+
+00:02:17.190 --> 00:02:21.870
+that when we were exploring vertices, we did
+not re-explore the same vertex twice. So,
+
+00:02:21.870 --> 00:02:27.200
+we said there would be two fundamental strategies
+breadth first and depth first. So, today we
+
+00:02:27.200 --> 00:02:29.550
+are going to look at breadth first search.
+
+00:02:29.550 --> 00:02:35.780
+So, the idea of breadth first search is to
+explore the graph level by level. So, we start
+
+00:02:35.780 --> 00:02:41.020
+at the source vertex and we now explore all
+the vertices, which are one step away, connected
+
+00:02:41.020 --> 00:02:47.400
+by a direct edge to the source vertex. Then,
+we look at all vertices which are newly connected
+
+00:02:47.400 --> 00:02:53.180
+one step away from level 1 vertices. So, these
+are two steps away from the source vertex,
+
+00:02:53.180 --> 00:02:57.650
+then for three steps and so on.
+Now, while we are doing this exploration,
+
+00:02:57.650 --> 00:03:02.670
+we have to keep track of two quantities, we
+have to first note of course, whether a given
+
+00:03:02.670 --> 00:03:08.180
+vertex has been visited. Has it been explored,
+is it connected to the source vertex, also
+
+00:03:08.180 --> 00:03:13.590
+for each such vertex, we have to explore its
+neighbors. So, for each vertex, we need to
+
+00:03:13.590 --> 00:03:19.460
+know, a, has it been visited and we may not
+be able to explore it as soon as it is visited.
+
+00:03:19.460 --> 00:03:23.980
+So, we need to remember that we have explored
+it or not explored it and those which are
+
+00:03:23.980 --> 00:03:28.990
+not explored, we have to make sure we explore
+them once.
+
+00:03:28.990 --> 00:03:35.270
+So, the way to do this is to use some data
+structures to keep track of these quantities.
+
+00:03:35.270 --> 00:03:41.850
+As we said the set of vertices is numbered
+1 to n. So, we can keep an array visited with
+
+00:03:41.850 --> 00:03:48.430
+entries 1 to n, which tells us whether or
+not vertex i has been visited. Now, whenever
+
+00:03:48.430 --> 00:03:54.540
+we visit a vertex, we need to subsequently
+explore it. Since, we may not explore it immediately,
+
+00:03:54.540 --> 00:04:00.160
+we may have to keep it pending for a while.
+So, we have to keep a collection of these
+
+00:04:00.160 --> 00:04:03.840
+vertices, which have been visited, but not
+yet been explored.
+
+00:04:03.840 --> 00:04:09.050
+There are many ways to do this, but one natural
+way is to explore them in the order in which
+
+00:04:09.050 --> 00:04:13.900
+they were visited. So, if we want to explore
+in the order in which they were visited, a
+
+00:04:13.900 --> 00:04:19.680
+natural data structure to keep the list of
+unexplored, but visited vertices is a queue.
+
+00:04:19.680 --> 00:04:24.879
+So, we put each visited vertex into the queue,
+the first time we come to it, and then we
+
+00:04:24.879 --> 00:04:28.870
+process all the vertices in the queue, until
+all vertices have been explored.
+
+00:04:28.870 --> 00:04:35.430
+So, here is some high level Pseudo code for
+breadth first search, when we reach a vertex
+
+00:04:35.430 --> 00:04:41.030
+i which we have visited for the first time,
+we will eventually explore it. What does it
+
+00:04:41.030 --> 00:04:45.599
+mean to explore a vertex, we look at the outgoing
+edges i comma j, if j has already been visited,
+
+00:04:45.599 --> 00:04:50.860
+we are nothing to do. On the other hand, if
+j has not been visited, then we will mark
+
+00:04:50.860 --> 00:04:54.160
+it as visited and add it to the queue to be
+explore later.
+
+00:04:54.160 --> 00:04:59.870
+So, we begin by marking the source vertex
+and adding it to the queue and at each stage,
+
+00:04:59.870 --> 00:05:04.389
+we will explore the vertex at the head of
+the queue. If at some stage, there are no
+
+00:05:04.389 --> 00:05:08.330
+vertices in the queue, it means that every
+vertex, we have visited has been explored
+
+00:05:08.330 --> 00:05:14.341
+and so there is no new information left and
+we can stop the exploration.
+
+00:05:14.341 --> 00:05:19.120
+So, before giving the actual code for breadth
+first search, let us workout the example that
+
+00:05:19.120 --> 00:05:24.900
+we have and see, how these data structures
+are updated. So, we have these 10 vertices
+
+00:05:24.900 --> 00:05:31.570
+1 to 10 and we are looking for paths starting
+at 1. So, in the queue, we have two pointers
+
+00:05:31.570 --> 00:05:35.969
+as usual, we have a pointer which we indicate
+in green, which is the head of the queue,
+
+00:05:35.969 --> 00:05:38.889
+and a pointer red, which is the tail of the
+queue.
+
+00:05:38.889 --> 00:05:45.229
+So, we initialize the queue to have the starting
+vertex 1 and we also mark this vertex has
+
+00:05:45.229 --> 00:05:53.719
+been visited. Now, we have to explore 1, so
+what we do is we remove 1 from the queue and
+
+00:05:53.719 --> 00:05:58.930
+systematically check each of its outgoing
+edges and if those target vertices are not
+
+00:05:58.930 --> 00:06:05.580
+already visited, we add that. So, 2 is the
+first in order of 1 to 10, first neighbor
+
+00:06:05.580 --> 00:06:09.569
+of 1, it has not been visited, so we add it
+to the queue and mark 2 as visited in the
+
+00:06:09.569 --> 00:06:14.190
+visited array.
+Likewise, we mark 3 as visited, and then we
+
+00:06:14.190 --> 00:06:19.199
+mark 4 as visited, at this stage, we have
+finished exploring vertex 1. So, now, we go
+
+00:06:19.199 --> 00:06:23.819
+back to the queue and see, if there is anything
+yet to be explore, which have been visited
+
+00:06:23.819 --> 00:06:29.259
+and there is we pick up the first such namely
+2. So, I remove 2 from the queue and we explore
+
+00:06:29.259 --> 00:06:34.270
+its outgoing neighbors. Now, the outgoing
+neighbors of 2 in this case are 1 and 3. But,
+
+00:06:34.270 --> 00:06:39.530
+since 1 and 3 are both visited, we have no
+work to do and we go on and go back to the
+
+00:06:39.530 --> 00:06:43.069
+queue.
+So in the next stage, we pick up the vertex
+
+00:06:43.069 --> 00:06:48.600
+3 and we look at its outgoing neighbors. Again,
+it has outgoing neighbors 1 and 2, both of
+
+00:06:48.600 --> 00:06:52.919
+which are already visited, so there is nothing
+to be done. We come back to the queue and
+
+00:06:52.919 --> 00:06:59.229
+pickup 4 and try to explore it. So, 4 has
+a neighbor 1, which has already been visited,
+
+00:06:59.229 --> 00:07:06.199
+the next neighbor is 5, since 5 is new we
+added to the queue and we mark it as visited,
+
+00:07:06.199 --> 00:07:12.120
+then it has a neighbor 8. So, we add that
+also to the queue and mark it as visited.
+
+00:07:12.120 --> 00:07:16.439
+Now, we have finished exploring 4. So, we
+go back to the queue and look for the next
+
+00:07:16.439 --> 00:07:25.789
+thing to be explored, which in this case is
+5. So, 5 has got neighbors 4, 6 and 7; 4 has
+
+00:07:25.789 --> 00:07:35.189
+already been visited, but 6 is new and so
+is 7. Now, we go back and explore 8, so 8
+
+00:07:35.189 --> 00:07:44.110
+has neighbors 4, 6 and 9; 4 and 6 are old,
+but 9 is new, we add 9 to the queue. Now,
+
+00:07:44.110 --> 00:07:47.999
+we go back and explore 6, because 6 is the
+vertex at the head of the queue.
+
+00:07:47.999 --> 00:07:53.949
+So, now, we look at neighbors of 6, neighbors
+of 6 are 5, 7, 8 and 9. So, when we remove
+
+00:07:53.949 --> 00:08:01.069
+6 from the queue, we have nothing to do, we
+go back and find that, there is nothing to
+
+00:08:01.069 --> 00:08:06.210
+be done, because all the neighbors of 6 have
+already been visited. Then, we pick up 7;
+
+00:08:06.210 --> 00:08:11.339
+once again we find that all the neighbors
+of 7 have already been visited. Finally, we
+
+00:08:11.339 --> 00:08:18.749
+pickup 9 and when we pickup 9, we find that
+it has neighbors 6, 8 and 10, 10 is new, so
+
+00:08:18.749 --> 00:08:23.339
+10 gets marked and added to the queue.
+Finally, we go to 10, we find it has only
+
+00:08:23.339 --> 00:08:27.490
+one neighbor 9, which is already visited,
+at this stage the queue becomes empty and
+
+00:08:27.490 --> 00:08:32.159
+the algorithm terminates. Now, in this case,
+we have marked all the vertices as visited,
+
+00:08:32.159 --> 00:08:37.159
+which indicates that every vertex in this
+graph is actually reachable from 1. If we
+
+00:08:37.159 --> 00:08:41.529
+had had more vertices, for example, if we
+had add a component in this graph; that is
+
+00:08:41.529 --> 00:08:46.940
+nothing to stop us from having many components
+we could have a graph with more vertices 11,
+
+00:08:46.940 --> 00:08:52.850
+12, 13 and 14. Then this process starting
+from 1 would have left 11, 12, 13 and 14 marked
+
+00:08:52.850 --> 00:08:55.670
+as unvisited.
+
+00:08:55.670 --> 00:09:04.160
+So, here is some more formal code for BFS,
+so BFS is a function which takes as it is
+
+00:09:04.160 --> 00:09:09.010
+argument, the vertex from where we want to
+explore the graph. So, as we said the vertices
+
+00:09:09.010 --> 00:09:15.680
+are called 1 to n, we have this array visited,
+which is initialized to 0 and we have a queue
+
+00:09:15.680 --> 00:09:21.649
+to mark the vertices still to be explored,
+this is initialized to empty. So, we begin
+
+00:09:21.649 --> 00:09:28.860
+by marking that visited of i equal to 1. So,
+vertex i is marked as visited and we added
+
+00:09:28.860 --> 00:09:32.170
+to the queue.
+Now, so long as the queue is not empty, we
+
+00:09:32.170 --> 00:09:37.060
+proceed in the following loop, we extract
+the head of the queue, the vertex to be explored
+
+00:09:37.060 --> 00:09:43.029
+next. For each of its outgoing edges, if it
+is something which has not been visited before,
+
+00:09:43.029 --> 00:09:48.010
+we mark it as visited and we add it to the
+queue. So, this is exactly the code for the
+
+00:09:48.010 --> 00:09:52.279
+algorithm, we just executed by hand and it
+is quiet straight forward. There are two data
+
+00:09:52.279 --> 00:09:56.930
+structures, an array to keep track of the
+visited vertices and a queue to keep track
+
+00:09:56.930 --> 00:09:59.470
+of vertices which need to be explored further.
+
+00:09:59.470 --> 00:10:06.990
+So, how do we analyze the complexity of an
+algorithm such as this. One way to do it is
+
+00:10:06.990 --> 00:10:10.130
+to look at the loop. So, remember that, when
+we have an algorithm like this which has a
+
+00:10:10.130 --> 00:10:14.940
+loop, the loop is usually the place where
+we have to look for it. So, we have one iteration,
+
+00:10:14.940 --> 00:10:21.230
+where we have a loop of 1 to n; where we assign,
+visited j equal to 0. So, this is something
+
+00:10:21.230 --> 00:10:26.449
+which takes order n time.
+And now, we have a loop here, where we keep
+
+00:10:26.449 --> 00:10:32.210
+extracting things from the queue and we do
+things here. So, we have to kind of understand,
+
+00:10:32.210 --> 00:10:37.240
+how many times this loop is going to execute
+and how much time this inner loop is going
+
+00:10:37.240 --> 00:10:44.190
+to execute. So, each vertex enters the queue
+exactly once. So, if it enters at exactly
+
+00:10:44.190 --> 00:10:52.089
+once, then it says that this outer loop here
+will take order n time.
+
+00:10:52.089 --> 00:10:57.100
+Because, assuming the graph is connected,
+every vertex will be visited once and when
+
+00:10:57.100 --> 00:11:00.779
+that vertex is visited it will enter the queue
+and it will come out from the head of the
+
+00:11:00.779 --> 00:11:07.500
+queue exactly once. Now, for each vertex,
+we have to scan all its neighbors. So, what
+
+00:11:07.500 --> 00:11:14.380
+we said was that, this will be order n, if
+we have an adjacency matrix. Because we need
+
+00:11:14.380 --> 00:11:22.269
+to go from the first entry for j and we have
+to look at the entire row for j, so this is
+
+00:11:22.269 --> 00:11:24.940
+order n.
+So, therefore, the graph is connected first
+
+00:11:24.940 --> 00:11:30.069
+of all every vertex will get into the queue.
+So, we will do the queue loop exactly n times.
+
+00:11:30.069 --> 00:11:34.290
+And for each j that is extracted, we need
+to examine all its neighbors. So, that will
+
+00:11:34.290 --> 00:11:41.600
+be a scan of size n and therefore, overall
+it is order n square, this two nested loops
+
+00:11:41.600 --> 00:11:42.980
+of size n.
+
+00:11:42.980 --> 00:11:47.860
+So, this is clearly a situation, where if
+we have very few edges, we can improve the
+
+00:11:47.860 --> 00:11:53.310
+complexity by using an adjacency list representation
+instead of an adjacency matrix representation.
+
+00:11:53.310 --> 00:12:01.480
+So, the number of edges is m and m is much
+smaller than n squared. So, if m is say proportional
+
+00:12:01.480 --> 00:12:08.971
+to n itself, then what we can do is in the
+list associated with j, which just have to
+
+00:12:08.971 --> 00:12:13.190
+look at the neighbors of j. We do not have
+to look at all the vertices all of order n
+
+00:12:13.190 --> 00:12:16.590
+entries in the adjacency matrix, this is called
+the degree.
+
+00:12:16.590 --> 00:12:25.170
+So, the degree of a vertex is the number of
+vertices connected to it. So, if we do this,
+
+00:12:25.170 --> 00:12:30.860
+then what we will find is that, inside the
+iteration of the inner loop, each step of
+
+00:12:30.860 --> 00:12:36.670
+scanning for the neighbors takes time proportional
+degree of j. Now, the degree of j of course,
+
+00:12:36.670 --> 00:12:41.790
+varies from one node to another, so how do
+we count this correctly. So, if you do not
+
+00:12:41.790 --> 00:12:48.389
+count it per loop, but count it across the
+entire processing of the entire set of vertices,
+
+00:12:48.389 --> 00:12:54.820
+what we will see is that for every edge in
+the graph, of the form i comma j.
+
+00:12:54.820 --> 00:13:00.829
+There will be a time and i is process and
+I will see j in this list and there will be
+
+00:13:00.829 --> 00:13:06.709
+a time and j is processed and I will see i
+in this list. In other words, if I take all
+
+00:13:06.709 --> 00:13:12.120
+the adjacency lists of all the vertices, each
+edge will be represented twice and an edge
+
+00:13:12.120 --> 00:13:17.540
+i j will appear as an entry j in the list
+for i and an entry i in the list for j. So,
+
+00:13:17.540 --> 00:13:24.449
+while, it is not easy to count per iteration,
+I count across all iterations, I will explore
+
+00:13:24.449 --> 00:13:29.490
+each edge exactly twice.
+So, 2 m is order m, so overall exploring the
+
+00:13:29.490 --> 00:13:36.190
+neighbors across all n iteration takes time
+O m. So, what this means is that, the first
+
+00:13:36.190 --> 00:13:44.569
+iteration of visiting the marking everything
+visited takes time O m, when we have a O n
+
+00:13:44.569 --> 00:13:50.720
+loop, across which we do O m steps totally
+across the n steps, so it is overall n plus
+
+00:13:50.720 --> 00:13:56.250
+m. So, the complexity of the breadth first
+search, if you are using an adjacency list,
+
+00:13:56.250 --> 00:14:03.589
+it drops to O n plus m versus order n squared
+for the adjacency matrix. So, if we have fewer
+
+00:14:03.589 --> 00:14:09.529
+edges then it makes a lot of sense to use
+adjacency list for breadth first search.
+
+00:14:09.529 --> 00:14:18.000
+Now, in graphs the input size is typically
+taken to the m and n. In other words, both
+
+00:14:18.000 --> 00:14:22.161
+parameters are somewhat independent of each
+other; because we could have the set of vertices
+
+00:14:22.161 --> 00:14:25.680
+with very few edges with very many edges.
+So, usually m and n together are taken to
+
+00:14:25.680 --> 00:14:33.790
+be the input size. So, order m plus n is actually
+a linear algorithm. So, this is the best possible,
+
+00:14:33.790 --> 00:14:36.485
+because we have to read the input in order
+to process it typically. So, in linear time,
+
+00:14:36.485 --> 00:14:40.250
+we are able to do breadth first search.
+
+00:14:40.250 --> 00:14:48.020
+So, we can do something more in breadth first
+search, all we have identified is which vertices
+
+00:14:48.020 --> 00:14:52.689
+are connected to the initial vertex one or
+the source vertex in general from where you
+
+00:14:52.689 --> 00:14:58.100
+start breadth first search. So, how do we
+identify, how to go from the source vertex
+
+00:14:58.100 --> 00:15:04.460
+to a given vertex. So, if we start at i and
+BFS i sets visited j equal to 1, we know that
+
+00:15:04.460 --> 00:15:06.800
+i and j are connected, but we do not know
+the path.
+
+00:15:06.800 --> 00:15:14.660
+So, what we can easily do is to remember,
+where we marked each vertex from. So, when
+
+00:15:14.660 --> 00:15:20.160
+we mark a vertex k as visited, it is marked
+because it is a neighbor of some already visited
+
+00:15:20.160 --> 00:15:27.810
+neighbor j. So, then we can say that k was
+marked by j, we will use the word parent.
+
+00:15:27.810 --> 00:15:34.519
+So, we will say that the parent of k is j,
+then by following the parent links; we can
+
+00:15:34.519 --> 00:15:38.560
+re-construct the path backwards from k to
+the original source vertex.
+
+00:15:38.560 --> 00:15:46.949
+So, this is very easy to do our code, so we
+just have to add one line, or two lines. So,
+
+00:15:46.949 --> 00:15:51.880
+initially we say that for every vertex the
+parent is undefined. So, we might set the
+
+00:15:51.880 --> 00:15:57.300
+value like minus 1, because we note that the
+name of vertices are 1 to n, and then when
+
+00:15:57.300 --> 00:16:04.399
+we mark a vertex, since we are exploring an
+edge j k, the parent of k is going to be j.
+
+00:16:04.399 --> 00:16:08.249
+So, we assign the parent of k equal to j,
+the rest of the code is identical to the earlier
+
+00:16:08.249 --> 00:16:13.999
+breadth first search, we just added this new
+array parent to keep track of how we mark
+
+00:16:13.999 --> 00:16:17.480
+the vertices. So, that we can re-constructs
+the path.
+
+00:16:17.480 --> 00:16:23.589
+So, we can go backward, so because k was mark
+by j, j would be mark by some other thing
+
+00:16:23.589 --> 00:16:28.910
+and so on. So, by just following these links
+back, we can go back from any k to the start
+
+00:16:28.910 --> 00:16:36.040
+vertex and therefore, we can reconstruct the
+path. The other thing that we can do in breadth
+
+00:16:36.040 --> 00:16:40.259
+first search is keep track of the level. So,
+remember, we said that breadth first search
+
+00:16:40.259 --> 00:16:44.040
+actually explores the graph level by level.
+Looks at all the vertices which are one step
+
+00:16:44.040 --> 00:16:48.069
+away from the source, then those vertices
+that are one step away from these ones, so
+
+00:16:48.069 --> 00:16:52.220
+they are at level 2, two steps away from the
+source and so on. So, instead of just saying
+
+00:16:52.220 --> 00:16:58.470
+that a vertex is visited, we can ask at what
+level it was visit. So, initially we say that
+
+00:16:58.470 --> 00:17:03.709
+all the levels are undefined, and then each
+time we visit a new vertex, it is 1 level
+
+00:17:03.709 --> 00:17:09.150
+more than the vertex from which it was visit.
+So, eventually we say that, if level j is
+
+00:17:09.150 --> 00:17:14.589
+assign some number p, it must be p steps away
+from the original vertex.
+
+00:17:14.589 --> 00:17:20.130
+So, this can also be easily added to our code
+along with the parent code. So, last time,
+
+00:17:20.130 --> 00:17:29.100
+we added this assignment for the parent. Now,
+we also add the assignment for level, so we
+
+00:17:29.100 --> 00:17:34.820
+say initially the level of each vertex is
+undefined. So, it is some nonsensical value
+
+00:17:34.820 --> 00:17:42.480
+like minus 1. Then, we say that the level
+of the start vertex is 0, and now whenever
+
+00:17:42.480 --> 00:17:48.419
+we visit a new vertex, if it is level, if
+it is visited, then it must have a level.
+
+00:17:48.419 --> 00:17:55.570
+So, if this level is minus 1, so its level
+is minus 1, it means it is not visit, so level
+
+00:17:55.570 --> 00:18:10.560
+minus 1 means not visited. Same as in our
+earlier thing, same as visited k is 0 and
+
+00:18:10.560 --> 00:18:15.220
+if so we adjust the level of k to be one more
+than the level of j from which it was visited
+
+00:18:15.220 --> 00:18:18.300
+and of course, we set the parent as before.
+
+00:18:18.300 --> 00:18:23.630
+So, we can see all this works in our earlier
+example, as usual we start with 1 and we mark
+
+00:18:23.630 --> 00:18:29.180
+its level as 0 and it does not have a parent.
+Now, when we add 2, 3 and 4 all of them will
+
+00:18:29.180 --> 00:18:34.130
+be at level 1 and all of them will have as
+parent 1, because they all were explore from
+
+00:18:34.130 --> 00:18:42.169
+1. Then, as before 2 does not add anything
+new to our list, 3 does not add anything new
+
+00:18:42.169 --> 00:18:47.370
+to our list.
+Now, 4 will add 5 and 8, so for these 2, the
+
+00:18:47.370 --> 00:18:53.409
+level will be 2 and the parent will be 4,
+indicating that I got to 5 and 8 from 4 in
+
+00:18:53.409 --> 00:19:00.160
+my exploration. Then, from 5, I will get 6
+and 7. So, these are now at level 3, because
+
+00:19:00.160 --> 00:19:05.700
+5 was itself at level 2, therefore, 6 and
+7 are at level 3 and their parents are 5,
+
+00:19:05.700 --> 00:19:12.480
+from 8, I will go to 9, so 9 is also at level
+3, because 8 was already at level 2, so 9
+
+00:19:12.480 --> 00:19:18.440
+is level 3 and its parent is 8.
+And finally, we will find that 10 is at level
+
+00:19:18.440 --> 00:19:25.450
+4 and its parent is 9. So, now, we can trace
+back. So, we can say that, I got from 10,
+
+00:19:25.450 --> 00:19:33.210
+I came from 9, so 9 came from 8, so 8 came
+from 4, 4 came from 1. So, the path is actually
+
+00:19:33.210 --> 00:19:44.620
+10 to 9 to 8 to 4 to 1 and you can see indeed,
+we have a path from 10 to 9 to 8 to 4 to 1.
+
+00:19:44.620 --> 00:19:52.100
+So, this is how you can reconstruct the path
+information and also the distance information
+
+00:19:52.100 --> 00:19:58.030
+at the same time, when you are computing breadth
+first search.
+
+00:19:58.030 --> 00:20:02.929
+So, breadth first search if we add this level
+predicate, it actually gives us the shortest
+
+00:20:02.929 --> 00:20:08.950
+path to each node in terms of number of edges.
+Now, in general, we will see that, if you
+
+00:20:08.950 --> 00:20:14.149
+do not have a uniform cost, if we have different
+costs on edges, then the shortest path need
+
+00:20:14.149 --> 00:20:18.610
+not be just the shortest in terms of number
+of edges. We have to add the cost associated
+
+00:20:18.610 --> 00:20:23.400
+with each path these are called weighted graphs.
+But, in an unweighted graph that is a graph
+
+00:20:23.400 --> 00:20:28.450
+which just has simple edges the way we have
+it now. Breadth first search has the added
+
+00:20:28.450 --> 00:20:33.429
+advantage of computing the shortest path in
+terms of number of edges from the source vertex
+
+00:20:33.429 --> 00:20:34.570
+to every reachable vertex from it.
+

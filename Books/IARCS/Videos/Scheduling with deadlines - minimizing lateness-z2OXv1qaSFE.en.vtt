@@ -1,0 +1,685 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.499 --> 00:00:05.930
+We now look at a different Greedy Algorithm
+with a slightly more complicated proof of
+
+00:00:05.930 --> 00:00:11.420
+correctness. So, the problem we are looking
+at is called Minimizing Lateness.
+
+00:00:11.420 --> 00:00:20.020
+So, like our interval scheduling problem in
+the last example, we have a single resource
+
+00:00:20.020 --> 00:00:27.760
+and there are n request to use this resource.
+So, now unlike the earlier situation where
+
+00:00:27.760 --> 00:00:32.519
+we had a start time and a finish time and
+the resource had to be scheduled within this
+
+00:00:32.519 --> 00:00:40.559
+time. Here we just know that each request
+i requires time t of i to complete and each
+
+00:00:40.559 --> 00:00:47.719
+request i comes with a deadline d of i, here
+we are going to schedule every request.
+
+00:00:47.719 --> 00:00:54.129
+So, each request j will started at time start
+of j, it is called s j and it will time take
+
+00:00:54.129 --> 00:00:59.240
+t j, so it will end at f of j, the finish
+time of j which will be the start time plus
+
+00:00:59.240 --> 00:01:07.280
+the time it takes to process request j. Now,
+if this finish time is bigger than the deadline,
+
+00:01:07.280 --> 00:01:13.040
+then it is late, so the amount that it is
+late is given by the difference between the
+
+00:01:13.040 --> 00:01:20.430
+delay and the finish time and the goal is
+to find a schedule which minimizes the maximum
+
+00:01:20.430 --> 00:01:29.190
+lateness. So, we want to minimize the maximum
+value of this l j over all the jobs j.
+
+00:01:29.190 --> 00:01:35.950
+So, since we know we are looking for greedy
+strategies, let us try and suggest some greedy
+
+00:01:35.950 --> 00:01:42.189
+strategies for this problem. So, suppose we
+want to finish jobs as quickly as possible,
+
+00:01:42.189 --> 00:01:47.680
+so we choose a shortest job first, so we choose
+jobs in increasing order of length. So, this
+
+00:01:47.680 --> 00:01:51.930
+could be a greedy strategy, but unfortunately
+there is a fairly simple counter example.
+
+00:01:51.930 --> 00:01:59.490
+So, suppose we have 2 jobs job 1 takes 1 time
+unit and job 2 takes 10 time units, but the
+
+00:01:59.490 --> 00:02:06.170
+deadlines are 110 and 10 respectively.
+In other words, the first job has a very long
+
+00:02:06.170 --> 00:02:11.950
+gap within which it can be scheduled without
+any penalty, whereas this second job has to
+
+00:02:11.950 --> 00:02:19.080
+finish more or less assuming it starts initially.
+So, now if you pick this shortest job then
+
+00:02:19.080 --> 00:02:25.700
+we are going to incur a lateness of 1, because
+we are going to go from 1 and then we are
+
+00:02:25.700 --> 00:02:31.819
+going to go from 2 to the 11. So, the second
+job is going to finish 1 unit of time late,
+
+00:02:31.819 --> 00:02:38.250
+on the other hand if we do 1 to 10 then we
+do 11, then we get no lateness, we get lateness
+
+00:02:38.250 --> 00:02:44.989
+0. So, here picking the shortest job first
+does not give us the best answer.
+
+00:02:44.989 --> 00:02:52.879
+So, the second strategy might be to pick those
+jobs, so earlier we saw that we had a job
+
+00:02:52.879 --> 00:02:58.200
+which had 10 time units and it will also need
+it had a deadline of 10. So, we need to pick
+
+00:02:58.200 --> 00:03:05.129
+those jobs perhaps whose time is closest to
+the deadline. So, we look at the slack how
+
+00:03:05.129 --> 00:03:10.060
+much time we can effort to delay start in
+my job, d j minus t j and pick those which
+
+00:03:10.060 --> 00:03:16.129
+have the smallest slack. So, here we have
+a very similar example to the first one, except
+
+00:03:16.129 --> 00:03:18.819
+that the deadline of the first job which now
+2.
+
+00:03:18.819 --> 00:03:27.340
+So, here we have slack 0 for the second job
+and slack 1 first job, so the second one has
+
+00:03:27.340 --> 00:03:31.209
+the deadline equal to it is time, the first
+one has the deadline which is one more that
+
+00:03:31.209 --> 00:03:38.610
+its time. So, then by this strategy we would
+pick t 2 first and if you pick t 2 followed
+
+00:03:38.610 --> 00:03:49.890
+by t 1, then what happens is that this lateness
+is going to be 11 minus 2, because we first
+
+00:03:49.890 --> 00:03:56.849
+to t 2. So, we start t 1 a job 1 only a time
+11, so it finishes the time 11, but it should
+
+00:03:56.849 --> 00:04:01.489
+have finish 2, so the lateness is 9.
+On the other hand, if we do t 1 followed by
+
+00:04:01.489 --> 00:04:11.230
+t 2, then we have that the lateness is just
+1, because of the second job should have finished
+
+00:04:11.230 --> 00:04:19.250
+at 10 instead it finishes at 11. So, 11 minus
+10 is 1, so now here although our intuition
+
+00:04:19.250 --> 00:04:26.030
+told us to pick this smallest slack time actually
+that is not the good one.
+
+00:04:26.030 --> 00:04:31.990
+So, turns out that a greedy strategy that
+does work is to choose the job with earliest
+
+00:04:31.990 --> 00:04:41.030
+deadline d of j first, the challenge is to
+prove that this strategy is in fact correct.
+
+00:04:41.030 --> 00:04:46.820
+So, to prove that is correct we will first
+assume that we have actually numbered all
+
+00:04:46.820 --> 00:04:52.240
+our jobs in order of deadline. So, we number
+our jobs 1, 2, 3 up to n, so let that the
+
+00:04:52.240 --> 00:04:57.880
+deadline of 1 is less then or equal to deadline
+of 2 and so on. Now, having done this our
+
+00:04:57.880 --> 00:05:01.060
+schedule is very straight forward, we just
+schedule job 1 first, then job 2, then job
+
+00:05:01.060 --> 00:05:05.990
+3 and so on. So, we do not have do anything,
+once we have sorted the jobs by deadline,
+
+00:05:05.990 --> 00:05:11.960
+we just schedule them in that order to the
+job 1 starts that time 0 which will call as
+
+00:05:11.960 --> 00:05:16.979
+set 1, it ends at f of 1 which is t of 1 0
+plus t of 1.
+
+00:05:16.979 --> 00:05:23.660
+Now, s 2 the starting time for job 2 is as
+soon as job 1 ends, so at f 1 we start job
+
+00:05:23.660 --> 00:05:32.800
+2 and it will end at s 2 plus t 2. So, likewise
+now s 3 will be f 2, we will start job 3 at
+
+00:05:32.800 --> 00:05:41.600
+time t 2 and we will go on to s 3 plus t 3
+and call this f 3. So, we will just schedule
+
+00:05:41.600 --> 00:05:46.930
+each job as soon as the previous one ends
+in this deadline order.
+
+00:05:46.930 --> 00:05:52.669
+So, since we are scheduling jobs one after
+the other without waiting, it is very clear
+
+00:05:52.669 --> 00:05:58.259
+that this schedule has no gaps, it has no
+idle time. The resource that we are trying
+
+00:05:58.259 --> 00:06:05.479
+to allocate is continuously in use, until
+all n requests are finished. So, now the claim
+
+00:06:05.479 --> 00:06:11.500
+is that there is an optimum schedule which
+has no idle time, because suppose you had
+
+00:06:11.500 --> 00:06:17.220
+an optimum schedule in which you have blocks
+like this where the resources is being used
+
+00:06:17.220 --> 00:06:20.530
+and there were these gapes in between which
+were idle.
+
+00:06:20.530 --> 00:06:27.430
+It is, very clear that I can shift these things
+forward, look at this, there is no constraint
+
+00:06:27.430 --> 00:06:32.449
+on when I can skip to this, I only have a
+constraint on when thing should finish. So,
+
+00:06:32.449 --> 00:06:37.699
+when moving things earlier I can only reduce
+the lateness, so if the blue schedule with
+
+00:06:37.699 --> 00:06:43.009
+gaps was optimal, I can move it, so that it
+does not have gaps and certainly my new schedule
+
+00:06:43.009 --> 00:06:48.490
+will have no more lateness in the blue one.
+Therefore, we can always assume that optimum
+
+00:06:48.490 --> 00:06:52.300
+schedule has no idle time.
+
+00:06:52.300 --> 00:06:59.289
+So, now our goal is to actually argue that
+this schedule that we have produced by sorting
+
+00:06:59.289 --> 00:07:05.870
+in terms of deadlines and then using that
+order blindly,is as could as any optimum schedule.
+
+00:07:05.870 --> 00:07:14.900
+So, here in the previous interval scheduling
+problem, we said that we would not be able
+
+00:07:14.900 --> 00:07:20.440
+to guarantee that schedule that we found is
+equal to a given optimum schedule, but we
+
+00:07:20.440 --> 00:07:25.400
+will just show that there are of same size.
+Now, here what we do slightly different, we
+
+00:07:25.400 --> 00:07:30.000
+will take an optimum schedule which is produced
+by some other strategy and we will step by
+
+00:07:30.000 --> 00:07:34.870
+step transform it into one that is the same
+as one that we have produced.
+
+00:07:34.870 --> 00:07:41.340
+So, this is what is called an exchange argument,
+we start with some schedule and then we keep
+
+00:07:41.340 --> 00:07:46.260
+moving things around in that schedule preserving
+optimality, until eventually we transform
+
+00:07:46.260 --> 00:07:54.889
+the given schedule O into our schedule A,
+which would get among greedy strategy.
+
+00:07:54.889 --> 00:08:05.050
+So, our strategy processes and schedules jobs
+in order of deadlines, so we can say that
+
+00:08:05.050 --> 00:08:12.110
+this schedule O, the optimum schedule has
+an inversion, if it actually has two jobs
+
+00:08:12.110 --> 00:08:17.110
+which appear out of order within deadline.
+So, there is a job i which appears before
+
+00:08:17.110 --> 00:08:23.720
+jobs j and O, but the deadline of j is strictly
+before the deadline of i. So, notice that
+
+00:08:23.720 --> 00:08:28.340
+our solution, because the greedy solution
+processes things in deadline order, there
+
+00:08:28.340 --> 00:08:32.860
+cannot be any inversions in our schedule,
+but the optimum schedule the arbitrary optimum
+
+00:08:32.860 --> 00:08:37.839
+schedule that we have presented with may well
+have inversions.
+
+00:08:37.839 --> 00:08:49.570
+So, now the first point is that if you have
+no inversions and no idle time, then the lateness
+
+00:08:49.570 --> 00:08:55.430
+must be the same. So, first of all if you
+have no inversions and no idle time then the
+
+00:08:55.430 --> 00:09:01.740
+only flexibility we have is to reorder, because
+we not allowed to put things with later deadlines
+
+00:09:01.740 --> 00:09:06.019
+ahead of things with earlier deadlines. The
+only flexibility we have is to reorder the
+
+00:09:06.019 --> 00:09:11.050
+things with the same deadline, we may have
+multiple jobs within the same deadline and
+
+00:09:11.050 --> 00:09:16.890
+we could pick different sequential iterations
+or different reordering of these same deadlines,
+
+00:09:16.890 --> 00:09:20.230
+they would not violate inversions, because
+they are equal.
+
+00:09:20.230 --> 00:09:24.750
+But, inversions happens only when we have
+something strictly smaller coming after something
+
+00:09:24.750 --> 00:09:30.209
+that is strictly bigger. So, the claim is
+that in such a situation, we cannot have a
+
+00:09:30.209 --> 00:09:36.710
+different answer, because of even if you allow
+our self to shuffle jobs in same deadline.
+
+00:09:36.710 --> 00:09:41.220
+So, here is a picture, so suppose these three
+jobs, the blue job, in the yellow job, the
+
+00:09:41.220 --> 00:09:45.589
+red job all have the same dead line. So, here
+is one sequence where we do blue first, then
+
+00:09:45.589 --> 00:09:50.209
+yellow, then red here is some another sequence,
+so we do red first, then blue then yellow.
+
+00:09:50.209 --> 00:09:55.899
+Now, all have the same deadline, so the same
+deadline is at this point. So, deadline is
+
+00:09:55.899 --> 00:10:02.600
+here, now the last of these jobs regardless
+of how we shuffle them will end the same point.
+
+00:10:02.600 --> 00:10:07.220
+Because, we have the total the sum of the
+times and that will be the end and the last
+
+00:10:07.220 --> 00:10:11.130
+job will have among these, the maximum delay
+with respect to this deadline.
+
+00:10:11.130 --> 00:10:17.320
+So, since we have counting the maximum lateness,
+the maximum lateness cannot change regardless
+
+00:10:17.320 --> 00:10:22.200
+of how I shuffle these jobs, which ever jobs
+ends last will end at the same time, because
+
+00:10:22.200 --> 00:10:26.959
+all of these are of the same length, I mean
+the sum of the these are same length regardless
+
+00:10:26.959 --> 00:10:31.730
+of how I shuffle them. And therefore, the
+lateness does not change, so in somebody if
+
+00:10:31.730 --> 00:10:36.560
+you have two schedules which have more inversions
+and no idle time, then the answer in terms
+
+00:10:36.560 --> 00:10:40.690
+of the lateness we produce is the same.
+
+00:10:40.690 --> 00:10:47.360
+So, now if you can claim that there is an
+optimum schedule with no inversions or no
+
+00:10:47.360 --> 00:10:54.279
+idle time. Now, recall that our schedule A
+has this property; A has no inversions by
+
+00:10:54.279 --> 00:11:05.210
+construction and no idle time. And now I am
+going to claim that there is an optimum schedule,
+
+00:11:05.210 --> 00:11:10.269
+we going to start with O and we are going
+to produce from this some O prime which has
+
+00:11:10.269 --> 00:11:16.579
+no inversions, no idle time. And by the previous
+remark, since O prime and A both have no inversions
+
+00:11:16.579 --> 00:11:20.590
+no idle time, they must actually produce the
+same lateness.
+
+00:11:20.590 --> 00:11:29.010
+So, how do we do this? So, first of all we
+know that we can assume that the optimum schedule
+
+00:11:29.010 --> 00:11:33.459
+has no idle time. Because, we already said
+that idle time is useless we can always shift
+
+00:11:33.459 --> 00:11:39.680
+anything left, compress out the gaps, so that
+there is no idle time. So, the first observation
+
+00:11:39.680 --> 00:11:47.350
+is that now we have no idle time, so one part
+of this requirement is assumed, so the only
+
+00:11:47.350 --> 00:11:52.720
+thing that we have to worry about is inversions.
+So, the first claim is that if O has an inversion,
+
+00:11:52.720 --> 00:11:58.209
+then in fact we have an inversion among two
+consecutive elements, there is a pair of jobs
+
+00:11:58.209 --> 00:12:04.279
+i and j such that j is immediately after i,
+but the deadline of j is smaller than the
+
+00:12:04.279 --> 00:12:08.160
+deadline of i. So, we have something with
+a smaller deadline which comes later than
+
+00:12:08.160 --> 00:12:14.430
+something to the bigger deadline and this
+is very clear, because if there is an inversion,
+
+00:12:14.430 --> 00:12:19.380
+then the deadlines normally will keep increasing
+and then somewhere this is an inversion, so
+
+00:12:19.380 --> 00:12:23.269
+it comes down.
+So, at the point where it comes down, we must
+
+00:12:23.269 --> 00:12:30.680
+have two adjacent things, where the bigger
+one comes before the smaller one. So, whenever
+
+00:12:30.680 --> 00:12:35.339
+we have an inversion anywhere in the sequence,
+we can find some point where two consecutive
+
+00:12:35.339 --> 00:12:38.350
+items have an inversion.
+
+00:12:38.350 --> 00:12:45.829
+Now, the next observation is that we can remove
+this inversion by swapping these two jobs.
+
+00:12:45.829 --> 00:12:51.639
+So, we have i and j which has an inversion,
+then if we exchange i and j that is we put
+
+00:12:51.639 --> 00:12:56.839
+j before i, then now d of j is less than d
+of i and this inversion is gone. So, it is
+
+00:12:56.839 --> 00:13:02.829
+obvious that why we remove the inversion.
+But, what is now the obvious is that this
+
+00:13:02.829 --> 00:13:08.880
+operation of removing this inversion by swapping
+these consecutive jobs which are out of order
+
+00:13:08.880 --> 00:13:11.990
+will actually not affect the quality of this
+notion.
+
+00:13:11.990 --> 00:13:20.100
+So, what we need to ask is whether after swapping
+i and j we get a solution whose maximum lateness
+
+00:13:20.100 --> 00:13:25.950
+is no larger than that of O. So, we have an
+optimum solution, we have an inversion and
+
+00:13:25.950 --> 00:13:31.089
+an adjacent consecutive inversion, we want
+to undo this inversion by swapping those two
+
+00:13:31.089 --> 00:13:37.750
+consecutive elements, but we do not want to
+change the optimality.
+
+00:13:37.750 --> 00:13:46.930
+So, this can again we seen by a diagram, so
+remember that this inversion said that i came
+
+00:13:46.930 --> 00:13:54.190
+before j, but d of j was strictly less then
+d of i which is why it was an description.
+
+00:13:54.190 --> 00:13:58.790
+So, we have this kind of situation, so we
+had some history this blue history and then
+
+00:13:58.790 --> 00:14:05.970
+at this point we had i and then j. So, this
+is my original and now I am going to go from
+
+00:14:05.970 --> 00:14:09.790
+go to O prime by exchanging j and i
+
+00:14:09.790 --> 00:14:18.839
+So, now observe that d of j is to the left
+of d of i by a assumption, so d of j strictly
+
+00:14:18.839 --> 00:14:24.839
+less then d of i. So, now let us look at the
+lateness of j, so it is from the ends i plus
+
+00:14:24.839 --> 00:14:30.040
+j take the same amount of time, whether I
+do i before j or j before i. So, if I look
+
+00:14:30.040 --> 00:14:39.810
+from the deadline of j up to where j ends
+then this length, this lateness must be more
+
+00:14:39.810 --> 00:14:46.329
+then the lateness below cannot be the less
+then. Because d of i is strictly to the right
+
+00:14:46.329 --> 00:14:52.570
+of d of j and the end point is the same.
+So, if I look at the n point and subtract
+
+00:14:52.570 --> 00:14:57.070
+the deadline point, the deadline point for
+i is closure to the n, then the deadline point
+
+00:14:57.070 --> 00:15:03.170
+for j, because d j is before d 1. So, therefore
+by exchanging i and j not only have an a move
+
+00:15:03.170 --> 00:15:09.800
+on inversions have also guaranteed that because
+of this notice that late no other job, every
+
+00:15:09.800 --> 00:15:13.660
+other job up to this point ends at the same
+time when the every time which is the after
+
+00:15:13.660 --> 00:15:18.610
+this point also end the same point.
+So, no other job has is lateness affected
+
+00:15:18.610 --> 00:15:24.459
+by the soft only to jobs who lateness changes
+or i and j by the change in such a way that
+
+00:15:24.459 --> 00:15:29.540
+the overall lateness then only reduce, it
+cannot increase. So, therefore this is the
+
+00:15:29.540 --> 00:15:33.430
+safe soft in terms of preserving optimality.
+
+00:15:33.430 --> 00:15:39.850
+So, therefore now we come back to our claim
+that there is an optimum schedule with no
+
+00:15:39.850 --> 00:15:44.449
+inversions and no idle time, we know that
+we have an optimum schedule with no idle time,
+
+00:15:44.449 --> 00:15:51.190
+because that general principle. Now, from
+the previous argument we can remove every
+
+00:15:51.190 --> 00:15:57.450
+consecutive inversion without increasing lateness.
+Therefore, the optimality is preserved, now
+
+00:15:57.450 --> 00:16:05.490
+if you have n jobs even if a every pair of
+them is out of order, we have only n to n
+
+00:16:05.490 --> 00:16:10.740
+minus 2 1 by 2 inversions to begins with.
+So, we can systematical inverts every one
+
+00:16:10.740 --> 00:16:15.390
+of them, without affecting optimality, until
+we get an optimum schedule with no inversions
+
+00:16:15.390 --> 00:16:20.860
+and no idle time. And we already saw that
+any two schedules is no inversions and no
+
+00:16:20.860 --> 00:16:27.480
+idle time must be equivalent terms of lateness.
+Therefore, our schedule A which has the property
+
+00:16:27.480 --> 00:16:32.660
+that it has no inversions and no idle time
+as the same lateness as this transformed version
+
+00:16:32.660 --> 00:16:41.070
+of O at since a transformed version of O has
+the same lateness O itself and O is optimal
+
+00:16:41.070 --> 00:16:45.230
+our algorithm our solution A is also optimal.
+
+00:16:45.230 --> 00:16:56.130
+So, the trick in this problem was to actually
+prove that the greedy strategies was correct,
+
+00:16:56.130 --> 00:17:01.810
+the implementation and the complexity are
+very easy to calculate, we just have to sort
+
+00:17:01.810 --> 00:17:06.360
+the job is by deadline and then read out in
+this schedule in the same order. So, sorting
+
+00:17:06.360 --> 00:17:11.380
+the jobs takes n log in is usual and reading
+of this schedule just takes order n time,
+
+00:17:11.380 --> 00:17:16.710
+because we just we read out jobs 1 to n after
+they are sorted. So, overall we have and n
+
+00:17:16.710 --> 00:17:17.629
+log n algorithm.
+

@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="">Directed Acyclic Graphs</a></h2>
+
+      <div id="directed-graphs"></div>
+      <h3><span>Basic definitions</span></h3>
+
+      <p>
+	In a <em>directed graph</em>, each edge has a direction:
+	one end point is the source and the other end point is
+	the target.  If G is directed, we could have an edge from
+	v to w and another from w to v.  This does not violate
+	our assumption of simple graphs.  For directed graphs, we
+	separately talk of the "outdegree" and the "indegree" of
+	a vertex, instead of just the degree.  The outdegree of v
+	is the number of directed edges leaving v while the
+	indegree of v is the number of directed edges entering v.
+      </p>
+
+      <p>
+	A directed graph that does not have any (directed) cycles
+	is called a <em>directed acyclic graph (dag)</em>.
+      </p>
+
+      <div id="topological-sort"></div>
+      <h3><span>Topological sort</span></h3>
+
+      <p>
+	A topological sort of a dag involves listing out the
+	vertices in a sequence so that there is no dag edge going
+	from any vertex in the sequence to an earlier vertex in
+	the sequence.
+      </p>
+
+      <p>
+	For instance, consider this dag, in which all edges are
+	oriented from left to right.
+      </p>
+
+      <pre>
+        -->d-------->c
+       /        /     \
+      a-------->b      -->g
+       \     /   \    /
+         -->e------->f
+      </pre>
+
+      <p>		   
+	Here is a sorted sequence of the type we want:
+      </p>
+      
+      <pre>
+        a e d b c f g
+      </pre>
+
+      <p>
+	In general, there will be more than one such sequence
+	that is compatible with the dag.   Another topologically
+	sorted sequence for the graph above is:
+      </p>
+
+      <pre>
+        a d e b f c g
+      </pre>
+
+      <p>
+	How do we compute a topologically sorted sequence?
+      </p>
+
+      <p>
+	In a dag, there must be at least one vertex with no
+	incoming edge, or a vertext with indegree 0.  (Suppose
+	not.  Then for each vertex, we can move backwards through
+	an incoming edge.  There are only n vertices overall.  If
+	we walk backwards n times, we must hit a vertex we have
+	seen before, which means there is a cycle, so the graph
+	is not a dag.)
+      </p>
+
+      <p>
+	We could have multiple source vertices.  We classify all
+	these as level 0.  Level 1 consists of all vertices whose
+	incoming neighbours are of level 0.  In general, level
+	i+1 consists of all vertices whose incoming neigbhours
+	have a maximum level of i.  
+      </p>
+
+      <p>
+	In other words, we are ranking vertices as follows:
+      </p>
+
+      <ul>
+	<li> rank(u) = 0 if u is a source vertex
+	<li> rank(u) = i if the longest path from some source vertex to u
+              is of length i
+      </li></ul>
+
+      <p>
+	In a topological sort, every vertex of rank i has at
+	least one incoming edge from a vertex of rank i-1, so
+	vertices of rank i should be listed only after listing
+	vertices of rank i-1.  Topological sort thus involves
+	listing out vertices in order of rank, where different
+	vertices of the same rank may be listed in any order.
+      </p>
+
+      <p>
+	Computing the rank is similar to doing a simultaneous BFS
+	from all the source vertices.  we maintain a queue, as in
+	BFS.  Here is the algorithm.
+      </p>
+
+      <pre>
+      compute indegree(v) for all v;
+
+      /* First process source vertices */
+      for each vertex v with indegree(v) = 0{
+        rank(v) = 0;
+        add v to the tail of in a queue;
+      }
+
+      /* Process remaining vertices */
+      until the queue is empty{
+        remove the vertex v at the head of the queue;
+        enumerate v and delete it from the graph;
+
+        for each remaining vertex w{
+          recompute indegree(w);
+          /* Check if we have found a vertex all of whose
+             predecessors have been processed */
+          if indegree(w) becomes 0{
+             rank(w) = rank(v) + 1;
+             add w to the tail of the queue;
+          }
+        }
+      }
+      </pre>
+
+      <p>
+	How do we (re)compute indegree?
+      </p>
+
+      <p>
+	Initially, we can compute indegree in time
+	O(n<sup>2</sup>) if we have an adjacency matrix
+	representation of the dag: indegree(v) is the sum of all
+	1's in the column for v.  With an adjacency list, we can
+	do this it time O(m): for each edge (w,v), increment
+	indegree(v).
+      </p>
+
+      <p>
+	After enumerating a vertex v, we have to decrement
+	indegree(w) for each outgoing neighbour of v.  So,
+	overall, we make an indegree update once for edge in the
+	original dag.
+      </p>
+
+      <p>
+	Hence, a more direct way of coding "delete a vertex and update indegrees of
+	all remaining vertices" is as follows:
+      </p>
+
+      <pre>
+      /* Process remaining vertices */
+      until the queue is empty{
+        remove the vertex v at the head of the queue;
+        enumerate v and delete it from the graph;
+
+        for each edge (v,w){
+          decrease indegree(w) by 1;
+          if indegree(w) becomes 0{
+            rank(w) = rank(v) + 1;
+            add w to the tail of the queue
+          }
+        }
+      }
+      </pre>
+
+      <div id="longest-paths"></div>
+      <h3><span>Longest paths in dags</span></h3>
+
+      <div id="edit-ladder"></div>
+      <p><b>Edit ladder</b></p>
+
+      <p>
+	Given a sequence of words w<sub>1</sub>, w<sub>2</sub>,
+        &hellip;, w<sub>n</sub>, two words u and v are neighbours
+        if they have edit distance 1 (that is, u can be
+        transformed to v by changing one letter, adding one
+        letter or deleting one letter).
+      </p>
+
+      <pre>
+      e.g. cat--cot
+           rat--rot--rob
+      </pre>
+
+      <p>
+	We orient these edges in dictionary order, so can go
+	from <tt>cat</tt> to <tt>cot</tt> but not reverse.  This
+	defines a directed graph.
+      </p>
+
+      <pre>
+      cat-->cot
+
+      rob---
+            \ 
+      rat------>rot
+      </pre>
+
+      <p>
+	We want to find the longest path in this graph.
+      </p>
+
+      <p><b>Solution</b></p>
+
+      <p>
+	Construct a graph whose nodes are the words
+	w<sub>1</sub>, &hellip; w<sub>n</sub>.  There is an edge
+	from w<sub>i</sub> to w<sub>j</sub> if w<sub>i</sub> is
+	less than w<sub>j</sub> in dictionary order and
+	w<sub>i</sub> and w<sub>j</sub> are neighbours.  Note
+	that this requires computing the so-called edit distance
+	for n(n-1)/2 pairs of words.
+      </p>
+
+      <p>
+	We want the length of the longest path in this graph.  In
+	general, finding the longest path in a graph efficiently is
+	difficult.  No algorithm short of brute force enumeration of all
+	paths is known for general graphs.
+      </p>
+
+      <p>
+	However, observe that this graph is a dag.  There are no
+	cycles because any edge goes respects the dictionary
+	order in the list of words.  For a dag, we can calculate
+	the longest path by doing a topological sort and finding
+	the maximum rank.
+      </p>
+
+      <p>
+	Why does this give a longest path?  As we have observed,
+	any vertex v at rank k+1 must have at least one incoming
+	edge from a vertex at rank k&emdash;otherwise, this
+	vertex v would have got a lower rank.  Thus, for every
+	vertex at rank n, we can walk backwards in the graph edge
+	by edge, decreasing the rank by one each time, till we
+	reach a vertex of indegree zero.
+      </p>
+
+      <div id="video-material">
+        <h3><span>Video material</span></h3>
+      </div>
+
+      <p>Video lectures on <em>Directed acyclic graphs</em>,
+	<a href="https://onlinecourses.nptel.ac.in/explorer">
+	  NPTEL online course</a> on
+        <a href="https://onlinecourses.nptel.ac.in/noc15_cs02/preview">
+  	  Design and Analysis of Algorithms</a>
+
+      <ul>
+        <li> DAGs, topological sort
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week3/pdf/nptel-week3-module6-dags-topsort.pdf" target="_blank">Lecture slides</a>)<p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_9a95v2shgQ" frameborder="0" allowfullscreen=""></iframe>
+
+        <li> DAGs, longest path
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week3/pdf/nptel-week3-module7-dags-longest-path.pdf" target="_blank">Lecture slides</a>)<p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jpIeCsX4oNo" frameborder="0" allowfullscreen=""></iframe>
+
+      </li></ul>
+
+      <br><br>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

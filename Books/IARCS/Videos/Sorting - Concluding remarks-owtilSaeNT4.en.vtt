@@ -1,0 +1,455 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.199 --> 00:00:06.829
+Let us look back on all the different sorting
+algorithms that we have considered.
+
+00:00:06.829 --> 00:00:13.690
+So, one of the important criteria that we
+should not forget is that, sorting often happens
+
+00:00:13.690 --> 00:00:14.769
+in phases.
+
+00:00:14.769 --> 00:00:28.110
+So, we might have a list of names of people
+say Aswin, Bharathi, Chander and Deepa.
+
+00:00:28.110 --> 00:00:33.770
+So, we have sorted this in order and they
+might have got some marks in an exam.
+
+00:00:33.770 --> 00:00:42.240
+So, they may be got 60, 43, 60 and 95, now
+we might want to sort this by marks.
+
+00:00:42.240 --> 00:00:47.180
+So, when we sort this by marks of course,
+we need to exchange the position of Bharathi
+
+00:00:47.180 --> 00:00:52.190
+and Ashwin, but we do not want to exchange
+the position of Aswini and Chander.
+
+00:00:52.190 --> 00:00:55.570
+So, in other words we do not want to disturb
+the sorting of alphabetical orders.
+
+00:00:55.570 --> 00:01:04.400
+So, the final answer should be Bharathi has
+43, Ashwin has 60, Chander has 60 and Deepa
+
+00:01:04.400 --> 00:01:05.400
+has 95.
+
+00:01:05.400 --> 00:01:12.810
+But, it would be wrong if you said Chander
+and then Ashwin not wrong, but undesirable.
+
+00:01:12.810 --> 00:01:17.939
+So, if we have a list of students in alphabetical
+order and then we sort by marks, we expect
+
+00:01:17.939 --> 00:01:21.149
+that those with equal marks are still sorted
+in alphabetical order.
+
+00:01:21.149 --> 00:01:26.219
+So, in a spreadsheet where we have a kind
+of a table with columns, so supposing we sort
+
+00:01:26.219 --> 00:01:31.539
+by this column, and then we sort by this column,
+the second sorting should not disturb the
+
+00:01:31.539 --> 00:01:32.670
+order of the first sorting.
+
+00:01:32.670 --> 00:01:37.350
+So, this is called stable sorting that is
+if there was, so very often when you are sorting
+
+00:01:37.350 --> 00:01:39.609
+you are sorting on one attribute, but there
+may be other attributes.
+
+00:01:39.609 --> 00:01:44.060
+So, a data item is not typically a unique
+value, it is not just a number, but it is
+
+00:01:44.060 --> 00:01:49.759
+aÉ So, you are taking names, marks and various
+other addresses may be phone number and you
+
+00:01:49.759 --> 00:01:50.759
+might sort on different things.
+
+00:01:50.759 --> 00:01:52.920
+So, think of a spreadsheet where we might
+sort on different columns.
+
+00:01:52.920 --> 00:01:57.419
+So, each successive sort should not disturb
+the previous sort, so this is called stable
+
+00:01:57.419 --> 00:01:58.419
+sorting.
+
+00:01:58.419 --> 00:02:02.899
+So, this is obviously desirable, because we
+do it all the time, we really would be very
+
+00:02:02.899 --> 00:02:06.869
+unhappy if the next round of sorting disturbed
+the first round of sorting.
+
+00:02:06.869 --> 00:02:10.130
+So, which of our algorithms are stable.
+
+00:02:10.130 --> 00:02:17.790
+So, quick sort as shown is not a stable operation,
+so remember that we took the pivot and in
+
+00:02:17.790 --> 00:02:22.930
+the, at least in our implementation what we
+did was we constructed this lower set and
+
+00:02:22.930 --> 00:02:27.870
+then the upper set to the right of it, so
+it is right, this is the picture we had and
+
+00:02:27.870 --> 00:02:31.599
+then finally, and this is the crucial point,
+we do this swap.
+
+00:02:31.599 --> 00:02:37.930
+So, imagine that we have a situation where
+here we had for example, at this point Ashwin
+
+00:02:37.930 --> 00:02:45.300
+with the 60 marks and Chander with also with
+60 marks.
+
+00:02:45.300 --> 00:02:49.060
+So, at the point of constructing the lower
+set, they were in the correct order as in
+
+00:02:49.060 --> 00:02:50.060
+the original input.
+
+00:02:50.060 --> 00:02:54.900
+But, now after swapping what happens is that
+the pivot has come here and Chander with 60
+
+00:02:54.900 --> 00:02:56.980
+marks has gone here.
+
+00:02:56.980 --> 00:03:02.030
+So, this swapping operation has basically
+reversed the order of A and C with respect
+
+00:03:02.030 --> 00:03:05.530
+to what it was in the input and henceforth
+therefore, this order will get jumbled.
+
+00:03:05.530 --> 00:03:10.739
+So, this swap operation during partitioning
+disturbs original order and this also happens
+
+00:03:10.739 --> 00:03:11.810
+in things like selection sort.
+
+00:03:11.810 --> 00:03:15.510
+Because, in selection sort wherever we do
+this long distance thing, so remember in selection
+
+00:03:15.510 --> 00:03:18.239
+sort we pick the minimum and then we exchange
+it with the beginning.
+
+00:03:18.239 --> 00:03:23.909
+Now, if the element at the beginning had the
+same alphabetical order as, I mean it is smaller
+
+00:03:23.909 --> 00:03:27.209
+with, in the second one now it moves to a
+later point in the array and the order gets
+
+00:03:27.209 --> 00:03:28.209
+disturbed.
+
+00:03:28.209 --> 00:03:32.129
+So, any kind of long distance swapping is
+very dangerous for stability.
+
+00:03:32.129 --> 00:03:33.129
+What about merge sort?
+
+00:03:33.129 --> 00:03:37.590
+Well, merge sort would normally we stable
+providedÉ all we want is that something to
+
+00:03:37.590 --> 00:03:41.189
+the right should not go to the left of something
+in the original array.
+
+00:03:41.189 --> 00:03:46.590
+So, we do not want somethingÉ If you have
+two elements here and here which should remain
+
+00:03:46.590 --> 00:03:48.219
+in this order, we do not want them to be exchanged.
+
+00:03:48.219 --> 00:03:50.010
+Now, why they would be exchange?
+
+00:03:50.010 --> 00:03:55.329
+They would be exchanged only if they were
+equal, that is an only case where stability
+
+00:03:55.329 --> 00:04:00.159
+gets destroyed, where equal elements are disturbed,
+with respect to the previous sorting.
+
+00:04:00.159 --> 00:04:04.459
+So, we have to make sure that no element from
+the right comes to an element to the left
+
+00:04:04.459 --> 00:04:09.579
+of something from the earlier array and when
+you are merging, basically that is why we
+
+00:04:09.579 --> 00:04:15.310
+said that in the case, A i is less than or
+equal to B j, we pick from A and onlyÉ So,
+
+00:04:15.310 --> 00:04:20.950
+if you had made the mistake of writing less
+than and then we use greater than equal to,
+
+00:04:20.950 --> 00:04:24.280
+select from B, then when they are equal, we
+first pick from B and not from A and that
+
+00:04:24.280 --> 00:04:25.640
+would create instability.
+
+00:04:25.640 --> 00:04:30.950
+So, crucial in our merge operation is that
+when A i is less than or equal B j we pick
+
+00:04:30.950 --> 00:04:35.310
+the element from A in preference to B, so
+this preserves the left right order of equal
+
+00:04:35.310 --> 00:04:40.250
+elements with respect to the original order
+and since merge sort as we have done in stable.
+
+00:04:40.250 --> 00:04:43.750
+You can also check that similarly, if you
+do insertion sort carefully, then insertion
+
+00:04:43.750 --> 00:04:48.410
+sort is also stable and this is not to say
+that quick sort cannot be made stable, it
+
+00:04:48.410 --> 00:04:52.610
+is just that the way we have implemented it
+quick sort is not stable.
+
+00:04:52.610 --> 00:04:59.110
+Another criteria, which is related to what
+we just saw is that we have only concentrated
+
+00:04:59.110 --> 00:05:04.490
+on the number of steps required in order to
+compare and exchange two elements.
+
+00:05:04.490 --> 00:05:06.120
+But, you might want to do other things.
+
+00:05:06.120 --> 00:05:11.880
+For instance, you might want to penalize movements
+which take you across large segments of the
+
+00:05:11.880 --> 00:05:12.880
+array.
+
+00:05:12.880 --> 00:05:16.162
+So, you might want to say that it is not so
+good to exchange things far away, it is better
+
+00:05:16.162 --> 00:05:18.010
+to exchange things near each other.
+
+00:05:18.010 --> 00:05:21.950
+So, something like bubble sort which we did
+not look at, which only exchanges adjacent
+
+00:05:21.950 --> 00:05:25.910
+elements would be better than something like
+selection sort which exchanges across large
+
+00:05:25.910 --> 00:05:27.020
+intervals.
+
+00:05:27.020 --> 00:05:31.850
+Now, this could happen if data has a cost,
+supposing you are sorting an array, but this
+
+00:05:31.850 --> 00:05:36.690
+array is across different, it is so big that
+it is not stored on a single server.
+
+00:05:36.690 --> 00:05:40.490
+Then each time you want to swap from one server
+to another, you could pay an extra cost which
+
+00:05:40.490 --> 00:05:41.490
+is different.
+
+00:05:41.490 --> 00:05:45.450
+So, in other words there might be different
+criteria which are behind the scenes which
+
+00:05:45.450 --> 00:05:46.640
+we do not see.
+
+00:05:46.640 --> 00:05:50.360
+So, imagine when you are sorting something
+by hand, supposing you are sorting a bunch
+
+00:05:50.360 --> 00:05:54.650
+of heavy cartons, then you can imagine that
+moving of heavy carton a long distance is
+
+00:05:54.650 --> 00:05:56.500
+more expensive than moving it a short distance.
+
+00:05:56.500 --> 00:06:03.090
+So, there could be other criteria which govern
+your cost of sorting which we have not considered
+
+00:06:03.090 --> 00:06:07.070
+at all in this and people have looked at these
+things in the literature.
+
+00:06:07.070 --> 00:06:11.630
+So, very often a question is asked which sort
+is best.
+
+00:06:11.630 --> 00:06:16.900
+So, unfortunately it turns out that no single
+sorting algorithm is always guaranteed to
+
+00:06:16.900 --> 00:06:21.500
+be the best, it really depends as, we said
+like sorting depth, the movement and other
+
+00:06:21.500 --> 00:06:22.990
+criteria.
+
+00:06:22.990 --> 00:06:27.000
+Some sorting algorithm may work well in some
+context, some in other contexts.
+
+00:06:27.000 --> 00:06:32.210
+In most, memory based context for simple arrays,
+quick sort is the best.
+
+00:06:32.210 --> 00:06:36.400
+This is why as we said, quick sort is usually
+the default implementation of choice for built
+
+00:06:36.400 --> 00:06:37.590
+in sorting algorithms.
+
+00:06:37.590 --> 00:06:42.660
+Provided we do something intelligent about
+choosing the pivot and various other things.
+
+00:06:42.660 --> 00:06:46.400
+On the other hand when we have to move a lot
+of data, sometimes we cannot store the entire
+
+00:06:46.400 --> 00:06:47.890
+thing if you are sorting a database.
+
+00:06:47.890 --> 00:06:52.360
+We cannot sort the entire thing in the memory,
+so actually we use a variation of merge sort
+
+00:06:52.360 --> 00:06:54.310
+which is called external merge sort.
+
+00:06:54.310 --> 00:06:58.440
+So, it really depends on the context, sometimes
+we will use one, sometimes we will use another.
+
+00:06:58.440 --> 00:07:01.750
+If there were a best algorithm, there would
+be no need to study the other algorithms.
+
+00:07:01.750 --> 00:07:06.100
+So, the very fact that many of these algorithms
+are studied, shows that in different contexts
+
+00:07:06.100 --> 00:07:11.990
+you might need to use one or the other idea
+in order to make things work better.
+
+00:07:11.990 --> 00:07:16.650
+We have seen merge sort as an order n log
+n algorithm, there are other n log n algorithms
+
+00:07:16.650 --> 00:07:19.900
+we will see one later on in this course called
+heap sort.
+
+00:07:19.900 --> 00:07:24.960
+The main thing to remember is that if you
+have a naive n squared algorithm which is
+
+00:07:24.960 --> 00:07:29.680
+not like quick sort provably n log n in the
+average case, then this will only work for
+
+00:07:29.680 --> 00:07:30.690
+small data.
+
+00:07:30.690 --> 00:07:35.570
+However, sometimes for small data, the simplicity
+of a naive algorithm beats the complexity
+
+00:07:35.570 --> 00:07:37.180
+of a complicated algorithm.
+
+00:07:37.180 --> 00:07:41.700
+So, you could even have hybrid algorithms,
+you might use divide and conquer where n is
+
+00:07:41.700 --> 00:07:46.160
+large and then when n becomes small then you
+switch over to may be insertion sort.
+
+00:07:46.160 --> 00:07:50.430
+So, there are many different strategies that
+people use and very often experimentally they
+
+00:07:50.430 --> 00:07:52.110
+arrive at some combination of strategies.
+
+00:07:52.110 --> 00:07:57.750
+So, it is not enough to say that one algorithm
+is the best, you need to have a good idea
+
+00:07:57.750 --> 00:08:00.880
+about what works and what does not works,
+so that you can tailor your sorting procedure
+
+00:08:00.880 --> 00:08:02.319
+to suit your requirements.
+

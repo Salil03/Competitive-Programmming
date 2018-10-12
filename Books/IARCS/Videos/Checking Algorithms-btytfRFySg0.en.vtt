@@ -1,0 +1,1082 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.770 --> 00:00:07.550
+Most of this course has been about identifying
+efficient solution to problems. But it is
+
+00:00:07.550 --> 00:00:12.870
+also important to realize that there are some
+situations, where no known efficient solutions
+
+00:00:12.870 --> 00:00:17.550
+exists, and we able to recognize this, so
+that we do not fruitlessly try to look for
+
+00:00:17.550 --> 00:00:21.900
+solutions, where the problem is known to be
+hard to solve. So, let us look at some issues
+
+00:00:21.900 --> 00:00:24.580
+involving intractability.
+
+00:00:24.580 --> 00:00:31.340
+So, many of the problems that we have seen,
+we are trying to search through a number of
+
+00:00:31.340 --> 00:00:38.090
+possibilities to arrive at some kind of optimum
+combination. The actual search space is exponential,
+
+00:00:38.090 --> 00:00:42.270
+if we are looking for shortest paths, there
+are an exponential number of paths, if we
+
+00:00:42.270 --> 00:00:46.690
+are looking for a minimum cost spanning tree,
+there are an exponential number of such spanning
+
+00:00:46.690 --> 00:00:49.559
+trees to search through.
+WeÕre looking for the maximum flow, we have
+
+00:00:49.559 --> 00:00:54.960
+many different ways of adding and subtracting
+flow along edges. So, if you look at all possible
+
+00:00:54.960 --> 00:01:00.600
+flows, all possible paths, all possible spanning
+trees and then choose the optimum, this will
+
+00:01:00.600 --> 00:01:05.950
+be a Brute force solution which would take
+exponential time. When we have a polynomial
+
+00:01:05.950 --> 00:01:10.359
+time algorithm, we are actually cutting through
+the exponentials and in some very drastic
+
+00:01:10.359 --> 00:01:17.080
+way, reducing our search space from an exponential
+one to a polynomial one.
+
+00:01:17.080 --> 00:01:22.999
+So, it is tempting to believe that if one
+just thinks long enough and hard enough, that
+
+00:01:22.999 --> 00:01:28.450
+any such problems, we will always find such
+an efficient short cut, where we can cut through
+
+00:01:28.450 --> 00:01:33.279
+the exponential space of possibilities and
+quickly narrow down the space to a polynomial
+
+00:01:33.279 --> 00:01:39.560
+number of realistic ones from which the efficient
+solution, the actual solution we want will
+
+00:01:39.560 --> 00:01:43.819
+emerge.
+Now, unfortunately this ideal world is not
+
+00:01:43.819 --> 00:01:48.490
+actually the way the world is. So, there are
+many problems, so which efficient algorithm
+
+00:01:48.490 --> 00:01:53.520
+do not exist or are not known to exist and
+an unfortunately, also many of these problems
+
+00:01:53.520 --> 00:01:55.729
+are extremely important practical problems.
+
+00:01:55.729 --> 00:02:03.880
+So, to get into this discussion, let us talk
+about the problem between, the difference
+
+00:02:03.880 --> 00:02:09.360
+between generating a solution and checking
+a solution. So, supposing a school MathÕs
+
+00:02:09.360 --> 00:02:15.380
+teacher assigns the following homework, take
+a large number which is known to be the product
+
+00:02:15.380 --> 00:02:21.990
+of two prime numbers and find these two prime
+numbers. From the studentÕs point of view
+
+00:02:21.990 --> 00:02:27.090
+obviously, the problems is to generate the
+solution. So, given the large number N, the
+
+00:02:27.090 --> 00:02:34.750
+student is expected to find two prime numbers
+p and q, such that p times q is equal to N.
+
+00:02:34.750 --> 00:02:41.331
+Now, the student submits or the students submit
+their solutions to the teacher for evaluation.
+
+00:02:41.331 --> 00:02:44.840
+So, the teacher is in much better respective,
+the teacher does not have to keep generating
+
+00:02:44.840 --> 00:02:50.310
+p and q, the teacher has does not even need
+to know the answer. The teacher can just take
+
+00:02:50.310 --> 00:02:55.820
+the answer given by the student, multiply
+p times q and determine whether p times q
+
+00:02:55.820 --> 00:03:00.580
+is equal to N or not.
+So, even without knowing the answer or even
+
+00:03:00.580 --> 00:03:03.680
+if the answer is wrong, the teacher may not
+know the right answer, the teacher can decide
+
+00:03:03.680 --> 00:03:08.340
+whether or not the student as given the correct
+answer. So, what the teacher is doing is checking
+
+00:03:08.340 --> 00:03:12.470
+the solution that the student was trying to
+do or generate the solution.
+
+00:03:12.470 --> 00:03:19.660
+So, this gives us some notion of a checking
+algorithm. So, if I have a problem, I can
+
+00:03:19.660 --> 00:03:27.630
+say that I have a checking algorithm, if for
+every instance I can take a solution to that
+
+00:03:27.630 --> 00:03:34.690
+instance and quickly verify whether or not
+that solution is actually a valid one. So,
+
+00:03:34.690 --> 00:03:40.830
+checking algorithm takes an input for the
+problem, a solution which is may be not just
+
+00:03:40.830 --> 00:03:45.270
+the solution, but solution plus some extra
+information, and then it determine whether
+
+00:03:45.270 --> 00:03:49.580
+or not, this is a valid solutions, if so it
+says that the solution is correct and outputs
+
+00:03:49.580 --> 00:03:54.890
+yes, otherwise it says no.
+So, in our example before the factorization
+
+00:03:54.890 --> 00:04:00.370
+example, the input instance is the number
+N to be factorized. The solution that we get
+
+00:04:00.370 --> 00:04:06.030
+as a candidate to solve the problem is the
+pair of primes p and q that the student has
+
+00:04:06.030 --> 00:04:11.780
+calculated and the checking algorithm involves
+verifying that p times q is actually N.
+
+00:04:11.780 --> 00:04:18.329
+So, in this context, let us look at a very
+canonical problem which has a checking algorithm
+
+00:04:18.329 --> 00:04:25.029
+called Boolean satisfiability. So, we have
+some Boolean variables x, y and z. So, Boolean
+
+00:04:25.029 --> 00:04:32.330
+variables can take values, true or false and
+we have a standard operations on Boolean variables,
+
+00:04:32.330 --> 00:04:36.510
+negation takes a value of true and transit
+false and vise verses. So, we write that with
+
+00:04:36.510 --> 00:04:41.270
+this exclamation mark using some programming
+language terminologies, so not x it is used
+
+00:04:41.270 --> 00:04:45.080
+an exclamation mark x.
+Then, we have x or y which is true provided
+
+00:04:45.080 --> 00:04:49.091
+at least one of them is true, so if either
+x is true or y is true or both are true, x
+
+00:04:49.091 --> 00:04:54.800
+or y is true, we write that with this vertical
+bar or pair of vertical bars and use an ampersand
+
+00:04:54.800 --> 00:04:59.830
+denote AND, x and y is true only if both are
+true. So, x must be true and y must be true,
+
+00:04:59.830 --> 00:05:04.779
+either one of is false, x and y is false.
+So, this is the standard Boolean operations
+
+00:05:04.779 --> 00:05:11.160
+that we know about Boolean variables.
+Now, we set up Boolean formulas in a very
+
+00:05:11.160 --> 00:05:18.029
+special form, we said first construct what
+we called are clauses. So, a clause is a big
+
+00:05:18.029 --> 00:05:23.780
+disjunction, it is x or not y or z and something.
+So, what is the inside the disjunction or
+
+00:05:23.780 --> 00:05:29.080
+either variables or their negations. So, these
+are called literals, so literal is either
+
+00:05:29.080 --> 00:05:34.900
+a variable or a negated variable. So, clause
+is read as a disclause x or not y or z dot,
+
+00:05:34.900 --> 00:05:40.291
+dot, dot or w. So, this is a clause and in
+finally, a formula will be a combination of
+
+00:05:40.291 --> 00:05:46.189
+such clauses connected by AND.
+So, C will be some x or y or something, D
+
+00:05:46.189 --> 00:05:51.350
+will be some z or not y or something and so
+on and so each clause will have this structure
+
+00:05:51.350 --> 00:05:56.070
+of a big disjunction of literals and then
+they are combined by an ampersand, so they
+
+00:05:56.070 --> 00:06:00.999
+are all handled together. So, I need to make
+clause C true and I need to make clause D
+
+00:06:00.999 --> 00:06:06.229
+true and I need to make clause E true and
+so on.
+
+00:06:06.229 --> 00:06:11.030
+So, our goal is to find out whether this given
+formula can be made true by assigning suitable
+
+00:06:11.030 --> 00:06:21.409
+values to x, y and z; all the variables in
+the formula. So, this is called a valuation.
+
+00:06:21.409 --> 00:06:25.919
+Valuation is a function that says x is true,
+y is false, z is true and so on, so it fixes
+
+00:06:25.919 --> 00:06:31.310
+the value of each Boolean variable. Now, having
+fixed that I can evaluate, so for example,
+
+00:06:31.310 --> 00:06:37.469
+if I take x to be true, y to be true and z
+to be false, then here for instance in this
+
+00:06:37.469 --> 00:06:42.199
+clause, x is true so that is enough to make
+the whole clause true, y is also true, in
+
+00:06:42.199 --> 00:06:46.409
+this clause for instance x is true, so this
+part is true, x is true.
+
+00:06:46.409 --> 00:06:50.689
+Here, it says y is true, z is false, so both
+of these are actually true and now, here it
+
+00:06:50.689 --> 00:06:57.539
+says x is false not x, but x is true, so not
+x is false, y is true by our evaluations not
+
+00:06:57.539 --> 00:07:03.360
+y is false, but fortunately z is false, so
+not z is true. So, in each of these clauses
+
+00:07:03.360 --> 00:07:09.039
+at least one of the literals becomes true
+under this valuation, so this entire formula
+
+00:07:09.039 --> 00:07:15.180
+is actually satisfied. Now, if I add this
+extra clause here to the same formula, now
+
+00:07:15.180 --> 00:07:20.540
+it turns out, there is no way to find any
+way of assigning true false to x, y, z make
+
+00:07:20.540 --> 00:07:23.449
+it.
+You can check that this particular evaluation
+
+00:07:23.449 --> 00:07:28.150
+does not work, because if I look at this it
+such that x is true, so this does not work
+
+00:07:28.150 --> 00:07:36.099
+and it says that z is false, so it does not
+works. So, z is false, so z is not true, x
+
+00:07:36.099 --> 00:07:40.370
+is true, so not x is false, so this is false
+or false. So, this clause actually valued
+
+00:07:40.370 --> 00:07:43.760
+false. So, this particular evaluation which
+make the first formula true, it does not make
+
+00:07:43.760 --> 00:07:45.340
+the second formula true.
+
+00:07:45.340 --> 00:07:56.599
+And in particular no valuation will actually
+make it true and that can actually be checked
+
+00:07:56.599 --> 00:08:06.990
+if you look at these three clauses, this can
+be said as that y implies x, what this says
+
+00:08:06.990 --> 00:08:11.669
+is that if y is true, then x must be true.
+And this says that if z is true, then y must
+
+00:08:11.669 --> 00:08:15.610
+be true and this says that if x is true, then
+z must be true, so this more or less says
+
+00:08:15.610 --> 00:08:19.749
+that x, y and z must all be the same. But
+if then x, y and z all the same, then either
+
+00:08:19.749 --> 00:08:24.370
+one of the first of the last was going to
+be false, actually there is no satisfying
+
+00:08:24.370 --> 00:08:28.969
+assignment. So, our goal is to find out whether
+there is a satisfying assignment or not.
+
+00:08:28.969 --> 00:08:35.060
+So, to generate a solution, of course the
+Brute force approach is to try assigning each
+
+00:08:35.060 --> 00:08:40.340
+of x, y and z; true and false in turn, and
+then once we assigned x, y and z to be true,
+
+00:08:40.340 --> 00:08:44.560
+false; we can evaluated and check if the formula
+is true and we try this for every possible
+
+00:08:44.560 --> 00:08:49.750
+such assignment. If there are N variables,
+each of them has two possibilities, clearly
+
+00:08:49.750 --> 00:08:53.360
+there are 2 to the N, so an exponential number
+of possible assignments.
+
+00:08:53.360 --> 00:08:59.380
+Now, the amazing thing is that in general
+no better algorithm is known for this problem,
+
+00:08:59.380 --> 00:09:03.820
+at the movement as things stand, we do not
+know an efficient way to take a formula on
+
+00:09:03.820 --> 00:09:10.260
+this form and find out, whether it has a satisfying
+assignment. However, it is easy to check that
+
+00:09:10.260 --> 00:09:17.320
+it has an algorithm which can check a solution.
+So, if I give you a formula and I claim that
+
+00:09:17.320 --> 00:09:22.720
+a given valuation is actually a satisfying
+assignment, all I have to do, is I plug in
+
+00:09:22.720 --> 00:09:23.720
+that assignment, like we did for the earlier
+case.
+
+00:09:23.720 --> 00:09:28.350
+I can say oh you say x is true, let me put
+true everywhere I see x, you say oh y is false,
+
+00:09:28.350 --> 00:09:32.160
+let me put false everywhere I see y, and then
+evaluate the formula, find out whether the
+
+00:09:32.160 --> 00:09:37.020
+ANDÕs and ORÕs add upto a true answer or
+not. So, it is easy to see that this has the
+
+00:09:37.020 --> 00:09:44.510
+checking algorithm, but it does not have a
+generating algorithm, at least we do not know
+
+00:09:44.510 --> 00:09:46.510
+of one.
+
+00:09:46.510 --> 00:09:50.470
+So, in this case, it please turn and other
+case is also, sometimes your presentation
+
+00:09:50.470 --> 00:09:55.940
+of the problem is important. So, we said that
+a clause was a disjunction of literals, and
+
+00:09:55.940 --> 00:09:59.880
+then the formula was a conjunction of clauses,
+what would be a reverse says, what would be
+
+00:09:59.880 --> 00:10:04.020
+say clauses are conjunction of literals. So,
+in a clause, I connect everything with AND,
+
+00:10:04.020 --> 00:10:09.470
+and then I connect the clauses with OR, this
+means that I must makes C true or D true or
+
+00:10:09.470 --> 00:10:11.840
+E true.
+Earlier, I had to make C true and D true and
+
+00:10:11.840 --> 00:10:16.590
+E true, now if I look inside a clause, how
+do I make a conjunction like this prove, well
+
+00:10:16.590 --> 00:10:20.300
+itÕs easy, right? I must make each of this
+true and else I make everything true, this
+
+00:10:20.300 --> 00:10:25.220
+whole AND will fail. So, if I take a clause,
+then the settings of the variables inside
+
+00:10:25.220 --> 00:10:29.310
+the clause force me, it says x must be true,
+y must be not y must be true, so y must be
+
+00:10:29.310 --> 00:10:32.470
+false and z must be true and so on, so I do
+not have much choice.
+
+00:10:32.470 --> 00:10:37.700
+Now, inside a clause, I am might see not y
+and then somewhere else I may see y. So, therefore,
+
+00:10:37.700 --> 00:10:44.700
+such a thing will say I am being asked to
+set y true and y false, so this clause cannot
+
+00:10:44.700 --> 00:10:48.890
+be true, then I move to the next. So, I look
+at each clause, I check whether the unique
+
+00:10:48.890 --> 00:10:54.470
+valuations is this on plausible or feasible,
+if it is at null, because I only need to satisfy
+
+00:10:54.470 --> 00:10:56.980
+one clause, other ways I move to the next
+one.
+
+00:10:56.980 --> 00:11:02.460
+So, in a linear scan from left to right, I
+can basically solve this problem, if it is
+
+00:11:02.460 --> 00:11:08.860
+given to me in this form, whereas in the earlier
+form I need, there is no efficient algorithm.
+
+00:11:08.860 --> 00:11:14.120
+So, clearly the presentation of the problem
+is important.
+
+00:11:14.120 --> 00:11:19.820
+So, let us look at a completely different
+problem. So, we have this well known traveling
+
+00:11:19.820 --> 00:11:26.050
+salesman problem. So, a salesman is supposed
+to visit a network of cities and between each
+
+00:11:26.050 --> 00:11:31.550
+pair of cities, we have a distance. So, we
+can think of it is a complete graph, every
+
+00:11:31.550 --> 00:11:36.200
+city connected to every other city and on
+each edge between two cities, there is a weight
+
+00:11:36.200 --> 00:11:40.910
+indicating the distance or the cost or the
+time or some quantity which the salesman has
+
+00:11:40.910 --> 00:11:46.060
+to use up in order to travel from the one
+city to next city.
+
+00:11:46.060 --> 00:11:52.130
+So, the salesmanÕs goal is to visit every
+city on this map. So, the salesman wants to
+
+00:11:52.130 --> 00:11:58.160
+find the shortest tour that visits each city
+exactly once. In a graph theoretic sense what
+
+00:11:58.160 --> 00:12:02.460
+it means is that they have a simple cycle,
+simple cycle means that no nodes repeat, I
+
+00:12:02.460 --> 00:12:08.500
+do not visit the same vertex twice along this
+thing which starts and ends in the same state,
+
+00:12:08.500 --> 00:12:14.200
+that is why itÕs a cycle a starts and ends
+of the same city, same vertex, visit every
+
+00:12:14.200 --> 00:12:19.030
+vertex in between and of minimum cost.
+
+00:12:19.030 --> 00:12:26.440
+So, once again, there is no simple way to
+write a generative algorithm which will actually
+
+00:12:26.440 --> 00:12:31.490
+analyze this and find a good solution. So,
+now, our question is, is there a checking
+
+00:12:31.490 --> 00:12:35.640
+solution, is there a checking algorithms.
+So, recall that, what a checking algorithm
+
+00:12:35.640 --> 00:12:41.870
+does is it takes as input, it takes an input
+instance and it takes a solution, and then
+
+00:12:41.870 --> 00:12:46.400
+it says yes or no, this solution works this
+solution does not work.
+
+00:12:46.400 --> 00:12:54.123
+So, now, we have a graph and somebody gives
+us a cycle, we can verify that itÕs a cycle.
+
+00:12:54.123 --> 00:12:58.050
+So, that part is easy, we can even compute
+the cost of the cycle, that is also easy,
+
+00:12:58.050 --> 00:13:03.600
+but how do we know that among all the difference
+cycles, this is the least cost. So, it is
+
+00:13:03.600 --> 00:13:08.170
+not very clear that there is checking algorithm,
+because in the end, though we can verify part
+
+00:13:08.170 --> 00:13:12.940
+of the solution, that it is a cycle, that
+is this all the cities and we know it is cost,
+
+00:13:12.940 --> 00:13:15.480
+we have no way without solving the problem.
+Remember the goal over checking algorithm
+
+00:13:15.480 --> 00:13:20.180
+is not to solve the problem, it is to ask
+whether this given solution is correct for
+
+00:13:20.180 --> 00:13:24.370
+this given instance. So, we may not know how
+to solve the problem, like the teacher is
+
+00:13:24.370 --> 00:13:28.200
+who has assigned the factorization home work,
+the teacher does not need know how to factorize,
+
+00:13:28.200 --> 00:13:32.330
+this not even need to know the factors, the
+teacher only needs to know, how to multiply
+
+00:13:32.330 --> 00:13:37.040
+two potential factors and check whether the
+answer is the same as the big number.
+
+00:13:37.040 --> 00:13:43.140
+Similarly, here we just need to check, whether
+the given nodes form a cycle, but unless we
+
+00:13:43.140 --> 00:13:47.490
+know how to solve the problem, the checking
+algorithm cannot figure out whether itÕs
+
+00:13:47.490 --> 00:13:48.670
+a least cost cycle or not.
+
+00:13:48.670 --> 00:13:56.570
+So, how do we get around this? So, the solution
+in such optimization problem is to convert
+
+00:13:56.570 --> 00:14:02.190
+them into checking algorithms is to transform
+the problem by giving a bound, so I give an
+
+00:14:02.190 --> 00:14:07.300
+upper bound or a lower bound depending on
+out. So, in this case, we will ask weÕll
+
+00:14:07.300 --> 00:14:12.060
+not just ask if there is a tour, if there
+is traveling salesman tour of lowest cost,
+
+00:14:12.060 --> 00:14:19.310
+we have says is there are tour with cost at
+most k. So, we have just given a bound on
+
+00:14:19.310 --> 00:14:23.820
+the cost, we are not asking for an optimum
+tour, we just in only asking for a tour with
+
+00:14:23.820 --> 00:14:27.210
+does not cost more than K.
+Now, we have given a solution, we can check
+
+00:14:27.210 --> 00:14:30.820
+it, because we can check it is a cycle, and
+then we can add up all the edges which form
+
+00:14:30.820 --> 00:14:37.820
+part of the tour and find out, whether it
+adds up to K or less. So, so how does this
+
+00:14:37.820 --> 00:14:43.940
+help us, because our goal was to find the
+shortest tour, what we have said now is that
+
+00:14:43.940 --> 00:14:47.130
+if I give you an upper bound size a tour,
+I can use checking algorithm for yes or no,
+
+00:14:47.130 --> 00:14:52.900
+but now we can try different case.
+So, we have the minimum of value of K is clearly
+
+00:14:52.900 --> 00:15:00.620
+0 and the maximum value is some upper bound.
+What is a good upper bound? Well, we know
+
+00:15:00.620 --> 00:15:04.450
+that a tour is going to take edges from the
+top, if I take all the edges in the graph
+
+00:15:04.450 --> 00:15:10.280
+and add up all the cost, the total tour cannot
+be more than that. So, I have a range of values
+
+00:15:10.280 --> 00:15:15.060
+possible for the cost of tour from 0 to say
+the sum of all the edge weights in the graph.
+
+00:15:15.060 --> 00:15:18.321
+You might even find a better bound than that,
+because obviously, we cannot use all the edge
+
+00:15:18.321 --> 00:15:22.660
+weights, we can only use N of them to complete
+a cycle of size n.
+
+00:15:22.660 --> 00:15:28.190
+But, this is a very conservative bound, now
+what we do is, we do in this range, we do
+
+00:15:28.190 --> 00:15:33.160
+binary search. So, we first check is there
+a tour of whose cost is mid way, if there
+
+00:15:33.160 --> 00:15:37.260
+is then I will now check below is there a
+tour cost half of that. So, by doing a binary
+
+00:15:37.260 --> 00:15:41.380
+search, we narrow down the thing and finally,
+weÕll find that this is the level, where
+
+00:15:41.380 --> 00:15:44.730
+we have a tour and about that, we have tours
+and below that, we do not have tours. So,
+
+00:15:44.730 --> 00:15:49.950
+this is the minimum cost tour.
+So, by using a binary search and an upper
+
+00:15:49.950 --> 00:15:54.420
+bound, we can take an optimization problem
+where weÕre looking for an optimal answer
+
+00:15:54.420 --> 00:15:59.960
+and transform it into a sequence of checking
+problems, which after a logarithmic search
+
+00:15:59.960 --> 00:16:06.900
+through this space of the bounds will give
+me the actual solution or not.
+
+00:16:06.900 --> 00:16:12.730
+So, here is yet another problem. So, this
+is the called the independent set problem.
+
+00:16:12.730 --> 00:16:18.220
+So, we say that two vertices are independent;
+if they are not connected by it is an edge.
+
+00:16:18.220 --> 00:16:22.170
+So, for example, here you good look at say
+1 and 7, then there independent together no
+
+00:16:22.170 --> 00:16:30.482
+connections. So, may be 6 and 5 are independent,
+so we say that two vertices are independent,
+
+00:16:30.482 --> 00:16:31.482
+if there is an edge.
+
+00:16:31.482 --> 00:16:35.170
+Now, if I take this set by take 1 and 7, this
+is an independent, but if I add 5 to it is
+
+00:16:35.170 --> 00:16:40.130
+for the instance, now 5 and 7 are connected
+by an edge, so these are not independent.
+
+00:16:40.130 --> 00:16:46.351
+So, an independent set is one in which every
+pair is independent. So, 1 and 7 is an independent
+
+00:16:46.351 --> 00:16:50.780
+set, but 1, 5, 7 is not an independent set,
+because 5, 7 is an edge.
+
+00:16:50.780 --> 00:16:59.320
+So, here for instance, you can check that
+3, 4, 5 forms an independent set, because
+
+00:16:59.320 --> 00:17:03.520
+is no in between 3 and 4, there is no edge
+in between 4 and 5, there is no edge in between
+
+00:17:03.520 --> 00:17:09.959
+3 and 5. So, for example, if you are trying
+to say you interpret these nodes as people
+
+00:17:09.959 --> 00:17:15.270
+and you node edges as knowing each other.
+So, supposing you now you want to set up some
+
+00:17:15.270 --> 00:17:20.140
+kind of a committee, where you want to be
+usual that all the committee members have
+
+00:17:20.140 --> 00:17:24.320
+independent opinions are not influenced by
+the facts that they know each other before
+
+00:17:24.320 --> 00:17:27.220
+that.
+Then you can pick up an independent set, an
+
+00:17:27.220 --> 00:17:29.980
+independent set will produce people, who do
+not mutually do not know each other. So, therefore,
+
+00:17:29.980 --> 00:17:33.500
+when they meet for the first time, hopefully,
+if they have neutral opinions about each other
+
+00:17:33.500 --> 00:17:37.860
+and about the problem that they haveÉ So,
+this might be one example of why you want
+
+00:17:37.860 --> 00:17:43.840
+pick up an independent set. So, the algorithmic
+problem is to find the largest independent
+
+00:17:43.840 --> 00:17:45.680
+set.
+So, here we have found an independence set
+
+00:17:45.680 --> 00:17:52.490
+of size 3, can I do better can I find one
+of size 4, maybe, maybe not. So, this my algorithmic
+
+00:17:52.490 --> 00:17:58.400
+problem, given a graph what is the largest
+independent set, that I can find in it. As
+
+00:17:58.400 --> 00:18:03.380
+we saw before, this is a problem where we
+have to get an answer. So, if somebody tells
+
+00:18:03.380 --> 00:18:08.750
+me 3, 4, 5 is a maximum independent set, I
+can verify easily the 3, 4, 5 reason independence
+
+00:18:08.750 --> 00:18:10.910
+set, but I cannot necessarily verify that,
+if there is no larger set.
+
+00:18:10.910 --> 00:18:15.710
+This is like that traveling salesman problem,
+when I can verify that the tour to given to
+
+00:18:15.710 --> 00:18:20.350
+me is a simple cycle, but I may not be able
+to verify that the cost of the tour is the
+
+00:18:20.350 --> 00:18:25.660
+best among all such. So, once again, if you
+want to set up which checking version the
+
+00:18:25.660 --> 00:18:31.140
+problem, we will set up off, will say is there
+an independent set of size K. So, we are trying
+
+00:18:31.140 --> 00:18:36.910
+to find the largest one, so you will say at
+least size K. So, if I at least size 3 and
+
+00:18:36.910 --> 00:18:39.010
+this produce of this, I will verify it at
+least size 3.
+
+00:18:39.010 --> 00:18:45.620
+And at least size 4 and this is my witness
+and this is my solution, I will say no. So,
+
+00:18:45.620 --> 00:18:49.660
+independent set again like traveling salesmen
+and Boolean satisfiability, we do not know
+
+00:18:49.660 --> 00:18:57.480
+of a good generative solution. But by using
+this bounded version where we provide us a
+
+00:18:57.480 --> 00:19:03.570
+number quantities, we are trying to estimate
+we can produces checking versions.
+
+00:19:03.570 --> 00:19:11.690
+So, a related looking problem, relative problem
+to this is called vertex cover, we say that
+
+00:19:11.690 --> 00:19:17.900
+a node you covers every edge that is instance.
+So, for example, if I take this node, then
+
+00:19:17.900 --> 00:19:25.360
+it covers these three, these four edges, because
+all these edges start at 2. So, now, vertex
+
+00:19:25.360 --> 00:19:30.260
+cover is something that covers all the edges.
+So, for instance I take a 2 cover those edges,
+
+00:19:30.260 --> 00:19:35.450
+now these edges are not there, maybe I take
+3 to cover it. So, I take 3 in this covers,
+
+00:19:35.450 --> 00:19:43.050
+these edges have a still have some missing
+edges, so maybe I pickup 7, which is 7 covers
+
+00:19:43.050 --> 00:19:50.520
+these three edges.
+So, now I have found a collection of 1, 2,
+
+00:19:50.520 --> 00:20:00.940
+3 vertices which cover all the edges in this
+graph. So, now, what we want to do is find
+
+00:20:00.940 --> 00:20:09.110
+the smallest vertex cover in a given graph,
+and again because we do not know how to do
+
+00:20:09.110 --> 00:20:16.420
+smallest in general, we will say that, we
+will take any vertex cover which is at most
+
+00:20:16.420 --> 00:20:21.340
+size K we are looking for the smallest one.
+So, it is like the traveling salesmen, we
+
+00:20:21.340 --> 00:20:25.320
+are looking for the shortest tour, so it say
+is there a tour of less than or equal to said
+
+00:20:25.320 --> 00:20:31.390
+me cost, so is there a vertex cover less then
+equal to a certain cost. So, these two problem
+
+00:20:31.390 --> 00:20:37.010
+look connected and in fact they are. So, here
+for example, we have a vertex cover of size
+
+00:20:37.010 --> 00:20:42.540
+4, which is indicated in green.
+
+00:20:42.540 --> 00:20:48.710
+So, the connection is that U is an independent
+sets of size K, if and only if it is complementÕs
+
+00:20:48.710 --> 00:20:55.380
+it vertex cover of size N minus K. So, in
+our case U 3, 4, 5 was a vertex independent
+
+00:20:55.380 --> 00:21:01.080
+set of size 3, then itÕs complement must
+be a vertex cover of size N minus K. So, if
+
+00:21:01.080 --> 00:21:05.770
+I could solve the vertex cover problem for
+a certain size, I can solve the independence
+
+00:21:05.770 --> 00:21:12.500
+set problem for N minus K. So, I can convert
+one to the other and the proof of this very
+
+00:21:12.500 --> 00:21:15.940
+easy.
+So, supposing I know that U is an independent
+
+00:21:15.940 --> 00:21:25.510
+set. U is an independent set, then no edge
+is within U. So, if I take any edge U V, then
+
+00:21:25.510 --> 00:21:32.309
+if one end is inside U, the other end must
+be outside U or both end points are outside.
+
+00:21:32.309 --> 00:21:37.070
+So, therefore, if I take any edge at least
+one of it is end points lives in V minus U.
+
+00:21:37.070 --> 00:21:40.910
+So, V minus U covers all the edges, so therefore,
+V minus U is a vertex cover.
+
+00:21:40.910 --> 00:21:47.690
+And of course, given that this has K vertices,
+the other must have N minus K vertices, conversely
+
+00:21:47.690 --> 00:21:55.590
+supposing I assume that V minus U is a vertex
+cover, then every edge starts from there.
+
+00:21:55.590 --> 00:21:58.900
+If every edge starts from there, one of itÕs
+ends points is there. So, I cannot have an
+
+00:21:58.900 --> 00:22:02.530
+end which is entirely within the complement,
+because if have an edge which is like this,
+
+00:22:02.530 --> 00:22:07.730
+then this is an edge which is not covered
+by vertex cover. So, they cannot be any edges
+
+00:22:07.730 --> 00:22:10.100
+with in U, therefore, U is an independence
+set.
+
+00:22:10.100 --> 00:22:14.240
+And once again, the sizes are guaranteed,
+because their complementary search a vertices.
+
+00:22:14.240 --> 00:22:21.160
+So, this says that independent set reduces
+to vertex cover with the complementary size,
+
+00:22:21.160 --> 00:22:27.270
+this is the bounded vertex version and vertex
+cover reduces to independence set. So, they
+
+00:22:27.270 --> 00:22:29.460
+reduce to each other.
+
+00:22:29.460 --> 00:22:34.679
+So, when we introduce reducibility in the
+contest of liner programming and network floors
+
+00:22:34.679 --> 00:22:39.880
+we said that one aim is to transfer efficient
+solution from B to A. So, when I reduce A
+
+00:22:39.880 --> 00:22:49.450
+to B, if B is an efficient, then A is efficient.
+But in this context, what we are trying to
+
+00:22:49.450 --> 00:22:55.250
+say is that this is not known to be an efficient,
+then this also is not known to be efficient.
+
+00:22:55.250 --> 00:23:01.010
+So, since independently we believe that independent
+set is not efficient then because it reduces
+
+00:23:01.010 --> 00:23:04.320
+to vertex cover, vertex cover is also likely
+to be not efficient and vice versa. So, it
+
+00:23:04.320 --> 00:23:10.590
+turns out that that many pairs of checkable
+problems or such inter reducible problem,
+
+00:23:10.590 --> 00:23:14.960
+either directly are you may find a cycle or
+things A reduce to B, B reduce to C and C
+
+00:23:14.960 --> 00:23:18.490
+reduces back to A.
+So, in that sense, all of them are equally
+
+00:23:18.490 --> 00:23:23.820
+easy or equally hard and since, we tend to
+believe that nobody has solved any of them
+
+00:23:23.820 --> 00:23:28.679
+yet, if they must all be hard, this gives
+to the believe that there is large group of
+
+00:23:28.679 --> 00:23:36.590
+problems which are actually practical in terms
+of their usefulness. But not known to be efficiently
+
+00:23:36.590 --> 00:23:41.310
+solvable in terms of our notions of algorithmic
+efficiency. So, we will look at this with
+
+00:23:41.310 --> 00:23:43.169
+a little more detail in our last lecture.
+

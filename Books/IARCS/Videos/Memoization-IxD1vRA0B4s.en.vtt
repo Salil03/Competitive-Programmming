@@ -1,0 +1,889 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.790 --> 00:00:05.430
+Let us continue our discussion of inductive
+definitions.
+
+00:00:05.430 --> 00:00:12.150
+So, recall that functions like factorial and
+insertion sort are natural inductive definitions
+
+00:00:12.150 --> 00:00:14.030
+in terms of smaller sub problems.
+
+00:00:14.030 --> 00:00:19.150
+And the attraction of looking at inductive
+definitions is that, we can very easily come
+
+00:00:19.150 --> 00:00:23.380
+up with recursive programs that implement
+them in a very obvious way.
+
+00:00:23.380 --> 00:00:29.650
+But, the challenges is, in identifying the
+sub problems, I am making sure that they are
+
+00:00:29.650 --> 00:00:35.180
+not overlapping. So, in the case of factorial
+remember that any smaller input factorial
+
+00:00:35.180 --> 00:00:42.000
+is a sub problem, similarly for sorting you
+can think of any segment of the list to be
+
+00:00:42.000 --> 00:00:47.350
+sorted as a sub problem. And in general, we
+are looking at recursive solutions or inductive
+
+00:00:47.350 --> 00:00:52.440
+solutions where the solution to the function
+f we are trying to define is derived, by combining
+
+00:00:52.440 --> 00:00:59.190
+solutions to the subproblems of this original
+problem and so we compute f on smaller inputs
+
+00:00:59.190 --> 00:01:00.560
+than y.
+
+00:01:00.560 --> 00:01:06.930
+So, let us see how this works with the very
+familiar series that you may know of called
+
+00:01:06.930 --> 00:01:11.710
+the Fibonacci numbers. So, let us define the
+Fibonacci numbers as follows, the first two
+
+00:01:11.710 --> 00:01:17.320
+Fibonacci numbers are 0 and 1 and then every
+successive Fibonacci number is obtained by
+
+00:01:17.320 --> 00:01:22.820
+adding these two. Now, it is instructive to
+see even before you begin how we would numerate
+
+00:01:22.820 --> 00:01:30.630
+the Fibonacci numbers. We know that the first
+two are 0 and 1 and we know the next one is
+
+00:01:30.630 --> 00:01:36.180
+sum of these two. So, the next one will be
+1 again, next one will be 2, for this 1 plus
+
+00:01:36.180 --> 00:01:42.390
+1, next one will be 3, next one will be 5,
+next one will be 8, next one will be 13 and
+
+00:01:42.390 --> 00:01:49.390
+so on. So, it is very clear that though these
+numbers have an inductive definition and there
+
+00:01:49.390 --> 00:01:53.290
+is an obvious recursive function that goes
+with it which I have just mention in a minute.
+
+00:01:53.290 --> 00:01:59.560
+There is a very efficient way of enumerating
+these numbers, directly almost in linear time.
+
+00:01:59.560 --> 00:02:05.100
+So, how does the definition of the function
+go? Fibonacci of n is just if n is 0, return
+
+00:02:05.100 --> 00:02:10.130
+0, if n is 1 return 1. So, if n is 0 or 1,
+the value is n itself. Otherwise, you compute
+
+00:02:10.130 --> 00:02:15.879
+value recursively using this criterion Fibonacci
+of n minus 1 plus Fibonacci of n minus 2 and
+
+00:02:15.879 --> 00:02:19.249
+finally, whatever value you are computed you
+return.
+
+00:02:19.249 --> 00:02:26.079
+So, where is the catch? So, let’s see how
+this would work on an small input like we
+
+00:02:26.079 --> 00:02:30.879
+have just saw Fibonacci. So, we just saw the
+Fibonacci of 5, this 5, we know that we start
+
+00:02:30.879 --> 00:02:43.100
+with 0, 1, 1, so these are the arguments.
+So, the values are 0, 1, 1, 2, 3 and then
+
+00:02:43.100 --> 00:02:46.020
+5. So, we are trying to compute, if this is
+a Fibonacci number we computed very fast.
+
+00:02:46.020 --> 00:02:48.519
+But, let us see how this recursive thing would
+actually got, if I call Fibonacci of 5, recursively
+
+00:02:48.519 --> 00:02:57.379
+it would ask me to compute Fibonacci of 4
+and 3, Fibonacci of 4 in turn will ask me
+
+00:02:57.379 --> 00:02:59.010
+to compute 3 and 2.
+
+00:02:59.010 --> 00:03:06.319
+Now, 3 in turn will ask me to compute 2 and
+1, then 2 in turn will ask me to compute 1
+
+00:03:06.319 --> 00:03:12.389
+and 0. Now, fortunately for 1 and for 0, I
+have a base case. So, I will get those values
+
+00:03:12.389 --> 00:03:18.219
+1 and 0 respectively. So, since I got 1 and
+0 and I will now be able to compute Fibonacci
+
+00:03:18.219 --> 00:03:22.840
+of 2 at sum of those and I will get the answer
+1. Now, I have turn into Fibonacci 1, again
+
+00:03:22.840 --> 00:03:27.419
+it is a base case, I get the answer 1.
+So, now I have both the answers required for
+
+00:03:27.419 --> 00:03:33.839
+Fibonacci of 3. So, I get the answer 2, now
+I go back and I compute Fibonacci of 2, but
+
+00:03:33.839 --> 00:03:38.859
+remember I have already computed it, but because
+I did not make note of this in some sense,
+
+00:03:38.859 --> 00:03:43.480
+I’m blindly doing recursion. Fibonacci of
+2 will again ask me to compute Fibonacci of
+
+00:03:43.480 --> 00:03:47.239
+1 and 0, which will again produce the base
+cases 1 and 0.
+
+00:03:47.239 --> 00:03:53.889
+So, I will again compute Fibonacci of 2 as
+1 and now with both Fibonacci of 3 and 2 are
+
+00:03:53.889 --> 00:03:57.839
+available, I will get the answer Fibonacci
+of 4 and 3. And now, I will go back and compute
+
+00:03:57.839 --> 00:04:03.719
+Fibonacci 3 yet again. So, I will do this
+whole tree again, 3 calls 2 and 1, 2 calls
+
+00:04:03.719 --> 00:04:09.489
+1 and 0, these return the base case, that
+give me a value for 2, 1 returns the base
+
+00:04:09.489 --> 00:04:15.829
+case, this give me a value for 3 and finally,
+after all this, I get the value of Fibonacci
+
+00:04:15.829 --> 00:04:19.400
+as 5.
+So, the problem we can see is that functions
+
+00:04:19.400 --> 00:04:25.280
+that Fibonacci of 3 have been computed twice
+in full and full complexity, other functions
+
+00:04:25.280 --> 00:04:32.680
+like Fibonacci of 2 have been computed 1,
+2, 3 times and so on. And of course, Fibonacci
+
+00:04:32.680 --> 00:04:38.890
+of 1 towards it is base case have been call
+several times: 1, 2, 3, 4, 5 times and Fibonacci
+
+00:04:38.890 --> 00:04:44.740
+of 0 has been called 3 times.
+So, this is the big problem with this recursive
+
+00:04:44.740 --> 00:04:51.530
+computation, that we seem to be computing
+too many things, see ideally in order to compute
+
+00:04:51.530 --> 00:04:58.060
+Fibonacci of 5 and I know I need 4, 3, 2,
+1 and 0. So, I need only six values totally
+
+00:04:58.060 --> 00:05:02.790
+to be computed and I am making a lot more
+than six computations.
+
+00:05:02.790 --> 00:05:09.760
+So, the crux of the problem is that there
+are these sub problems which arise in different
+
+00:05:09.760 --> 00:05:15.690
+context within this recursive computation,
+for Fibonacci of 3 is generated both by the
+
+00:05:15.690 --> 00:05:21.990
+original call of Fibonacci of 4 and the nested
+recursive call of Fibonacci of 4, so the original
+
+00:05:21.990 --> 00:05:26.690
+called Fibonacci of 5 and the nested recursive
+called Fibonacci of 4. So, we have this entire
+
+00:05:26.690 --> 00:05:32.940
+tree of computation which is duplicated and
+because of this kind of wasteful recomputation,
+
+00:05:32.940 --> 00:05:39.000
+over all the computation tree grows exponentially.
+So, you can actually find in general, that
+
+00:05:39.000 --> 00:05:43.810
+in order to compute the nth Fibonacci number,
+you actually do some exponential in n one
+
+00:05:43.810 --> 00:05:47.720
+steps. Even though, we can see that you can
+just compute nth Fibonacci number in linear
+
+00:05:47.720 --> 00:05:55.231
+time, we just sorted, you just computed as
+the 0, 1, 2, 3, 4 and so on.
+
+00:05:55.231 --> 00:06:01.430
+So, one way to get around this is to make
+sure that you never reevaluate a sub problem.
+
+00:06:01.430 --> 00:06:06.770
+So, you build up a table which is sometimes
+called a memory table and what does this table
+
+00:06:06.770 --> 00:06:11.280
+do? it just keeps track of every value for
+which you have computed the function before.
+
+00:06:11.280 --> 00:06:18.630
+So, it is just the look up in a language like
+java, it could be a hash map or a language
+
+00:06:18.630 --> 00:06:23.720
+like python, it could be a dictionary. Every
+time you call a f on a value x, you just store
+
+00:06:23.720 --> 00:06:29.830
+x comma f(x) in this table.
+So, that you can look at up and see we already
+
+00:06:29.830 --> 00:06:34.870
+computed it. So, it is called memoization.
+So, this term memoization comes from the word
+
+00:06:34.870 --> 00:06:40.150
+memo with some of few may occur. So, memo
+is a note which remains you are something
+
+00:06:40.150 --> 00:06:44.870
+are remains somebody else or something. So,
+memoization, memo table or a memory table
+
+00:06:44.870 --> 00:06:50.160
+is supposed to remind you that the value your
+time to compute has already been computed.
+
+00:06:50.160 --> 00:06:57.320
+So, how does memoization work? So, we have
+this memo table here, so this is our memo
+
+00:06:57.320 --> 00:07:03.090
+table, so in this memo table it is just a
+table where we fit different value of k and
+
+00:07:03.090 --> 00:07:07.491
+fib k as we compute them. We have assumed
+that we have computed nothing, we do not even
+
+00:07:07.491 --> 00:07:12.040
+know the base case, we are just going to apply
+the recursive definition. But, every time
+
+00:07:12.040 --> 00:07:18.400
+we compute something, we will first look up
+the table before we computed recursively and
+
+00:07:18.400 --> 00:07:23.360
+if we have to computed recursively, then we
+will store each newly computed back end of
+
+00:07:23.360 --> 00:07:26.690
+the table.
+So, let us start as before we wanted to start
+
+00:07:26.690 --> 00:07:31.800
+computing the Fibonacci of 5. So, the recursive
+definitions says, that we should call Fibonacci
+
+00:07:31.800 --> 00:07:40.950
+of 4 and 3. Now, we go to 4, where just doing
+recursion left to right, so 4 will call 3
+
+00:07:40.950 --> 00:07:47.030
+and 2, 3 will call 2 and 1, 2 will call 1
+and 0, at this point we try to evaluate Fibonacci
+
+00:07:47.030 --> 00:07:52.100
+of 1 to the first time. When, we evaluate
+Fibonacci of 1 for the first time, we get
+
+00:07:52.100 --> 00:07:57.250
+a base case and it tells us that this value
+is 1. So, we will return this value, but we
+
+00:07:57.250 --> 00:08:01.560
+will also store it in the table.
+So, now, we are made up first entry in the
+
+00:08:01.560 --> 00:08:06.750
+table itself, Fibonacci of 1 is 1, then we
+look at Fibonacci of 0 and again, it is a
+
+00:08:06.750 --> 00:08:10.700
+new value, we got it from the base case, but
+we have never computed before. So, now, we
+
+00:08:10.700 --> 00:08:14.950
+have computed it by computing the base case
+and again, we put an entry in the tables side,
+
+00:08:14.950 --> 00:08:18.710
+Fibonacci of 0’s sign. So, with this as
+before we have got Fibonacci of 2.
+
+00:08:18.710 --> 00:08:23.880
+So, up to this point, we have not saved anything,
+excepted we have also now, because we have
+
+00:08:23.880 --> 00:08:25.670
+computed Fibonacci of 2, we have added it
+too, we done new value computed we put it
+
+00:08:25.670 --> 00:08:33.539
+into the table. Now, to continue with Fibonacci
+of 3 I need to go back to Fibonacci of 1,
+
+00:08:33.539 --> 00:08:39.529
+of course, it is the base case, but what my
+table thing tells us, tells you is that you
+
+00:08:39.529 --> 00:08:44.290
+should look at the table first. So, we go
+down the table, hopefully it is organized
+
+00:08:44.290 --> 00:08:48.860
+in some efficient way, but in the worst case,
+let us just do naively scan it, we look have
+
+00:08:48.860 --> 00:08:53.100
+I ever done Fibonacci of 1 before, and see
+that I have done Fibonacci of 1 before.
+
+00:08:53.100 --> 00:08:57.970
+So, it will look up that value without calling
+the base case, without looking at the function
+
+00:08:57.970 --> 00:09:03.720
+definition and just return Fibonacci of 1
+is 1. So, we have indicated it by turning
+
+00:09:03.720 --> 00:09:08.079
+it orange that this call was actually returned
+from the table, it didn’t actually require
+
+00:09:08.079 --> 00:09:12.920
+computation. So, now, that have 1 and 1, Fibonacci
+of 3 is now 2. So, now I have to continue
+
+00:09:12.920 --> 00:09:18.519
+with Fibonacci of 4. So, now I have to call
+Fibonacci of 2 again.
+
+00:09:18.519 --> 00:09:24.959
+So, now it will go down and say have I ever
+seen Fibonacci of 2 and say I have and therefore,
+
+00:09:24.959 --> 00:09:29.200
+without doing the re computation, it will
+look up this memo table and again we mark
+
+00:09:29.200 --> 00:09:35.220
+it as in orange value, because it came from
+the table, it returns the value 1 which we
+
+00:09:35.220 --> 00:09:40.559
+stored in the table. So, now having computed
+this, we’ve got Fibonacci of 4. So, we compute
+
+00:09:40.559 --> 00:09:44.999
+Fibonacci of 4 to be 3 from the recursive
+definition and there again we store it in
+
+00:09:44.999 --> 00:09:47.160
+the table.
+So, every new value that we compute, we store
+
+00:09:47.160 --> 00:09:50.860
+in the table that could be able to use it
+again or not we do not know, but if we want
+
+00:09:50.860 --> 00:09:55.019
+to use it again, it is good to have it there.
+So, we just blindly put everything that we
+
+00:09:55.019 --> 00:10:00.000
+ever compute back into the table for future
+use. now, we come back to the top Fibonacci
+
+00:10:00.000 --> 00:10:05.079
+of 5, we have got the left branch, we need
+the right branch, we go to Fibonacci of 3,
+
+00:10:05.079 --> 00:10:10.279
+earlier we had blindly reproduces the entire
+tree at the bottom in order to get Fibonacci
+
+00:10:10.279 --> 00:10:15.589
+of 3, but this time we are smarter, we go
+down the table and we find that 3 has been
+
+00:10:15.589 --> 00:10:19.430
+computed before and the value is 2, so we
+get this value of 2.
+
+00:10:19.430 --> 00:10:23.480
+And now, we have both the answers that we
+need for Fibonacci of 5 and so we get Fibonacci
+
+00:10:23.480 --> 00:10:25.759
+of 5 is 5 and again, we put it in the table,
+although in this particular case, we are not
+
+00:10:25.759 --> 00:10:30.779
+going to use it as the computation is over,
+but it could be part of a bigger computations,
+
+00:10:30.779 --> 00:10:36.899
+so we just keep doing this. So, what you can
+see in this is that the computation tree which
+
+00:10:36.899 --> 00:10:41.490
+used be exponential is now linear.
+Why is it linear? Because, every value which
+
+00:10:41.490 --> 00:10:46.620
+is in blue appears in the 1s and every value
+which in not in blue is a look up in the table,
+
+00:10:46.620 --> 00:10:53.970
+So, it cost nothing, so therefore, we have
+now made, so this more or less this memoized
+
+00:10:53.970 --> 00:11:01.230
+Fibonacci is what we do, whether we do it
+in a different order, when we actually compute
+
+00:11:01.230 --> 00:11:02.660
+it by hand.
+
+00:11:02.660 --> 00:11:08.769
+So, just to see what the memoized Fibonacci
+looks like: So, the green code is what we
+
+00:11:08.769 --> 00:11:14.170
+wrote earlier, fib of n, if n is 0 or 1, set
+the value to n, else set the value to the
+
+00:11:14.170 --> 00:11:19.019
+fib of n minus 1, fib of n minus 2 and return.
+So, now we have introduced a memo bits which
+
+00:11:19.019 --> 00:11:23.240
+are the red ones. So, we have a table which
+we call fib table, whose values are indexed
+
+00:11:23.240 --> 00:11:29.009
+by the position.
+So, fib of 6, if I compute it’ll go in to
+
+00:11:29.009 --> 00:11:34.079
+fib table 6. So, when I get an argument to
+fill, the first thing I do is I look whether
+
+00:11:34.079 --> 00:11:39.699
+fib table has an entry for that. So, if fib
+table of n exists return whatever it says,
+
+00:11:39.699 --> 00:11:46.889
+if it does not exist, then we compute it,
+once we have computed it, before we do anything
+
+00:11:46.889 --> 00:11:50.332
+we put it back in the table. So, that next
+time we will not compute it again. So, every
+
+00:11:50.332 --> 00:11:53.839
+new value it is put back in the table and
+then, we return it.
+
+00:11:53.839 --> 00:11:58.230
+So, when we return a value here, it has been
+computed for the first time, but it has been
+
+00:11:58.230 --> 00:12:01.439
+stored in the table. So, the next time, I
+get the same N I will come here and I will
+
+00:12:01.439 --> 00:12:06.809
+exit at this point. So, this is our memoized
+Fibonacci, it just has a very simple check
+
+00:12:06.809 --> 00:12:10.990
+for the table at the beginning and when you
+compute the value, it puts it back.
+
+00:12:10.990 --> 00:12:17.290
+So, this is a very simple thing that you can
+do, you can do this for any functions. So,
+
+00:12:17.290 --> 00:12:21.179
+supposing you had some recursive function
+or inductive function with three arguments,
+
+00:12:21.179 --> 00:12:26.129
+then you just have a table with three indices.
+So, let us call it a f table, for computing
+
+00:12:26.129 --> 00:12:33.439
+f. So, you have some inductive way of computing
+the value from the sub problems. So, first
+
+00:12:33.439 --> 00:12:38.369
+you look up have I ever seen this x, y, z
+before? If so just return it.
+
+00:12:38.369 --> 00:12:44.510
+Otherwise, compute a new value for this given
+x, y and z in terms of the recursive definition
+
+00:12:44.510 --> 00:12:49.809
+from the inductive structure of the problem.
+Having computed it, put it back in the table,
+
+00:12:49.809 --> 00:12:55.550
+so that you never have to compute it explicitly
+again and then you return. So, this is a generic
+
+00:12:55.550 --> 00:13:00.499
+scheme which can be applied to any recursive
+function that you might write, the only thing
+
+00:13:00.499 --> 00:13:04.220
+you have do is you have to make sure that
+you can design a table with their appropriate
+
+00:13:04.220 --> 00:13:08.379
+look up and look it up it is efficiently.
+Because, if spend a long time looking up the
+
+00:13:08.379 --> 00:13:13.499
+value of the table, then that is lost. So,
+if you can make it up end of array look up
+
+00:13:13.499 --> 00:13:17.009
+that is an ideal, so this is memoization.
+
+00:13:17.009 --> 00:13:24.660
+So, the other term that we introduce in the
+last lecture is dynamic programming. So, what
+
+00:13:24.660 --> 00:13:31.410
+dynamic programming does is it tries to eliminate
+the recursive part of evaluating an inductive
+
+00:13:31.410 --> 00:13:37.559
+definition. So, in memoization what we do
+is, we evaluate the inductive definition recursively
+
+00:13:37.559 --> 00:13:43.519
+exactly as we would normally, the only thing
+is we keep a table which helps us to avoid
+
+00:13:43.519 --> 00:13:50.629
+having to compute the same thing twice.
+In dynamic programming, you anticipate what
+
+00:13:50.629 --> 00:13:58.160
+the table should look like and how the values
+in the table depend on it. So, supposing we
+
+00:13:58.160 --> 00:14:04.360
+have computing Fibonacci of 5, then by some
+simple analysis of Fibonacci, we know that
+
+00:14:04.360 --> 00:14:08.740
+if Fibonacci of I requires anything at all,
+it requires things smaller than it and the
+
+00:14:08.740 --> 00:14:14.110
+smallest thing you can get a Fibonacci of
+0. Therefore, from Fibonacci of 5, we immediately
+
+00:14:14.110 --> 00:14:18.839
+know that the sub problem that could be of
+interest to us are all sub problems between
+
+00:14:18.839 --> 00:14:23.059
+Fibonacci of 0 and Fibonacci of 5.
+Fibonacci of 5 is not going to require Fibonacci
+
+00:14:23.059 --> 00:14:28.542
+of 6, 7, 8. Nor can we call Fibonacci of the
+negative numbers because it is not defined.
+
+00:14:28.542 --> 00:14:34.199
+So, there’s a very small and finite set
+of values which we need to consider. Now,
+
+00:14:34.199 --> 00:14:42.699
+the next observation is that we can compute
+the dependencies from the problem structure;
+
+00:14:42.699 --> 00:14:47.509
+this is from the inductive definition. So,
+Fibonacci of 4 is equal to, I mean Fibonacci
+
+00:14:47.509 --> 00:14:51.680
+of n is n minus 1 plus n minus 2. So, 5 depends
+on 4 and 3.
+
+00:14:51.680 --> 00:14:56.559
+So, I would say that, there is in order to
+compute 5, I must have first computed 4 and
+
+00:14:56.559 --> 00:15:03.970
+3. So, I will draw an arrow from what it depends
+on to what it is. So, 5 depends on 4, 5 depends
+
+00:15:03.970 --> 00:15:10.509
+on 3. So, I put an arrow from 4 to 3 and 4
+to 5 and 3 to 5, saying that there is this
+
+00:15:10.509 --> 00:15:20.160
+dependency. In turn 4 depends on 3 and 2,
+and 3 depends on 2 and 1, and 2 depends on
+
+00:15:20.160 --> 00:15:23.139
+1 and 0.
+And of course, 1 and 0 are the base cases
+
+00:15:23.139 --> 00:15:30.239
+and they do not depend on anything. So, the
+dependencies will form a DAG. Why do they
+
+00:15:30.239 --> 00:15:34.319
+form a DAG? well it’s quite obvious they
+must from a DAG, because if there are cyclic
+
+00:15:34.319 --> 00:15:38.939
+dependencies you cannot compute one before
+the other. So, it is a very natural thing
+
+00:15:38.939 --> 00:15:44.110
+in any kind of dependency, whether it is dependency
+between pass that we saw in when we did DAG
+
+00:15:44.110 --> 00:15:49.589
+begin with there are many, have do something
+else it is presides there, it saying that,
+
+00:15:49.589 --> 00:15:52.759
+if I cannot compute Fibonacci of 2, I cannot
+compute Fibonacci of 3, because it has to
+
+00:15:52.759 --> 00:15:57.840
+be done first.
+Now, that I know these dependencies, I can
+
+00:15:57.840 --> 00:16:04.709
+now enumerate them in any topological order,
+such that when I reach a value to be computed,
+
+00:16:04.709 --> 00:16:09.709
+everything it depends on is known before.
+So, for example here a natural order would
+
+00:16:09.709 --> 00:16:14.920
+just be of course, 0, 1, 2, 3, 4, 5, because
+both of these are now elements with no incoming
+
+00:16:14.920 --> 00:16:19.420
+edges. So, I can either start my topological
+order with either 0 or with 1.
+
+00:16:19.420 --> 00:16:25.569
+So, let us assume I start with 0’s, so I
+know that Fibonacci of 0 depends on nothing,
+
+00:16:25.569 --> 00:16:31.069
+it must be a base case so I fill it in, likewise
+I know that Fibonacci of 1 depends on nothing.
+
+00:16:31.069 --> 00:16:35.360
+So, it is a base case, so I fill that in,
+so this point I have done both of these, since
+
+00:16:35.360 --> 00:16:40.100
+I have done both of these, these edges are
+gone, so there is nothing pointing into 2.
+
+00:16:40.100 --> 00:16:44.619
+So, this is just topological sort, the basic
+topology set is also there.
+
+00:16:44.619 --> 00:16:50.410
+So, 3 still has a dependency namely 2, but
+2 has no dependencies anymore because both
+
+00:16:50.410 --> 00:16:56.179
+1 and 0 are now used I can fill in Fibonacci
+of 2, then fill in Fibonacci of 3, 4 and 5
+
+00:16:56.179 --> 00:17:01.589
+and this is exactly what we did earlier, when
+we tried to compute Fibonacci by hand. So,
+
+00:17:01.589 --> 00:17:04.620
+what you were actually executing, when you
+are writing off the Fibonacci numbers left
+
+00:17:04.620 --> 00:17:08.950
+to right, where there is looking the previous
+to and computing the next one is actually
+
+00:17:08.950 --> 00:17:11.520
+what is called dynamic program.
+
+00:17:11.520 --> 00:17:17.720
+So, dynamic programming for the Fibonacci
+function just consist of iteratively filling
+
+00:17:17.720 --> 00:17:26.290
+up the table, we start would the value 0 and
+1, then for 2 to n, of course, if n is less
+
+00:17:26.290 --> 00:17:33.510
+than this we will not go through these equation
+at all for 2 to n, we fill up the ith entry
+
+00:17:33.510 --> 00:17:37.790
+from the i minus 1th entry by i minus 2th
+entry, but then as we saw before these two
+
+00:17:37.790 --> 00:17:44.950
+values occurred earlier, so they will already
+filled. So, I have converted my memo table
+
+00:17:44.950 --> 00:17:52.810
+filling from a recursive computation filling
+on demand as it were to filling blindly from
+
+00:17:52.810 --> 00:17:58.100
+beginning to end, which is dynamic program.
+
+00:17:58.100 --> 00:18:04.900
+So, to summarize, we have seen two strategies
+to make recursive computations of inductive
+
+00:18:04.900 --> 00:18:10.940
+functions more efficient, the first is memoization.
+So, what memoization does is whenever it computes
+
+00:18:10.940 --> 00:18:16.670
+the value of the function in sub problem,
+it puts it into a table. And before it calls
+
+00:18:16.670 --> 00:18:21.250
+the function recursively to compute the value,
+it will look up the table to see if this value
+
+00:18:21.250 --> 00:18:26.320
+has already been computed. The same value
+is never the same. Computation never happens
+
+00:18:26.320 --> 00:18:30.840
+twice.
+In dynamic programming on the other hand,
+
+00:18:30.840 --> 00:18:36.500
+we analyze the problem structure, we identify
+the sub problems and we know that this sub
+
+00:18:36.500 --> 00:18:43.840
+problem structure satisfies a DAG, the dependencies
+must form a DAG, because if it’s not a DAG,
+
+00:18:43.840 --> 00:18:48.260
+then we will have cycles and things we will
+not be able to solve anyway. And having done
+
+00:18:48.260 --> 00:18:54.320
+this, what we get from dynamic programming
+is iterative evaluation.
+
+00:18:54.320 --> 00:19:00.170
+So, this is actually in practice a big saving,
+because in most programming languages there
+
+00:19:00.170 --> 00:19:04.880
+is a hidden cost to recursion because every
+function call actually requires a certain
+
+00:19:04.880 --> 00:19:10.450
+amount of operating system and programming
+language, bureaucracy, some administrate work,
+
+00:19:10.450 --> 00:19:15.190
+to take them to declare some memory on the
+stack and so on and this is avoided a completely
+
+00:19:15.190 --> 00:19:19.870
+in a dynamic program solution.
+So, it is a big saving to be able to remove
+
+00:19:19.870 --> 00:19:25.360
+even though memoization is going to give us
+an optimum number of recursive calls required
+
+00:19:25.360 --> 00:19:30.330
+for a given problem, if not, going to call
+anything twice. It will still involve recursive
+
+00:19:30.330 --> 00:19:35.640
+calls and recursive calls can be expensive
+in their own writing. For the sake of algorithms,
+
+00:19:35.640 --> 00:19:40.440
+we typically read function call as kind of
+unit cost operation, but in practice, it is
+
+00:19:40.440 --> 00:19:46.360
+not the case. So, dynamic programming can
+be a huge saving, because it actually converts,
+
+00:19:46.360 --> 00:19:50.010
+optimize recursive thing into an iterative
+scheme.
+

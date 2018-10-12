@@ -1,0 +1,1158 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.990 --> 00:00:07.240
+Let us now turn to the problem of finding
+Common Subwords and Subsequences between two
+
+00:00:07.240 --> 00:00:09.030
+sequences.
+
+00:00:09.030 --> 00:00:16.230
+So, the first problem we look is what is called
+the longest common subword problem. So, let
+
+00:00:16.230 --> 00:00:20.140
+us suppose we are given two words for the
+moment, let us just assume they are words
+
+00:00:20.140 --> 00:00:25.859
+in English or a language like that, we given
+two strings and we want to find the length
+
+00:00:25.859 --> 00:00:32.140
+of the longest common subword between them.
+In a subword, it is just a segment, so for
+
+00:00:32.140 --> 00:00:37.680
+instance, if I have secret and secretary and
+the longest common subword is just the prefix
+
+00:00:37.680 --> 00:00:45.520
+secret and it has length 6, between bisect
+and trisect, I have this common segment isect.
+
+00:00:45.520 --> 00:00:55.330
+If I bisect and secret on the other hand,
+then the common subword is of length 3, namely
+
+00:00:55.330 --> 00:01:02.210
+sec and if I have director and secretary,
+then there are actually only two length subwords
+
+00:01:02.210 --> 00:01:12.369
+and there are two of them, so ec occurs in
+both of them and so does re. So, we may have
+
+00:01:12.369 --> 00:01:17.320
+more than one candidate for the longest common
+subword, but our main pure goal at the moment
+
+00:01:17.320 --> 00:01:21.060
+is to compute not the subword itself, but
+the length, we will see how we can recover
+
+00:01:21.060 --> 00:01:26.399
+this subword quit easily from the length calculation.
+So, the focus at the moment is to get the
+
+00:01:26.399 --> 00:01:29.060
+length of the subword.
+
+00:01:29.060 --> 00:01:36.729
+So, let us look at this thing more formally,
+so we have two words a 0 to a m and b 0 to
+
+00:01:36.729 --> 00:01:44.359
+b n, and now what we want to say is that if
+I write out a 0, a 1, then have a position
+
+00:01:44.359 --> 00:01:54.200
+a i, a i+1 and so on, then a m. So, if I can
+find some segments starting with a i and b
+
+00:01:54.200 --> 00:01:59.539
+j, such that if I start from here and I read
+off k letters, then start from b j and I read
+
+00:01:59.539 --> 00:02:04.951
+off k letters. So, I read a i a i plus 1 up
+to k minus 1, i plus k minus 1 and b j, b
+
+00:02:04.951 --> 00:02:10.160
+j plus 1 and b j plus k minus 1.
+Then these are both are k line segment which
+
+00:02:10.160 --> 00:02:14.140
+are equal, then I will say that u and v have
+a common subword of length k. So, there must
+
+00:02:14.140 --> 00:02:20.570
+be a matching sub segment of the word and
+now, the aim is to find the length of the
+
+00:02:20.570 --> 00:02:25.350
+longest such segment. So, the longest common
+subword of u and w.
+
+00:02:25.350 --> 00:02:29.850
+So, here is a Brute force algorithm, you just
+try out every position, you look at every
+
+00:02:29.850 --> 00:02:39.190
+a i and b j, so you look at every i and j,
+i between 0 and m and j between 0 and n. And
+
+00:02:39.190 --> 00:02:43.270
+then I just keep looking, I look at them,
+if these two match, I look at the next letter
+
+00:02:43.270 --> 00:02:49.880
+and go on and I keep going until I find two
+positions which do not match. Then I know
+
+00:02:49.880 --> 00:02:54.220
+that the longest subword starting from these
+two positions is only mismatch, so I match
+
+00:02:54.220 --> 00:02:59.100
+a b i a plus 1 b i plus 1 as for as possible
+may keep track of the longest such match,
+
+00:02:59.100 --> 00:03:06.030
+I do this for every a i and b j.
+So, if m is greater than n, then first of
+
+00:03:06.030 --> 00:03:14.190
+all the number of choices of a i and b j is
+m times n and in general, I will go to the
+
+00:03:14.190 --> 00:03:20.980
+length of the end of the shorter word matching
+everything. So, I could do order n work before
+
+00:03:20.980 --> 00:03:27.400
+I reach the end of this scan, everything matches
+until the end of the shorter word, then I
+
+00:03:27.400 --> 00:03:35.320
+could do order n word. So, therefore, this
+will be O of m times n into n or O m n square.
+
+00:03:35.320 --> 00:03:40.090
+So, now, our goal is to see, whether we can
+make this more efficient by doing something
+
+00:03:40.090 --> 00:03:42.690
+inductive on this.
+
+00:03:42.690 --> 00:03:51.450
+So, the first observation in the inductive
+observation is that if I have a i a i plus
+
+00:03:51.450 --> 00:03:56.710
+1, if I have b j b j plus 1. So, if I have
+a subword starting from here of length k,
+
+00:03:56.710 --> 00:04:03.330
+then look at the next position and go forward,
+this must be a subword of length k minus 1.
+
+00:04:03.330 --> 00:04:09.230
+So, there is a common subword of length k
+at i j, if and only if there is a long common
+
+00:04:09.230 --> 00:04:12.230
+subword of length k minus 1 and i plus 1 and
+j plus 1.
+
+00:04:12.230 --> 00:04:20.419
+So, in other words I look at i j, if i j is
+equal, then there is possible to start a word
+
+00:04:20.419 --> 00:04:27.100
+at common subword at a i and b j. So, if a
+i is equal to b j, I look at the longest common
+
+00:04:27.100 --> 00:04:31.310
+subword I could have bought i plus 1 and j
+plus 1 and add 1 to it. On the other hand,
+
+00:04:31.310 --> 00:04:34.930
+if a i is not equal to b j, then I cannot
+have a common subword adding to it, because
+
+00:04:34.930 --> 00:04:38.180
+the very first letter does not match. So,
+then I just the length of the longest common
+
+00:04:38.180 --> 00:04:44.569
+subword starting at that position 0. So, this
+gives us a handle on the inductive structure.
+
+00:04:44.569 --> 00:04:48.960
+So, I look at two positions, if there not
+equal, I declare that there is no common subwords
+
+00:04:48.960 --> 00:04:53.830
+starting there, if they are equal, then I
+postpone the problem to the next position
+
+00:04:53.830 --> 00:05:00.819
+and add 1 to whatever I get in next position.
+In the boundary condition is when one of the
+
+00:05:00.819 --> 00:05:05.330
+words is empty, then we have no let us left,
+so we cannot extend one of the words any more,
+
+00:05:05.330 --> 00:05:09.169
+we cannot go forward, then we can say that
+there cannot be a common subword, because
+
+00:05:09.169 --> 00:05:16.080
+there are no letters to use from one of the
+common subwords.
+
+00:05:16.080 --> 00:05:25.370
+So, for convenience, although our words go
+from a 0 to a m and from b 0 to b m, we will
+
+00:05:25.370 --> 00:05:30.310
+allow a m plus oneth position and an n plus
+oneth position. So, we will have positions
+
+00:05:30.310 --> 00:05:36.389
+0 to m plus 1 in u and 0 to n plus 1 in v,
+so m plus 1 means I have gone beyond the last
+
+00:05:36.389 --> 00:05:40.689
+position in u and exhausted all the letters.
+Likewise n plus 1 in b means we have reach
+
+00:05:40.689 --> 00:05:46.081
+the end of the word in v.
+So, what we said is that if we have reach
+
+00:05:46.081 --> 00:05:52.240
+the end of the word in u, then no matter where
+we are in v, there is no commons of word,
+
+00:05:52.240 --> 00:05:57.430
+so length of the common subword is 0. Likewise,
+if we have reach the end of the word in v,
+
+00:05:57.430 --> 00:06:02.680
+wherever we are in u, there is no common subword
+length is 0. So, if we are not in these two
+
+00:06:02.680 --> 00:06:07.020
+cases, we are not in the end of the word,
+then we check whether a i equal to b j, if
+
+00:06:07.020 --> 00:06:11.970
+a i is not equal to b j, we declare as we
+saw earlier with longest common subword has
+
+00:06:11.970 --> 00:06:16.870
+length 0. Otherwise, we inductively compute
+the value of in next position in the both
+
+00:06:16.870 --> 00:06:30.729
+of words and add 1 to it, because we can extend
+that word by 1, because a i is equal to b
+
+00:06:30.729 --> 00:06:31.729
+j.
+
+00:06:31.729 --> 00:06:35.000
+So, we could write a memorized recursive function
+for that, but we will directly try to compute
+
+00:06:35.000 --> 00:06:41.349
+a dynamic programming solution for this problem.
+So, we will typically have these subproblems
+
+00:06:41.349 --> 00:06:48.389
+of the form LCW, i j; these are the basic
+sub problem. So, what we saw from the earlier
+
+00:06:48.389 --> 00:06:54.810
+thing is that if I have a i equal to b j,
+I need to look at a i plus 1, b j plus 1,
+
+00:06:54.810 --> 00:07:01.839
+so LC, IW, LCW i j depends on LCW i plus 1,
+j plus 1. We are this kind of the subproblem
+
+00:07:01.839 --> 00:07:07.550
+dependency, at every point a value needs to
+look to the one which is below.
+
+00:07:07.550 --> 00:07:17.259
+So, we have in this to be clear this is our
+i and this is our j, so it has to look down
+
+00:07:17.259 --> 00:07:23.330
+and write. So, therefore with our convention
+that we draw the arrows backwards that is,
+
+00:07:23.330 --> 00:07:27.599
+if this square depends on this square, then
+we draw an arrow, indicating the dependency
+
+00:07:27.599 --> 00:07:32.180
+in reverse. So, I need to compute the bottom
+of the arrow, before I get to that down arrow,
+
+00:07:32.180 --> 00:07:38.810
+that is what the arrow, I need to compute
+this, before I can compute this. So, now,
+
+00:07:38.810 --> 00:07:43.199
+we can start at this corner, because this
+depends on nothing and then start working.
+
+00:07:43.199 --> 00:07:48.430
+So, as we saw at the boundary, where I have
+exhausted one word, where either the first
+
+00:07:48.430 --> 00:07:52.619
+word or the second word is. So, we have return
+the word by the way, bisect and secret this
+
+00:07:52.619 --> 00:07:57.559
+2, tell us what the values of a i and b j.
+So, these are the values of a I and these
+
+00:07:57.559 --> 00:08:04.669
+are the values of b j, so these are my two
+words. So, initially at the boundary every
+
+00:08:04.669 --> 00:08:08.849
+longest common subword is 0, because one of
+the two words is empty and now, I can do it
+
+00:08:08.849 --> 00:08:14.499
+say row by row or column by column. So, let
+us do it by column for a change.
+
+00:08:14.499 --> 00:08:23.159
+So, now, at this point we had that a 5 is
+equal to b 5, therefore we get 1 plus LCW
+
+00:08:23.159 --> 00:08:30.509
+of 6, 6 and therefore we get a 1, everywhere
+else c and t, e and t, then are no other t.
+
+00:08:30.509 --> 00:08:36.740
+So, everywhere else, it is just 0, because
+the values do not match. So, if I go to the
+
+00:08:36.740 --> 00:08:44.149
+previous or column now. Here, the only one
+that has anything to say is e and e, but there
+
+00:08:44.149 --> 00:08:45.850
+because the next one is 0. So, I get 1 plus
+0 is 1.
+
+00:08:45.850 --> 00:08:52.269
+If I go to the previous one, in fact the value
+no, there is no r in bisect, so therefore,
+
+00:08:52.269 --> 00:08:58.459
+all the values in the subword is 0, if I come
+to the next thing, again now I have one place
+
+00:08:58.459 --> 00:09:03.759
+where c and c match. So, I say that the longest
+common subword starting here is 1 plus whatever
+
+00:09:03.759 --> 00:09:08.570
+happens that t and r, but t and r do not match
+with 1 plus 0 and so on, but now because this
+
+00:09:08.570 --> 00:09:14.430
+c is now preceded by an e.
+So, at this e, I find that it is 1 plus whatever
+
+00:09:14.430 --> 00:09:21.291
+happens to the bottom, so it 1 plus 1 is 2
+and likewise at s, I find that s and s match
+
+00:09:21.291 --> 00:09:27.570
+and it is 1 plus whatever is bottom right
+is becomes 3. So, we identify this way, we
+
+00:09:27.570 --> 00:09:34.019
+put an entry 3. So, in this particular table,
+it is a bit mysterious, where the answer is.
+
+00:09:34.019 --> 00:09:42.690
+So, what we have to do is find the entry with
+the largest value, in this case ma 0, this
+
+00:09:42.690 --> 00:09:47.050
+is our largest value. So, this tells us that
+between these two words, the longest common
+
+00:09:47.050 --> 00:09:52.899
+subword has length 3. As I said before, we
+are only computing the longest common subword,
+
+00:09:52.899 --> 00:09:57.790
+so how do we actually find the subword. Well,
+we can actually in this case, very easily
+
+00:09:57.790 --> 00:10:02.060
+read it off, we know that there is a longest
+common subword here of length 3; that means,
+
+00:10:02.060 --> 00:10:05.241
+that it must be succeeded by the word length
+2 and so on.
+
+00:10:05.241 --> 00:10:10.149
+So, this particular diagonal tells us what
+the letters in the word are and if I just
+
+00:10:10.149 --> 00:10:15.840
+project this diagonal on to both the one column,
+I get the word in c, c. So, in this example
+
+00:10:15.840 --> 00:10:23.160
+as we see, once we computed the length, it
+is very easy to read off this solution.
+
+00:10:23.160 --> 00:10:29.790
+So, here is some code for this particular
+algorithm, the dynamic programming version,
+
+00:10:29.790 --> 00:10:37.220
+just to make it less confusing, I have explicitly
+used the variables r and c, instead of i and
+
+00:10:37.220 --> 00:10:43.990
+j. So, r is the row, it was this way and c
+goes this way. So, what we say is that initially
+
+00:10:43.990 --> 00:10:50.820
+if I am looking at the last column, these
+are all 0’s and you’re looking at the
+
+00:10:50.820 --> 00:10:59.160
+bottom row, remember that the numbering is
+from 0 to n plus 1 and from 0 to m plus 1.
+
+00:10:59.160 --> 00:11:04.089
+So, we looking the bottom row, when the row
+number is n plus 1, every column is 0. So,
+
+00:11:04.089 --> 00:11:11.020
+this puts the 0’s. So, these two lines just
+populate things, now we have to find, remember
+
+00:11:11.020 --> 00:11:15.970
+the goal is to find the maximum position in
+the entire array in order to give the answer
+
+00:11:15.970 --> 00:11:20.260
+finally, so we just keep track of that with
+the value here. So, we initially assume that
+
+00:11:20.260 --> 00:11:25.350
+the maximum common subword of length 0.
+Now, what we do is, we just go column by column
+
+00:11:25.350 --> 00:11:30.970
+and row by row, so we go to each column from
+n to 0, so we do column by column and each
+
+00:11:30.970 --> 00:11:39.300
+column, we go row by row from bottom to top,
+m to 0. We look at the word position r and
+
+00:11:39.300 --> 00:11:55.680
+position c is u, r equal to b, c. If so I
+add 1, should be LCW, so if I have u a bar
+
+00:11:55.680 --> 00:12:01.199
+is equal to d of c, then the longest common
+word, length of the longest common subword
+
+00:12:01.199 --> 00:12:05.940
+r c 1 plus add r plus 1 c plus 1.
+Otherwise, if 0, because there is no common
+
+00:12:05.940 --> 00:12:12.370
+word and if the new value of computed is bigger
+than the value as seen so far, then I will
+
+00:12:12.370 --> 00:12:16.069
+update it to the current value and finally,
+the end this returns length. So, this is a
+
+00:12:16.069 --> 00:12:21.660
+very straight forward iterative way to process
+this thing column by column, you could invert
+
+00:12:21.660 --> 00:12:29.494
+these two indices and it row by row, so that
+is an exercise.
+
+00:12:29.494 --> 00:12:32.880
+So, we have seen earlier that if we just look
+blindly at every position and try to scan
+
+00:12:32.880 --> 00:12:37.920
+the word starting that position, we get something
+which is an order m, n square. now, this solution
+
+00:12:37.920 --> 00:12:44.310
+when require as to fill in the table of size
+m time n, so obviously, every entries in the
+
+00:12:44.310 --> 00:12:47.389
+m times n table, we just have to look at a
+neighbors to fill it up. So, it is a constant
+
+00:12:47.389 --> 00:12:51.960
+time operation. So, m times n entries, we
+fill it m times n times. So, we have an order
+
+00:12:51.960 --> 00:12:58.510
+n 1, m n. If use dynamic programming, we have
+done it, but if use memoization also, you
+
+00:12:58.510 --> 00:13:00.890
+will get the same answer, all though remember,
+there is a recursive calls might cost you
+
+00:13:00.890 --> 00:13:04.839
+and terms of actual implementation time.
+
+00:13:04.839 --> 00:13:12.170
+So, we can now look at a slightly more general
+problem than longest common subword in one
+
+00:13:12.170 --> 00:13:16.920
+which is more interesting computationally.
+So, what if we do not look for an exact match,
+
+00:13:16.920 --> 00:13:24.430
+but we allow ourselves to drop some letters.
+So, we have a subsequence not a sub word,
+
+00:13:24.430 --> 00:13:29.790
+it is allows us to drop some letters and now,
+if you want to know, after dropping some letters,
+
+00:13:29.790 --> 00:13:34.209
+what is the longest match we can find.
+So, now, our earlier example, some of them
+
+00:13:34.209 --> 00:13:38.779
+are the same, like in this case without dropping
+any letter I can could get 6, I cannot improve
+
+00:13:38.779 --> 00:13:44.730
+it, same we will bisect, I cannot improve
+it. But, now if I look at bisect and secret,
+
+00:13:44.730 --> 00:13:52.089
+earlier we only had a length 3 match sec,
+sec, but now I can extend this match to length
+
+00:13:52.089 --> 00:13:57.750
+4, because here if we add it t, here I can
+drop two letters and get a t. So, I can actually
+
+00:13:57.750 --> 00:14:03.410
+get a match which is length 4, likewise in
+these two director and secretary, earlier
+
+00:14:03.410 --> 00:14:14.670
+we had re, re and we had ec, ec.
+But, now by doing this topic I can get ectr,
+
+00:14:14.670 --> 00:14:26.639
+like get ectr, similarly I can get retr, I
+can get retr. So, if we allow ourselves to
+
+00:14:26.639 --> 00:14:32.790
+drop letters we can get longer sequences that
+match and this is called longest common subsequence.
+
+00:14:32.790 --> 00:14:38.129
+So, one we have thinking about it in terms
+of our earlier longest common subword is that
+
+00:14:38.129 --> 00:14:44.120
+I can now, if I match the certain segment,
+I can continue to match to the right. So,
+
+00:14:44.120 --> 00:14:48.899
+I can let both the indices go forward. So,
+I can go down and right in the grid and look
+
+00:14:48.899 --> 00:14:53.300
+for in other place where there is a match.
+So, earlier we had a three level match between
+
+00:14:53.300 --> 00:14:57.519
+a sec, and then we add a one level match between
+d. So, I can combine these two like a four
+
+00:14:57.519 --> 00:15:03.029
+level longest common subsequence, but we will
+do the subsequence calculation in a much more
+
+00:15:03.029 --> 00:15:05.870
+direct way there itself.
+
+00:15:05.870 --> 00:15:11.230
+So, before we proceed it useful to look at
+why the longest common subsequence problem
+
+00:15:11.230 --> 00:15:19.100
+is interesting. So, one of the area is an
+bio informatics. So, biologists are interested
+
+00:15:19.100 --> 00:15:25.939
+in identifying, how close two species are
+each other in the genetic sense. So, if we
+
+00:15:25.939 --> 00:15:32.819
+look at our DNA, our DNA is basically a long
+string over an alphabet of size 4. So, these
+
+00:15:32.819 --> 00:15:38.760
+are 4 proteins, it forms our DNA, they are
+abbreviated as A, T, G, C. So, now, if we
+
+00:15:38.760 --> 00:15:44.470
+look at two strings of DNA and natural way
+to compare, how close they are each other
+
+00:15:44.470 --> 00:15:50.420
+is to ask how much, how well they aligned
+features drop of few things here and there.
+
+00:15:50.420 --> 00:15:54.740
+So, it could be one species other few extra
+genes and other species as a few extra gene
+
+00:15:54.740 --> 00:15:58.050
+something else and if drop those genes, then
+everything else the same, but these genes
+
+00:15:58.050 --> 00:16:03.189
+may occur, it different places in two species.
+So, it is not that there is a common part,
+
+00:16:03.189 --> 00:16:06.560
+and then there is an extra part, it rather
+than the new genes are interspersed among
+
+00:16:06.560 --> 00:16:09.249
+the other genes.
+So, we need to know, if we can drop of few
+
+00:16:09.249 --> 00:16:13.050
+genes in one and few genes in another can
+be over lap. So, that is the longest common
+
+00:16:13.050 --> 00:16:19.959
+subsequence problem, if you use UNIX or LINUX
+are any related operating system, there is
+
+00:16:19.959 --> 00:16:25.399
+a command code DIFF, which allows you to check
+with the two text files are the same or find
+
+00:16:25.399 --> 00:16:29.920
+the minimal difference between them.
+So, the DIFF command also does longest common
+
+00:16:29.920 --> 00:16:34.760
+subsequence, it treats each line as a character
+and it says, what is the minimum number of
+
+00:16:34.760 --> 00:16:40.360
+lines, I can drop between these two files,
+4 I can match them, and then it tells you
+
+00:16:40.360 --> 00:16:44.279
+how to insert things back. But, basically
+it is doing the longest common subsequence
+
+00:16:44.279 --> 00:16:48.709
+calculation to tell you, how close two text
+files are to each other. So, there are plenty
+
+00:16:48.709 --> 00:16:51.629
+of applications for this longest common subsequence
+problem.
+
+00:16:51.629 --> 00:16:57.730
+So, let us try understanding inductive structure
+of this longest common subsequence problem
+
+00:16:57.730 --> 00:17:05.660
+directly, not throw the longest common subword.
+So, the first thing to note is that if I am
+
+00:17:05.660 --> 00:17:10.470
+looking for this longest common subword between
+these two, supposing I find that a 0, is in
+
+00:17:10.470 --> 00:17:18.640
+fact equal to b 0. Now, I claim that, I should
+combine them in the solution, and then look
+
+00:17:18.640 --> 00:17:23.350
+for a solution in the rest.
+So, I should do something, where I say that
+
+00:17:23.350 --> 00:17:28.600
+there is one match a 0 equal to b 0, and then
+I must find the list. So, this requires a
+
+00:17:28.600 --> 00:17:34.730
+little of bit of an argument, because it could
+be that this is not the optimum way to do
+
+00:17:34.730 --> 00:17:38.520
+it. So, remember this is the bit like a greedy
+thing; we are saying that, because a 0 equal
+
+00:17:38.520 --> 00:17:41.150
+to b 0 match it up, and then proceed.
+
+00:17:41.150 --> 00:17:45.910
+So, one might argue that, this is not the
+way, I want to go, supposing a 0, in fact,
+
+00:17:45.910 --> 00:17:52.289
+should be match to b 2, that would be the
+best solution. So, it is not good idea match
+
+00:17:52.289 --> 00:17:58.090
+a 0 to be b 0, but now notice that if a 0
+is match to b 2, because it is the subsequence,
+
+00:17:58.090 --> 00:18:02.090
+then anything to the write, say a 1 is match
+to something it must be further to the right,
+
+00:18:02.090 --> 00:18:07.050
+these lines, I cannot have anything which
+process like this, I cannot any match with
+
+00:18:07.050 --> 00:18:09.750
+process.
+Because, they must occur in the same sequence,
+
+00:18:09.750 --> 00:18:15.270
+so if a 0 match to b 2, a 1 something match
+into the right, a 2 must match something still
+
+00:18:15.270 --> 00:18:21.150
+for the right and so on. So, all these matches
+go from bottom from the top word to the bottom
+
+00:18:21.150 --> 00:18:26.550
+word without processing each other. So, now,
+if I take this solution and I know the a 0
+
+00:18:26.550 --> 00:18:31.730
+and b 0, then I can actually move this arrow
+here and make it match like this and remove
+
+00:18:31.730 --> 00:18:37.070
+this, what will this do, it disturb the original
+solution by no long using a 0 match a b 2,
+
+00:18:37.070 --> 00:18:41.960
+but, a 0 match to b 0.
+But, in terms of the quality of the solution,
+
+00:18:41.960 --> 00:18:45.530
+the number of matches is the same, earlier
+a 0 matches somewhere else, now it match to
+
+00:18:45.530 --> 00:18:51.470
+b 0, the length of the longest common subsequence
+does not change. So, turning the arguments
+
+00:18:51.470 --> 00:18:57.360
+backward, it says that therefore if a 0 equal
+to b 0, it is very safe to assume that a 0,
+
+00:18:57.360 --> 00:19:01.350
+b 0 forms part the solution and proceed to
+the rest of the problem. So, we can look at
+
+00:19:01.350 --> 00:19:08.549
+the subproblem from a 1 and b 1. So, this
+is the first case, the first case says, that
+
+00:19:08.549 --> 00:19:15.679
+we can look at if a 0 equal to b 0, we can
+look at this subproblem a 1 to b 1.
+
+00:19:15.679 --> 00:19:25.130
+Now, if it is not equal, then one is not sure
+what to do, it is not a sound idea a to drop
+
+00:19:25.130 --> 00:19:39.030
+both. So, for instant supposing I have something
+like straw and astray, then just because the
+
+00:19:39.030 --> 00:19:42.580
+S does not match the a, does not mean that
+I should in both of them, I should keep that
+
+00:19:42.580 --> 00:19:50.770
+S alive to match with next S. So, both cannot
+be there, because they do not equal each other
+
+00:19:50.770 --> 00:19:53.900
+and S match it something on the right and
+a cannot match as something for it.
+
+00:19:53.900 --> 00:19:58.630
+If they are both different, if they are not
+equal, then this must match something there
+
+00:19:58.630 --> 00:20:01.640
+and this must match something here and both
+cannot happen. because, they will cross, this
+
+00:20:01.640 --> 00:20:05.160
+we said not allowed, so only one of them can
+match something to the right on the other
+
+00:20:05.160 --> 00:20:12.350
+word, but we do not know which one. So, this
+is what the general principle of these inductive
+
+00:20:12.350 --> 00:20:15.690
+solutions is that you do not write to choose
+one or the other.
+
+00:20:15.690 --> 00:20:24.309
+So, if I leave b 0 and I drop a 0, then I
+get a solution, I get a subproblem which has
+
+00:20:24.309 --> 00:20:32.190
+a 1 to a m and b 0 to b m. If on the other
+hand, I keep a 0 and a drop b 0, then a 0
+
+00:20:32.190 --> 00:20:39.540
+to a m remains, but knows b 1 to b n, these
+are my two possible subproblems knowing that
+
+00:20:39.540 --> 00:20:43.930
+both a 0 and b 0 cannot be there. But, I should
+allow one of them to be there, otherwise I
+
+00:20:43.930 --> 00:20:47.250
+made how sub optimize solution.
+So, dropping one of them, it is like in a
+
+00:20:47.250 --> 00:20:50.409
+job scheduling case, where you say that, if
+this job with this something else is not there,
+
+00:20:50.409 --> 00:20:55.419
+if a 0 is there, b 0 is not there, b 0 is
+there, a 0 is not there, but beyond that you
+
+00:20:55.419 --> 00:20:59.980
+cannot say. So, therefore, I solve both of
+these problems in principle and take their
+
+00:20:59.980 --> 00:21:04.830
+maximum, the better of them.
+So, this is the inductive structure, either
+
+00:21:04.830 --> 00:21:09.330
+the first letter matches in which case I include,
+it in my sequences and solve the remaining
+
+00:21:09.330 --> 00:21:14.289
+subproblem. Or, the first letter does not
+match in which case is generate two subproblems,
+
+00:21:14.289 --> 00:21:19.520
+one by propping each of the letters in term
+and I take the maximum of the true.
+
+00:21:19.520 --> 00:21:27.899
+So, as usual let LCS i comma j, stand for
+the LCS of the problem starting at a i and
+
+00:21:27.899 --> 00:21:36.270
+b j. So, if a i equal b j as we say, LCS of
+i j is 1 plus LCS of i plus 1 j plus 1, this
+
+00:21:36.270 --> 00:21:41.590
+says, we will assume that a i equal to b j
+is included not solution. And then proceed
+
+00:21:41.590 --> 00:21:47.120
+with the rest of the input, if it is not,
+then I have to drop one of them. So, either
+
+00:21:47.120 --> 00:21:53.230
+I will look at LCS i plus 1 comma j or LCS
+i j plus 1, I will look at both and then I
+
+00:21:53.230 --> 00:21:57.860
+take the maximum of these two and there is
+no other thing, because the current word not
+
+00:21:57.860 --> 00:22:01.910
+does not match.
+So, as with the longest common subword problem,
+
+00:22:01.910 --> 00:22:06.140
+we will extend that position is to beyond
+the word to indicate the word is over. So,
+
+00:22:06.140 --> 00:22:11.320
+we will go from 0 to m plus 1 and 0 to n plus
+1 and when, we have reached m plus 1 or n
+
+00:22:11.320 --> 00:22:15.149
+plus 1, then the LCS problem will give a 0,
+because they cannot be a common subsequence,
+
+00:22:15.149 --> 00:22:20.020
+since one of the words going to be empty.
+
+00:22:20.020 --> 00:22:28.161
+So, the subproblem dependency in LCS is a
+little more complicated than in LCW, LCW we
+
+00:22:28.161 --> 00:22:33.300
+only had these dependency, that is we said
+that, i j depended i plus 1 j plus 1. But,
+
+00:22:33.300 --> 00:22:38.669
+now we are also dependency i plus 1 j and
+i j plus 1. So, we have a dependency coming
+
+00:22:38.669 --> 00:22:44.710
+to the right and from the low as well. So,
+we have a three way dependency as we saw all
+
+00:22:44.710 --> 00:22:49.550
+these values are going to be 0 here. So, this
+is the first non trivial value that we can
+
+00:22:49.550 --> 00:22:52.809
+compute, because all its three neighbors are
+nowhere else are around.
+
+00:22:52.809 --> 00:22:58.630
+So, if I look at here for example, the bottom
+neighbors not, if I look here the neighbors
+
+00:22:58.630 --> 00:23:04.240
+not. So, LCS m comma n, 5 comma 5 in this
+case, the value is available to compute, because
+
+00:23:04.240 --> 00:23:09.309
+everything around it the three dependent squares
+around it are all populated. So, I can do
+
+00:23:09.309 --> 00:23:12.240
+that and then I can again I do row by row.
+Once I got this, I can do this, I will have
+
+00:23:12.240 --> 00:23:18.600
+all three values, once I do this, I can go
+right or I can go left, I can do this and
+
+00:23:18.600 --> 00:23:20.039
+so on, I can do diagonally, so let us do it
+column by column.
+
+00:23:20.039 --> 00:23:26.460
+So, we start with the base case, where the
+LCS at the boundary is 0, because you cannot
+
+00:23:26.460 --> 00:23:34.220
+have a longest common subsequence with an
+empty word. Then, we fill up the first column
+
+00:23:34.220 --> 00:23:45.299
+and here we get a 1, because when the two
+match, we have 1 plus LCS of, i plus 1, j
+
+00:23:45.299 --> 00:23:50.799
+plus 1. Now, we have from differences, so
+when it does not match like when c, so if
+
+00:23:50.799 --> 00:23:58.100
+I look at c that e they do not match, then
+what I am suppose to do, I am suppose to take
+
+00:23:58.100 --> 00:24:01.809
+the maximum of these two.
+So, this is the maximum of these 2, I get
+
+00:24:01.809 --> 00:24:04.549
+to 1, now since I take the maximum of these
+2, I get to 1, maximum of these 2, I get to
+
+00:24:04.549 --> 00:24:08.779
+1 and so on. So, the longest common subword
+problem, it say if the current let it does
+
+00:24:08.779 --> 00:24:12.760
+not match, then I get a 0, here its not there,
+because I am allowed to drop this set and
+
+00:24:12.760 --> 00:24:16.470
+go head. So, therefore, this one proper get
+along this one.
+
+00:24:16.470 --> 00:24:20.070
+Similarly, the one property to get this along
+the previous column, because nothing is an
+
+00:24:20.070 --> 00:24:28.899
+r. now, some get an additions, when I reach
+c and c, it is 1 plus i plus 1 j plus 1. So,
+
+00:24:28.899 --> 00:24:35.590
+we get it 2. Likewise, when I go to the next
+column, when I reach e and e, it is 1 plus
+
+00:24:35.590 --> 00:24:43.630
+i plus 1 j plus 1, so I get the 3. And finally,
+when I reach this S and S, I get this 4 and
+
+00:24:43.630 --> 00:24:46.630
+now, this 4 propagates, because here I take
+the max of these 2.
+
+00:24:46.630 --> 00:24:51.540
+So, I get this 4 max of these 2, I get 4.
+So, in this particular case actually LCS of
+
+00:24:51.540 --> 00:24:58.580
+0 comma 0 is my answer, remember in LCW I
+had to look around the in the whole grid to
+
+00:24:58.580 --> 00:25:04.100
+find out, we are the maximum was in LCS, you
+do not want to do that. The value you get
+
+00:25:04.100 --> 00:25:08.549
+0 comma 0 is acts with answer you are looking
+for...
+
+00:25:08.549 --> 00:25:13.010
+And now as before you can trace back the path,
+why was each value filled, was it filled,
+
+00:25:13.010 --> 00:25:18.200
+because it to 1 plus i plus 1, j plus 1 or
+it goes to fill, because max with other two
+
+00:25:18.200 --> 00:25:22.540
+networks, if so which was the match. So, which
+was very clear this 4 came, because it was
+
+00:25:22.540 --> 00:25:26.970
+a max, because S is not equal to b. So, it
+came from below and this 4 also came from
+
+00:25:26.970 --> 00:25:30.260
+below S is equal to S.
+So, this is came from here and so on, so you
+
+00:25:30.260 --> 00:25:35.250
+can trace out this value and everywhere where
+you have this diagonal, it was there, because
+
+00:25:35.250 --> 00:25:39.940
+the value is matched. So, there are value
+is 4 and there is exactly four diagonal steps,
+
+00:25:39.940 --> 00:25:45.470
+this one, this one, this one. And then one
+at the bottom right, these are the four matches
+
+00:25:45.470 --> 00:25:49.279
+which constitute the longest common subsequence
+and you can read it of that the thing and
+
+00:25:49.279 --> 00:25:55.890
+this is forms the sequence sect.
+So, as we say before provided you can compute
+
+00:25:55.890 --> 00:26:01.250
+the answer numerically, you can go back and
+retrace that computation and figure out the
+
+00:26:01.250 --> 00:26:07.440
+witness and it is called and which word actually
+which subsequence actually gives has to be
+
+00:26:07.440 --> 00:26:08.440
+sanction.
+
+00:26:08.440 --> 00:26:14.190
+So, the code for the LCS is little bit simpler
+then for LCW, because we do not have to keep
+
+00:26:14.190 --> 00:26:18.481
+track of these maximum value and where it
+occurs, because we only need to find the value
+
+00:26:18.481 --> 00:26:25.590
+at 0 c. So, as before we use r and c to be
+little clearer that rows go this way and columns
+
+00:26:25.590 --> 00:26:31.760
+go this way. So, column is go from 0 to n
+plus 1 and rows go from 0 to m plus 1.
+
+00:26:31.760 --> 00:26:37.029
+So, we initialize the boundary to be 0, and
+then we do column by column row by row from
+
+00:26:37.029 --> 00:26:43.500
+bottom to top, if the two are equal, then
+you add 1 plus the value of bottom. If the
+
+00:26:43.500 --> 00:26:48.269
+two are not equal, I take the maximum of these
+two values and finally, when this values are
+
+00:26:48.269 --> 00:26:54.559
+filled out, I have written the value, it is
+0 comma 0.
+
+00:26:54.559 --> 00:27:02.430
+So, this is similar to LCW, we basically fill
+out in m, n size table each entry in the table
+
+00:27:02.430 --> 00:27:08.340
+is easy to compute takes only constant among
+look at the three neighbors. And therefore,
+
+00:27:08.340 --> 00:27:12.970
+overall using dynamic programming, we have
+demonstrated an order m n algorithm, we can
+
+00:27:12.970 --> 00:27:15.200
+also use memoization at the cost of recursion.
+

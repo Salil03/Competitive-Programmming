@@ -1,0 +1,591 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.229 --> 00:00:06.400
+We have seen Quicksort which is a divide and
+conquer algorithm which overcomes the requirement
+
+00:00:06.400 --> 00:00:10.599
+for an extra array as in merge sort. So, let
+us do an analysis of Quicksort.
+
+00:00:10.599 --> 00:00:15.599
+So, remember how Quicksort works, you pick
+up a pivot element say typically this first
+
+00:00:15.599 --> 00:00:21.640
+element of an array. And then what you do
+is, you partition this into two parts such
+
+00:00:21.640 --> 00:00:27.930
+that you have a lower part which is less than
+or equal to p and may be an upper part, which
+
+00:00:27.930 --> 00:00:34.250
+is bigger than p. And you move this pivot
+in between and then you sort this lower part
+
+00:00:34.250 --> 00:00:38.420
+and upper part separately recursively and
+then you do not need to do any combining step,
+
+00:00:38.420 --> 00:00:43.879
+because these two things are in the correct
+position with respect to each other.
+
+00:00:43.879 --> 00:00:47.760
+So, the first thing we observed is that this
+partitioning actually is quite efficient.
+
+00:00:47.760 --> 00:00:52.859
+We can do it in one scan of the entire array.
+So, we can partition with respect to any pivot
+
+00:00:52.859 --> 00:00:59.489
+in order n time. So, the question is how big
+are the recursive problems? So, if the pivot
+
+00:00:59.489 --> 00:01:04.630
+is a median then you would expect that by
+definition of the median that these are of
+
+00:01:04.630 --> 00:01:10.470
+size n by 2. Because, the median is that element
+which splits the array into two parts, those
+
+00:01:10.470 --> 00:01:14.140
+half of the elements are bigger than the median,
+half are smaller than the median.
+
+00:01:14.140 --> 00:01:17.890
+And if you do have this fortunate situation
+that the pivot is the median, then we end
+
+00:01:17.890 --> 00:01:24.490
+up with the merge sort recurrence which says
+that t of n takes time 2 times t n by 2 for
+
+00:01:24.490 --> 00:01:28.200
+the two parts and this is the partitioning
+steps. So, it is not the merge step after
+
+00:01:28.200 --> 00:01:32.600
+the recurrence, but the partitioning step
+before the recurrence. So, we have as we saw
+
+00:01:32.600 --> 00:01:39.650
+in merge sort, this recurrence takes order
+n log n if we expand it out, but the pivot
+
+00:01:39.650 --> 00:01:41.710
+is in some sense the best case.
+
+00:01:41.710 --> 00:01:46.700
+What do we think is the worst case? Well,
+the worst case is when the pivot is an extreme
+
+00:01:46.700 --> 00:01:51.220
+value, either the smallest value or the biggest
+value. So, if it is the smallest value then
+
+00:01:51.220 --> 00:01:57.580
+what will happen is that everything will be
+bigger than the pivot. So, you will have an
+
+00:01:57.580 --> 00:02:02.930
+upper element set which has n minus 1 values,
+because the pivot is the smallest value and
+
+00:02:02.930 --> 00:02:07.340
+we will have nothing on this side. Symmetrically,
+if the pivot is the largest value in your
+
+00:02:07.340 --> 00:02:10.599
+array, then you will have everything in the
+lower element set.
+
+00:02:10.599 --> 00:02:16.739
+So, this is again size n minus 1 and the pivot
+would be something which is on one extreme
+
+00:02:16.739 --> 00:02:20.719
+end and there is nothing on the other side.
+So, now what we see is that in order to sort
+
+00:02:20.719 --> 00:02:28.510
+this array of size n, I have to then sort
+a smaller segment which is only n minus 1
+
+00:02:28.510 --> 00:02:33.250
+it no more smaller than n minus 1. So, I have
+t n takes t n minus 1 plus n, n is the time
+
+00:02:33.250 --> 00:02:38.540
+taken to partition and t n minus 1 again in
+the worst case will have again a pivot element
+
+00:02:38.540 --> 00:02:42.999
+which is an extreme value.
+So, for example, supposing we start with an
+
+00:02:42.999 --> 00:02:52.040
+already sorted array like 1, 2, 3, 4 then
+what happens is that, we pick 1 as the pivot
+
+00:02:52.040 --> 00:02:58.640
+and then this, this then results in us wanting
+to sort 2, 3, 4 and then I will pick 2 as
+
+00:02:58.640 --> 00:03:04.540
+a pivot and this results in us wanting to
+sort 3, 4 and so on. If you have an already
+
+00:03:04.540 --> 00:03:09.520
+sorted array in some sense, the pivot is always
+an extreme value. So, the next step splits
+
+00:03:09.520 --> 00:03:14.680
+the array very badly. And of course, if we
+expand out this t n as t n minus 1 plus n,
+
+00:03:14.680 --> 00:03:19.189
+we get the summation that we got for selection
+sort and insertion sort. So, this becomes
+
+00:03:19.189 --> 00:03:22.749
+order n square.
+So, the worst case of Quicksort is actually
+
+00:03:22.749 --> 00:03:27.859
+order n square, which is the same as the worst
+case for selection sort and insertion sort.
+
+00:03:27.859 --> 00:03:32.440
+So, why do we bother with this much more complicated
+algorithm Quicksort, when we already know
+
+00:03:32.440 --> 00:03:35.260
+several intuitive algorithms which are order
+n square.
+
+00:03:35.260 --> 00:03:43.349
+So, it turns out that Quicksort we can show
+actually does not behave in this worst case
+
+00:03:43.349 --> 00:03:50.930
+way in a very frequent manner. So, we can
+actually compute in the case of Quicksort
+
+00:03:50.930 --> 00:03:55.779
+what is called the average case complexity
+and show that it is n log n. So, we will not
+
+00:03:55.779 --> 00:04:00.279
+actually show that it is n log n, but we will
+try to at least explain what it means to compute
+
+00:04:00.279 --> 00:04:04.470
+the average case analysis of Quicksort. As
+we said in the beginning, average case is
+
+00:04:04.470 --> 00:04:10.430
+very difficult to compute. So, let us see
+what it involves to do this.
+
+00:04:10.430 --> 00:04:15.939
+So, the first reason why the average case
+is difficult to compute is, because we need
+
+00:04:15.939 --> 00:04:21.760
+to have a way of describing all possible inputs.
+Now, even for a sorting algorithm all possible
+
+00:04:21.760 --> 00:04:27.440
+inputs is an infinite space, supposing I just
+take arrays of a fixed length, supposing I
+
+00:04:27.440 --> 00:04:36.590
+take arrays of length 4. So, I could have
+an array which looks like 43, 12, 38 and then
+
+00:04:36.590 --> 00:04:43.780
+62. So, this is an array with 4 elements,
+I could have another array of 4 elements which
+
+00:04:43.780 --> 00:04:55.190
+is say 72, 21, 63 and 95.
+But, in this way we can continue and put any
+
+00:04:55.190 --> 00:04:59.840
+elements we want and there are infinitely
+many arrays of size 4. But, there is a commonalty
+
+00:04:59.840 --> 00:05:03.680
+between these, which says that the first element
+is bigger than the second element. In fact,
+
+00:05:03.680 --> 00:05:07.980
+the second element is the smallest element
+and so, on. So, if we look at this we can
+
+00:05:07.980 --> 00:05:11.880
+say that there are 4 elements and when we
+think of them in order, then the smallest
+
+00:05:11.880 --> 00:05:17.020
+element is here, the second smallest element
+is here, the third smallest element is here
+
+00:05:17.020 --> 00:05:20.820
+and the fourth smallest element is here. So,
+I can actually think of this as the array
+
+00:05:20.820 --> 00:05:25.230
+3, 1, 2, 4, it has 4 elements and the 4 elements
+are ordered in this way.
+
+00:05:25.230 --> 00:05:29.580
+So, the actual values are not important only
+the relative order matters. So, we can actually
+
+00:05:29.580 --> 00:05:34.190
+think of inputs of size n to be these kind
+of re orderings of 1 to n or permutations
+
+00:05:34.190 --> 00:05:38.900
+of 1 to n. Now, among these permutations we
+do not have any preference, any one of them
+
+00:05:38.900 --> 00:05:44.870
+would come as our input. So, we all know that
+there are n factorial such permutations and
+
+00:05:44.870 --> 00:05:49.160
+we say that each of them is equally likely.
+So, each of them has probability 1 by n factorial
+
+00:05:49.160 --> 00:05:52.580
+of occurring.
+Now, we look at all these n factorial inputs
+
+00:05:52.580 --> 00:05:58.170
+of size n and see how our algorithm behaves.
+So, we will not do the actual calculation,
+
+00:05:58.170 --> 00:06:03.860
+but if you see the average, you see the actual
+time it is take for all the n factorial inputs,
+
+00:06:03.860 --> 00:06:08.270
+add it up and divide by n factorial which
+is what is in probability known as calculating
+
+00:06:08.270 --> 00:06:12.660
+the excepted running time. Then, you can show
+that this is actually order n log n.
+
+00:06:12.660 --> 00:06:16.970
+So, we have not shown it, we have just explained
+what is the mathematics required in order
+
+00:06:16.970 --> 00:06:22.300
+to show this. But, in Quicksort you can prove
+that the expected running time across all
+
+00:06:22.300 --> 00:06:27.330
+possible random inputs equally likely inputs,
+is actually order n log n. So, though Quicksort
+
+00:06:27.330 --> 00:06:33.430
+has an O n squared worst case, on the average
+it behaves like merge sort and without some
+
+00:06:33.430 --> 00:06:37.830
+of the pit falls of merge sort, it particular
+it does not requires the extra space in order
+
+00:06:37.830 --> 00:06:40.080
+to create a merge array.
+
+00:06:40.080 --> 00:06:49.220
+Now, you can actually exploit this average
+case behavior in a very simple manner. So,
+
+00:06:49.220 --> 00:06:53.570
+why does this worst case occur? The worst
+case occurs, because the pivot that we choose
+
+00:06:53.570 --> 00:06:59.230
+could be a bad pivot, as we saw if you put
+the first element as your pivot, then a sorted
+
+00:06:59.230 --> 00:07:03.620
+array becomes a worst case, because every
+time the pivot is the extreme element. On
+
+00:07:03.620 --> 00:07:06.730
+the other hand, you could take the last element
+and you would have the same problem, if you
+
+00:07:06.730 --> 00:07:11.040
+pick the midpoint again you can make the middle
+point of the array that you start with the
+
+00:07:11.040 --> 00:07:15.780
+extreme element and you can then work backwards
+and construct always a worst case which takes
+
+00:07:15.780 --> 00:07:19.330
+order n square.
+So, what we are saying is that for any fixed
+
+00:07:19.330 --> 00:07:24.110
+strategy, if I tell you in advance that I
+am always going to compute the position of
+
+00:07:24.110 --> 00:07:28.290
+the pivot in a fixed way, then by working
+backwards you can always ensure that at that
+
+00:07:28.290 --> 00:07:32.420
+position in the current problem, you have
+a worst case that is an extreme input and
+
+00:07:32.420 --> 00:07:36.820
+reconstruct something which will take O n
+square for that strategy.
+
+00:07:36.820 --> 00:07:42.870
+So, the solution is to not fix the strategy,
+each time I want to apply Quicksort to a recursive
+
+00:07:42.870 --> 00:07:49.010
+sub problem, I have some position 0 to n minus
+1 which I need to pick as a pivot. But, rather
+
+00:07:49.010 --> 00:07:53.600
+than telling you that it is going to be 0
+or n minus 1 or the mid-way between 0 and
+
+00:07:53.600 --> 00:07:57.360
+n minus 1, I will say that I will choose any
+one of these values with equal probability.
+
+00:07:57.360 --> 00:08:02.690
+So, think of it as, I am choosing a random
+number between 0 and n minus 1 equally likely
+
+00:08:02.690 --> 00:08:08.710
+or if you want to think graphically it is
+like tossing or throwing a die. So, a die
+
+00:08:08.710 --> 00:08:13.130
+has say six faces normally. So, if you roll
+a fare die you get any number between 1 and
+
+00:08:13.130 --> 00:08:18.390
+6 equally likely. So, now we have an n sided
+die. So, we have a complex kind of object,
+
+00:08:18.390 --> 00:08:21.290
+we throw it and whichever number comes up,
+we pickup that as a pivot.
+
+00:08:21.290 --> 00:08:27.370
+So, now the behavior of this algorithm is
+not fixed, it depends on how this die rolls.
+
+00:08:27.370 --> 00:08:31.830
+So, this is a different type of algorithm
+called a randomized algorithm. So, you can
+
+00:08:31.830 --> 00:08:36.439
+now implement Quicksort in a randomized way
+with a very simple randomization step, namely
+
+00:08:36.439 --> 00:08:42.089
+just pick the pivot at random at each call
+to Quicksort. And it is turns out that again
+
+00:08:42.089 --> 00:08:46.709
+you can do a similar calculation, saying that
+across all the possible random choices I make
+
+00:08:46.709 --> 00:08:51.689
+for the pivot, the expected running time is
+order n log n. So, there is a very simple,
+
+00:08:51.689 --> 00:08:57.189
+this is a kind of a dual result to the fact
+of the average case is n log n, you can exploit
+
+00:08:57.189 --> 00:09:01.720
+that by creating a very simple randomized
+strategy in order to achieve this n log n
+
+00:09:01.720 --> 00:09:06.259
+thing with good probability.
+
+00:09:06.259 --> 00:09:10.810
+The other aspect that we mentioned about merge
+sort, which is a bit limiting, is that it
+
+00:09:10.810 --> 00:09:15.980
+is inherently recursive. Now, our solution
+to Quicksort avoids this duplication of space,
+
+00:09:15.980 --> 00:09:22.040
+but it is recursive. Now, it turns out in
+Quicksort you can actually manually make the
+
+00:09:22.040 --> 00:09:27.000
+recursive algorithm iterative. So, the point
+is that the recursive calls works on disjoint
+
+00:09:27.000 --> 00:09:31.699
+segments. So, what you need to remember in
+the recursive call is not the entire segment,
+
+00:09:31.699 --> 00:09:35.759
+but just what segment you need to work on,
+you do not need to combine the results.
+
+00:09:35.759 --> 00:09:41.350
+So, we will not discuss this in great detail,
+but it turns out that you can use a stack,
+
+00:09:41.350 --> 00:09:45.279
+you can actually maintain your own stack and
+every time you make a recursive call, you
+
+00:09:45.279 --> 00:09:50.370
+just store in the stack, the left and right
+end point of what segment needs to be sorted.
+
+00:09:50.370 --> 00:09:54.670
+And in this way you can actually take the
+recursive algorithm that we wrote before and
+
+00:09:54.670 --> 00:09:58.969
+convert it into an iterative algorithm. Now,
+why you would like to do this in general list,
+
+00:09:58.969 --> 00:10:03.259
+because you have a trade off in recursion
+versus iteration depending on your programming
+
+00:10:03.259 --> 00:10:05.980
+language.
+Because, when you make a recursive call, when
+
+00:10:05.980 --> 00:10:10.230
+you make a function call in general in a programming
+language, what happens is the current function
+
+00:10:10.230 --> 00:10:16.149
+that you computing has to be suspended. So,
+you need to suspend and resume. So, when you
+
+00:10:16.149 --> 00:10:20.959
+make a recursive call you have to put aside
+whatever you have and then you have to take
+
+00:10:20.959 --> 00:10:26.209
+a new set of local variables. So, in the memory
+of the program you have to load some new data,
+
+00:10:26.209 --> 00:10:29.610
+then you have to execute the function, when
+it terminates, you have to throw that out
+
+00:10:29.610 --> 00:10:34.709
+and restore the context, you have to resume.
+So, this takes some time and it take some
+
+00:10:34.709 --> 00:10:39.709
+resources and so, usually the cost of making
+a function call, even though we might account
+
+00:10:39.709 --> 00:10:44.449
+for it in our complexity as a basic operation
+is much more than doing some really arithmetic
+
+00:10:44.449 --> 00:10:47.730
+operation like addition or something. So,
+in particular recursion every time you make
+
+00:10:47.730 --> 00:10:52.019
+a recursive call, you are basically going
+and replacing something on the stack with
+
+00:10:52.019 --> 00:10:55.290
+some new frame and then putting it back and
+this takes time.
+
+00:10:55.290 --> 00:11:01.339
+So, it is in general sometimes for efficiency
+purposes, good to convert recursion to iteration.
+
+00:11:01.339 --> 00:11:06.209
+On the other hand, this process can make the
+algorithm more obscure and many programming
+
+00:11:06.209 --> 00:11:10.630
+languages actually or optimizing compilers
+can try to do this automatically. So, may
+
+00:11:10.630 --> 00:11:17.279
+be this distinction between recursion and
+iteration does not always help so much. But,
+
+00:11:17.279 --> 00:11:21.029
+it is useful to know that certain algorithms
+can be done both ways and certain algorithm
+
+00:11:21.029 --> 00:11:24.519
+it is difficult to do one way.
+
+00:11:24.519 --> 00:11:31.249
+So, our final remark before we leave quicksort
+for now. So, in practice Quicksort is very
+
+00:11:31.249 --> 00:11:36.329
+fast, as we said the worst case happens very
+rarely. For this reason, typically Quicksort
+
+00:11:36.329 --> 00:11:40.649
+is the default algorithm that you see that
+people use when you have a built in sort function.
+
+00:11:40.649 --> 00:11:45.439
+So, if you have a spread sheet and allows
+you to sort a column, then usually this algorithm
+
+00:11:45.439 --> 00:11:50.529
+running in your background to sort that column
+is Quicksort or if you have built in sort
+
+00:11:50.529 --> 00:11:53.310
+function.
+For example, C, C plus plus, java all allow
+
+00:11:53.310 --> 00:11:58.190
+you to just call sort, even python just allows
+you to just call sort. In almost any programming
+
+00:11:58.190 --> 00:12:03.300
+language, the sort function that is available
+to the programmer by just a simple call is
+
+00:12:03.300 --> 00:12:07.129
+usually an implementation of Quicksort. Of
+course, this implementation may use various
+
+00:12:07.129 --> 00:12:12.779
+optimizations such as randomization and other
+things to make it faster, but at the underlying
+
+00:12:12.779 --> 00:12:14.779
+algorithm the heart of it is usually Quicksort.
+

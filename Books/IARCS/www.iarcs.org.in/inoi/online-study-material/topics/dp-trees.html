@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="">Dynamic programming on trees</a></h2>
+
+      <p>
+	Dynamic programming is a technique to efficiently compute
+	recursively defined quantities.  The recursion is
+	typically with respect to some integer parameters.
+      </p>
+      
+      <p>
+	We can also define such functions recursively on the
+	nodes of a tree.  The idea is to associate a value with
+	each node that combines the values defined for each of
+	its children&mdash;in some cases we may process the
+	children in a fixed order.  Analogous to regular dynamic
+	programming, we can evaluate such a function bottom up.
+	This is what we call dynamic programming on trees.
+      </p>
+
+      <p>
+	For instance, suppose we are given a tree with N nodes
+	and a weight assigned to each node, along with a number
+	K.  The aim is to delete enough nodes from the tree so
+	that the tree is left with precisely K leaves. The cost
+	of such a deletion is the sum of the weights of the nodes
+	deleted. What is the minimum cost to reduce to tree to a
+	tree with K leaves?
+      </p>
+
+      <p>
+	Let D(v,k) denote the minimum cost to transform the subtree
+	rooted at a vertex v to have precisely k leaves. Then,
+	for any leaf node lv,
+      </p>
+
+      <ul>
+	<li>D(lv,1) = 0</li>
+	<li>D(lv,k) = infinity if k &gt; 1</li>
+      </ul>
+
+      <p>
+	On the other hand, for any internal node v,
+      </p>
+
+      <ul>
+	<li>D(v,0)    = Weight of subtree T(v) rooted at v</li>
+      </ul>
+
+
+      <p>
+	Suppose the children of a node v are
+	w<sub>1</sub>,w<sub>2</sub>,&hellip;,w<sub>m</sub>. Clearly,
+	the best possible answer, D(v,j), is obtained by taking
+	all possible ways of distributing the j leaves among the
+	m children 1&hellip;m and taking the minimum among those.
+      </p>
+
+      <ul>
+	<li>
+	  <table style="display:inline-table">
+	    <tr>
+	      <td>D(v,j)  =</td>
+	      <td align="center">Minimum</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center">Sum</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td>D(w<sub>i</sub>,j<sub>i</sub>)</td>
+	    </tr>
+	    <tr>
+	      <td></td>
+	      <td align="center"><sub>j<sub>1</sub>+j<sub>2</sub>..j<sub>m</sub> = j</sub></td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center"><sub>i</sub></td>
+	    </tr>
+	  </table>
+	</li>
+      </ul>
+      
+      <p>
+	This is not efficient as there are too many choices to be
+	considered.  However, we can use dynamic programming once
+	again to compute D(v,j) (for j &ge; 1) by processing the
+	children of j in a fixed order.  For this, we
+	need some additional definitions.  
+      </p>
+
+      <p>
+	Let C(i,j) be the minimum cost of reducing the trees
+	T(w<sub>1</sub>),&hellip;,T(w<sub>i</sub>) so that
+	together they have j leaves.
+      </p>
+
+      <ul>
+	<li>
+	  <table style="display:inline-table">
+	    <tr>
+	      <td>C(i,0)  =</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center">Sum</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td>Wt(T(w<sub>k</sub>))</td>
+	    </tr>
+	    <tr>
+	      <td></td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center"><sub>k &le; i</sub></td>
+	    </tr>
+	  </table>
+	</li>
+      
+      <li>C(1,j) = D(w<sub>1</sub>,j)</li>
+
+	<li>
+	  <table style="display:inline-table">
+	    <tr>
+	      <td>C(i+1,j)  =</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center">Sum</td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td>C(i,j-k) + D(w<sub>i+1</sub>,k)</td>
+	    </tr>
+	    <tr>
+	      <td></td>
+	      <td>&nbsp;&nbsp;&nbsp;</td>
+	      <td align="center"><sub>k &le; j</sub></td>
+	    </tr>
+	  </table>
+	</li>
+      
+      </ul>
+
+
+      <p>
+	If we want just one leaf below v, we can either delete
+	all its children and make v a leaf, or retain exactly one
+	leaf amongst the subtrees rooted at its children.  This
+	yields the following.
+      </p>
+
+      <ul>
+	<li>D(v,1) = Min ( Sum Wt(T(w<sub>i</sub>)) , C(m,1) )</li>
+      </ul>
+
+      <p>
+	Finally, when we need more than one leaf, we cannot make
+	v a leaf, so we need to prune the subtress below the
+	children of v to generate j leaves between them.  This
+	gives us
+      </p>
+      
+      <ul>
+	<li>D(v,j) = C(m,j)   (for j &gt; 1)</li>
+      </ul>
+
+      <p>
+        We can now use the equations to compute D(v,j) for any
+        value of j using dynamic programming.
+      </p>
+
+      <h3><span>Problems based on dynamic programming on trees</span></h3>
+
+      <ul>
+	<li> <a href="..\problems\catering-contracts.html">Catering contracts</a></li>
+	<li> <a href="..\problems\rivers.html">Rivers (IOI 2005)</a></li>
+	<li> <a href="..\problems\mobiles-apio.html">Mobiles (APIO 2007)</a></li>
+	<li> <a href="..\problems\coffee-shop.html">Coffee Shop (APIO shortlist 2007)</a></li>
+	<li> <a href="..\problems\catering-contracts-2pi.html">Catering Contracts Version 2&pi; (IOITC 2008)</a></li>
+      </ul>
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

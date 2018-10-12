@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp-trees.html">Dynamic programming on
+        trees</a>&rarr;Catering Contracts Version 2&pi; (IOITC 2008)
+      </h2>
+
+      <p>
+        A new government has come to power after the elections in
+        Siruseri and has promptly announced that it is
+        reassigning all catering contracts on its rail network.
+      </p>
+
+      <p>
+        As is well known, the rail network of Siruseri is
+        organized so that every station is connected to every
+        other station by a unique path.  The new scheme requires
+        contractors to bid for a group of K stations at a time.
+        However, the constraint is that all K stations that a
+        contractor bids for must form a connected portion of the
+        network.  Having announced this, the government is now
+        scratching its head to figure out how many different
+        combinations of stations contractors can bid for.
+      </p>
+
+      <p>
+        For example, suppose the rail network is as given below,
+        and contractors have to bid for 3 stations at a time.
+        Then, there are six possible combinations, namely
+        {1,2,3}, {1,2,5}, {2,3,5}, {2,4,5}, {2,5,6} and {4,5,6}.
+        A combination such as {1,2,4}, for instance, is not
+        permitted because these three stations are not all
+        connected to each other.
+      </p>
+
+      <pre>
+       3                      4
+         \                  /
+          2---------------5
+         /                  \
+       1                      6
+      </pre>
+
+      <p> 
+        You will be given a description of the rail network and
+        the number of stations that a contractor has to bid for.
+        You have to compute the number of different combinations
+        of stations that the contractor can legally bid for,
+        following the rule stipulated by the government.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        Given a tree with N vertices, and 1 &le; K &le; N, we
+        want to find the number of connected subgraphs of K
+        vertices. Clearly every such subgraph will also be a
+        tree.
+      </p>
+
+      <p>
+        We root the given tree arbitrarily and use dynamic
+        programming. For every vertex v and 1 &le; a &le; K, we
+        compute the number of subtrees of size a whose "topmost"
+        vertex (vertex closest to the root of the original tree)
+        is v. Let's say this quantity is C(v,a).
+      </p>
+
+      <p>
+        A subtree rooted at v with a vertices could have its
+        remaining a-1 vertices distributed across the subtrees
+        rooted at the children of v in any way. v could have a
+        large number of children, so we cannot enumerate all such
+        possibilities.  Instead, we do a further DP on the
+        children of v which will tell us D(v,a) for all
+        a. 
+      </p>
+
+      <p>
+        Suppose v has c children. Order them arbitrarily. Let
+        D(r,b) be number of ways of using the first r children
+        to use b vertices. More precisely, D(r,b) is the number
+        of ways of choosing for each of the first r children
+        either a subtree rooted at that child, or nothing, such
+        that a total of b vertices are used (for all 0&le;r&le;c
+        and 0&le;b&le;K-1). Note that this DP is specific to
+        calculating C(v, everything), but we write D(r,b) for
+        simplicity instead of D(v,r,b). After having calculated
+        D, we have C(v,a) = D(c, a-1) for all 1&le;a&le;K.
+      </p>
+
+      <p>
+        For the base case, we have D(0,0) = 1 and D(0,x) = 0 for
+        all other x. For calculating D(r,b) with r &gt; 0, we
+        look at all possible ways of splitting b into the first
+        r-1 children, and the rth child. So
+      </p>
+
+      <p>
+        D(r,b) = sum<sub>i, 0&le; i &le; b</sub> D(r-1,i)
+        &times; C(rth child, b-i)
+      </p>
+
+      <p>
+        For a particular v with c children, this takes
+        O(cK<sup>2</sup>) time. Overall, the algorithm takes
+        O(NK<sup>2</sup>) time.
+      </p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

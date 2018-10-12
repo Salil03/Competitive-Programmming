@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="heaps.html">Heaps</a></h2>
+
+      <h3><span>Dijkstra's algorithm with heaps</span></h3>
+
+      <p>Recall <a href="dijkstra.html">Dijkstra's algorithm</a>.  We initially set:</p>
+
+      <ul>
+	<li>   ExpectedBurnTime[1] = 0;</li>
+
+	<li>   ExpectedBurnTime[i] = infinity, for i other than 1<br>
+          (Use a sufficiently large value, say the
+          sum of all the weights in the graph)</li>
+
+	<li>   Burnt[i]            = 0, for all i</li>
+      </ul>
+
+      <p>
+	In each round:
+      </p>
+
+      <ul>
+
+	<li>
+	  Among all unburnt vertices, pick j with minimum
+	  ExpectedBurnTime.  (Initially, this is 1 since Burnt[i]
+	  = 0 for all i and only ExpectedBurnTime[1] is not
+	  infinity
+	</li>
+
+	<li>
+	  Set Burnt[j] = 1.
+	</li>
+
+	<li>
+	  Update ExpectedBurnTime[k] for each neighbour k of j, if necessary.
+	</li>
+
+      </ul>
+
+      <p>
+	The number of rounds is N, the number of vertices, since
+	we pick a vertex and process it in each round.
+      </p>
+
+      <p>
+	If we use adjacency matrix, each round takes time N because
+      </p>
+
+      <ul>
+	<li>(a) it takes time N to find the minimum unburnt value</li>
+	<li>(b) it takes time N to scan all neighbours</li>
+      </ul>
+
+      <p>
+	We can fix the complexity of (b) by using an adjacency
+	list instead of an adjacency matrix.
+      </p>
+
+      <p>
+	To fix (a) we keep the values of the form
+	(v,ExpectedBurnTime) of unburnt vertices in a heap.  This
+	allows us to find the minimum unburnt vertex in log n
+	time.
+      </p>
+
+      <p>
+	Now, we still have to update the ExpectedBurnTime of all
+	its neighbours.  Suppose w is an unburnt neighbour of v.
+	We know we can update the ExpectedBurnTimed of w in log n
+	time, but how do we find w in the heap?  If we scan the
+	array searching for a value (w,i), it will again take
+	time N to update values.
+      </p>
+
+      <p>
+	To get around this, we maintain extra information telling
+	us where each vertex sits in the heap.  Maintain an array
+	Index such that Index[v] = i means that the value for
+	vertex v is at position i in the heap.  Note that we have
+	to update entries in Index each time we swap values while
+	inserting, deleting or modifying values in the heap.
+      </p>
+
+      <p>
+	What is the complexity?
+
+      <p>
+	Naively, a vertex could have N-1 neighbours, so each
+	round can take N log N time.
+      </p>n
+
+      <p>
+	However, let us count more carefully.  How many times
+	will the value of vertex w be updated?  Once for each of
+	its neighbours.  In other words, the value of w will be
+	updated degree(w) times.  If we sum up the degrees of all
+	the nodes in the graph, we get 2*M where M is the number
+	of edges in the graph (each edge is counted twice, once
+	at each end point).
+      </p>
+
+      <p>
+	So, overall, we make M updates, each taking log N time,
+	so this version takes 2 M log N + N log N = M log N
+      </p>
+
+      <p>
+	M could be N<sup>2</sup> in which case M log N is
+	N<sup>2</sup> log N, which is worse than the complexity
+	of the original implementation, so we should use the heap
+	version only when M is small compared to N<sup>2</sup>.
+      </p>	
+
+      <div id="video-material">
+        <h3><span>Video material</span></h3>
+      </div>
+
+      <p>Video lecture on <em>Heapsort and updating values in a heap</em>,
+	<a href="https://onlinecourses.nptel.ac.in/explorer">
+	  NPTEL online course</a> on
+        <a href="https://onlinecourses.nptel.ac.in/noc15_cs02/preview">
+  	  Design and Analysis of Algorithms</a>
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week5/pdf/nptel-week5-module5-more-heaps.pdf" target="_blank">Lecture slides</a>)</p>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/51pyj1NWEqI" frameborder="0" allowfullscreen=""></iframe>
+      
+      <br><br>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.370 --> 00:00:06.470
+To complete our discussion of heaps we will
+see how to use heaps and DijskstraÕs algorithm,
+
+00:00:06.470 --> 00:00:10.370
+and also how to use heaps for a different
+type of sorting.
+
+00:00:10.370 --> 00:00:17.070
+So, remember that heaps are a tree implementation
+of priority queues in which insert and delete
+
+00:00:17.070 --> 00:00:23.400
+or both of complexity log N. You can build
+a heap bottom up in order N time and you can
+
+00:00:23.400 --> 00:00:27.720
+represent it as a tree. And so you can manipulate
+it in a, I am sorry, you can represent a tree
+
+00:00:27.720 --> 00:00:30.050
+in an array, so you can manipulate it very
+easily.
+
+00:00:30.050 --> 00:00:35.239
+So, let us go back to Dijskstra's algorithm.
+So, in Dijskstra's algorithm, we start with
+
+00:00:35.239 --> 00:00:38.989
+the initial vertex and we keep burning these
+vertices, right, so we keep visiting vertices
+
+00:00:38.989 --> 00:00:44.010
+according to their distance. So, initially
+we set the distance to be infinity for everything,
+
+00:00:44.010 --> 00:00:50.570
+right. And we use the starting point as, setting
+the distance to the start vertex as 0, and
+
+00:00:50.570 --> 00:00:57.519
+then we find the smallest unvisited, vertice,
+vertex, set it to be visited and recompute
+
+00:00:57.519 --> 00:01:02.229
+the distance of each of its neighbours, right.
+So, the bottlenecks were really at this part
+
+00:01:02.229 --> 00:01:03.670
+of the loop.
+
+00:01:03.670 --> 00:01:09.550
+So, the bottlenecks are first to find the
+j with the minimum distance, right. So, the
+
+00:01:09.550 --> 00:01:14.150
+naive implementation would take us order n
+time because we would have to scan all the
+
+00:01:14.150 --> 00:01:19.360
+unvisited vertices, which are in not in any
+particular order of distance and among them
+
+00:01:19.360 --> 00:01:24.910
+find the minimum, right. So, what seems obvious
+from what we have discussed so far is that
+
+00:01:24.910 --> 00:01:30.710
+we should maintain distance as a heap and
+use delete max or actually delete min in this
+
+00:01:30.710 --> 00:01:36.561
+case,because we will want a min heap, ok.
+So, we would use delete min, but then we have
+
+00:01:36.561 --> 00:01:41.100
+also to recompute the distance.
+So, recomputing the distance means examining
+
+00:01:41.100 --> 00:01:45.250
+every neighbour k of j. So, to make sure,
+that we can look up the neighbours efficiently,
+
+00:01:45.250 --> 00:01:49.490
+we can use adjacency lists so that we do not
+waste time planning an entire row on adjacency
+
+00:01:49.490 --> 00:01:54.920
+matrix. But the bottleneck here is, that we
+need to update the distance, that is, we need
+
+00:01:54.920 --> 00:02:01.090
+to get into the heap and change values, so
+we need to update heap values. Now, we have
+
+00:02:01.090 --> 00:02:06.050
+not really seen how to update heap values,
+we have only seen insert and delete min or
+
+00:02:06.050 --> 00:02:12.689
+delete max. So, how does update work, right.
+
+00:02:12.689 --> 00:02:21.870
+So, supposing we want to change this value
+from 12 to 44, right. If we, if we increase
+
+00:02:21.870 --> 00:02:27.540
+this value, then with respect to its children
+it cannot get any smaller, right. So, if 12
+
+00:02:27.540 --> 00:02:32.150
+is bigger than 10 and 11, any larger value
+will also be bigger than 10 and 11. So, we
+
+00:02:32.150 --> 00:02:36.459
+make it 44. We do not have to look down, but
+because we make it bigger, it can become bigger
+
+00:02:36.459 --> 00:02:38.950
+than its parent and in fact, it does happen.
+
+00:02:38.950 --> 00:02:44.459
+So, if we replace, 24, 12 by 44, then we find
+that there is the heap violation above. So,
+
+00:02:44.459 --> 00:02:49.849
+now, we treat this exactly like we did insert.
+We look at the parent and so on. So, we fix
+
+00:02:49.849 --> 00:02:51.250
+this violation upwards.
+
+00:02:51.250 --> 00:02:56.939
+So, now we look and we have got 44 here and
+now we have to check whether it violates anything
+
+00:02:56.939 --> 00:02:59.370
+with its parent, and it does.
+
+00:02:59.370 --> 00:03:03.739
+So, exchange that and finally, when it stops,
+when either there are no more violations or
+
+00:03:03.739 --> 00:03:07.959
+when we reach the root in which case we cannot
+go up any further, right. So, in increasing
+
+00:03:07.959 --> 00:03:12.969
+a value you fix violations upwards, because
+in increasing a value you cannot becomes smaller
+
+00:03:12.969 --> 00:03:17.240
+than your children, but you can become bigger
+than your parent.
+
+00:03:17.240 --> 00:03:21.639
+The other type of change is to decrease the
+value. So, supposing I take this 33 and I
+
+00:03:21.639 --> 00:03:26.349
+make it 9. Now, again by the same logic it
+was 33, was smaller than 44, 9 will also be
+
+00:03:26.349 --> 00:03:31.719
+smaller than 44. Any value smaller than 33,
+cannot create a violation up. So, I must look
+
+00:03:31.719 --> 00:03:35.730
+down, right. So, if I bring it down to 9,
+the number is the problem between 33 and 24.
+
+00:03:35.730 --> 00:03:41.689
+So, if this is my new value, I have to check
+with its two children and take the biggest
+
+00:03:41.689 --> 00:03:43.769
+one up. In this case it is 24, right.
+
+00:03:43.769 --> 00:03:47.670
+So, now having come here, I need to now check
+its two children. And now, take the biggest
+
+00:03:47.670 --> 00:03:53.150
+one up in which case it is 11, and so this
+is how it is, right. So, when I update values
+
+00:03:53.150 --> 00:03:57.819
+and decrease the value, I have to fix violations
+downwards because reducing a value cannot
+
+00:03:57.819 --> 00:04:02.040
+make it bigger than its parent, but it can
+make it smaller than one of its two children.
+
+00:04:02.040 --> 00:04:09.660
+So, if you look at DijskstraÕs algorithm,
+the way it works is, we take a vertex j and
+
+00:04:09.660 --> 00:04:15.409
+say, update this distance, right. So, we have
+to update the distance of some vertex j, which
+
+00:04:15.409 --> 00:04:19.690
+is somewhere in the heap, right. So, what
+our previous example showed us is, if we,
+
+00:04:19.690 --> 00:04:23.960
+if we put our finger on the node in the heap
+and change its value, we know how to adjust
+
+00:04:23.960 --> 00:04:31.460
+the heap. But how do we find where j is in
+the heap, right? So, where is j located? So,
+
+00:04:31.460 --> 00:04:38.060
+we need this extra information to be kept
+separately, right. So, we would keep two new
+
+00:04:38.060 --> 00:04:42.449
+arrays pointing from the nodes, which are
+one to n to the heap, which is 0 to N minus
+
+00:04:42.449 --> 00:04:46.020
+1 and vice versa from the heap which is 0
+to N to the nodes.
+
+00:04:46.020 --> 00:04:53.780
+So, so here in this picture, right, these
+two things are drawn in different colors.
+
+00:04:53.780 --> 00:04:59.169
+So, the red labels against a node indicate
+the vertex. So, 44 represents the distance
+
+00:04:59.169 --> 00:05:06.210
+of vertex 8 and to indicate that we have an
+array, saying that the NodeToHeap saying that
+
+00:05:06.210 --> 00:05:16.200
+the node 8 in the graph is vertex 0 in the
+heap. Similarly, if I look at this it says,
+
+00:05:16.200 --> 00:05:24.270
+that this vertex is 3. So, the vertex 3 in
+my graph is node 6 in my heap. Conversely,
+
+00:05:24.270 --> 00:05:30.780
+if I am in the heap and I am if I am at node
+4, which is represented loop, then which vertex
+
+00:05:30.780 --> 00:05:36.490
+does this correspond to? So, it says, that
+the node 4 in the heap corresponds to vertex
+
+00:05:36.490 --> 00:05:42.099
+5. So, from the heap given the index of the
+node in the heap, which node in the graph
+
+00:05:42.099 --> 00:05:47.000
+does it correspond to? So, we have the extra
+things which we set of and we have to update
+
+00:05:47.000 --> 00:05:50.240
+this when we do our swaps or inserts, right.
+
+00:05:50.240 --> 00:05:55.140
+So, now for instance, supposing we have this
+previous thing and we want to make this 33
+
+00:05:55.140 --> 00:05:56.140
+into 9.
+
+00:05:56.140 --> 00:06:02.220
+So, our goal is to reduce 33 to 9, which we
+did in the previous set. Now, let us do so.
+
+00:06:02.220 --> 00:06:09.620
+So, now, when I do this, I need to go down
+to its two children in the heap and recognize
+
+00:06:09.620 --> 00:06:14.979
+that this 24 must change. Now, since 24 must
+change, I must know also how to update it.
+
+00:06:14.979 --> 00:06:23.650
+So, 24 is node 3 in the heap. So, node 3 is
+vertex 2. So, I have to go to vertex 2 here.
+
+00:06:23.650 --> 00:06:35.259
+So, I need to update these entries. So, I
+need to update 6 and 1, and 3 and 2. So, therefore,
+
+00:06:35.259 --> 00:06:43.160
+when I exchange 9 and 24, I must also exchange
+6 and 2. I must say, that now vertex node,
+
+00:06:43.160 --> 00:06:47.560
+vertex 2 in my graph is now at node 1 in the
+tree and vertex 6 in my graph is now at node
+
+00:06:47.560 --> 00:06:52.350
+3 in the tree. Conversely, node 1 in the tree
+points to vertexes, node 3 in the tree points
+
+00:06:52.350 --> 00:06:56.150
+to vertex, points to vertex 2, node 3 points
+to vertex 6, right.
+
+00:06:56.150 --> 00:07:00.620
+So, after this update, basically, these two
+values have got exchanged from what they were
+
+00:07:00.620 --> 00:07:05.469
+previously, ok. So, in addition to swapping
+at this level, I also have to recognize that
+
+00:07:05.469 --> 00:07:10.360
+this swap happened. Now, I do one more swap.
+Because 9 and 11 had the swaps, now I will
+
+00:07:10.360 --> 00:07:17.430
+swap the entries for 3, 6 and 8, 9. And similarly,
+6, 3 and 9, 8, right. So, the entries corresponds
+
+00:07:17.430 --> 00:07:23.800
+to vertex 6 and vertex 9 and node 3 and node
+8, right. So, vertex 6, vertex 9, node 3 and
+
+00:07:23.800 --> 00:07:26.460
+node 8, these have to be swapped, right.
+
+00:07:26.460 --> 00:07:32.530
+So, by keeping this to extra arrays, right,
+I can do these updates very easily, because
+
+00:07:32.530 --> 00:07:37.040
+I have a way of going backwards and forwards
+between the heap index, and the node index.
+
+00:07:37.040 --> 00:07:39.840
+And unless I do this, I cannot really use
+for Dijskstra's algorithm because DijskstraÕs
+
+00:07:39.840 --> 00:07:44.020
+algorithm will ask us to update value in the
+heap, but I need to know which value in the
+
+00:07:44.020 --> 00:07:48.169
+heap I need to update. The update can be done
+using this upward or downward manipulation
+
+00:07:48.169 --> 00:07:53.060
+exactly like insert or delete max, but the
+real problem is identifying where the update
+
+00:07:53.060 --> 00:07:54.060
+starts.
+
+00:07:54.060 --> 00:08:02.580
+So, as we saw before, now we can use this
+heap with this update operation and find the
+
+00:08:02.580 --> 00:08:09.360
+minimum time vertex and log n time. And because
+we have adjacency list, right, overall the
+
+00:08:09.360 --> 00:08:14.669
+loops updating the burn times takes log n
+time per edge, and there are totally order
+
+00:08:14.669 --> 00:08:19.900
+m edges. So, overall we get n log n for updating,
+for finding the minimum n times and m log
+
+00:08:19.900 --> 00:08:24.660
+n for updating the minimum m times. So, n
+plus m log n.
+
+00:08:24.660 --> 00:08:29.169
+You can use the similar strategy for PrimÕs
+algorithm. In PrimÕs algorithm the only distance,
+
+00:08:29.169 --> 00:08:32.919
+the notion of distance is not the same. We
+do not accumulate the distance, we look at
+
+00:08:32.919 --> 00:08:37.430
+the cost of the actual edge. But still, we
+need to attract the minimum cost edge connecting
+
+00:08:37.430 --> 00:08:41.690
+a node to a tree, to the current tree and
+then we need to update these things after
+
+00:08:41.690 --> 00:08:47.670
+we add this edge to the tree, right. So, exactly
+the same idea of using a min heap with updates
+
+00:08:47.670 --> 00:08:53.940
+we will use. So, getting PrimÕs algorithm
+also down to the same complexity as DijskstraÕs
+
+00:08:53.940 --> 00:08:55.110
+algorithm.
+
+00:08:55.110 --> 00:09:02.180
+So, before we leave heaps, let us see how
+to use heaps to sort. So, we want to sort
+
+00:09:02.180 --> 00:09:07.720
+a list of values. So, what we can do is, we
+can first build a heap, right. So, we now
+
+00:09:07.720 --> 00:09:14.810
+start with some arbitrary sequence of values,
+x 1 to x n, then we build a heap and we possibly
+
+00:09:14.810 --> 00:09:20.910
+get reordered in some way of x i 1, x i 2,
+x i n, but this is not in sorted way, this
+
+00:09:20.910 --> 00:09:25.430
+is heap order, that is, we know, that the
+maximum is at the left and so on. Now, I do
+
+00:09:25.430 --> 00:09:30.820
+it delete max and I put this guy out, right.
+So, I know that this is the maximum.
+
+00:09:30.820 --> 00:09:36.839
+Then, after this, this something will come
+to the front. At the next point, that will
+
+00:09:36.839 --> 00:09:42.529
+come out, and then I will get the second max
+and so on, right. So, if I do delete max n
+
+00:09:42.529 --> 00:09:47.120
+times, clearly, at each point I get the next
+maximum. So, I am extracting elements from
+
+00:09:47.120 --> 00:09:50.959
+the tree in descending order, and so I get
+a sorted output. I can reverse set, I can
+
+00:09:50.959 --> 00:09:54.930
+keep in ascending order, it does not matter,
+but I am just extracting the elements in a
+
+00:09:54.930 --> 00:09:57.940
+particular order. And so this is a trivial
+sorting algorithm.
+
+00:09:57.940 --> 00:10:01.683
+Now, each extraction takes log n time because
+it is a delete time delete max, right, or
+
+00:10:01.683 --> 00:10:05.690
+a delete max or a delete min depending on
+what type of heap for using. So, you do n
+
+00:10:05.690 --> 00:10:10.870
+such extraction. So, in log n time you can
+get the elements out in sorted order and to
+
+00:10:10.870 --> 00:10:14.060
+put them in, you took only order n time. So,
+overall we sorted n log n time.
+
+00:10:14.060 --> 00:10:19.910
+There is a small subtle thing that you can
+ask about this. The question is, where these
+
+00:10:19.910 --> 00:10:24.949
+values go, right. So, initially, in the first
+iteration, if I have my heap looking like
+
+00:10:24.949 --> 00:10:33.970
+this, this is my maximum. So, it looks like
+I have to put in a new list, but what happens
+
+00:10:33.970 --> 00:10:44.170
+after this step is, that this value gets inserted
+here and then it percolates down by the heapify
+
+00:10:44.170 --> 00:10:50.149
+fix operation, right. So, when I delete the
+value at the root, I take the last leaf, put
+
+00:10:50.149 --> 00:10:54.690
+its value in the root and then I put it down
+so that all the heap properties are satisfied.
+
+00:10:54.690 --> 00:10:58.910
+And after this, now my heap only look like
+this because this value is gone. So, my heap
+
+00:10:58.910 --> 00:11:04.149
+ends with x minus n minus 1.
+So, I have a place in my array, which is not
+
+00:11:04.149 --> 00:11:09.089
+being used any more for the next delete max
+because the next delete max involves only
+
+00:11:09.089 --> 00:11:16.110
+n minus 1 operation. So, therefore, I can,
+in fact, at this point go and put this value
+
+00:11:16.110 --> 00:11:20.680
+back into the heap at this position and be
+sure it is not touched, right. So, now what
+
+00:11:20.680 --> 00:11:24.899
+will happen is, I will have the max coming
+here, then I will have the next second max
+
+00:11:24.899 --> 00:11:29.720
+coming here and so on. So, if I keep doing
+delete max, I will be propagating from the
+
+00:11:29.720 --> 00:11:34.500
+right the value in descending order and therefore,
+finally, it my heap will actually end up being
+
+00:11:34.500 --> 00:11:39.589
+resorted in ascending order, right.
+So, this gives me a in place order n log n
+
+00:11:39.589 --> 00:11:43.399
+swap, right, by just making sure, that when
+I delete the value instead of throwing it
+
+00:11:43.399 --> 00:11:47.810
+away or putting into a new list, I just put
+it into the place it was vacated right now
+
+00:11:47.810 --> 00:11:52.050
+by seeking the heap by one value, and then
+I automatically get an output in sorted way,
+
+00:11:52.050 --> 00:11:57.440
+right. So, heaps can be used to do a very
+different kind of order n log n short in place.
+

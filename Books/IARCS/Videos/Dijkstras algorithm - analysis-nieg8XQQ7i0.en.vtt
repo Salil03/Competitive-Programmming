@@ -1,0 +1,658 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.350 --> 00:00:06.520
+So, now let us analyze Dijkstra’s algorithm
+for the single source shortest path problem.
+
+00:00:06.520 --> 00:00:13.590
+So, recall that Dijkstra's algorithm operates
+by burning vertices in the analogy we used.
+
+00:00:13.590 --> 00:00:18.990
+So, we keep track of vertices which have burnt
+or visited initially nothing is visited and
+
+00:00:18.990 --> 00:00:22.580
+initially we do not know any distance to any
+vertex. So, we have assumes all distances
+
+00:00:22.580 --> 00:00:30.130
+that at infinity. When we start at the source
+vertex, let us call it 1 by assumption. So,
+
+00:00:30.130 --> 00:00:36.859
+we set its distance to 0. Then, we repeatedly
+pickup the first vertex which is not burnt
+
+00:00:36.859 --> 00:00:42.050
+and which has the minimum distance among those
+which are not burnt, visit it and recompute
+
+00:00:42.050 --> 00:00:44.739
+the distance to all its neighbors.
+
+00:00:44.739 --> 00:00:52.179
+So, before we look at the complexity of these
+algorithms, we actually first have to verify
+
+00:00:52.179 --> 00:00:55.700
+that it is correct. So, Dijkstra's algorithms
+now make the sequences of updates. It is a
+
+00:00:55.700 --> 00:01:01.229
+bit analogous to bfs or dfs, because it keeps
+visit in vertices and it visits every vertex
+
+00:01:01.229 --> 00:01:06.360
+only once. Now, its visits vertices in a particular
+order which is different from breadth first
+
+00:01:06.360 --> 00:01:11.049
+or the depth first, and we need to justify
+that this order is actually correct. So, in
+
+00:01:11.049 --> 00:01:16.630
+some sense at every point, breadth first search
+looks all its neighbors and visits them say
+
+00:01:16.630 --> 00:01:20.870
+in the order of their vertex number. Depth
+first search will pick the first neighbor,
+
+00:01:20.870 --> 00:01:24.060
+and then explore it further.
+Now, Dijkstra algorithm uses the different
+
+00:01:24.060 --> 00:01:30.890
+strategy which is to pick the first, the smallest
+distance and visited neighbor. So, we have
+
+00:01:30.890 --> 00:01:34.820
+to justify that this choice which is never
+under, that is which keep going forward, and
+
+00:01:34.820 --> 00:01:38.210
+you never go back and say hope maybe I should
+have chose a different one that this kind
+
+00:01:38.210 --> 00:01:42.420
+of strategy actually is correct. So, this
+is a general class of algorithms called greedy
+
+00:01:42.420 --> 00:01:48.100
+algorithms where you have a number of possible
+trajectories or parts that you can choose
+
+00:01:48.100 --> 00:01:54.640
+to solve the problem. At each stage you make
+the next choice based on some local information.
+
+00:01:54.640 --> 00:01:59.299
+At this point, this looks like the best choice
+to make, and then somehow magically this best
+
+00:01:59.299 --> 00:02:04.469
+choice that you make on local information
+turns out to be globally the best trajectory
+
+00:02:04.469 --> 00:02:09.780
+to take. So, for such greedy algorithm, it
+is important to establish that this local
+
+00:02:09.780 --> 00:02:15.360
+choice of the next step actually gives us
+a global optimum, because very often this
+
+00:02:15.360 --> 00:02:20.200
+kind of a local heuristic does not give us
+a correct algorithm.
+
+00:02:20.200 --> 00:02:25.630
+So, let us first look at the correctness of
+Dijkstra algorithm. So, the key to establishing
+
+00:02:25.630 --> 00:02:30.250
+correctness in this particular case is to
+establishes what is called an invariant, right.
+
+00:02:30.250 --> 00:02:35.660
+So, now, the Dijkstra algorithm proceeds as
+we saw in a sequence of iteration. They are
+
+00:02:35.660 --> 00:02:41.210
+n iteration. The invariant is that at each
+iteration, we have this characterization of
+
+00:02:41.210 --> 00:02:47.980
+vertices as burnt and unburnt. What you want
+to claim is that the burnt vertices are correctly
+
+00:02:47.980 --> 00:02:53.151
+solved, that is at any point if we look at
+the distances assigned to the vertices in
+
+00:02:53.151 --> 00:02:58.090
+the burnt set, then those distances are actually
+the shortest distance in the source vertices
+
+00:02:58.090 --> 00:03:02.900
+to that burnt vertex. So, if we assume that
+this inductive invariant is true, now it is
+
+00:03:02.900 --> 00:03:06.320
+certainly true at the beginning because at
+the beginning, the only vertex that we have
+
+00:03:06.320 --> 00:03:11.390
+burnt is the start vertex s, right. So, the
+first vertex we burnt is s and we set its
+
+00:03:11.390 --> 00:03:15.570
+distance to 0. So, certainly at that point
+this property is true that among the burnt
+
+00:03:15.570 --> 00:03:19.120
+vertices, the distances are in fact the shortest
+distances.
+
+00:03:19.120 --> 00:03:23.860
+Now, assuming that we have extended it say
+for a few vertices, now we want to add a new
+
+00:03:23.860 --> 00:03:30.791
+one. So, what we said is that we will pick
+a vertex v, such that if we look at the distance
+
+00:03:30.791 --> 00:03:37.640
+to x plus the weight of x v, if you look at
+this total sum which will be updated distance
+
+00:03:37.640 --> 00:03:43.200
+to v, this is smallest among all the vertices
+which are not burnt. So, the claim is that
+
+00:03:43.200 --> 00:03:48.460
+if we now add this to our burnt set, right
+so we extended are burnt set like this by
+
+00:03:48.460 --> 00:03:53.200
+include v, then, the distance of v cannot
+be actually smaller than what we have computed
+
+00:03:53.200 --> 00:03:56.970
+now and we could not change because of a later
+update. So, how will it change because of
+
+00:03:56.970 --> 00:04:02.320
+the later update, it could be that some later
+point we actually extend a burnt set and included
+
+00:04:02.320 --> 00:04:08.060
+a new w. Now, can it be that there was a path
+from y to w to v which is shorter than a path
+
+00:04:08.060 --> 00:04:14.190
+we claimed just now via x to v. So, it is
+easy to see that the distance to y plus the
+
+00:04:14.190 --> 00:04:23.140
+cost of wxy. Now, this must be bigger than
+or equal to the earlier thing because we choose
+
+00:04:23.140 --> 00:04:27.490
+v and not w because at this point w was not
+the smallest one, v was. Perhaps they were
+
+00:04:27.490 --> 00:04:32.820
+equal, but certainly w was not less than v.
+So, at a later stage if you go to w, we know
+
+00:04:32.820 --> 00:04:36.970
+that we will take at least that much time
+to reach w. Then, we have to additionally
+
+00:04:36.970 --> 00:04:43.440
+incur a cost of going from w to v. So, there
+is no way that a later path if we can discover
+
+00:04:43.440 --> 00:04:48.560
+via y to w to v can be better than the correct
+path next, right. So, this reestablishing
+
+00:04:48.560 --> 00:04:54.941
+the invariant that the vertex we burnt next
+is correctly solved. So, this is a way to
+
+00:04:54.941 --> 00:05:00.740
+show that Dijkstra greedy strategy actually
+solves this problem correctly.
+
+00:05:00.740 --> 00:05:07.970
+So, now having established that it is correct,
+let us look at the complexity. So, there are
+
+00:05:07.970 --> 00:05:12.810
+some obvious loops in this. So, there is a
+first, there is an order n loop of initializing
+
+00:05:12.810 --> 00:05:17.990
+the visited values to false and distances
+to infinity. Now, there is another order n
+
+00:05:17.990 --> 00:05:25.370
+loop here and inside this order n loop, there
+are two loops. One is more obvious than the
+
+00:05:25.370 --> 00:05:31.620
+other. So, here once we have visited, a new
+vertex, then we have to go through all its
+
+00:05:31.620 --> 00:05:37.480
+outgoing neighbors, right. There is a scan
+of all edges which are going out of u. So,
+
+00:05:37.480 --> 00:05:43.180
+that is one loop, but also there is a loop
+here which is kind of implicit which is before
+
+00:05:43.180 --> 00:05:47.310
+we visit a vertex, we have to choose it, right.
+So, we have to go through all the unvisited
+
+00:05:47.310 --> 00:05:51.621
+vertices and pick the one whose distance is
+minimum. So, this in general we have seen
+
+00:05:51.621 --> 00:05:56.030
+that if we have a list or an array which is
+not in any particular order, we have to find
+
+00:05:56.030 --> 00:06:02.080
+the minimum and scan the entire array. So,
+this is implicitly an order n step. So, this
+
+00:06:02.080 --> 00:06:09.850
+is an order n step and that time it takes
+here, it depends on how we represent the edges.
+
+00:06:09.850 --> 00:06:15.930
+So, the outer loop runs n times we saw. In
+each iteration, we burnt a vertex. This requires
+
+00:06:15.930 --> 00:06:21.100
+an order n scan to find the minimum vertex
+to burn. After we’ve burnt the vertex, we
+
+00:06:21.100 --> 00:06:26.190
+have to scan its neighbors to update the burnt
+times of those vertices. Now, if we have an
+
+00:06:26.190 --> 00:06:30.230
+adjacency matrix as we have seen, then if
+you are going to burn u now, then in order
+
+00:06:30.230 --> 00:06:34.150
+to find its new neighbor, we have to scan
+the row for u in the adjacency matrix. So,
+
+00:06:34.150 --> 00:06:38.319
+this will take order n time, right. So, we
+are in outer order n and inside we have two
+
+00:06:38.319 --> 00:06:42.900
+order n things independent of each other.
+One is to find the minimum burnt vertex, unburnt
+
+00:06:42.900 --> 00:06:47.460
+vertex to burn next, and the second is to
+update all its neighbors, right. So, because
+
+00:06:47.460 --> 00:06:55.240
+we have this order n thing inside an order
+n loop, overall its order n square. So, now
+
+00:06:55.240 --> 00:07:00.270
+one of the bottlenecks certainly is this adjacency
+matrix, right.
+
+00:07:00.270 --> 00:07:06.490
+So, we have seen in bfs and dfs that if we
+move from an adjacency matrix, to an adjacency
+
+00:07:06.490 --> 00:07:10.900
+list scanning all the vertices of the particular
+all the neighbors of the particular vertex
+
+00:07:10.900 --> 00:07:15.980
+becomes more efficient. So, we can do the
+same thing here, right. So, if we move from
+
+00:07:15.980 --> 00:07:22.770
+adjacency matrix, from adjacency list representation,
+certainly the second order n loop within each
+
+00:07:22.770 --> 00:07:27.870
+iterations can be now counted as an overall
+order n cost because across all the iterations,
+
+00:07:27.870 --> 00:07:33.280
+we would explore every edge only once because
+we explore when we burn its source vertex,
+
+00:07:33.280 --> 00:07:41.000
+right. So, therefore, the second contribution
+of order n gets solved by using an adjacency
+
+00:07:41.000 --> 00:07:46.750
+list, but unfortunately we still have the
+first order n step which is to find the minimum.
+
+00:07:46.750 --> 00:07:52.650
+So, we have a list of burnt time associated
+with the unburn unvisited vertices, and we
+
+00:07:52.650 --> 00:07:56.520
+have to find the minimum among them and this
+remains the order n step. So, overall though
+
+00:07:56.520 --> 00:08:00.229
+we have moved to an adjacency list, this alone
+does not help us because we still have an
+
+00:08:00.229 --> 00:08:05.350
+order n step inside the big loop. So, we are
+still at order n square.
+
+00:08:05.350 --> 00:08:11.139
+So, actually, to get around this bottle neck,
+we need to maintain the burnt times in a most
+
+00:08:11.139 --> 00:08:15.510
+sophisticated data structure. So, it turns
+out as we need data structure in which we
+
+00:08:15.510 --> 00:08:20.210
+can of course find and remove the minimum
+element quickly, but once we have that, we
+
+00:08:20.210 --> 00:08:26.139
+also need to be able to update the values
+quickly, so that overall both updating and
+
+00:08:26.139 --> 00:08:31.600
+extracting are roughly equally the same. So,
+this can be done using tree like structure
+
+00:08:31.600 --> 00:08:36.479
+in particular we will see in a later lecture
+that there is a nice data structure called
+
+00:08:36.479 --> 00:08:45.279
+heap which precisely allows us to do these
+two operations in log n time. So, if you have
+
+00:08:45.279 --> 00:08:49.170
+n values, then log n time you can find and
+read the minimum value and we can insert a
+
+00:08:49.170 --> 00:08:54.389
+new value or update a value which is already
+in a heap. All these operations take only
+
+00:08:54.389 --> 00:08:55.389
+log n time.
+
+00:08:55.389 --> 00:09:01.410
+So, if this which we will see later and if
+this can be done, then what it says is that
+
+00:09:01.410 --> 00:09:07.430
+finding the minimum burn time takes log n
+time. Now, when we update the vertices which
+
+00:09:07.430 --> 00:09:13.230
+are adjacent to the current burn vertex, overall
+we do this O(m) times, right, because of O(m)
+
+00:09:13.230 --> 00:09:18.970
+edges, but each updates again takes O(log
+n). So, we have now two contributions to our
+
+00:09:18.970 --> 00:09:27.240
+complexity. So, this comes from choosing the
+minimum vertex, right. In order to extract
+
+00:09:27.240 --> 00:09:31.750
+the minimum vertex, we do this n times and
+each time it costs us log n time, and then
+
+00:09:31.750 --> 00:09:37.439
+in order to update the distances once we burnt
+a vertex, each time it takes the log n time,
+
+00:09:37.439 --> 00:09:42.949
+but we do this for each edge. So, it is m
+log n. So, we have n log n for choosing a
+
+00:09:42.949 --> 00:09:51.029
+vertex and this is for updating a distance,
+right. So, overall our the algorithm becomes
+
+00:09:51.029 --> 00:09:56.879
+n plus m log n. So, remember that in a graph
+n plus m is really a fact is the size of the
+
+00:09:56.879 --> 00:10:01.829
+graph. So, this is really a n log n algorithm
+as opposed to the naïve O (n square), and
+
+00:10:01.829 --> 00:10:06.579
+we are seeing sorting and other such problems.
+That is a huge practical jump going from O
+
+00:10:06.579 --> 00:10:13.550
+n square to n log n. It is a huge jump in
+term of the size of the problem we can hope
+
+00:10:13.550 --> 00:10:14.689
+to solve.
+
+00:10:14.689 --> 00:10:19.509
+So, Dijkstra algorithm makes a very crucial
+assumption which underlies the correctness
+
+00:10:19.509 --> 00:10:28.069
+of its greedy step, and that is that there
+is no negative cost associated to the nature,
+
+00:10:28.069 --> 00:10:33.170
+right. Our argument was that if we choose
+v as the next neighbor to add to our burn
+
+00:10:33.170 --> 00:10:40.509
+set, then we can never find the shorter path
+coming this way, but obviously we have negative
+
+00:10:40.509 --> 00:10:48.069
+edges, then we could have a situation where
+I had say, a path of length 2 here, right
+
+00:10:48.069 --> 00:10:53.459
+and then I chose not to follow another path
+because may be it is have of length 4, but
+
+00:10:53.459 --> 00:11:00.149
+if I have come back from there, right may
+be this has length minus 3. So, if I come
+
+00:11:00.149 --> 00:11:06.230
+around this way, then I incur net cost of
+plus 1 whereas if I go this way, I get plus
+
+00:11:06.230 --> 00:11:11.480
+2, right. So, therefore, by locally looking
+for a nearest neighbor, I do not necessarily
+
+00:11:11.480 --> 00:11:13.639
+find the shortest distance.
+
+00:11:13.639 --> 00:11:20.199
+So, now of course you might want to ask why
+you want to put a negative ways in a graph
+
+00:11:20.199 --> 00:11:23.860
+at all. Well, remember that the graphs are
+very general model. There are many situations
+
+00:11:23.860 --> 00:11:27.941
+where you can actually interpret negative
+ways in a sensible way. So, supposing we are
+
+00:11:27.941 --> 00:11:33.420
+looking at say at a taxi driver and we are
+looking at the graph as a list of places,
+
+00:11:33.420 --> 00:11:36.870
+where he picks up and drop off people. Now,
+obviously there are segments where that the
+
+00:11:36.870 --> 00:11:41.790
+passenger is in the car and there are segments
+where we may not have to be may not have a
+
+00:11:41.790 --> 00:11:46.129
+passenger, he may have been returning to a
+place to pick up. For instance, a taxi driver
+
+00:11:46.129 --> 00:11:52.559
+operation there from the airport might typically
+go back to the airport after a free trip because
+
+00:11:52.559 --> 00:11:57.779
+he expects to find longer trips from there
+can within the city, right. So, there are
+
+00:11:57.779 --> 00:12:01.300
+segments where he travels empty, there are
+segments where he has passengers. So, some
+
+00:12:01.300 --> 00:12:04.929
+segments earn money, some segments use money.
+So, there are some positive edges and there
+
+00:12:04.929 --> 00:12:09.060
+are some negative edges, and the other situation
+is completely unrelated to anything we have
+
+00:12:09.060 --> 00:12:11.959
+seen so far.
+You can think of say chemicals, chemical compounds
+
+00:12:11.959 --> 00:12:17.209
+and we can represent the graph saying how
+we transform one compound to other compound,
+
+00:12:17.209 --> 00:12:22.230
+and here for instance edge weight can represent
+the energy which is either released or absorbed
+
+00:12:22.230 --> 00:12:27.670
+in this process. So, again it could be positive
+or negative, right. So, there are many situations
+
+00:12:27.670 --> 00:12:32.220
+in which edge, negative edge which actually
+makes sense. So, what do we do here negative
+
+00:12:32.220 --> 00:12:33.220
+edge weights?
+
+00:12:33.220 --> 00:12:39.260
+So, first thing to notice that if you have
+a negative cycle, so if I have a graph which
+
+00:12:39.260 --> 00:12:46.420
+I have say a loop like this and all of the
+things add minus 3, minus 2 and plus 1, then
+
+00:12:46.420 --> 00:12:52.819
+if I go around the cycle once, right and come
+back, then I will incur a total cost of minus
+
+00:12:52.819 --> 00:12:57.680
+4. So, this means that if I had a path which
+started somewhere else, came here and left
+
+00:12:57.680 --> 00:13:02.989
+the cycle somewhere else. Suppose we had a
+source and a target, then I can make the distance
+
+00:13:02.989 --> 00:13:06.850
+in a source to the target arbitrarily small
+by going round and round this loop many number
+
+00:13:06.850 --> 00:13:11.259
+of times, right. At each time I go round the
+loop, the cost reduces by minus, by 4. So,
+
+00:13:11.259 --> 00:13:15.100
+I keep adding minus 4 to my cost. So, the
+cost will be as low as I want just depending
+
+00:13:15.100 --> 00:13:19.629
+on how many times I go around you.
+So, if I have negative cycles in a graph,
+
+00:13:19.629 --> 00:13:22.929
+the question of the shortest path does not
+even make a sense. There is no notion of a
+
+00:13:22.929 --> 00:13:27.339
+shortest path, because the quantity is not
+well defined, but it turns out that if I rule
+
+00:13:27.339 --> 00:13:32.339
+out this cycle, it could have negative edges,
+but not negative cycle. So, for instance here
+
+00:13:32.339 --> 00:13:38.589
+if instead of plus 1, I said that this was
+plus 7, right. If I have made this way plus
+
+00:13:38.589 --> 00:13:43.100
+7 and going around the cycle will cause me
+plus 2. So, therefore, it does not help me
+
+00:13:43.100 --> 00:13:47.449
+to go around the cycle because it only adds
+to my cost. Therefore, in a situation where
+
+00:13:47.449 --> 00:13:55.160
+I have no negative cycle, but I do have negative
+edges, it still makes sense to talk of shortest
+
+00:13:55.160 --> 00:13:59.119
+path, and we will see later that there are
+other algorithms, other than Dijkstra’s
+
+00:13:59.119 --> 00:14:04.110
+algorithm which can handle these. In particular
+we will look at Bellman-Ford algorithm, and
+
+00:14:04.110 --> 00:14:08.350
+we will also see that all pair shortest path
+problems which generalize the single source
+
+00:14:08.350 --> 00:14:12.629
+short path problem called the Floyd Warshall
+algorithm. We will also solve these things
+
+00:14:12.629 --> 00:14:16.899
+regardless of whether the paths are negative
+or the weights are negative or not, provided
+
+00:14:16.899 --> 00:14:18.279
+there are no negative cycles.
+

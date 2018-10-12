@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\permutations.html">Generating  permutations</a>&rarr;Beads (APIO 2008)
+      </h2>
+
+      <p>
+	Professor X has recently revealed his latest invention to
+	the world: the Ultimate Bead Swapper (UBS).  As the name
+	implies, it can make a sequence of beads much more
+	interesting by swapping some beads in it!  The UBS has N
+	conveyor belts placed in north-south direction in
+	parallel. The conveyor belts are numbered 1 to N from
+	left to right. Every belt moves from north to south at
+	the same speed. There are M swappers placed between
+	adjacent conveyors. No two swappers are equally far from
+	the north end of the UBS. (In other words, they can be
+	totally ordered according to how far they are from the
+	north end.) The swappers are numbered 1 to M from north
+	to south. The figure shows the UBS when viewed from
+	above.
+      </p>
+
+      <pre>
+       Belt1   Belt2   Belt3   Belt4   Belt5
+         |       |       |       |       |
+         |       <-Swap1->       |       |
+         |       |       |       <-Swap2->
+         <-Swap3->       |       |       |
+         |       |       <-Swap4->       |
+         |       |       <-Swap5->       |
+         |       |       |       |       |
+      </pre>
+
+      <p>
+	To use the UBS, N beads are placed at the north end of
+	the conveyor belts at the same time so that they form a
+	horizontal row as they move along the belt. When two
+	beads come under a swapper, the bead on the right
+	conveyor belt is moved to the left conveyor belt, and the
+	bead on the left conveyor belt is moved to the right
+	conveyor. After being swapped, the two beads do not break
+	the horizontal row.
+      </p>
+
+      <p>
+	Your task is to write a program that, given the number of
+	conveyor belts N , the number of swappers M , and the
+	positions of each swapper, answer Q questions of the
+	form:
+      </p>
+
+      <blockquote>
+	Given K and J , for the bead that is placed on Belt K at
+	the north end of the UBS, which belt is the bead on after
+	all beads just move past Swapper J ?
+      </blockquote>
+      <br>
+
+      <p>
+	<b>Limits:</b>  1&le;N, M, Q&le;300,000
+      </p>
+
+      <div id="solution">
+	<h2>Solution</h2>
+      </div>
+
+      <p>
+	The naive solution is to simulate (execute) the first J swaps for each
+	query.  This takes time O(NQ) which is not acceptable.
+      </p>
+
+      <p>
+	<b>First option:</b>
+      </p>
+
+      <p>
+	A sequence of swaps defines a permutation.  Store the permutations for
+	selected sequences.  For each swapper i, maintain the permutation
+	corresponding to intervals of 1, 2, 4, ... , 2^k starting at i.
+      </p>
+
+      <p>
+	Even better, break up 1..N into blocks of size 1,2,4,8... and maintain the
+	permutations for these blocks.
+      </p>
+
+      <pre>
+   	                        N
+   	<------------------------------------------------>
+   	         N/2                       N/2
+   	<-----------------------><----------------------->
+   	    N/4         N/4          N/4         N/4
+   	<----------><-----------><----------><----------->
+   	.
+   	.
+   	.
+   	1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+   	<><><><><><><><><><><><><><><><><><><><><><><><><>
+      </pre>
+
+      <p>
+	Now, given J, we can tile the interval 1..J using log J
+	such blocks and compose the corresponding functions to
+	get the overall permutation.  This takes O (Q log N) time
+	to answer Q queries.
+      </p>
+
+      <p>
+	However, there are 2M such blocks.  If we naively
+	maintain a full permutation per block it takes O(MN)
+	space which is too much.
+      </p>
+
+      <p>
+	Instead, for each permutation we only keep track of the
+	elements that move in a sorted list.  Having got a
+	permutation, it now takes log N time to determine where i
+	moves in this permutation.  The good news is that the
+	space requirement overall reduces to M log M.
+      </p>
+
+      <p>
+	<b>Second option:</b>
+      </p>
+
+      <p>
+	We maintain a table with rows of the form
+      </p>
+
+      <pre>
+       Bead      Move     New belt
+      </pre>
+
+      <p>
+	Each row in this table says "At step j, bead i is swapped
+	and moves to belt k".  Each swap moves 2 elements, so
+	across N swaps we have only 2N moves.  Therefore, this
+	table has only 2N entries.  If we maintain the moves in
+	sorted order, we can then answer a query of the form
+	"Where is bead i after step j?" by doing a binary search
+	among the moves of bead i in the table.
+      </p>
+
+      <p>   
+	To maintain this table, use vectors.
+      </p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

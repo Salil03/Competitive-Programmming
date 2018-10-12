@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="dp.html">Dynamic Programming</a></h2>
+
+      <h3><span>Some tiling problems</span></h3>
+
+      <p>
+        We have an n&times;2 grid to be tiled.
+      </p>
+
+      <pre>
+               <-------- n --------->
+                -- -- -- -- -- -- --
+               |  |  |  |  |  |..|  |
+                -- -- -- -- --    --
+               |  |  |  |  |  |..|  |
+                -- -- -- -- -- -- --
+      </pre>
+                                                          
+      <p>
+	We have with us a supply of rectangular tiles of size
+	2&times;1.  Each tile can be rotated and laid
+	horizontally or vertically.
+      </p>
+
+      <pre>
+                -- --
+               |  |  |
+                -- --
+      </pre>
+
+      <p>
+	How many ways can we tile the n&times;2 grid using these
+	tiles? 
+      </p>
+
+
+      <p><b>Solution</b></p>
+
+      <p>
+	Let T(n) denote the number of ways of tiling an n&times;2
+	grid. 
+      </p>
+
+      <p>
+	We begin the tiling at the left end.  We have two possibilities:
+      </p>
+
+      <ul>
+
+	<li>
+	  We place a tile vertically.  This leaves an
+	  (n-1)&times;2 grid, that can be tiled in T(n-1) ways
+	</li>
+
+	<il>
+	  We place a tile horizontally.  Then, to complete the
+	  tiling, we are forced to place another tile
+	  horizontally below (or above) it.  This leaves an
+	  (n-2)&times;2 grid, that can be tiled in T(n-2) ways.
+       
+
+       <p>
+	 Thus, we can express T(n) using the recurrence:
+       </p>
+
+       <p align="center">
+	 T(n) = T(n-1) + T(n-2)
+       </p>
+
+       <p>
+	 For the base case we have
+       </p>
+
+       <ul>
+	 <li> T(0) = 1 (if we have no grid, there is only one way
+	   to tile it!)</li>
+	 <li>  T(1) = 1 (we must place a single tile vertically)</li>
+       </ul>
+
+       <p>
+	 If you are not happy with T(0) as a base case, you can add
+       </p>
+
+       <ul>
+	 <li>T(2) = 2 (place two tiles horizontally, or two tiles
+	   vertically)</li>
+       </ul>
+
+       <p>
+	 Then, we can compute T(k) for any k starting at the base case
+       </p>
+
+       <ul>
+	 <li> T(3) = T(2) + T(1) = 2 + 1 = 3</li>
+	 <li> T(4) = T(3) + T(2) = 3 + 2 = 5</li>
+	 <li> &hellip;</li>
+       </ul>
+
+       <p>
+	 This yields the familiar Fibonacci sequence: T(n) is the
+	 nth Fibonacci number.  
+       </p>
+
+       <p>
+	 As we have seen, computing T(n) recursively involves
+	 wasteful recomputation of subproblems.  For instance,
+	 T(8) generates subproblems as follows:
+       </p>
+       <pre>
+
+                          T(8)
+                     /          \
+               T(7)                 T(6)
+              /    \              /      \
+          T(6)      T(5)      T(5)        T(4)
+          /  \     /   \     /   \        /  \
+      T(5)  T(4) T(4)  T(3  T(4)  T(3)  T(3  T(2)
+        .    .    .    .    .    .    .    .
+        .    .    .    .    .    .    .    .
+       </pre>
+
+       <p>
+	 Observe that T(6) is computed twice, T(5) is computed 3
+	 times, T(4) is computed 5 times, &hellip;
+       </p>
+
+       <p>
+	 We can modify the recursive procedure to store values that are
+	 already computed and avoid recomputation.
+       </p>
+
+       <pre>
+         Initialize S[1..N] to -1   // -1 denotes that S[i] is yet to
+                                    //  be computed
+
+         T(i) {
+           if (S[i] != -1){          // S[i] has been computed
+              return(S[i])
+           }else{                    // Compute T[i] and store in S[i]
+             if (i == 1){
+               S[i] = 1;
+               return(1);
+             }
+             if (i == 2){
+               S[i] = 1;
+               return(1);
+             }
+             if (i > 2){
+               S[i] = T(i-1) + T(i-2);
+               return(S[i]);
+             }
+           }
+         }
+       </pre>
+
+       <p>
+	 This will compute T(n) in time proportional to n, but
+	 there are other overheads associated with recursive calls.  There
+	 is also a limit to the depth of recursion --- how large an n you
+	 can use for nested recursive calls.
+       </p>
+
+       <p>
+	 A more efficient solution is to start with T(1) and T(2) and work upwards
+	 to n.
+       </p>
+
+       <pre>
+         T(i) {
+           if (i <= 2){
+             return(1);
+           }
+           if (i > 2){
+             S[1] = 1;
+             S[2] = 1;
+             for (j = 2; j <= i; j++){
+               S[j] = S[j-1] + S[j-2];
+             }
+             return(S[j]);
+           }
+         }
+       </pre> 
+
+       <p>
+	 What if we want T(n) for very large n, for instance n =
+	 10<sup>8</sup>?  The solution we just wrote requires us
+	 to store 10<sup>8</sup> values in the array S.  Note,
+	 however, that we only need the previous two values in
+	 the array, so we can make do by keeping two values at a
+	 time.
+       </p>
+
+       <pre>
+         T(i) {
+           if (i <= 2){
+             return(1);
+           }
+           if (i > 2){
+             secondlast = 1;             // T(i-2)
+             last = 1;                   // T(i-1)
+             for (j = 2; j <= i; j++){
+               new = last + secondlast;  // T(i) = T(i-1) --> T(i-2)
+               secondlast = last;        // T(i-1) --> T(i-2)
+               last = new;               // T(i)   --> T(i-1)
+             }
+             return(last);
+           }
+         }
+       </pre>
+
+       <h3><span>A more complicated tiling problem</span></h3>
+
+       <p>
+	 Again we want to tile an n&times;2 grid, but we have two
+	 types of tiles:
+       </p>
+
+       <ul>
+	 <li> A  2&times;1 tile as before</li>
+	 <pre>
+       	    -- -- 
+       	   |  |  |
+       	    -- -- 
+	 </pre>
+
+	 <li> An L-shaped tile covering 3 squares</li>
+	 <pre>
+            -- --
+           |  |  |
+            -- --
+              |  |
+               --
+	 </pre>
+
+       </ul>
+
+       <p>
+	 How many ways can we tile the n&times;2 grid using these tiles?
+       </p>
+
+      <p><b>Solution</b></p>
+
+      <p>
+	As before, let us see how we can begin our tilings from
+	the left end.  There are now four possibilities for the
+	leftmost tile(s):
+      </p>
+
+      <pre>
+            <----- n-1 ----->                <---- n-2 ----->
+
+         -- ---------- ... --            ------------- ... --
+        |  |                 |          |    |               |
+        |  |---------- ... --            ------------- ... --
+        |  |                 |          |    |               |
+         -- ---------- ... --            ------------- ... --
+
+
+              <---- n-2 ----->              <----- n-1 ------>
+         -- ---------- ... --            -- ---------- ... --
+        |     |              |          |  |                 |
+        |   -- ------- ... --           |   -- ------- ... --
+        |  |                 |          |     |              |
+         -- ---------- ... --            -- ---------- ... --
+            <----- n-1- ----->                 <---- n-2----->
+      </pre>
+
+      <p>
+	If we use an L-shaped tile initially, we are left with a
+	shape in which either the top or bottom row has one extra
+	square.
+      </p>
+
+      <p>Let</p>
+
+      <ul>
+	<li> f(n) = number of ways of tiling an n&times;2 rectangle.</li>
+
+        <li> g(n) = number of ways of tiling an n&times;2
+          rectangle with an extra square in the bottom row.</li>
+
+        <li> h(n) = number of ways of tiling an n&times;2
+          rectangle with an extra square in the top row.</li>
+
+	</ul>
+
+      <p>
+	From the cases above, we can see that
+      </p>
+
+      <p align="center">
+	f(n) = f(n-1) + f(n-2) + g(n-2) + h(n-2)
+      </p>
+
+      <p>
+	Observe that, by symmetry, h(n) = g(n), so we can simplify this to
+      </p>
+
+      <p align="center">
+	f(n) = f(n-1) + f(n-2) + 2g(n-2)
+      </p>
+
+      <p>
+	In a similar fashion, we can write a recurrence for g(n)
+	by looking at what we can do initially.
+      </p>
+
+      <pre>
+           <------ n ----->                <------ n ----->
+            ------- ... --                  ------- ... --
+           |  |           |                |              |
+         --   |---- ... --               ----- ---- ... --
+        |     |           |             |     |           |
+         ---------- ... --               ---------- ... --
+               <--- n-1 -->                    <-- n-1 --->
+
+      </pre>
+
+      <p>
+	g(n) = f(n-1) + h(n-1) = f(n-1) + g(n-1), since g(n) = h(n)
+      </p>
+
+      <p>
+	We can write down base cases, as before:
+      </p>
+
+      <ul>
+	<li> f(0) = 1,  f(1) = 1</li>
+	<li> g(0) = 0 (cannot tile a single square),<br>
+	  g(1) = 1 (use exactly one L-shaped tile)</li>
+      </ul>
+
+      <p>
+	As before, we could explicitly add a base case f(2) = 2,
+	in which case we don't need the case g(0) = 0.
+      </p>
+
+      <p>
+	To calculate this, we start with the base case and work
+	upwards to f(k) or g(k) for any k, as in the previous
+	example.
+      </p>
+
+      <p>
+	Again, we should <em>not</em> use naive recursion,
+	because this will involve wasteful recomputation of
+	smaller values.
+      </p>
+    </il></ul></div>
+
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

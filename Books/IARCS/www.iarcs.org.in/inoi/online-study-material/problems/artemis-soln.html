@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\range-queries.html">Range
+        Queries</a>&rarr;Artemis (IOI 2004)
+      </h2>
+
+      <p>
+	Zeus gave Artemis, the goddess of the wilderness, a
+	rectangular area for growing a forest. With the left side
+	of the area as a segment of the positive y-axis and the
+	bottom side as a segment of the positive x-axis, and
+	(0,0) the left bottom corner of the area, Zeus told
+	Artemis to only plant trees only on integer coordinate
+	points in the area. Artemis liked the forest to look
+	natural, and therefore planted trees in such a way that a
+	line connecting two trees was never parallel to x-axis or
+	y-axis.  At times, Zeus wants Artemis to cut trees for
+	him. The trees are to be cut as follows:
+      </p>
+
+      <ol>
+
+	<li>
+	  <p>
+	    Zeus wants at least a given number T of trees to be
+	    cut for him.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    To get a rectangular football pitch for future
+	    football success, Artemis is to cut all trees within
+	    a rectangular area, and no trees outside of it.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    The sides of this rectangular area are to be parallel
+	    to x-axis and y-axis.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    Two opposite corners of the area trees must be
+	    located on trees and therefore those corner trees are
+	    also cutstand in two opposite corners of the area
+	    (and are included in it).
+	  </p>
+	</li>
+
+      </ol>
+
+      <p>
+	As Artemis likes the trees, she wants to fulfill these
+	conditions whilst cutting as few trees as possible. You
+	are to write a program that, given information of on the
+	forest and the minimum number T of trees to be cut,
+	selects an area for cutting trees for Artemis.
+      </p>
+
+      <p>
+	<b>Limits:</b>
+      </p>
+
+      <ul>
+	<li> Grid is 64000 &times; 64000</li>
+	<li> Number of trees is 10000 (was 20000 in IOI, but this
+	  seems wrong!) </li>
+	<li> Memory is 16MB</li>
+      </ul>
+      <p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+	Easy algorithm stores the number of trees from (0,0) to
+	(i,j) for all trees (i,j), but this is not feasible given
+	the memory limit.
+      </p>
+
+      <p>
+	Assume we are processing trees in ascending order of
+	first coordinates.  Fix a tree (x,y) for which we want to
+	calculate the best rectangle with respect to all earlier
+	trees to the left of (x,y).
+      </p>
+
+      <pre>
+ |        (x',y)
+ |------------------------o(x,y)
+ |          |             |
+ |          |             |
+ |          |             |
+ |          |             |
+ |          |             |
+ |          | (x',y')     |
+ |----------o-------------|(x,y')
+ |          |             |
+ |          |             |
+ |          |             |
+ |          |             |
+  --------------------------------------
+      </pre>
+
+      <p>
+	Keep two linear arrays
+      </p>
+
+      <ul>
+	<li>
+	  For each 1 &le; j &le; y, V[j] = 1 if there is a tree
+	  at some (z,j)
+	</li>
+	<li>
+	  For each 1 &le; i &le; x, H[i] = 1 if there is a tree
+	  at some (i,z)
+	</li>
+      </ul>
+
+      <p>
+	Prefix sums for H[] and V[] tell us number of trees to
+	the left of some i and below some j.
+      </p>
+
+      <p>
+	For each tree (x",y") to the left of (x,y), assume we
+	have stored the number of trees between (0,0) and
+	(x",y").  Call this Between(0,0,x",y").
+      </p>
+
+      <p>
+	We can then get the number of trees between (x',y') and
+	(x,y) as
+      </p>
+
+      <p align="center">
+        PrefixY(y) - [PrefixX(x') + PrefixY(y') - Between(0,0,x',y')]
+      </p>
+
+      <p>
+	We check if the number of trees in this rectangle is more
+	than T and better than the best we know.  If so, keep it,
+	else throw it away.
+      </p>
+
+      <p>
+	In this way, after sorting the trees (N log N), we can
+	process each tree in time N, so overall is N<sup>2</sup>.
+	The space we use is proportional to N (for each tree
+	(x,y) store Between(0,0,x,y)).
+      </p>
+
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

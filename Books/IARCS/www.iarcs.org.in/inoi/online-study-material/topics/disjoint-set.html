@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="advanced-graph-algorithms.html">Advanced
+      graph algorithms</a></h2>
+
+      <h3><span>Disjoint-set datastructure (union-find)</span></h3>
+
+      <p>
+	We have a universe U = {1,2,...,N}.  Initially, U is divided into
+	N singleton subsets {{1},{2},...,{N}}.
+      </p>
+
+      <p>
+	We want to maintain a collection of disjoint subsets of U (components) to
+	support the following operations.
+      </p>
+
+      <ul>
+
+	<li>Given an element, find which subset it belongs to (return a unique
+	  identifier for that subset)</li>
+
+	<li>Merge two subsets (union)</li>
+
+      </ul>
+
+      <p>
+	We could maintain an array Comp[1..N] so that Comp[i] is
+	a unique label identifying the subset that i belongs to.
+	We can check whether two vertices are in the same
+	component in constant time.  However, to merge two
+	components, we have to traverse Comp and make the labels
+	of the two components the same.  This takes time O(N),
+	which is too expensive --- it will take MN steps across M
+	merges.
+      </p>
+
+      <p>
+	Alternatively, for each label (component), we maintain a
+	(linked) list of vertices that have that label.  This
+	will not help us much because the size of each component
+	could be about N.
+      </p>
+
+      <p>
+	Suppose, in addition, we maintain an array Size that
+	records the size of component.  When we merge two
+	components, we merge the smaller component into the
+	larger one --- that is, we change the labels of the
+	smaller component to be the same as the larger one.  (For
+	this, we assume that we maintain, for each component,
+	both an array mapping vertices to components and a list
+	of the elements that belong to that component.  We use
+	the list to efficiently identify all the vertices in the
+	component to be renamed and update each of them in the
+	array in constant time, so that "find" remains a constant
+	time operation.)
+      </p>
+
+      <p>
+	The find operation continues to be constant time.
+      </p>
+
+      <p>
+	What is the cost of union?  Naively, each union could
+	take N time, as before.  However, let us count more
+	carefully, across all the merges.
+      </p>
+
+      <p>
+	Each union relabels every element of the smaller set.
+	How many times does the label of an element change?  Each
+	time the label of an element s changes, the size of the
+	component that s belongs to (at least) doubles.  Thus, in
+	log N steps, the component that s belongs to will be the
+	full set, so no element can be relabelled more than log N
+	times.  Thus, over any sequence of unions, the total
+	number of relabel operations is at most N log N.
+      </p>
+
+      <h3><span>Path Compression</span></h3>
+
+      <p>
+	With each element, store a pointer to the component that
+	it belongs to.  The last element in a component, points
+	to itself.
+      </p>
+
+      <p>
+	Initially, each element is a singleton component and points to itself.
+      </p>
+
+      <pre>
+  ----------   ----------   ----------       ----------
+ | 1 | self | | 2 | self | | 3 | self | ... | N | self |
+  ----------   ----------   ----------       ----------
+      </pre>
+
+      <p> When we merge, we make pointer for the head of one
+	component point to the head of the other one.  For
+	instance, if we have components {1,2,3,4} and {5,9} as on
+	the left, we can merge component 5 into component 1 by
+	making the pointer from 5 point to 1, as shown on the
+	right.  (In the picture, all edges point up.)
+      </p>
+
+      <pre>
+   Component 1     Component 5     Component 1 after merge
+
+   {1,2,3,4}          {5,9}             {1,2,3,4,5,9}
+
+      1 self          5 self                1 self
+     / \              |                   /  |  \
+    3    4            9                 3    4     5
+    |                                   |          |
+    2                                   2          9
+      </pre>
+
+      <p>
+	Merge thus takes constant time.
+      </p>
+
+      <p>
+	What about find?  To find the component of an element, we
+	start with the pointer attached to that element and walk
+	to the root of the tree to get the identity of the
+	component to which it belongs.
+      </p>
+
+      <p>
+	If we merge from N,N-1,...2,1 in that order
+      </p>
+
+      <p align="center">
+	((... ((N U N-1) U N-2) ....) U 2 ) U 1)
+      </p>
+
+      <p>
+	we could end up with a tree consisting of a single path
+      </p>
+
+      <p align="center">
+	N &rarr; N-1 &rarr; N-2 &rarr; N-3 &rarr; ... &rarr; 3
+	&rarr; 2 &rarr; 1 self
+      </p>
+
+      <p>
+	so find could take time O(N).
+      </p>
+
+      <p>
+	Once again, we can maintain the size of each component and insist on
+	merging smaller components into larger components.  This will guarantee
+	that the height of a component is only (log N).
+      </p>
+
+      <p>
+	Alternatively, we can ignore the sizes of the components
+	and do "path compression".  When we find an element for
+	the first time, we walk up a path to the root of the
+	component to identify the component.  Now, we make a
+	second pass from that element and replace pointers along
+	the way to point directly to the root.  This corresponds
+	to "compressing" the path from each element along the way
+	to a direct edge to the root.
+      </p>
+
+      <p>
+	It turns out that with path compression, a sequence of K
+	finds will take time about 4K.  (Strictly speaking, the
+	"constant" 4 is not a constant but a very very slow
+	growing function of K.)
+      </p>
+
+      <p>
+	In this representation, we don't need to maintain sizes
+	--- it works whichever direction we merge.  Also, we
+	don't need to maintain a list of elements of each
+	component.
+      </p>
+
+      <p>
+	This is called the "union-find" or "merge-find" data
+	structure.
+      </p>
+
+      <div id="video-material">
+        <h3><span>Video material</span></h3>
+      </div>
+
+      <p>Video lectures on <em>Disjoint set data structure (Union-find)</em>,
+	<a href="https://onlinecourses.nptel.ac.in/explorer">
+	  NPTEL online course</a> on
+        <a href="https://onlinecourses.nptel.ac.in/noc15_cs02/preview">
+  	  Design and Analysis of Algorithms</a>
+
+	<ul>
+
+	  <li> Disjoint set data structure (Union-find)
+           (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week5/pdf/nptel-week5-module1-union-find.pdf" target="_blank">Lecture slides</a>)<p>
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6i0ZmTDqsXA" frameborder="0" allowfullscreen=""></iframe>
+      
+	  <li> Path compression
+           (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week5/pdf/nptel-week5-module2-path-compression.pdf" target="_blank">Lecture slides</a>)<p>
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/5wA56Z0ngLU" frameborder="0" allowfullscreen=""></iframe>
+      
+        </li></ul>
+
+      <br><br>
+
+      <h3><span>Problems based on disjoint sets</span></h3>
+      <ul>
+	<li> <a href="..\problems\advertising-hoardings.html">Advertising hoardings</a></li>
+      </ul>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

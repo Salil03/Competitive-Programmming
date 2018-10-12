@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp-trees.html">Dynamic programming on
+        trees</a>&rarr;Mobiles (APIO 2007)
+      </h2>
+
+      <p>
+        A mobile is a multi-layered decoration that is hung from
+        the roof. Each mobile consists of a series of horizontal
+        rods connected by vertical wires.  Each rod has a wire
+        hanging from both ends, which holds either another
+        horizontal rod or a toy.
+      </p>
+
+      <p>
+        A sample mobile is shown below:
+      </p>
+
+      <pre>
+                         |
+           ------- 1 ---------------------
+          |                               |
+   --- 2----------                 --3------------
+  |               |               |               |
+  O          --4-------      --5-------      --6-------
+            |          |    |          |    |          |
+            O          O    O          O    O          O
+      </pre>
+
+      <p>
+        You need to find a mobile that has the following
+        configuration.
+      </p>
+
+      <ol>
+
+        <li> Any two toys are at the same level (i.e., are joined
+          to the roof by the same number of rods), or differ by
+          only one level;</li>
+
+        <li> For any two toys that differ by one level, the toy
+          to the left is further down than the toy to the
+          right.</li>
+
+      </ol>
+
+      <p>
+        Mobiles can be reconfigured as follows.
+      </p>
+
+      <p>
+        The ends of any individual rod can be 'swapped' by
+        unhooking whatever is hanging beneath the left and right
+        ends of the rod, and reattaching them again at opposite
+        ends.  This process does not modify the ordering of any
+        rods or toys further down.
+      </p>
+
+      <p>
+        The mobile above satisfies condition 1 but not condition
+        2 because the toy at the leftmost end is at a higher
+        level than the toys to its right.  This mobile can be
+        reconfigured to meet condition 2 using two
+        reconfigurations, first swapping the ends of rod 1 and
+        then swapping the ends of rod 2.
+      </p>
+
+      <pre>
+                                 |
+                  ------- 1 ---------------------
+                 |                               |
+          --3------------                 --- 2----------
+         |               |               |               |
+    --5-------      --6-------      --4-------           O
+   |          |    |          |    |          |
+   O          O    O          O    O          O
+      </pre>
+
+      <p>
+        The task is to identify if a given mobile can be
+        reconfigured to meet requirements 1 and 2 and, if so,
+        compute the minimum number of reconfigurations required
+        to do so.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        We can think of the mobile as a binary tree.  A binary
+        tree that meets requirements 1 and 2 will have levels
+        1,2,..,k-1 filled completely and level k filled to some
+        extent from left to right.  Let us call such a tree a
+        "mobile tree".
+      </p>
+
+      <p>
+        In a mobile tree of depth k, one of the two following
+        cases must hold, depending on how many leaves are there
+        are depth k.
+      </p>
+
+      <ul>
+
+        <li> The left subtree of the root is a complete binary
+          tree of depth k and the right subtree is a "mobile
+          tree" of depth k-1.</li>
+
+        <li>The left subtree of the root is a "mobile tree" of
+          depth k the right subtree is a complete binary tree of
+          depth k-1.</li>
+
+      </ul>
+
+      <p>
+        We can then inductively define the following quantities:
+      </p>
+
+      <ul>
+
+        <li>
+          <p>C(v): Minimum number of moves to make the tree
+            rooted at v complete:</p>
+
+          <p>This is 0 if v has a complete tree below it, and
+            infinity otherwise.</p>
+        </li>
+
+        <li>
+          <p>M(v): Minimum number of moves to make the tree
+            rooted at v a mobile tree.</p>
+
+          <p>To determine M(v), we have to consider three cases.</p>
+
+          <ul>
+            
+            <li>
+              <p> Case 1: depth(leftchild(v)) &lt;
+                depth(rightchild(v))</p>
+
+              <p> Need to swap left and right.  After swapping,
+                get a complete tree on right and mobile tree on
+                left</p>
+            </li>
+
+            <li>
+              <p> Case 2: depth(leftchild(v)) &rt;
+                depth(rightchild(v))</p>
+
+              <p> No swap needed, get a complete tree on right
+                and mobile tree on left.</p>
+            </li>
+
+            <li>
+              <p> Case 3: depth(leftchild(v)) =
+                depth(rightchild(v))</p>
+
+              <p> May or may not swap.  After swapping (if
+                necessary), left must be complete, right must be
+                mobile tree.</p>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        This gives us the following update rule for M(v):
+      </p>
+
+<table>
+  <tr>
+    <td>M(v) =</td>
+    <td>1 + C(leftchild(v)) + M(rightchild(v))</td>
+    <td>if Case 1</td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td></td>
+    <td>M(leftchild(v)) + C(rightchild(v))</td>
+    <td>if Case 2</td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td></td>
+    <td> min {1 + M(leftchild(v)) + C(rightchild(v)),&nbsp;&nbsp;</td>
+    <td>if Case 3</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td align="right">C(leftchild(v)) + M(rightchild(v)),}</td>
+</tr>
+</table>
+             
+
+
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="games.html">Games and strategies</a></h2>
+
+      <h3><span>Bead Necklace (originally Pearls, CEOI 2003)</span></h3>
+
+      <p>
+        There are blue dwarves and white dwarves, totally 1000 of
+        them.  The two types of dwarves are on opposite teams.
+        One blue dwarf and one white dwarf found a bead necklace
+        with red and black beads ending in a single pearl.  Each
+        team wants to get hold of the pearl.
+      </p>
+
+      <p>
+        To achieve this, they play a game:
+      </p>
+
+      <p>
+        Each dwarf D is given two lists, a red list R<sub>D</sub>
+        and a black list B<sub>D</sub>.  Both R<sub>D</sub> and
+        B<sub>D</sub> are sets of dwarves (these sets may contain
+        dwarves of either colour, but are guaranteed to be
+        nonempty).
+      </p>
+
+      <p>
+        The necklace is given to one of the dwarves D.  His moves
+        are:
+      </p>
+
+      <ol>
+
+        <li> If the leftmost bead is the pearl, keep it and game
+          ends. </li>
+
+        <li> If the leftmost bead is red, remove it and hand over
+          the necklace (with leftmost bead removed) to any dwarf
+          in the red list R<sub>D</sub>. </li>
+
+        <li> If the leftmost bead is black, remove it and hand
+          over the necklace (with leftmost bead removed) to any
+          dwarf in the black list B<sub>D</sub>. </li>
+
+      </ol>
+
+      <p>
+        You are given:
+      </p>
+
+      <ol>
+        <li> The sequence of beads in the necklace</li>
+
+        <li> The black and red lists of each dwarf</li>
+
+        <li> Who has the necklace at the beginning</li>
+      </ol>
+
+      <p>
+        Your aim is to determine whether the dwarf can ensure
+        that the pearl eventually reaches another dwarf on his
+        own team.
+      </p>
+
+      <h3><span>Solution</span></h3>
+
+      <p>
+        The current position of the game is completely described by The quantities
+        (D,N) where
+      </p>
+
+      <ul>
+        <li> D: which dwarf has the necklace </li>
+
+        <li> N = b1 b2 .. bk: the sequence of beads in the necklace (without the
+          pearl) </li>
+      </ul>
+
+      <p>
+        Call this a configuration.  For each pair (D,N), label
+        the configuration as W (winning) or L (losing).  If the
+        label is W, D can ensure that the pearl reaches his team.
+        If the label is L, no matter what D does, the pearl
+        reaches the other team.
+      </p>
+
+      <p>
+        We work backwards from the last bead in the necklace.  If
+        the necklace is currently a single pearl, the
+        configuration is winning for all D.
+      </p>
+
+      <p>
+        Now, we step back once so that we have a configuration
+        (D,bk).  Depending on the identity of D and the lists he
+        has, we know whether this is winning for the team that D
+        belongs to.
+      </p>
+
+      <ul>
+        <li> <p>If D is white, bk is red and there is at least
+            one white dwarf D' in the list R<sub>D</sub>, then D
+            can revmove bk and hand the necklace to D', who gets
+            the pearl.  So, this configuration is winning.</p>
+
+          <p>
+            On the other hand, if R<sub>D</sub> has no white
+            dwarves, D must hand over the necklace with just the
+            pearl to some blue dwarf, so (D,bk) is labelled
+            L.</p>
+
+          <p>
+            Similarly, if bk is black, (D,bk) is winning if there
+            is at least one white dwarf D' in the list
+            B<sub>D</sub> and (D,bk) is losing if there is no
+            white dwarf D' in the list B<sub>D</sub>.</p> </li>
+
+        <li> Symmetrically, we can identify when (D,bk) is
+          winning for an blue dwarf D. </li>
+
+      </ul>
+
+      <p>
+        In general, assume that we have calculated the status of
+        (D,N) for N = b1 b2 ... bk. We can now calculate the
+        status if we add an additional bead b0 to the left of N.
+      </p>
+
+      <p>
+        Suppose b0 is red and D is a blue dwarf.  Then we can
+        label (D,b0...bN) as W if either of the following hold:
+      </p>
+
+      <ul>
+        <li> there is a blue dwarf D' on D's red list such that
+          (D',b1..bN) is labelled W.  (Then we can k keep the
+          bead in the same team and win in next
+          configuration.) </li>
+
+        <li> there is a white dwarf D' on D's red list such that
+          (D',b1..bN) is labelled L.  (Then we hand over the bead
+          to the other team which is guaranteed to lose in next
+          configuration.) </li>
+
+      </ul>
+
+      <p>
+        Otherwise, label (D,b0...bN) as L (D cannot avoid making
+        a move that leads to a losing position).
+      </p>
+
+      <p>
+        Make similar updates for the other three possibilities
+        for b0 and D &mdash; (b0 is black and D is white), (b0 is
+        black and D is blue) and (b0 is red and D is white).
+      </p>
+
+      <p>
+        In this way, we can work backwards and label the initial
+        configurations at W or L.
+      </p>
+
+    </div>
+  </div> <!-- Right column end -->
+
+   <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+ <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="games.html">Games and strategies</a></h2>
+
+      <h3><span>Solving finite games</span></h3>
+
+      <p>
+        The bottom up computation in
+        the <a href="games-bead-necklace.html">Bead Necklace</a>
+        game corresponds to the following top down analysis,
+        which applies for any game that has a finite number of
+        positions.
+      </p>
+
+      <p>
+        There are two players 0 and 1.  The game is described as
+        a game graph.  The vertices are the positions and each
+        position of the game is labelled 0 or 1 depending on
+        which player moves at that position.  The edges describe
+        how the game can evolve from one position to another.
+      </p>
+
+      <p>
+        We label some of the positions as winning for player 0
+        &mdash; let this set be G.  If the game ever reached G,
+        player 0 wins.  Otherwise, player 1 wins.  (If the game
+        graph is a dag, all plays will end in a sink state, so we
+        just label the sink states as winning for 0/1, as in the
+        Pearls game.)
+      </p>
+
+      <p>
+        Let W0 denote the set of positions from which player 0 can win in at most n
+        moves.  W0 is G, since, if the game is in a position in G, player 0 has
+        already won.
+      </p>
+
+      <p>
+        We now calculate W1.
+      </p>
+
+      <ul>
+        <li> Consider any state s labelled 0 from which there is
+          at least outgoing edge to t in W.  Then, 0 can move
+          into W = W0 and win, so s belongs to W1. </li>
+
+        <li> Symmetrically, consider any state s labelled 1 from
+          which all outgoing edges lead to W.  Then, 1 is forced
+          to move into W = W0 where 0 wins, so t belongs to
+          W1. </li>
+      </ul>
+
+      <p>
+        In general, let Wi be the set of positions from where
+        player 0 is guaranteed to win in i moves.  We can
+        calculate W{i+1}.
+      </p>
+
+      <ul>
+        <li> Consider any state s labelled 0 from which there is
+          at least outgoing edge to t in Wi.  Then, 0 can move
+          into Wi and win in i moves, so s belongs to
+          W{i+1}. </li>
+
+        <li> Symmetrically, consider any state s labelled 1 from
+          which all outgoing edges lead to some Wj, for j &le; i.
+          Then, 1 is forced to move into Wj from where 0 wins in
+          j moves, so t belongs to W{i+1}. </li>
+      </ul>
+
+      <p>
+        Notice that W0 is included in W1 is included in W2 ...
+        Since the game graph has only n positions, for some i, we
+        must have Wi = W{i+1}.  In particular, we must stop when
+        we reach W{n-1} because we cannot add more than n-1 new
+        nodes to the original set W0.
+      </p>
+
+      <p>
+        Let W the final winning set for 0 &mdash; that is, W = Wi
+        such that Wi = W{i+1}.
+      </p>
+
+      <p>
+        <b>Claim:</b>
+      </p>
+
+      <ol>
+        <li> If the game starts in W, player 0 always wins. </li>
+        <li> If the game starts outside W, player 1 always wins. </li>
+      </ol>
+
+      <p>
+        <b>Proof:</b> 
+      </p>
+
+      <ol>
+        <li> If the game starts in W, player 1 cannot move the
+          game outside W.  Player 0 can not only stay in W but
+          also "decrease the rank" &mdash; that is, move from Wi
+          to W{i-1}.  So, after some time, the game must reach W0
+          where player 0 wins. </li>
+
+        <li> On the other hand, if the game starts outside W,
+          player 0 cannot move the game to within W and player 1
+          can always keep the game outside W.  Since player 0 can
+          never reach G, player 1 must win. </li>
+      </ol>
+
+      <p>
+        How do we compute these quantities?
+      </p>
+
+      <p>
+        Naively, this can be done in O(nm) time &mdash; we have
+        to compute sets W1,...,X{n-1} and we scan all edges in
+        each iteration.
+      </p>
+
+      <p>
+        However, with some care, we can do it in O(m) time.
+      </p>
+
+      <p>
+        <b>Hint:</b> Keep a count at each neighbour of how many
+        good neighbours it has.  Initialize this count to 0.
+        When you add a node to W, notify all your incoming
+        neighbours that you are good (increment their good
+        neighbour count).
+      </p>
+
+      <ul>
+
+        <li> To classify a 0 vertex as good, check if its good
+          count is nonzero. </li>
+
+        <li> To classify a 1 vertex as good, check if its good
+          count is equal to its degree. </li>
+
+      </ul>
+      
+      <p> 
+        This can be done in linear time, like BFS.
+      </p>
+
+    </div>
+  </div> <!-- Right column end -->
+
+   <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+ <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

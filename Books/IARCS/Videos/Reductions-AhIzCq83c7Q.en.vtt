@@ -1,0 +1,507 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.420 --> 00:00:05.671
+We have seen that we can use linear programming
+as a technology to solve a
+
+00:00:05.671 --> 00:00:11.030
+number of problems and formally this involves
+what we call a reduction.
+
+00:00:11.030 --> 00:00:16.720
+So, rather than reducing to linear programs,
+let us look at how we can actually reduce
+
+00:00:16.720 --> 00:00:21.580
+to network flows which we saw already could
+be reduced to linear programs. So, here is
+
+00:00:21.580 --> 00:00:26.750
+a problem which seems to have nothing to do
+with flow. So, we have some course allocation
+
+00:00:26.750 --> 00:00:32.759
+to be done in a school, we have a collection
+of teachers and we have a collection of courses
+
+00:00:32.759 --> 00:00:38.780
+and each teacher has indicated a preference
+of which courses he or she is willing to teach.
+
+00:00:38.780 --> 00:00:44.680
+So, here we have 4 teachers Abbas, Chitra,
+Madan and Sunitha and we have four courses
+
+00:00:44.680 --> 00:00:49.660
+Math, History, Biology and Economics. So,
+Abbas for instances is willing to teach History
+
+00:00:49.660 --> 00:00:54.909
+and Biology, so that is these two edges, so
+this indicates that Abbas is with teaching
+
+00:00:54.909 --> 00:00:59.489
+these courses. Similarly, for a since if we
+can look at Madan, Madan is happy to teach
+
+00:00:59.489 --> 00:01:05.030
+History or Economics. So, each teacher has
+indicated as a collection of courses that
+
+00:01:05.030 --> 00:01:09.000
+he or she is willing to teach.
+Now, what we have to do is allocate theses
+
+00:01:09.000 --> 00:01:15.759
+courses to the teachers. Obviously, each course
+is going to be taught by exactly one teacher,
+
+00:01:15.759 --> 00:01:20.370
+but also we would like that each teacher teaches
+only one course and that course should be
+
+00:01:20.370 --> 00:01:24.890
+something that the teacher is willing to teach.
+So, we would not like an allocation for example,
+
+00:01:24.890 --> 00:01:28.689
+which ask Abbas to teach Math, because he
+has indicated that he is not comfortable in
+
+00:01:28.689 --> 00:01:34.060
+teaching Math. So, we want to find such an
+allocation that each course is taught by a
+
+00:01:34.060 --> 00:01:38.009
+single instructor, each instructor teaches
+only one course and that is a course which
+
+00:01:38.009 --> 00:01:40.210
+he or she is willing to teach.
+
+00:01:40.210 --> 00:01:45.600
+So, this is what is called as a matching problem,
+in particular it is called bipartite matching.
+
+00:01:45.600 --> 00:01:51.369
+So, what is a bipartite graph? Bipartite graph
+is which one in which the vertices come in
+
+00:01:51.369 --> 00:01:58.929
+two groups which we called v 0 and v 1 and
+all the edges go from v 0 to v 1. So, there
+
+00:01:58.929 --> 00:02:04.830
+are no edges inside v 0, so there are no edges
+inside v 1. So, this is an example here, so
+
+00:02:04.830 --> 00:02:10.830
+this program to the teachers are v 0 and the
+courses are v 1, now there are no edges between
+
+00:02:10.830 --> 00:02:16.989
+courses, there are no edges between teachers,
+all the edges are from a teacher to a course.
+
+00:02:16.989 --> 00:02:22.930
+Now, what we have asked is to find an allocation.
+What will an allocation do? An allocation
+
+00:02:22.930 --> 00:02:30.500
+will pick an edge and say for instance that
+Abbas will teach History. And once Abbas is
+
+00:02:30.500 --> 00:02:34.970
+for been assigned History, then this means
+that this edge cannot be taken anymore, because
+
+00:02:34.970 --> 00:02:38.700
+Abbas cannot be assigned anything else, it
+also means that this edge cannot be taken,
+
+00:02:38.700 --> 00:02:41.580
+nobody else can get assigned this, this edge
+cannot be taken.
+
+00:02:41.580 --> 00:02:46.580
+So, we want to find edges, such that no two
+of them share an end point. In this example,
+
+00:02:46.580 --> 00:02:51.030
+if two of them share an end point on the left,
+it means that the same teacher is being asked
+
+00:02:51.030 --> 00:02:55.560
+to teach two courses. If there is two edges
+share an end point on the right, it means
+
+00:02:55.560 --> 00:03:00.840
+that the same course is being taught by two
+different teachers, either of it is which
+
+00:03:00.840 --> 00:03:05.180
+we want. So, we want a matching, we want a
+matching which is a subset of edges, so that
+
+00:03:05.180 --> 00:03:11.680
+no two of them share an end point.
+And in particular, if we have an equal number
+
+00:03:11.680 --> 00:03:17.460
+of nodes on each side in a bipartite graph,
+then we can expect or hope that everything
+
+00:03:17.460 --> 00:03:21.120
+on the left is matched to something on the
+right. If we do not have an equal number of
+
+00:03:21.120 --> 00:03:24.380
+course, something has been left out. But each
+edge would match out two people, suppose we
+
+00:03:24.380 --> 00:03:27.900
+have a five teachers and four courses, then
+one teacher will not teach a course or we
+
+00:03:27.900 --> 00:03:31.579
+have four teachers and five courses, then
+some course will not be taught unless the
+
+00:03:31.579 --> 00:03:34.670
+teacher take two courses.
+But you have four teachers and four courses,
+
+00:03:34.670 --> 00:03:38.819
+you could ask whether there is a way of matching
+them up, so that every teacher teaches a course
+
+00:03:38.819 --> 00:03:43.941
+and every course is taught by a teacher. This
+is what is called a perfect match. So, what
+
+00:03:43.941 --> 00:03:47.370
+has this got to do with network flows?
+
+00:03:47.370 --> 00:03:54.730
+So, here is how we can answer this question
+using network flows. We add a spurious source
+
+00:03:54.730 --> 00:04:00.260
+node feeding into the teachers and we add
+a spurious target node, a sink node coming
+
+00:04:00.260 --> 00:04:04.760
+out of the courses. So, implicitly all our
+edges are now going from left to right, so
+
+00:04:04.760 --> 00:04:11.540
+we have the direction, so we are trying to
+flow something from left to right. Now, what
+
+00:04:11.540 --> 00:04:17.760
+we want is to assign capacity one to everything,
+so every edge in this has capacity one.
+
+00:04:17.760 --> 00:04:25.920
+So, supposing we find a maximum flow, so our
+maximum flow will select some subset of these
+
+00:04:25.920 --> 00:04:32.390
+teachers, hopefully all of them. Because it
+is a flow that flow will go into a teacher
+
+00:04:32.390 --> 00:04:37.870
+and out of a teacher, so it will select one
+of these edges, so this one. And therefore,
+
+00:04:37.870 --> 00:04:46.690
+now it will flow from this out here, now because
+the output can only take one, I can only flow
+
+00:04:46.690 --> 00:04:51.870
+1 from History to the sink, it cannot allow
+another thing to coming from here.
+
+00:04:51.870 --> 00:04:56.770
+So, if I had a flow 1 here and flow 1 here,
+then 2 would have to flow out to the History,
+
+00:04:56.770 --> 00:05:01.250
+but I have got it. So, I’m putting a flow
+capacity of 1 on all the edges and I am sure
+
+00:05:01.250 --> 00:05:07.540
+that exactly one teacher and one course can
+be selected in the matching. And now, if you
+
+00:05:07.540 --> 00:05:12.000
+maximize this flow, it maximizes the number
+of teachers who are connected to their courses
+
+00:05:12.000 --> 00:05:17.880
+and therefore it maximizes the matching. So,
+we have managed to take a problem involving
+
+00:05:17.880 --> 00:05:24.070
+something very different involving graphs
+and model it using network flows.
+
+00:05:24.070 --> 00:05:30.760
+So, this is a general example of what we call
+a reduction. So, we want to solve a given
+
+00:05:30.760 --> 00:05:35.600
+problem, problem A, but we do not know how
+to solve it, but we do know how to solve another
+
+00:05:35.600 --> 00:05:44.850
+problem B. So, in our case this is matching
+and this is flow. So, what we do is we transform
+
+00:05:44.850 --> 00:05:48.970
+that problem from matching to flow. So, we
+take our matching problem and then we add
+
+00:05:48.970 --> 00:05:52.670
+a source, we add a sink, we add capacities
+convert it into a flow problem.
+
+00:05:52.670 --> 00:05:58.410
+So, having converted it into flow problem,
+we solve it, so this is the diagram shown
+
+00:05:58.410 --> 00:06:05.150
+below, we have an algorithm for B. So, now,
+we have a matching input, we convert it into
+
+00:06:05.150 --> 00:06:11.430
+a flow input, this is a flow solution that
+comes out and now we look at the flow solution
+
+00:06:11.430 --> 00:06:14.790
+wherever, we see a one that is our matching,
+whenever we see a zero that is not it our
+
+00:06:14.790 --> 00:06:20.500
+matching. So, from that we get a matching
+solution. So, we can involve the solution
+
+00:06:20.500 --> 00:06:25.310
+from the inner problem to get a solution to
+the outer problem. So, this is a reduction.
+
+00:06:25.310 --> 00:06:34.060
+So, we say that a reduces to B. To solve A,
+I can convert it to B and solve B in state.
+
+00:06:34.060 --> 00:06:39.030
+And therefore, if I have an efficient solution
+for B and if this conversion process is efficient,
+
+00:06:39.030 --> 00:06:43.730
+then the process is setting up the problem
+for B and interpreting the answer are both
+
+00:06:43.730 --> 00:06:48.880
+efficient. Then, that is the efficiency of
+the algorithm for B compose with the efficiency
+
+00:06:48.880 --> 00:06:53.180
+of the pre processing and the post processing
+step will give us an efficient algorithm for
+
+00:06:53.180 --> 00:07:00.020
+A. So, without directly attacking A, I indirectly
+found an efficient algorithm for A by exploiting
+
+00:07:00.020 --> 00:07:03.650
+the existence of an algorithm for B.
+
+00:07:03.650 --> 00:07:09.810
+So, as we said before our example that we
+did in this lecture says that bipartite matching
+
+00:07:09.810 --> 00:07:15.270
+in this way reduces to max flow. Now, what
+we saw, last time it was that max flow itself
+
+00:07:15.270 --> 00:07:20.870
+reduces to linear program, but the key is
+that the pre processing and the post processing
+
+00:07:20.870 --> 00:07:25.590
+must be efficient. When we went from max flow
+to linear programming, what we did was we
+
+00:07:25.590 --> 00:07:36.130
+introduce one variable f e for each edge e.
+So, therefore that is an efficient translation,
+
+00:07:36.130 --> 00:07:40.570
+because it produces the linear program whose
+size is comparable to the input graph for
+
+00:07:40.570 --> 00:07:43.930
+max flow.
+Earlier, we had seen a example of network
+
+00:07:43.930 --> 00:07:49.440
+bandwidth, where we produce a linear program
+which require one variable per path in the
+
+00:07:49.440 --> 00:07:54.530
+network, that could not be an efficient reduction,
+because that would require an exponential
+
+00:07:54.530 --> 00:07:59.170
+amount of work to construct the linear program
+and to read the program. So, therefore, we
+
+00:07:59.170 --> 00:08:03.970
+have to be careful in order to if we had,
+the only intention of it to solving the problem
+
+00:08:03.970 --> 00:08:08.400
+is one thing to convert a problem, but if
+we want to exploit the efficiency aspect,
+
+00:08:08.400 --> 00:08:14.570
+then the translation to and from the inner
+problem must also be efficient.
+
+00:08:14.570 --> 00:08:21.441
+So, we will see that another interpretation
+of reduction also useful for us. So, what
+
+00:08:21.441 --> 00:08:30.440
+we have seen is that if A reduces to B, then
+B is efficient then this implies that A is
+
+00:08:30.440 --> 00:08:35.409
+also efficient, because I can use the solution
+for B as a solution for A. But supposing I
+
+00:08:35.409 --> 00:08:39.949
+have that this is not efficient or not known
+to be efficient, if I have some reason to
+
+00:08:39.949 --> 00:08:44.759
+suspect that there is no efficient way to
+do A, then if can show that A can be reduced
+
+00:08:44.759 --> 00:08:47.689
+to B, then this also means that B cannot be
+efficient.
+
+00:08:47.689 --> 00:08:50.620
+Because if it could be done efficiently, we
+know that we can do way efficiently, but we
+
+00:08:50.620 --> 00:08:55.560
+have a reason to believe that A cannot be
+done efficiently. So, reduction can be used
+
+00:08:55.560 --> 00:09:00.170
+depending on the way in which we exploited
+either to transfer a positive result from
+
+00:09:00.170 --> 00:09:06.509
+B to A or a negative result from A to B, that
+is A is not known to be efficient, B also
+
+00:09:06.509 --> 00:09:10.779
+is not known to be efficient.
+
+00:09:10.779 --> 00:09:17.650
+So, in this last couple of lectures what we
+have seen are two, what I would call, Big
+
+00:09:17.650 --> 00:09:23.080
+hammers. So, we have linear programming and
+network flows. We actually express network
+
+00:09:23.080 --> 00:09:28.440
+flows in terms of linear program, but network
+flows independently are a very powerful modeling
+
+00:09:28.440 --> 00:09:33.089
+formalization. So, many algorithmic problems
+can actually be reduced to one of these two,
+
+00:09:33.089 --> 00:09:37.850
+either you can set up variables in a set of
+linear program or you can take a graph erratic
+
+00:09:37.850 --> 00:09:42.129
+problem and modulate it using flows.
+And the nice thing about this is that linear
+
+00:09:42.129 --> 00:09:47.550
+programming and network flows are both very
+standard problems for which people have interested,
+
+00:09:47.550 --> 00:09:51.670
+have lot of time to write general purpose
+tools which solve this problem. So, you can
+
+00:09:51.670 --> 00:09:55.540
+set up an arbitrary linear program, arbitrary
+network flow give it to the tool, then the
+
+00:09:55.540 --> 00:09:59.519
+tool will give you an answer. So, you have
+efficient of the self implementations. So,
+
+00:09:59.519 --> 00:10:04.540
+in many practical situations rather than try
+and solve an algorithmic problem directly,
+
+00:10:04.540 --> 00:10:09.339
+it does often make sense to think of whether
+it can be modeled as a linear program or a
+
+00:10:09.339 --> 00:10:13.300
+network flow and then use an off-the-shelf
+package to solve it.
+
+00:10:13.300 --> 00:10:19.220
+But of course, you have to be able to express
+the problem in terms of one of these things.
+
+00:10:19.220 --> 00:10:23.720
+So, in order to understand whether you can
+do so or not, you need to spend some time
+
+00:10:23.720 --> 00:10:27.560
+analyzing what can and cannot be expressed
+in linear programs. In linear program, the
+
+00:10:27.560 --> 00:10:31.129
+crucial thing is that the constraints must
+be linear functions. Sometimes, your constraints
+
+00:10:31.129 --> 00:10:35.040
+which referred to the product to two variables,
+this is not a linear function.
+
+00:10:35.040 --> 00:10:38.470
+Similarly, in network flows you have to make
+sure that you can actually model it as a source
+
+00:10:38.470 --> 00:10:45.060
+to target flow, it cannot be something going
+around and around in the network. So, within
+
+00:10:45.060 --> 00:10:50.899
+these constraints; however, both of these
+are extremely useful generic problems for
+
+00:10:50.899 --> 00:10:55.949
+which efficient solutions do exist and which
+can be exploited in a large number of situations
+
+00:10:55.949 --> 00:10:57.139
+to solve the given problem at hand.
+

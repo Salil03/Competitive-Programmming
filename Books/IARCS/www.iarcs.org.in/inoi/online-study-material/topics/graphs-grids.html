@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="graphs.html">Basic Graph Algorithms</a></h2>
+
+      <h3><span>Reachability in a grid</span></h3>
+
+      <p>To motivate the need to use graphs, we examine the
+      following problem</p>
+
+      <h3><span>The Great Escape (IARCS Online Contest, Oct 2004)</span></h3>
+
+      <p>
+	Heroes in Tamil movies are capable of superhuman
+	feats. For example, they can jump between buildings, jump
+	onto and from running trains, catch bullets with their
+	hands and teeth and so on. A perceptive follower of such
+	movies would have noticed that there are limits to what
+	even the superheroes can do. For example, if the hero
+	could directly jump to his ultimate destination, that
+	would reduce the action sequence to nothing and thus make
+	the movie quite boring. So he typically labours through a
+	series of superhuman steps to reach his ultimate
+	destination.
+      </p>
+      
+      <p>
+	In this problem, our hero has to save his wife / mother /
+	child / dog /... held captive by the nasty villain on the
+	top floor of a tall building in the centre of Bombay /
+	Bangkok / Kuala Lumpur /.... Our hero is on top of a
+	(different) building. In order to make the action
+	"interesting" the director has decided that the hero can
+	only jump between buildings whose height is within 10
+	metres.
+      </p>
+
+      <p>
+	Given the arrangement of buildings and their heights, your aim is determine
+	whether it is possible for the hero to reach the captive.
+      </p>
+
+      <p>
+	Here is an example where the goal is to get from the top left building to
+	the bottom right building.
+      </p>
+
+      <pre>
+            70    80    80    70
+
+            60    30    20    30
+
+            50    40    10    50
+
+            45    60    20    10
+      </pre>
+
+      <p>
+	Here is a possible path:
+      </p>
+
+      <pre>
+            70    80    80    70
+             |
+            60    30 -- 20    30
+             |     |     |
+            50 -- 40    10    50
+                         |
+            45    60    20 -- 10
+      </pre>
+
+      <h3><span>Finding a path</span></h3>
+
+      <p>
+	How do we find such a path?  We systematically calculate
+	all the buildings that are reachable.  For each building,
+	we know (by the heights) which of the neighbouring
+	buildings can be reached in one step.
+      </p>
+
+      <ul>
+	<li>Initially, the starting position (1,1) is reachable</li>
+
+	<li>
+	  If (i,j) is reachable, (i',j') is a neighbour of
+	  (i,j) and the height difference is at most 10, then (i',j') is
+	  also reachable.
+	</li>
+
+      </ul>
+
+      <p>
+	Using this procedure, we can grow the set of all
+	reachable buildings until we cannot add any more
+	buildings.  At this point, we check if the target
+	building is in the reachable set.
+      </p>
+
+      <p>
+	How do we code this?  Here is a recursive solution: 
+      </p>
+
+      <ul>
+	<li> Building heights are stored in a matrix A[N][N]</li>
+
+	<li> 
+	  Currently reachable buildings are in a matrix
+	  Mark[N][N], initialized to 0
+	</li> 
+
+      </ul>
+
+      <pre>
+        check(i,j){ // Assuming that (i,j) has just been marked, n
+                    // mark all its neighbours
+           if ((i-1,j) within grid &&             // Nbr within grid
+               abs(A[i-1][j] - A[i][j] <= 10) &&  // Difference is OK
+               Mark[i-1][j] == 0){                // Nbr unmarked
+
+               Mark[i-1][j] = 1;
+               check(i-1,j);
+           }
+
+           /* Similarly check (i+1,j), (i,j-1), (i,j+1) */
+
+           ...
+        }      
+      </pre>				    
+
+      <p>
+	For each (i,j), check(i,j) is called at most once and
+	processing check(i,j) takes constant time since each
+	building has at most four neighbours, so this will take
+	time proportional to N<sup>2</sup>, the total number of buildings.
+      </p>
+
+      <h3><span>Finding the shortest route</span></h3>
+
+      <p>
+	What if, in addition, we want to compute the shortest
+	route from (1,1) to (N,N)?
+      </p>
+
+      <p>
+	An efficient way to maintain and process marked positions
+	is to use a queue (first-in-first-out collection).
+      </p>
+
+      <ul>
+
+	<li>
+	  Initially, mark the starting position and add it to the queue.
+	</li>
+
+	<li>
+	  In each round:<br><br>
+
+	  (Assume we have a queue of marked positions whose
+	  neighbours are yet to be explored.)
+	</li>
+
+	<ul>
+	  <li>
+	    Extract the first element from the queue.  Mark all
+	    unmarked reachable neighbours (whose height
+	    difference is within the bound) and insert them into
+	    the queue.
+	  </li>
+	  
+	  <li>
+	    Repeat this till the queue becomes empty (there are no more marked
+	    positions to examine).
+	  </li>
+	</ul>
+	
+      </ul>
+
+      <p>
+	For instance:
+      </p>
+
+      <pre>
+            70    80    80    70
+
+            60    30    20    30
+
+            50    40    10    50
+
+            45    60    20    10
+      </pre>
+
+      <ul>
+
+	<li>
+	  Mark (1,1) and start with Queue = {(1,1)}
+	</li>
+
+	<li>
+	  Extract (1,1) from head of queue, mark its reachable
+	  neighbours and add them to the Queue:<br> Queue is now
+	  {(1,2),(2,1)}
+	</li>
+
+	<li>
+	  Extract (1,2) from head of queue, mark its reachable
+	  neighbours and add them to the Queue:<br> Queue is now
+	  {(2,1),(1,3)}
+	</li>
+
+	<li>
+	  Extract (2,1) from head of queue, mark its reachable
+	  neighbours and add them to the Queue:<br> Queue is now
+	  {(1,3),(3,1)}
+	</li>
+
+	<li>
+	  Extract (1,3) from head of queue, mark its reachable
+	  neighbours and add them to the Queue:<br> Queue is now
+	  {(3,1),(1,4)}
+	</li>
+
+	<li>
+	  Extract (3,1) from head of queue, mark its reachable
+	  neighbours and add them to the Queue:<br> Queue is now
+	  {(1,4),(3,2),(4,1)}
+	</li>
+
+	<li>
+	  &hellip;
+	</li>
+
+      </ul>
+
+      <p>
+	Let us examine the order in which positions get marked.
+	When we explore a position that is k steps away from the
+	starting position, its neighbours are k+1 steps away and
+	get added later in the queue.  By maintaining the marked
+	positions in the queue, we guarantee that positions are
+	marked in increasing order of their distance from the
+	source.  We can also record the distance with each node
+	as we visit it.
+      </p>
+
+      <p>
+	This method of exploration, in which we explore all
+	neighbours level by level, is called <em>breadth first
+	search</em>.
+      </p>
+
+      <p>
+	The earlier recursive formulation (using "check(i,j)")
+	is <em>depth first search</em>.  We pick a neigbhour to
+	explore, then explore its neighbours, &hellip; till we can
+	make no progress, and then we come back to process the
+	next unmarked neighbour of the first node.
+      </p>
+
+      <p>
+	Here is a more precise formulation of breadth first search:
+      </p>
+
+      <pre>
+        Mark[(i,j)] = 0 for all (i,j)
+
+        Mark[(1,1)] = 1;
+        Dist[(1,1)] = 0;
+        Insert (1,1) into the queue;
+
+        BFS {
+           while (queue is not empty) {
+             v = head of queue;
+             for each unmarked neighbour w of v {
+               Mark[w] = 1;
+               Dist[w] = Dist[v] + 1;
+               Insert w into the queue;
+             }
+           }
+        }   
+      </pre>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

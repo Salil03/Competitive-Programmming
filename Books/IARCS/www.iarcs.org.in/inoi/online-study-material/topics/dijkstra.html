@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="shortest-paths.html">Shortest paths</a></h2>
+
+      <h3><span>Single-source shortest paths: Dijkstra's algorithm</span></h3>
+
+      <p>
+	The CMI travel desk insists that on booking tickets only
+	on the national carrier, which has an obscure pricing
+	policy.  The cheapest way between two cities may not
+	correspond to the most direct route.
+      </p>
+
+      <p>
+	For instance, suppose we have cities connected by flights
+	as below (where 1 is CMI) with the cost of each direct
+	flight is shown along the edge.
+      </p>
+
+      <pre>
+                    700
+                3 ------ 4
+        800   / |
+            /   | 60
+          /     |             500
+         1------2 ------ 5 --------- 6
+           100      200    \       /
+                         100 \   / 50
+                               7
+      </pre>
+
+      <p>
+	The goal is to find the cheapest route to every other city.
+      </p>
+
+      <p>
+	This is called the "Single source shortest path problem".
+	Here is an algorithm to solve this problem, due to Edsger
+	Dijkstra.
+      </p>
+
+      <p>
+	A good way to think of this problem is to imagine that
+	there are petrol tanks at each node, with edges
+	corresponding to pipelines connecting the tanks whose
+	length is given by the cost of the edge.  We set fire to
+	the first tank and the fire spreads at a uniform rate
+	along all pipelines.  If this rate is 1 unit length per
+	second, the time at which a tank burns corresponds to the
+	shortest path to that tank.  Here is an algorithm to
+	systematically compute the next tank that will explode at
+	each step.
+      </p>
+
+      <p>
+	We use a modified version of BFS.
+      </p>
+
+      <p>
+	Initially, we mark the currently known distance from the
+	start vertex to each vertex.  This is 0 for start vertex,
+	infinity everywhere else.  We also mark whether a vertex
+	is visited or not.  Initially, no vertex is visited.
+      </p>
+
+      <p>
+	Initially
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    inf   inf   inf   inf   inf   inf
+      Visited    0     0     0     0     0     0     0
+      </pre>
+
+      <p>
+	Pick an unvisited vertex with the currently lowest
+	distance to process next (this is the tank that will next
+	explode).  In this case it is 1.  Visit 1 and update
+	distances to all its neighbours.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   800   inf   inf   inf   inf
+      Visited    1     0     0     0     0     0     0
+      </pre>
+      
+      <p>
+	Now, 2 is the smallest unvisited vertex, so we visit 2
+	and update distances to all its neighbours.  The distance
+	to 3 reduces to 160 (via 2) and distance to 5 becomes
+	300.
+      </p>
+
+      <pre>
+      Vertex     1    2     3     4     5     6     7
+      Distance   0    100   160   inf   300   inf   inf
+      Visited    1     1     0     0     0     0     0
+      </pre>
+
+      <p>
+	Now, 3 is smallest unvisited vertex, so we explore it
+	next and update distance to 4.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   160   860   300   inf   inf
+      Visited    1     1     1     0     0     0     0
+      </pre>
+
+      <p>
+	Now, 5 is smallest, so we explore it next and update
+	distance to 6 and 7.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   160   860   300   800   400
+      Visited    1     1     1     0     1     0     0
+      </pre>
+
+      <p>
+	Now, 7 is smallest, so we explore it next and update
+	distance to 6.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   160   860   300   450   400
+      Visited    1     1     1     0     1     0     1
+      </pre>
+
+      <p>
+	Now, 6 is smallest, so we explore it, but no further
+	updates.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   160   860   300   450   400
+      Visited    1     1     1     0     1     1     1
+      </pre>
+
+      <p>
+	Finally, we visit 4.
+      </p>
+
+      <pre>
+      Vertex     1     2     3     4     5     6     7
+      Distance   0    100   160   860   300   450   400
+      Visited    1     1     1     1     1     1     1
+      </pre>
+
+      <p>
+	At this point, we have computed shortest paths from 1 to all other
+	vertices.
+      </p>
+
+      <p><b>Implementation</b></p>
+
+      <p>
+	We use two arrays, ExpectedBurnTime and Burnt.
+      </p>
+
+      <p>
+	Initially,
+      </p>
+
+      <ul>
+	<li>   ExpectedBurnTime[1] = 0;</li>
+
+	<li>   ExpectedBurnTime[i] = infinity, for i other than 1<br>
+          (Use a sufficiently large value, say the
+          sum of all the weights in the graph)</li>
+
+	<li>   Burnt[i]            = 0, for all i</li>
+      </ul>
+
+      <p>
+	In each round:
+      </p>
+
+      <ul>
+
+	<li>
+	  Among all unburnt vertices, pick j with minimum
+	  ExpectedBurnTime.  (Initially, this is 1 since Burnt[i]
+	  = 0 for all i and only ExpectedBurnTime[1] is not
+	  infinity
+	</li>
+
+	<li>
+	  Set Burnt[j] = 1.
+	</li>
+
+	<li>
+	  Update ExpectedBurnTime[k] for each neighbour k of j, if necessary.
+	</li>
+
+      </ul>
+
+      <p>
+	What is the complexity of Dijkstra's algorithm?
+      </p>
+
+      <ul>
+
+	<li>
+	  Each round fixes the shortest path to one more vertex, so there are n
+	  rounds
+	</li>
+
+	<li>
+	  In each round, we pick the unmarked vertex with the smallest value, mark
+	  it and update values for its neighbours.
+	</li>
+
+	<li>
+	  Finding the smallest unmarked vertex takes time n
+	</li>
+
+	<li>
+	  Updating neighbours takes time n if we use an adjacency matrix.
+	</li>
+
+      </ul>
+
+      <p>
+	So, the overall cost is n<sup>2</sup>.
+      </p>
+
+      <div id="video-material">
+        <h3><span>Video material</span></h3>
+      </div>
+
+      <p>Video lectures on <em>Single-source shortest paths: Dijkstra's algorithm</em>,
+	<a href="https://onlinecourses.nptel.ac.in/explorer">
+	  NPTEL online course</a> on
+        <a href="https://onlinecourses.nptel.ac.in/noc15_cs02/preview">
+  	  Design and Analysis of Algorithms</a>
+
+      <ul>
+        <li> Dijkstra's algorithm
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week4/pdf/nptel-week4-module1-dijkstra-algo.pdf" target="_blank">Lecture slides</a>)<p>
+      
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OGsPQy-lM1w" frameborder="0" allowfullscreen=""></iframe>
+
+        <li> Analysis of Dijkstra's algorithm 
+        (<a href="http://www.cmi.ac.in/~madhavan/nptel-algorithms-2015/week4/pdf/nptel-week4-module2-dijkstra-analysis.pdf" target="_blank">Lecture slides</a>)<p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nieg8XQQ7i0" frameborder="0" allowfullscreen=""></iframe>
+
+      </li></ul>
+
+      <br><br>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.120 --> 00:00:06.430
+So, we argued that we would like to measure
+efficiency of an algorithm in terms of basic
+
+00:00:06.430 --> 00:00:12.330
+operations, and we would like to compute the
+running time of an algorithm in terms of a
+
+00:00:12.330 --> 00:00:17.190
+function of its input size n, and we also
+saw that if you go from say n square to n
+
+00:00:17.190 --> 00:00:21.760
+log n then the size of inputs you can effectively
+handle becomes dramatically larger.
+
+00:00:21.760 --> 00:00:27.080
+Now, today we will try to formulate some of
+these notions a little more clearly.
+
+00:00:27.080 --> 00:00:30.250
+So, the first thing is the input size.
+
+00:00:30.250 --> 00:00:35.339
+So, remember that the running time of an algorithm
+will necessarily depend on the size of the
+
+00:00:35.339 --> 00:00:36.339
+input.
+
+00:00:36.339 --> 00:00:40.440
+So, we want to write the running time as some
+function t of n.
+
+00:00:40.440 --> 00:00:46.059
+And the main thing to remember is that not
+all inputs of size n will give the same running
+
+00:00:46.059 --> 00:00:47.059
+time.
+
+00:00:47.059 --> 00:00:51.440
+So, there is going to be a notion of worst
+case estimate which we will need to explain
+
+00:00:51.440 --> 00:00:53.260
+and justify.
+
+00:00:53.260 --> 00:00:58.879
+Before we do this let us look at the notion
+of input size itself - how do we determine
+
+00:00:58.879 --> 00:01:01.170
+the input size for a given problem?
+
+00:01:01.170 --> 00:01:07.510
+So, the input size more or less represents
+the amount of space it takes to write down
+
+00:01:07.510 --> 00:01:11.360
+the description of the problem or becomes
+a natural parameter of the problem.
+
+00:01:11.360 --> 00:01:16.770
+So, for instance, when we are sorting arrays
+what really matters is how many objects there
+
+00:01:16.770 --> 00:01:19.620
+are to solve, so we have to move them around
+and rearrange them.
+
+00:01:19.620 --> 00:01:26.640
+So, the size of an array is quite a natural
+notion of input size for a sorting problem.
+
+00:01:26.640 --> 00:01:31.460
+On the other hand, if you are trying to do
+something like rearranging elements or take
+
+00:01:31.460 --> 00:01:36.880
+say we have some items which we need to load
+into a container and we are looking for an
+
+00:01:36.880 --> 00:01:42.190
+optimum subset load in terms of weight or
+volume then the number of objects would be
+
+00:01:42.190 --> 00:01:45.259
+a natural input parameter.
+
+00:01:45.259 --> 00:01:51.390
+We saw in one of the early lectures an example
+of air travel where we constructed a graph
+
+00:01:51.390 --> 00:01:56.780
+of an airline route map where the nodes where
+the cities and the edges where the flights.
+
+00:01:56.780 --> 00:02:01.230
+And we argued that both the number of cities
+and the number of flights will have an impact
+
+00:02:01.230 --> 00:02:02.840
+on any analysis we need to do.
+
+00:02:02.840 --> 00:02:07.770
+So, this is a general property of all graphs;
+if we have a graph then both the number of
+
+00:02:07.770 --> 00:02:14.579
+nodes or vertices and the number of edges
+will determine the input size.
+
+00:02:14.579 --> 00:02:19.989
+Now, there is an important class of problems
+where we have to be a little bit careful about
+
+00:02:19.989 --> 00:02:24.299
+how we talk about input size, and these are
+problems involving numbers.
+
+00:02:24.299 --> 00:02:29.450
+Suppose we were to write an algorithm for
+primality; checking whether the given number
+
+00:02:29.450 --> 00:02:30.450
+is prime.
+
+00:02:30.450 --> 00:02:35.049
+Now, how should we think of the size of the
+input?
+
+00:02:35.049 --> 00:02:40.950
+For instance, suppose we ask it to solve the
+question for say 5003 and then for 50003 then
+
+00:02:40.950 --> 00:02:45.860
+50003 is roughly 10 times 5003.
+
+00:02:45.860 --> 00:02:50.670
+So, would we expect the time to grow proportional
+to 10.
+
+00:02:50.670 --> 00:02:56.069
+So, should the magnitude of n actually be
+taken as the input size.
+
+00:02:56.069 --> 00:03:03.090
+Now, it is quite obvious when we do arithmetic
+by hand, the kind of arithmetic we do in school,
+
+00:03:03.090 --> 00:03:06.950
+that we do not go by magnitude, we go by the
+number of digits.
+
+00:03:06.950 --> 00:03:12.680
+When we do arithmetic such as addition with
+carry we right down the numbers in columns
+
+00:03:12.680 --> 00:03:13.959
+then we add them column by column.
+
+00:03:13.959 --> 00:03:16.459
+So, the number of digits determines how many
+columns we have to add.
+
+00:03:16.459 --> 00:03:22.260
+The same is true with subtraction or addition
+or multiplication or long division and so
+
+00:03:22.260 --> 00:03:23.260
+on.
+
+00:03:23.260 --> 00:03:25.459
+So, clearly, it is the number of digits which
+matters.
+
+00:03:25.459 --> 00:03:29.060
+And the number of digits is actually the same
+as the log.
+
+00:03:29.060 --> 00:03:35.159
+If you have numbers written in base 10 then
+if we have a 6 digit number its log is going
+
+00:03:35.159 --> 00:03:36.159
+to be 5.something.
+
+00:03:36.159 --> 00:03:41.710
+And we go to log 6, we will have a 7 digit
+number and so on.
+
+00:03:41.710 --> 00:03:46.390
+So, the number of digits is directly proportional
+to the log, so we can think of the log of
+
+00:03:46.390 --> 00:03:47.989
+the number as the input size.
+
+00:03:47.989 --> 00:03:49.790
+So, this is a special case.
+
+00:03:49.790 --> 00:03:54.000
+So, for arithmetic functions involving numbers,
+it is not the number itself which is the input
+
+00:03:54.000 --> 00:03:59.129
+size, but the size of the number as expressed
+in how many digits it takes us to write down
+
+00:03:59.129 --> 00:04:01.189
+the number.
+
+00:04:01.189 --> 00:04:05.090
+Now, the other thing, we mentioned is that
+we are going to ignore constants.
+
+00:04:05.090 --> 00:04:09.230
+We are going to look at these functions in
+terms of orders of magnitude, does the function
+
+00:04:09.230 --> 00:04:12.629
+grow as n, n square, n cube, and so on.
+
+00:04:12.629 --> 00:04:18.380
+So, one justification for this is because
+we are ignoring the notion of a basic operation
+
+00:04:18.380 --> 00:04:21.359
+or rather we are being a bit vague about it.
+
+00:04:21.359 --> 00:04:23.220
+So, let us look at an example.
+
+00:04:23.220 --> 00:04:28.820
+So, supposing, we would originally consider
+our basic operations to be assignments to
+
+00:04:28.820 --> 00:04:31.400
+variables or comparisons between variables.
+
+00:04:31.400 --> 00:04:36.690
+Now, we decide that we will include swapping
+2 values exchanging the contents of x and
+
+00:04:36.690 --> 00:04:38.470
+y as a basic operation.
+
+00:04:38.470 --> 00:04:43.479
+Now, one of the first things we learn in programming
+is that in order to do this we need to go
+
+00:04:43.479 --> 00:04:44.500
+via temporary variables.
+
+00:04:44.500 --> 00:04:50.449
+So, in order to exchange x and y in most programming
+languages you have to first save x in a temporary
+
+00:04:50.449 --> 00:04:55.010
+variable then copy y to x and then restore
+y from the temporary variable; this takes
+
+00:04:55.010 --> 00:04:56.250
+3 assignments.
+
+00:04:56.250 --> 00:05:02.129
+So, if we take swap as a basic operation in
+our language as compared to a calculation
+
+00:05:02.129 --> 00:05:07.669
+where we only look at assignments we are going
+to collapse 3 assignments into 1 basic operation.
+
+00:05:07.669 --> 00:05:12.110
+So, there is the factor of 3 differences between
+how we would account for the operations if
+
+00:05:12.110 --> 00:05:14.629
+we account for swap as a single operation.
+
+00:05:14.629 --> 00:05:20.770
+So, in order to get away from worrying about
+these factors of 3 and 2 and so on, one important
+
+00:05:20.770 --> 00:05:24.581
+way to do this is to just ignore these constants
+when we are doing this calculation.
+
+00:05:24.581 --> 00:05:30.000
+So, that is in other motivation for only looking
+at orders of magnitude.
+
+00:05:30.000 --> 00:05:33.080
+So, let us come back to this notion of worst
+case.
+
+00:05:33.080 --> 00:05:38.710
+So, as we said we are really looking at all
+inputs of size n; and, among these inputs
+
+00:05:38.710 --> 00:05:42.440
+which inputs drive the algorithm to take the
+maximum amount of time.
+
+00:05:42.440 --> 00:05:49.260
+So, let us look at a simple algorithm here
+which is looking for a value k in an unsorted
+
+00:05:49.260 --> 00:05:53.410
+array A. So, in an unsorted array we have
+no idea where the value k can be.
+
+00:05:53.410 --> 00:05:57.130
+So, the only thing we can do is walk from
+the beginning to end.
+
+00:05:57.130 --> 00:06:03.250
+So, we start by initializing this index i
+which is in position 0, and then we have a
+
+00:06:03.250 --> 00:06:06.860
+loop which says, so along as we have not found
+the array element.
+
+00:06:06.860 --> 00:06:12.400
+So, along as A i is not k we increment, right,
+we move to the next element.
+
+00:06:12.400 --> 00:06:17.370
+So, this is the loop, and when we exit this
+loop there are 1 or 2 possibilities, either
+
+00:06:17.370 --> 00:06:21.870
+we have found the element in which case i
+is less than n, or we have not found the element
+
+00:06:21.870 --> 00:06:23.349
+in this case i has become n.
+
+00:06:23.349 --> 00:06:28.620
+So, we check whether i is less than n; if
+i is less than n then we have found it, and
+
+00:06:28.620 --> 00:06:33.000
+if i is bigger than n that means it is not
+found.
+
+00:06:33.000 --> 00:06:35.370
+So, this is a simple algorithm.
+
+00:06:35.370 --> 00:06:39.610
+So, now, in this algorithm the bottle neck
+is this loop, right.
+
+00:06:39.610 --> 00:06:42.659
+So, this can take upto n iterations.
+
+00:06:42.659 --> 00:06:47.479
+Now, when will it take n iterations?
+
+00:06:47.479 --> 00:06:49.190
+That is the worst case, right.
+
+00:06:49.190 --> 00:06:56.160
+So, the worst case in this particular algorithm
+is it must go to the end either if the last
+
+00:06:56.160 --> 00:07:00.389
+element is k, or more generally if there is
+no copy of k in the array.
+
+00:07:00.389 --> 00:07:05.060
+If there is no k in the array we have to scan
+all the elements to determine that k does
+
+00:07:05.060 --> 00:07:06.060
+not exist.
+
+00:07:06.060 --> 00:07:08.389
+So, this becomes our worst case input.
+
+00:07:08.389 --> 00:07:13.620
+So, it is important to be able to look at
+an algorithm and try to reconstruct what input
+
+00:07:13.620 --> 00:07:15.629
+to drive it to take the maximum amount of
+time.
+
+00:07:15.629 --> 00:07:20.479
+So, in this simple case, this simple example
+we can see that the case which forces us to
+
+00:07:20.479 --> 00:07:25.599
+execute the entire loop can be generated by
+choosing a value of k which is not in the
+
+00:07:25.599 --> 00:07:29.689
+array A.
+And in this case, therefore the worst case
+
+00:07:29.689 --> 00:07:33.050
+is proportional to the size of the array n.
+
+00:07:33.050 --> 00:07:38.110
+The crucial thing to remember is that in order
+to determine which is the worst case input,
+
+00:07:38.110 --> 00:07:40.250
+we have to understand the algorithm and look
+at it.
+
+00:07:40.250 --> 00:07:44.139
+We cannot just blindly determine what is the
+worst case without knowing the problem at
+
+00:07:44.139 --> 00:07:45.139
+hand.
+
+00:07:45.139 --> 00:07:48.500
+To different algorithms we have to come up
+with different worst cases depending on what
+
+00:07:48.500 --> 00:07:51.300
+the algorithm is supposed to do, and how the
+algorithm is constructed.
+
+00:07:51.300 --> 00:07:55.169
+So, the worst case input is a function of
+the algorithm itself.
+
+00:07:55.169 --> 00:07:58.400
+Now, we could look at a different measure,
+right.
+
+00:07:58.400 --> 00:08:03.160
+So, supposing we do not look at the worst
+case, we say, look at the average case, right.
+
+00:08:03.160 --> 00:08:07.629
+So, look at all possible inputs and then try
+to see how much time it takes when each of
+
+00:08:07.629 --> 00:08:09.810
+the inputs are somehow average it out.
+
+00:08:09.810 --> 00:08:16.790
+Now, mathematically in order to compute this
+kind of an average we need to have a good
+
+00:08:16.790 --> 00:08:22.770
+way of estimating what are all the possible
+inputs to a problem.
+
+00:08:22.770 --> 00:08:27.490
+So, although this sounds like a very attractive
+notion, in many problems it is very difficult.
+
+00:08:27.490 --> 00:08:32.280
+So, supposing we are doing the airline route
+problem, how do we consider the space of all
+
+00:08:32.280 --> 00:08:37.570
+possible route maps, and what is a typical
+route map, and so on.
+
+00:08:37.570 --> 00:08:42.200
+So, what are we going to average over, are
+all this inputs equally likely, so we need
+
+00:08:42.200 --> 00:08:43.709
+look at probabilities.
+
+00:08:43.709 --> 00:08:48.380
+And it is very often very difficult to estimate
+the probabilities of different types of inputs.
+
+00:08:48.380 --> 00:08:53.800
+So, though it would make more sense from the
+point of view of the behavior of the algorithm
+
+00:08:53.800 --> 00:08:59.470
+in practical situations to look at the average
+case that is how does it behave over a space
+
+00:08:59.470 --> 00:09:00.470
+of inputs.
+
+00:09:00.470 --> 00:09:05.790
+In practice, it is very hard to do this because
+we cannot really quantify the space of possible
+
+00:09:05.790 --> 00:09:09.480
+inputs and assign them with meaningful probabilities.
+
+00:09:09.480 --> 00:09:16.800
+To summarize, we look at worst case even though
+it could be unrealistic because the average
+
+00:09:16.800 --> 00:09:21.490
+case is hard if not impossible to compute.
+
+00:09:21.490 --> 00:09:26.380
+There are very limited situations where it
+is possible to do an average case analysis,
+
+00:09:26.380 --> 00:09:28.899
+but these are very rare.
+
+00:09:28.899 --> 00:09:33.290
+So, the good thing about a worst case analysis
+is if we can prove a good upper bound, saying
+
+00:09:33.290 --> 00:09:37.750
+that, even in the worst case if algorithm
+performs efficiently then we have got a useful
+
+00:09:37.750 --> 00:09:41.810
+piece of information about the algorithm;
+that is this always works well.
+
+00:09:41.810 --> 00:09:47.100
+On the other hand, if we find out that this
+algorithm has a bad worst case upper bound
+
+00:09:47.100 --> 00:09:51.120
+we may have to look a little further, how
+rare is this worst case, does this often arise
+
+00:09:51.120 --> 00:09:56.440
+in practice, what type of inputs are worst
+case, are they inputs that we would typically
+
+00:09:56.440 --> 00:10:00.870
+see, are there any simplifying assumptions
+that we can make which will rule out these
+
+00:10:00.870 --> 00:10:03.150
+worst cases and so on.
+
+00:10:03.150 --> 00:10:06.690
+So, though worst case analysis is not a perfect
+way of doing it, it is something which is
+
+00:10:06.690 --> 00:10:10.220
+mathematically tractable, it is something
+that we can kind of hope to compute.
+
+00:10:10.220 --> 00:10:14.430
+So, that is one good reason for doing it so
+that we actually come up with a quantitative
+
+00:10:14.430 --> 00:10:15.430
+estimate.
+
+00:10:15.430 --> 00:10:19.329
+And secondly, it does give us some useful
+information; even though in some situations
+
+00:10:19.329 --> 00:10:24.399
+it not be, may not be the most realistic situation
+that we are likely to come across in practice.
+

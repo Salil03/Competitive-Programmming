@@ -1,0 +1,695 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.700 --> 00:00:04.120
+So, we have seen how to explore connectivity
+using breadth first search.
+
+00:00:04.120 --> 00:00:07.859
+So, now let us look at the other strategy
+which is commonly used called depth first
+
+00:00:07.859 --> 00:00:08.980
+search.
+
+00:00:08.980 --> 00:00:15.629
+So, in depth first search instead of exploring
+all vertices level by level.
+
+00:00:15.629 --> 00:00:19.450
+Each time we explore a new vertex, we immediately
+explore its neighbors.
+
+00:00:19.450 --> 00:00:25.500
+So, we start from vertex i and visit the first
+neighbour j from i which is not yet explored.
+
+00:00:25.500 --> 00:00:30.140
+Then we suspend the exploration of i and explore
+j instead, and you keep doing this until you
+
+00:00:30.140 --> 00:00:31.230
+can no further.
+
+00:00:31.230 --> 00:00:36.140
+So, when you get stuck when there is nothing
+new to explore you walk back, because you
+
+00:00:36.140 --> 00:00:40.210
+have already left some vertices earlier unexplored,
+because you suspended.
+
+00:00:40.210 --> 00:00:45.060
+So, you go back to the nearest suspended vertex
+that still has an unexplored neighbor, and
+
+00:00:45.060 --> 00:00:48.160
+then you explore the next unexplored neighbor
+of that vertex.
+
+00:00:48.160 --> 00:00:54.140
+So, the way to think about it is that all
+the vertices which are pending which are suspended
+
+00:00:54.140 --> 00:00:55.140
+are now in a stack.
+
+00:00:55.140 --> 00:01:00.340
+So, you build up the stack as you go deeper
+and deeper into the graph, and then whenever
+
+00:01:00.340 --> 00:01:09.880
+you get stuck at a dead end, you walk back
+up and you process things earlier in the stack.
+
+00:01:09.880 --> 00:01:17.619
+So, as before let us execute this algorithm
+by hand on our graph, and see how it works
+
+00:01:17.619 --> 00:01:19.159
+before we write the pseudo code.
+
+00:01:19.159 --> 00:01:21.509
+So, this time we are starting at 4.
+
+00:01:21.509 --> 00:01:24.670
+So, first step is to mark 4 as visited.
+
+00:01:24.670 --> 00:01:30.329
+So, we mark 4 as visited and we identify that
+it has 3 neighbours before neighbours 1, 3,
+
+00:01:30.329 --> 00:01:31.329
+5, and 6.
+
+00:01:31.329 --> 00:01:34.380
+So, taking them in order we start with 1;
+1 is not visited.
+
+00:01:34.380 --> 00:01:36.219
+So, we mark it as visited.
+
+00:01:36.219 --> 00:01:40.799
+And we put 4 on the stack, saying we are suspending
+the exploration of 4, because now we are going
+
+00:01:40.799 --> 00:01:42.249
+to explore 1 instead.
+
+00:01:42.249 --> 00:01:48.920
+So, now we go to 1, then we see that 1 has
+neighbours 2, 3, and 4 among these the first
+
+00:01:48.920 --> 00:01:49.920
+is 2.
+
+00:01:49.920 --> 00:01:53.149
+So, we put 2 on the stack, since it was not
+visited, we mark 2 as visited since it was
+
+00:01:53.149 --> 00:01:58.460
+not visited earlier, then we put 1 on the
+stack, saying now we are suspending 1.
+
+00:01:58.460 --> 00:02:00.840
+So, now we look at the neighbours of 2.
+
+00:02:00.840 --> 00:02:05.259
+So, neighbours of 2 are 1 and 3, 1 has already
+been visited, 3 has not.
+
+00:02:05.259 --> 00:02:09.349
+So, we will now mark 3 as visited and suspend
+2.
+
+00:02:09.349 --> 00:02:14.769
+Now when we come to 3, it has 2 neighbours
+1 and 2, but both of them are already visited.
+
+00:02:14.769 --> 00:02:16.569
+So, there is nothing to be done.
+
+00:02:16.569 --> 00:02:23.120
+So, we must go and we must go back to the
+last vertex which we suspended namely 2, and
+
+00:02:23.120 --> 00:02:25.030
+explore its neighbours.
+
+00:02:25.030 --> 00:02:31.790
+We go back to 2, so we had already declared
+that 1 was not to be done, we have already
+
+00:02:31.790 --> 00:02:32.790
+processed 3.
+
+00:02:32.790 --> 00:02:35.290
+So, we have to look at 4, but 4 is also already
+visited.
+
+00:02:35.290 --> 00:02:37.219
+So, we are done with 2.
+
+00:02:37.219 --> 00:02:42.549
+So, now we must go back and store the next
+vertex on the stack which was left undone
+
+00:02:42.549 --> 00:02:44.409
+that was 1.
+
+00:02:44.409 --> 00:02:53.090
+Now we go back to 1, and we find that from
+1 we had already visited 2, 3 which we had
+
+00:02:53.090 --> 00:02:57.319
+not visited from 1 was visited via 2 so it
+is already marked so this is done.
+
+00:02:57.319 --> 00:02:59.519
+And 4 also is where we came from to 1.
+
+00:02:59.519 --> 00:03:00.519
+So, this is done.
+
+00:03:00.519 --> 00:03:01.760
+So, 1 is also useless.
+
+00:03:01.760 --> 00:03:05.930
+So, now we go back and go back to the first
+vertex we started with 4, and see if there
+
+00:03:05.930 --> 00:03:07.380
+is something more to be done.
+
+00:03:07.380 --> 00:03:13.879
+So, having come back to 4, we find that, it
+has more neighbours, we only explored 1 the
+
+00:03:13.879 --> 00:03:14.879
+first time.
+
+00:03:14.879 --> 00:03:20.849
+So, now we continue we find that there are
+still 5, 6, and 8.
+
+00:03:20.849 --> 00:03:28.739
+So, we pick up 5 and see it is not visited,
+we mark 5 and again suspend 4.
+
+00:03:28.739 --> 00:03:33.400
+So, from 5, now we have 4, 6, and 7.
+
+00:03:33.400 --> 00:03:38.200
+So, we will now pick up 6 and suspend 5.
+
+00:03:38.200 --> 00:03:44.650
+From 6, we have 7, 5, 7, and 8; so 5 is already
+done, but 7 is not done.
+
+00:03:44.650 --> 00:03:47.730
+So, we will pick up 7 and suspend 6.
+
+00:03:47.730 --> 00:03:53.569
+Now from 7, we find that it has neighbours
+5 and 6, both of which are already marked.
+
+00:03:53.569 --> 00:03:56.790
+So, 7 is a dead end.
+
+00:03:56.790 --> 00:04:01.400
+So, we come back and look at 6 again, and
+see if there is anything new to be done, there
+
+00:04:01.400 --> 00:04:03.049
+is, there is an 8.
+
+00:04:03.049 --> 00:04:06.260
+So, now we add 8, and again suspend 6.
+
+00:04:06.260 --> 00:04:13.230
+Now we are at 8, and now we have to ask what
+can be explored from 8, from 8 4 is already
+
+00:04:13.230 --> 00:04:15.329
+done it has 4, 6, and 9.
+
+00:04:15.329 --> 00:04:19.370
+So, 4 is already done, 6 is already done,
+but 9 is new.
+
+00:04:19.370 --> 00:04:25.730
+So, we add 9 and suspend 8, then we move to
+9.
+
+00:04:25.730 --> 00:04:28.440
+So, from 9 we find it has a new neighbour
+10.
+
+00:04:28.440 --> 00:04:33.060
+So, we add 10 and then we are done, because
+10 has nothing to do.
+
+00:04:33.060 --> 00:04:37.950
+So, we go back and process 9; 9 has no more
+new things to say, because 9 the other neighbours
+
+00:04:37.950 --> 00:04:43.620
+are 6 and 8 which are already done, we go
+back to 8, 8 has nothing more to say so we
+
+00:04:43.620 --> 00:04:48.460
+go back to 6, 6 has nothing more to say so
+we go back to 5, 5 has nothing more to say
+
+00:04:48.460 --> 00:04:52.620
+so we go back to 4, now when we started this
+whole exploration you did it by 4 to 5.
+
+00:04:52.620 --> 00:04:58.002
+So, now we look and see that 4 to 6 is already
+done, not 4 to 6, 4 to 8 is already done.
+
+00:04:58.002 --> 00:05:03.574
+So, there is nothing more we can do from 4
+and so this exploration is done.
+
+00:05:03.574 --> 00:05:08.970
+So, what we did explicitly with a stack can
+be done more cleverly, if we just implement
+
+00:05:08.970 --> 00:05:10.010
+it recursively.
+
+00:05:10.010 --> 00:05:18.380
+So, whenever we visit a new vertex j, we call
+DFS of j and suspend DFS of the current vertex
+
+00:05:18.380 --> 00:05:19.380
+i.
+
+00:05:19.380 --> 00:05:22.510
+So, we do not have to explicitly maintain
+this stack that we were simulating, because
+
+00:05:22.510 --> 00:05:26.730
+it will be implicitly maintained by the recursive
+function calls.
+
+00:05:26.730 --> 00:05:32.160
+So, DFS is therefore a very simple algorithm
+to implement.
+
+00:05:32.160 --> 00:05:39.780
+So, initially we say for every vertex visited
+is 0, and remember like in BFS breadth first
+
+00:05:39.780 --> 00:05:43.190
+search we want to keep track of where we came
+from, so we will say that everything has an
+
+00:05:43.190 --> 00:05:44.860
+undefined parent.
+
+00:05:44.860 --> 00:05:49.870
+Now we initialize we call DFS of the start
+vertex.
+
+00:05:49.870 --> 00:05:54.150
+So, when we call DFS from a vertex, we mark
+it as been visited.
+
+00:05:54.150 --> 00:05:57.950
+So, the first thing we do is to mark it as
+been visiting.
+
+00:05:57.950 --> 00:06:03.750
+And now for every other vertex that it is
+connected to we do the usual think, we check
+
+00:06:03.750 --> 00:06:08.320
+whether or not that vertex is already visited;
+if it is not visited, we want visit it.
+
+00:06:08.320 --> 00:06:11.960
+So, how do we visit it, we mark its parent
+as being i.
+
+00:06:11.960 --> 00:06:15.450
+And then we suspend this DFS and call that
+DFS.
+
+00:06:15.450 --> 00:06:20.190
+So, this is what we were doing explicitly
+with a stack, but it much easier to do recursively.
+
+00:06:20.190 --> 00:06:26.410
+So, DFS is a very, very simple recursive algorithm,
+starts at i look at every unexplored neighbour
+
+00:06:26.410 --> 00:06:30.130
+and recursively invoke DFS on that unexplored
+neighbor.
+
+00:06:30.130 --> 00:06:33.420
+So, what is the complexity of depth first
+search?
+
+00:06:33.420 --> 00:06:36.840
+Well, each vertex is marked and explored exactly
+once.
+
+00:06:36.840 --> 00:06:41.000
+So, we do DFS of j, once for every j.
+
+00:06:41.000 --> 00:06:47.260
+So, these are order n calls, actually exactly
+n calls if everything is reachable.
+
+00:06:47.260 --> 00:06:51.480
+Now when we call DFS of j for a particular
+j, we need to examine all the neighbours of
+
+00:06:51.480 --> 00:06:52.480
+j.
+
+00:06:52.480 --> 00:06:56.310
+As we saw before if we have an adjacency matrix;
+that means, we have to look at the row j,
+
+00:06:56.310 --> 00:06:58.210
+and we have to look at every entry in this
+row.
+
+00:06:58.210 --> 00:06:59.870
+So, this takes order n time.
+
+00:06:59.870 --> 00:07:03.690
+So, we have order n calls and each call takes
+order n times.
+
+00:07:03.690 --> 00:07:06.410
+So, over all we have order n square time.
+
+00:07:06.410 --> 00:07:11.530
+On the other hand, if we use an adjacency
+list then when we look at the neighbours of
+
+00:07:11.530 --> 00:07:17.120
+j, we only have to look at the exact vertices
+it is connected to and as we said before if
+
+00:07:17.120 --> 00:07:22.920
+we count across all the calls each edge will
+be accounted for twice; once from i to j,
+
+00:07:22.920 --> 00:07:24.330
+and once from j to i.
+
+00:07:24.330 --> 00:07:29.270
+So, the total numbers of calls, the total
+number of steps to scan the neighbours we
+
+00:07:29.270 --> 00:07:30.950
+will be order of the number of edges.
+
+00:07:30.950 --> 00:07:35.130
+So, the overall time will be linear m plus
+n like breadth first search.
+
+00:07:35.130 --> 00:07:40.910
+So, both depth first search, and breadth first
+search are linear in the size of the input,
+
+00:07:40.910 --> 00:07:44.920
+if we use adjacency list.
+
+00:07:44.920 --> 00:07:50.620
+So, one big difference between depth first
+search and breadth first search is that the
+
+00:07:50.620 --> 00:07:55.420
+paths that breadth first search discovers
+are not shortest paths.
+
+00:07:55.420 --> 00:08:02.270
+So, if we have a graph as we saw before a
+triangle like this where we have 1, 2, and
+
+00:08:02.270 --> 00:08:07.120
+3; then what depth first search will do it
+will find a path from 1 to 3 which goes via
+
+00:08:07.120 --> 00:08:10.960
+2, if we take this smallest neighbor each
+time to explore.
+
+00:08:10.960 --> 00:08:14.010
+So, when I actually come to the 1 3 path,
+I will find that 3 is already visited and
+
+00:08:14.010 --> 00:08:15.360
+I will do nothing, right.
+
+00:08:15.360 --> 00:08:19.710
+So, it appears therefore that depth first
+search may not be doing something very useful,
+
+00:08:19.710 --> 00:08:23.900
+but actually this recursive way of exploring
+gives us a lot of information.
+
+00:08:23.900 --> 00:08:29.420
+So, many useful features about the graph can
+actually be recorded by, can be extracted
+
+00:08:29.420 --> 00:08:32.780
+by recording the order in which DFS visits
+vertices.
+
+00:08:32.780 --> 00:08:38.640
+So, for this we augment DFS with something
+called numbering.
+
+00:08:38.640 --> 00:08:44.580
+So, we maintain a counter which we increment
+every time we enter a vertex, when DFS starts
+
+00:08:44.580 --> 00:08:47.050
+in a vertex and when it leaves.
+
+00:08:47.050 --> 00:08:52.690
+So, we associate with each vertex in the graph
+2 values; the value of the counter that was
+
+00:08:52.690 --> 00:08:57.380
+there when I entered when I did DFS of j for
+the first time, and the value of the counter
+
+00:08:57.380 --> 00:08:58.380
+when DFS of j exited.
+
+00:08:58.380 --> 00:09:02.300
+So, this is how we would do this in our algorithm.
+
+00:09:02.300 --> 00:09:08.860
+So, we start by initializing this counter
+to 0, now whenever I invoke DFS of i, the
+
+00:09:08.860 --> 00:09:14.690
+first thing I do is assign the current counter
+value to something called the pre number of
+
+00:09:14.690 --> 00:09:15.690
+i.
+
+00:09:15.690 --> 00:09:21.180
+So, this is the number of the counter before
+the DFS of i actually started, and then I
+
+00:09:21.180 --> 00:09:23.270
+increment the count.
+
+00:09:23.270 --> 00:09:28.500
+Likewise when I am about to exit, I would
+mark post of i equal to count, and again I
+
+00:09:28.500 --> 00:09:29.500
+increment the count.
+
+00:09:29.500 --> 00:09:33.830
+So, this says that, so, in between remember
+a lot of recursive calls happen.
+
+00:09:33.830 --> 00:09:37.630
+So, this point is not going to the same as
+the count with I incremented, there is going
+
+00:09:37.630 --> 00:09:41.890
+to be a lot of stuff happening in between,
+and it turns out this the order in which these
+
+00:09:41.890 --> 00:09:47.400
+two numbers pre i and post i, if I look across
+vertices I can actually recover a lot of information.
+
+00:09:47.400 --> 00:09:50.900
+So, let us look at this example that we did
+before.
+
+00:09:50.900 --> 00:09:54.570
+So, supposing as before we start at 4.
+
+00:09:54.570 --> 00:09:59.470
+So, we will say that its pre number is say
+0, because we start there and then we increment
+
+00:09:59.470 --> 00:10:01.350
+and then we go to 1.
+
+00:10:01.350 --> 00:10:03.850
+So, when we enter 1, the number is the count
+is 1.
+
+00:10:03.850 --> 00:10:11.240
+So, its pre number is 1, and then we go to
+2, its pre number is 2; then we go to 3, its
+
+00:10:11.240 --> 00:10:17.090
+pre number is 3, and then we immediately leave
+3, because we do not have any new neighbors
+
+00:10:17.090 --> 00:10:18.090
+to exit.
+
+00:10:18.090 --> 00:10:19.090
+So, its post number is now 4.
+
+00:10:19.090 --> 00:10:21.180
+So, I am writing the pre number above and
+the post number below.
+
+00:10:21.180 --> 00:10:25.270
+When I come back to 2 and I find that there
+is nothing more to be done at 2 so I exit
+
+00:10:25.270 --> 00:10:26.270
+from 2.
+
+00:10:26.270 --> 00:10:27.270
+So, its post number becomes 5.
+
+00:10:27.270 --> 00:10:33.690
+So, notice that here, I enter at step 2 and
+left at step 5 in between I did 3 and 4 somewhere
+
+00:10:33.690 --> 00:10:34.690
+else.
+
+00:10:34.690 --> 00:10:37.980
+Likewise I come back to 1, and I find that
+it has nothing new to say.
+
+00:10:37.980 --> 00:10:46.520
+So, now I leave 1 at step 6, then I come back
+to 4, but I am not finished with 4, because
+
+00:10:46.520 --> 00:10:47.520
+I can do 5.
+
+00:10:47.520 --> 00:10:55.640
+So, I enter 5 at step 7, from 5 I enter 6
+at step 8, from 6 I enter 7 at step 9, now
+
+00:10:55.640 --> 00:11:03.920
+from 7 I cannot go anywhere else, so I leave
+7 and I come back to 6, then from 6 I look
+
+00:11:03.920 --> 00:11:05.500
+further and I find 8.
+
+00:11:05.500 --> 00:11:06.590
+So, enter 8.
+
+00:11:06.590 --> 00:11:09.500
+So, I was a 10 at that point.
+
+00:11:09.500 --> 00:11:15.830
+So, now I enter 8 at step 11, from 8 I enter
+9 at step 12, from 9 I enter 10 at step 13,
+
+00:11:15.830 --> 00:11:28.430
+then I leave 10 and I leave 9 at 15, I leave
+8 at 16, I leave 7 at 17, I leave 5 at 18,
+
+00:11:28.430 --> 00:11:32.120
+and I come back to 4 and I finally finish
+at 19, right.
+
+00:11:32.120 --> 00:11:39.710
+So, I have with each, each node now these
+2 values, pre value, and post value.
+
+00:11:39.710 --> 00:11:44.880
+So, I have a pre value and a post value, and
+it turns out that, this pre and post values
+
+00:11:44.880 --> 00:11:46.080
+can be very helpful.
+
+00:11:46.080 --> 00:11:49.650
+So, we can find out things like whether a
+graph has a cycle.
+
+00:11:49.650 --> 00:11:51.290
+So, this is a cycle.
+
+00:11:51.290 --> 00:11:56.100
+So, whether a graph has a loop like this or
+we can find out whether there are vertices
+
+00:11:56.100 --> 00:11:57.100
+like this.
+
+00:11:57.100 --> 00:12:00.529
+So, this is the special vertex, because if
+I remove this 4 from the graph, in the graph
+
+00:12:00.529 --> 00:12:03.830
+which was earlier connected everything could
+reach everything is no longer connected.
+
+00:12:03.830 --> 00:12:07.440
+Because, there is no way now to get from 1
+2 3 to this lower thing.
+
+00:12:07.440 --> 00:12:09.240
+So, are there such cut vertices.
+
+00:12:09.240 --> 00:12:13.640
+So, these are various things that can be computed
+using these DFS numbers, we will see some
+
+00:12:13.640 --> 00:12:19.589
+of these computations in later lectures, but
+this makes DFS actually a much more useful
+
+00:12:19.589 --> 00:12:25.520
+exploration strategy than breadth first search
+the BFS does give us shortest paths, but on
+
+00:12:25.520 --> 00:12:31.440
+the other hand DFS gives as a wealth of information
+which is implicitly hidden in this recursive
+
+00:12:31.440 --> 00:12:34.910
+order of exploration which we can exploit
+to find out various structural properties
+
+00:12:34.910 --> 00:12:38.910
+of the graph for free more or less while we
+are doing DFS, we can find out many, many
+
+00:12:38.910 --> 00:12:39.880
+interesting things about the graph.
+

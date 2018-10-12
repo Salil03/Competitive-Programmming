@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\range-queries.html">Range
+        Queries</a>&rarr;Mountain (IOI 2005)
+      </h2>
+
+      <p>
+	The Mountain Amusement Park has opened a brand-new
+	simulated roller coaster. The simulated track consists of
+	n rails attached end-to-end with the beginning of the
+	first rail fixed at elevation 0. Byteman, the operator,
+	can reconfigure the track at will by adjusting the
+	elevation change over a number of consecutive rails. The
+	elevation change over other rails is not affected . Each
+	time rails are adjusted, the following track is raised or
+	lowered as necessary to connect the track while
+	maintaining the start at elevation 0. The figures below
+	illustrates two example track reconfiguration s.
+      </p>
+
+      <p>
+	Each ride is initiated by launching the car with
+	sufficient energy to reach height h. That is, the car
+	will continue to travel as long as the elevation of the
+	track does not exceed h, and as long as the end of the
+	track is not reached.
+      </p>
+
+      <p>
+	Given the record for all the day's rides and track
+	configuration changes, compute for each ride the number
+	of rails traversed by the car before it stops.
+      </p>
+
+      <p>
+	Internally, the simulator represents the track as a
+	sequence of n elevation changes, one for each rail. The
+	i-th number di represents the elevation change (in
+	centimetres) over the i-th rail. Suppose that after
+	traversing i-1 rails the car has reached an elevation of
+	h centimetres. After traversing i rails the car will have
+	reached an elevation of h + di centimetres.
+      </p>
+
+      <p>
+	Initially the rails are horizontal; that is, di = 0 for
+	all i. Rides and reconfigurations are interleaved
+	throughout the day. Each reconfiguration is specified by
+	three number s: a, b and D. The segment to be adjusted
+	consists of rails a through b (inclusive). The elevation
+	change over each rail in the segment is set to D. That
+	is, di = D for all a &le; i &le; b.
+      </p>
+
+      <p>
+	Each ride is specified by one number h - the maximum
+	height that the car can reach.
+      </p>
+
+      <p>
+	Inputs are of the form:
+      </p>
+
+      <ul>
+	<li><tt>I a b D</tt>  &ndash; reconfigure segments a to b to D</li>
+	<li><tt>Q h</tt>  &ndash; start a ride with energy level h</li>
+	<li><tt>E</tt> &ndash; end of input</li>
+      </ul>
+
+      <><b>Limits:</b><p>
+
+	 <ul>
+	   <li> Instructions &le; 10<sup>5</sup></li>
+	   <li> Number of rails, heights etc &le; 10<sup>9</sup></li>
+	 </ul>
+
+      <p>
+	Example:
+      </p>
+
+      <p>
+	Initial position, 4 segments:
+      </p>
+
+      <pre>
+        0       0       0       0        <- elevation change in segment
+            0       0       0            <- elevation of endpoint
+    *-------*-------*-------*-------*
+        1       2       3       4        <- segment id
+      </pre>
+
+      <p>
+	Instruction: <tt>Q 1</tt><br>
+	Answer: <tt>4</tt>
+      </p>
+
+      <p>
+	Instruction: <tt>I 1 4 2</tt>
+      </p>
+
+      <pre>
+                                <---------- elevation change in segment
+                              2     8 <---- elevation of endpoint
+                                    *
+                      2     6
+                            *
+              2     4
+                    *
+      2     2
+            *
+
+    *-------o-------o-------o-------o
+        1       2       3       4
+      </pre>
+
+      <p>
+	Instruction: <tt>Q 3</tt><br>
+	Answer: <tt>1</tt>
+      </p>
+
+      <p>
+	Instruction: <tt>Q 1</tt><br>
+	Answer: <tt>0</tt>
+     </p>
+
+
+     <p>
+       Instruction: <tt>I 2 2 -1</tt>
+     </p>
+
+     <pre>
+                               2    5
+                                    *
+                       2    3
+                            *
+       2    2   -1
+            *       1
+                    *
+    *-------o-------o-------o-------o
+        1       2       3       4
+      </pre>
+
+      <p>
+	Instruction: <tt>Q 3</tt><br>
+	Answer: <tt>3</tt>
+      </p>
+
+      <p><a href="mountain-soln.html#solution">Solution</a></p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

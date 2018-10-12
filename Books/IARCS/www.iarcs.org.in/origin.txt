@@ -1,0 +1,844 @@
+Uri: https://www.iarcs.org.in/inoi/online-study-material/index.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\index.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/styles/default.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\styles\default.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/styles/print.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\styles\print.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/iarcslogo.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\iarcslogo.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\index.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\index.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\index.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\index.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/b.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\b.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/h3-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\h3-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/h3-bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\h3-bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/content-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\content-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/styles/default.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\styles\default.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/styles/print.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\styles\print.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/iarcslogo.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\iarcslogo.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/index.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\index-1.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\index-1.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/styles/default.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\styles\default.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/styles/print.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\styles\print.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/iarcslogo.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\iarcslogo.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/index.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\index-1.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/binarysearch.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\binarysearch.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/aliens.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\aliens.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/behead.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\behead.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/post-election-transfers.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\post-election-transfers.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/rods.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\rods.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/wires-and-switches.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\wires-and-switches.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/binary-index-tree.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\binary-index-tree.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/disjoint-set.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\disjoint-set.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/advertising-hoardings.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\advertising-hoardings.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/heaps.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\heaps.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/heapsort.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\heapsort.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dijkstra-heap.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dijkstra-heap.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/backup.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\backup.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/race.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\race.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/sokoban.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\sokoban.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/segment-tree.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\segment-tree.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp-basics.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp-basics.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp-grid-paths.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp-grid-paths.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/dna.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\dna.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mexico.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mexico.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/phidias.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\phidias.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/postoffice.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\postoffice.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/pyramid.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\pyramid.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/buffalos-2.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\buffalos-2.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp-tiling.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp-tiling.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/yertle.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\yertle.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp-trees.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp-trees.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/catering-contracts.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\catering-contracts.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/rivers.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\rivers.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mobiles-apio.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mobiles-apio.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/coffee-shop.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\coffee-shop.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/catering-contracts-2pi.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\catering-contracts-2pi.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games-solving-finite-games.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games-solving-finite-games.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/geometry.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\geometry.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/frogs.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\frogs.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs-general.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs-general.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs-representation.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs-representation.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/articulation-points.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\articulation-points.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/atm-robbery.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\atm-robbery.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/floyd-warshall.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\floyd-warshall.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs-bfs.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs-bfs.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/bipartite-matching.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\bipartite-matching.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/one-way-roads-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\one-way-roads-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dags.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dags.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs-dfs.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs-dfs.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dijkstra.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dijkstra.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/flood.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\flood.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/islands.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\islands.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/kruskal.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\kruskal.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/maintain.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\maintain.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/one-way-roads.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\one-way-roads.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/placing-rooks.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\placing-rooks.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/prim.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\prim.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/prisoners-escape.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\prisoners-escape.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/roads.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\roads.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/spanning-trees.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\spanning-trees.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/shortest-paths.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\shortest-paths.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/scc.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\scc.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/toll-roads.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\toll-roads.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/greedy.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\greedy.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/sails.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\sails.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/buffalos.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\buffalos.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/teleporters.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\teleporters.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/network-flows.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\network-flows.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/going-to-school.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\going-to-school.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/evil-intentions.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\evil-intentions.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/permutations.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\permutations.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games-bead-necklace.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games-bead-necklace.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/beads.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\beads.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/depot.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\depot.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/prefix-sums.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\prefix-sums.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/oil.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\oil.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/artemis.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\artemis.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/sliding-window-one-empty-plot.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\sliding-window-one-empty-plot.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/sliding-window-two-empty-plots.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\sliding-window-two-empty-plots.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/inversion-permutation.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\inversion-permutation.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/garden.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\garden.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mobiles.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mobiles.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mountain.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mountain.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games-rectangle.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games-rectangle.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games-scores.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games-scores.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/utopia.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\utopia.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/writing.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\writing.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/longest-open-segment.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\longest-open-segment.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/min-segments.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\min-segments.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/shoemaker.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\shoemaker.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/range-queries.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\range-queries.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/range-queries-static.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\range-queries-static.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/range-queries-point-updates.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\range-queries-point-updates.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/range-queries-interval-updates-point-queries.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\range-queries-interval-updates-point-queries.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/range-queries-interval-updates-interval-queries.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\range-queries-interval-updates-interval-queries.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/sliding-window.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\sliding-window.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/sorting.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\sorting.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/mergesort.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\mergesort.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/quicksort.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\quicksort.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/stablesort.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\stablesort.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/introduction.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\introduction.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/styles/default.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\styles\default.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/styles/print.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\styles\print.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/iarcslogo.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\iarcslogo.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/index.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\index-1.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/amazing-robots.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\amazing-robots.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/prefix-sums-maximum-sum-subsection.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\prefix-sums-maximum-sum-subsection.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/prefix-sums-ramus-mango-trees.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\prefix-sums-ramus-mango-trees.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/advanced-graph-algorithms.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\advanced-graph-algorithms.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/styles/default.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\styles\default.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/styles/print.css
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\styles\print.css
+Content Type: text/css
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/iarcslogo.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\iarcslogo.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/index.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\index-1.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/efficiency.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\efficiency.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/b.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\b.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/h3-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\h3-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/h3-bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\h3-bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/contact/img/content-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\contact\img\content-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/b.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\b.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/h3-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\h3-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/h3-bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\h3-bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/iindex/img/content-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\iindex\img\content-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/aliens-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\aliens-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/behead-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\behead-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/post-election-transfers-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\post-election-transfers-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/rods-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\rods-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/wires-and-switches-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\wires-and-switches-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/advertising-hoardings-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\advertising-hoardings-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/img/advertising-hoardings.png
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\img\advertising-hoardings.png
+Content Type: image/png
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/heap-details.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\heap-details.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/heap-build.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\heap-build.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/max-min-heap.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\max-min-heap.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/backup-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\backup-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/race-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\race-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/sokoban-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\sokoban-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/dna-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\dna-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mexico-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mexico-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/phidias-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\phidias-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/postoffice-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\postoffice-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/pyramid-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\pyramid-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/buffalos-2-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\buffalos-2-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/yertle-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\yertle-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/catering-contracts-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\catering-contracts-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/rivers-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\rivers-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mobiles-apio-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mobiles-apio-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/coffee-shop-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\coffee-shop-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/catering-contracts-2pi-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\catering-contracts-2pi-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/games-multiplication-game.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\games-multiplication-game.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/frogs-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\frogs-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/atm-robbery-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\atm-robbery-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/flood-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\flood-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/islands-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\islands-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/maintain-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\maintain-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/placing-rooks-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\placing-rooks-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/prisoners-escape-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\prisoners-escape-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/roads-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\roads-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/toll-roads-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\toll-roads-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/sails-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\sails-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/buffalos-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\buffalos-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/teleporters-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\teleporters-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/going-to-school-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\going-to-school-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/evil-intentions-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\evil-intentions-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/beads-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\beads-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/depot-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\depot-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/oil-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\oil-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/artemis-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\artemis-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/inversion-permutation-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\inversion-permutation-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/garden-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\garden-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mobiles-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mobiles-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/mountain-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\mountain-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/utopia-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\utopia-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/writing-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\writing-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/longest-open-segment-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\longest-open-segment-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/min-segments-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\min-segments-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/shoemaker-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\shoemaker-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/graphs-grids.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\graphs-grids.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/b.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\b.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/h3-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\h3-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/h3-bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\h3-bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/img/content-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\img\content-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/problems/amazing-robots-soln.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\problems\amazing-robots-soln.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/dp-classics.php
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\dp-classics.html
+Content Type: text/html
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/b.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\b.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/h3-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\h3-bg.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/h3-bg2.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\h3-bg2.gif
+Content Type: image/gif
+
+Uri: https://www.iarcs.org.in/inoi/online-study-material/topics/img/content-bg.gif
+File Name: C:\Users\prash\Documents\IARCS\www.iarcs.org.in\inoi\online-study-material\topics\img\content-bg.gif
+Content Type: image/gif
+

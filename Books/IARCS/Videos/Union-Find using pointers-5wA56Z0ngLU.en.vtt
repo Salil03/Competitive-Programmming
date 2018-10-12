@@ -1,0 +1,691 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.989 --> 00:00:06.560
+In the last lecture, we saw an array based
+implementation of the union find data structure,
+
+00:00:06.560 --> 00:00:11.959
+in which the find operation to constant time
+and we use an amortized analysis to claim
+
+00:00:11.959 --> 00:00:18.410
+that the union operation over a sequence of
+m unions would take m log m time. So, effectively
+
+00:00:18.410 --> 00:00:23.779
+each union was a logarithmic time operation,
+amortised over the entire sequence. Now, we
+
+00:00:23.779 --> 00:00:28.400
+will see a more sophisticated implementation
+which has even better complexity.
+
+00:00:28.400 --> 00:00:36.110
+So, recall that the union find data structure
+keep track of a partition of a set S and supports
+
+00:00:36.110 --> 00:00:41.180
+three operations. One is the make union find
+which creates a trivial partition, where each
+
+00:00:41.180 --> 00:00:46.480
+elements belongs to it is own, each element
+is in a singleton partition named by itself.
+
+00:00:46.480 --> 00:00:51.210
+So, we use the same names for the partitions
+and the elements, so each s in a partition
+
+00:00:51.210 --> 00:00:56.790
+called S each small s. Find tells us which
+partition a given element belongs to and union
+
+00:00:56.790 --> 00:01:01.020
+combines two components or two partitions
+into a single one.
+
+00:01:01.020 --> 00:01:06.759
+So, the array based implementation uses an
+array called component to tell us which component
+
+00:01:06.759 --> 00:01:11.210
+each element belongs to, it keeps an array
+of list to tell us which elements belongs
+
+00:01:11.210 --> 00:01:14.859
+to each components. So, it is a kind of reverse
+mapping, for each component k it tells us
+
+00:01:14.859 --> 00:01:19.060
+which members of the set belong to that. And
+finally, it keeps track of the size of each
+
+00:01:19.060 --> 00:01:24.450
+component, because we merged components by
+taking smaller once and relabeling them with
+
+00:01:24.450 --> 00:01:29.289
+the name of the bigger once. So, make union
+find was an order n operation, find was an
+
+00:01:29.289 --> 00:01:34.499
+order one operation and the amortized complexity
+of the union operation was log m for a sequence
+
+00:01:34.499 --> 00:01:36.880
+of m operations.
+
+00:01:36.880 --> 00:01:44.619
+So, we will now have a different representation,
+we will use nodes with pointers. So, each
+
+00:01:44.619 --> 00:01:49.630
+element of the set will now be represented
+as a node, the node will have two parts, it
+
+00:01:49.630 --> 00:01:54.530
+will have the name which is the element that
+you are keeping track of and a label part
+
+00:01:54.530 --> 00:02:01.280
+which keeps track of its component, so it
+is a pointer to the component. Now, remember
+
+00:02:01.280 --> 00:02:07.869
+that the names of the components are the names
+of the elements. So, if we have a name here
+
+00:02:07.869 --> 00:02:15.600
+for example, we have name j it says that this
+node represents the element j and its label
+
+00:02:15.600 --> 00:02:23.780
+points back to itself, so it says this is
+j belongs to the component j.
+
+00:02:23.780 --> 00:02:30.610
+Here on the other hand, we have the element
+i and through this feel we go to the first
+
+00:02:30.610 --> 00:02:38.280
+node which points to itself and this set that
+a i belongs to component j. So, i belong to
+
+00:02:38.280 --> 00:02:42.720
+component j, so we are read a kind of we are
+making heavy use of the fact that the names
+
+00:02:42.720 --> 00:02:46.460
+of the elements and the names of the components
+are the same. So, we are kind of in some context,
+
+00:02:46.460 --> 00:02:50.630
+we are interpreting the name field as name
+of the element and when you following pointers,
+
+00:02:50.630 --> 00:02:55.310
+we are interpreting the name field as a name
+of the component.
+
+00:02:55.310 --> 00:03:03.210
+So, make union find is the initialization,
+so what it does is, it will set up each component
+
+00:03:03.210 --> 00:03:08.070
+as a single term containing an element of
+the same name. So, i belongs to the components
+
+00:03:08.070 --> 00:03:13.600
+i, so there is a node i which points to itself,
+then there is a node k which points to itself
+
+00:03:13.600 --> 00:03:18.400
+indicating this is a component called k containing
+k, this is the components called j containing
+
+00:03:18.400 --> 00:03:24.320
+j. So, we have n such components 1 to n, so
+we have n such nodes each of which contains
+
+00:03:24.320 --> 00:03:29.090
+the name in the first component and a pointer
+to itself in the second component saying it
+
+00:03:29.090 --> 00:03:31.190
+is a singleton component.
+
+00:03:31.190 --> 00:03:37.960
+So, after a period of time we will see that
+when we merge node, these pointers will point
+
+00:03:37.960 --> 00:03:42.900
+instead of themselves it will point to other
+things. So, here for example, could be a component
+
+00:03:42.900 --> 00:03:50.310
+containing i, j, k and l and the structures
+says that the name of the component is actually
+
+00:03:50.310 --> 00:03:57.910
+j. So, this is the component j and it contains
+i, j, k, l, so you can see that the element
+
+00:03:57.910 --> 00:04:02.380
+i has a pointer not to itself, but to another
+nodes. So, if you follow this we find that
+
+00:04:02.380 --> 00:04:06.310
+it is pointing to an element j which points
+to itself, so it is name of the component
+
+00:04:06.310 --> 00:04:09.400
+of i is j.
+Similarly, for l if we start from l, l points
+
+00:04:09.400 --> 00:04:14.480
+to i, i points to j and so on, so we will
+see that this is how we will use to this is
+
+00:04:14.480 --> 00:04:19.189
+a strategy, we use to implement find. We have
+to start with the node and go up the path
+
+00:04:19.189 --> 00:04:23.590
+and this will be a tree, so every path will
+end up the root and the root will be the name
+
+00:04:23.590 --> 00:04:26.240
+of the component.
+
+00:04:26.240 --> 00:04:33.350
+So, just to help us navigate this tree a little
+easier, let us assume that we have the following
+
+00:04:33.350 --> 00:04:39.639
+additional arrays of pointers and numbers.
+So, we will keep track first of all of where
+
+00:04:39.639 --> 00:04:47.410
+each node is. So, we have an array called
+node here and each element of the array is
+
+00:04:47.410 --> 00:04:53.410
+a pointer to the node containing that element.
+So, the entry i says node i is here, entry
+
+00:04:53.410 --> 00:04:58.930
+j says the node j is here and so on. So, there
+will correspondingly be an entry which says
+
+00:04:58.930 --> 00:05:02.759
+that node k is here and node l is here and
+so on.
+
+00:05:02.759 --> 00:05:07.470
+So, every element in our actual set will have
+a pointer from this node array to the actual
+
+00:05:07.470 --> 00:05:13.580
+node in the tree, when the set of tree is
+set of components, the actual node where that
+
+00:05:13.580 --> 00:05:18.349
+value lies, then we need to know which of
+the components which are currently active.
+
+00:05:18.349 --> 00:05:22.960
+So, here in this particular segment i, j,
+k, l which are the component to j, there use
+
+00:05:22.960 --> 00:05:26.870
+to be a component to i, i when i was initialize
+the use to be a component k, the use to be
+
+00:05:26.870 --> 00:05:31.090
+component l. But, these names are no longer
+in use, because these components have a got
+
+00:05:31.090 --> 00:05:36.949
+merged directly or indirectly with j.
+So, right know among i, j, k, l only j remains,
+
+00:05:36.949 --> 00:05:42.449
+so we say that the root of j is, the component
+j is the node containing j and for all the
+
+00:05:42.449 --> 00:05:47.409
+other labels i, j, k and l, we say that i,
+k, and l there is no component called i there
+
+00:05:47.409 --> 00:05:50.740
+is no component called k, so we just have
+a blank same, saying there is no root for
+
+00:05:50.740 --> 00:05:54.479
+these things. So, if you want to find the
+root of this component, go to the node i and
+
+00:05:54.479 --> 00:05:59.190
+then work your way up to it.
+Finally, we will use a similar strategy as
+
+00:05:59.190 --> 00:06:03.350
+before in terms of merging by size, so we
+will just explicitly keep track of the size
+
+00:06:03.350 --> 00:06:08.340
+of each component. So, here it is says that
+size of this components i, j, k, l is 4 because
+
+00:06:08.340 --> 00:06:12.559
+there are currently 4 elements. So, we have
+this node pointer which points to each element
+
+00:06:12.559 --> 00:06:17.360
+in the set where it currently lies, which
+node contains that element. We have a root
+
+00:06:17.360 --> 00:06:22.279
+pointer which tells us for each component
+which is currently active in our partition,
+
+00:06:22.279 --> 00:06:27.199
+which is the root of that partition and then
+we have the size which tells us the size of
+
+00:06:27.199 --> 00:06:29.240
+each component.
+
+00:06:29.240 --> 00:06:39.439
+So, when we do union we basically do this
+merging of the smaller one to the larger one.
+
+00:06:39.439 --> 00:06:48.360
+So, here we have two components, we have component
+j which is j, k and m and we have component
+
+00:06:48.360 --> 00:06:56.990
+i which is i and l. So, now we want to do
+the union of i and j, so now we first will
+
+00:06:56.990 --> 00:07:07.029
+somewhere we will have recorded that the size
+of i is 2 and the size of j is 3. So, having
+
+00:07:07.029 --> 00:07:09.889
+recorded this, we have to now therefore merge
+i into j.
+
+00:07:09.889 --> 00:07:16.080
+So, what this means is that this edge which
+says that i is a root of the string has to
+
+00:07:16.080 --> 00:07:21.009
+be destroyed and instead we have to put a
+link like this and merge these two trees and
+
+00:07:21.009 --> 00:07:23.020
+to one larger tree.
+
+00:07:23.020 --> 00:07:29.809
+So, if we do that this is the resulting tree,
+now we have a single component called j of
+
+00:07:29.809 --> 00:07:34.360
+course, we would have updated the size of
+j to be the size of i plus the whole size
+
+00:07:34.360 --> 00:07:39.620
+of j. So, now it will say 5 instead of 3 and
+notice that this whole operation is an order
+
+00:07:39.620 --> 00:07:44.330
+1 operation, because we take a fixed number
+of steps to find out the sizes of the two
+
+00:07:44.330 --> 00:07:49.210
+components to find the roots of the two components
+and decide which root to massage into which
+
+00:07:49.210 --> 00:07:52.389
+other root.
+So, whether to make i point to j or j point
+
+00:07:52.389 --> 00:07:57.449
+to i, so this is an order 1 operation and
+that is because we have the size information
+
+00:07:57.449 --> 00:08:00.710
+tell us the size, we do not have a go through
+the component to find it size and we have
+
+00:08:00.710 --> 00:08:03.770
+this root information it directly tells us
+where the roots of the two partition are.
+
+00:08:03.770 --> 00:08:09.099
+So, which is we have to go directly to that
+place and make one point to the other or vice
+
+00:08:09.099 --> 00:08:10.319
+versa.
+
+00:08:10.319 --> 00:08:18.189
+Now, find on the other hand as we saw requires
+us to start from the value that we want to
+
+00:08:18.189 --> 00:08:23.029
+check and work away up to them. So, supposing
+we say find of you, then remember that will
+
+00:08:23.029 --> 00:08:29.740
+have this node array and so node of u will
+say that the node containing u is here. So,
+
+00:08:29.740 --> 00:08:33.719
+we will start there and then we will follow
+this path, so we will say this points here
+
+00:08:33.719 --> 00:08:37.759
+and this points here and this points here
+and finally, when we reach a node which point
+
+00:08:37.759 --> 00:08:41.380
+to itself that is the name.
+So, then we will say therefore, it find of
+
+00:08:41.380 --> 00:08:49.920
+u equal to j, so this takes time proportional
+to the path that we traverse from the node
+
+00:08:49.920 --> 00:08:57.350
+to the root. Now, remember initially we had
+a path for u which looks like this, so initially
+
+00:08:57.350 --> 00:09:05.079
+every node has a path of length 1 to itself
+saying that it is its own root. Now, why does
+
+00:09:05.079 --> 00:09:09.810
+this path change it changes, because of the
+union operation, every time we do a union
+
+00:09:09.810 --> 00:09:16.279
+1 node which use to point to itself, now points
+to another node and everything below it as
+
+00:09:16.279 --> 00:09:22.460
+it is path increase by 1.
+So, therefore, the path increases by 1 every
+
+00:09:22.460 --> 00:09:27.560
+time the label of j changes, if you going
+to go from a find of j from j to the root,
+
+00:09:27.560 --> 00:09:33.490
+how much time this takes changes by 1 each
+time j changes it is label. But, as before
+
+00:09:33.490 --> 00:09:39.380
+we are doubling the component size, which
+time we merge. So, which time we do an union,
+
+00:09:39.380 --> 00:09:45.670
+then label containing j contains twice as
+many element as a did before.
+
+00:09:45.670 --> 00:09:50.930
+Now finally, the best you can do is to combine
+all the nodes in your graph into a single
+
+00:09:50.930 --> 00:09:55.930
+component, the maximum component size is n.
+So, therefore, we start with a component to
+
+00:09:55.930 --> 00:10:01.140
+size 1, then we double it to 2 and we double
+it to 4 and eventually we cannot go past n.
+
+00:10:01.140 --> 00:10:06.440
+So, this whole thing can be at most log n
+steps, so therefore log n times the label
+
+00:10:06.440 --> 00:10:11.250
+of j can change, each time the label changes,
+because we take the root of another component
+
+00:10:11.250 --> 00:10:14.230
+attach it here, the path link increasing by
+1.
+
+00:10:14.230 --> 00:10:19.350
+So, the path length increases 1 plus 1 plus
+1 log n times, so the path is at most log
+
+00:10:19.350 --> 00:10:24.860
+n. So, with this analysis we can see that,
+because we are merging smaller components
+
+00:10:24.860 --> 00:10:29.790
+and to larger components find will take log
+n time.
+
+00:10:29.790 --> 00:10:35.330
+So, we are now at a place where we are dual
+to the earlier data structure, in the earlier
+
+00:10:35.330 --> 00:10:43.290
+data structure with arrays. So, we had find,
+was a constant time operation and we had is
+
+00:10:43.290 --> 00:10:52.290
+amortized analysis that said that union was
+log n, now we have this pointer base think
+
+00:10:52.290 --> 00:10:59.620
+which says that union is order 1, but find
+is order log n. So, it is use that we have
+
+00:10:59.620 --> 00:11:05.779
+got essentially as similar kind of structure,
+except that we are reverse the complicity
+
+00:11:05.779 --> 00:11:08.930
+of the two operations.
+Now, turns out that we can do something much
+
+00:11:08.930 --> 00:11:13.060
+more cleaver an actually make it even more
+efficient to find. So, we can keep the order
+
+00:11:13.060 --> 00:11:18.740
+one of course, for union, but order log n
+can actually be reduced. So, the key is that
+
+00:11:18.740 --> 00:11:27.649
+once we have traversed this path from u to
+j, we know is some sense that not only do
+
+00:11:27.649 --> 00:11:32.860
+you know that the path containing to component
+containing u is j, we know the component containing
+
+00:11:32.860 --> 00:11:35.430
+l is j you also know the component containing
+i is j.
+
+00:11:35.430 --> 00:11:41.009
+So, why do not we make use of this information
+and not recomputed each time we come back.
+
+00:11:41.009 --> 00:11:47.350
+So, what we will do is, we will do the usual
+find j, so we will traverse the path and then
+
+00:11:47.350 --> 00:11:53.470
+we will go back from j to the root and say
+now I know this is j. So, let me bypass is
+
+00:11:53.470 --> 00:12:00.959
+whole in may be point directly to j, so I
+have remove the earlier things.
+
+00:12:00.959 --> 00:12:08.580
+So, I will remove this edge and directly go,
+similarly before I remove of the go there.
+
+00:12:08.580 --> 00:12:12.350
+So, I will say I can remove this edge directly,
+so for each step I can remove until I finally,
+
+00:12:12.350 --> 00:12:16.319
+reach the one with just below the root. So,
+basically now I will end up having a flat
+
+00:12:16.319 --> 00:12:20.510
+tree along this path, this path it use is
+look like this it not been flattened out like
+
+00:12:20.510 --> 00:12:25.290
+this. So, every think now has a directed access
+to the path, so we have flattening the tree.
+
+00:12:25.290 --> 00:12:30.050
+So, if you want to look at the pictorially,
+so I start with this.
+
+00:12:30.050 --> 00:12:40.319
+And then if I look at the current situation,
+then I will replace this edge from u to l
+
+00:12:40.319 --> 00:12:41.810
+as an edge from u to j directly.
+
+00:12:41.810 --> 00:12:46.259
+Then, I will replace the edge from l to i
+as an edge from l to j directly and so now
+
+00:12:46.259 --> 00:12:50.829
+I am end up this flat tree. So, now subsequent
+look up, so I am going to take only one step
+
+00:12:50.829 --> 00:12:52.920
+from u and l.
+
+00:12:52.920 --> 00:12:59.500
+So, the first find takes log n time, then
+it takes constant time, so now you can actually
+
+00:12:59.500 --> 00:13:03.970
+show I mean is this is not an easy calculation.
+So, we are have not going to try and attempt
+
+00:13:03.970 --> 00:13:09.449
+it now, but after this you can show that just
+like we can do an amortised analysis for in
+
+00:13:09.449 --> 00:13:15.120
+the earlier array based implementation to
+get an overall log n, m log n, cost m log
+
+00:13:15.120 --> 00:13:21.839
+m cost for m union operations. Here, you can
+actually show that a total of n finds will
+
+00:13:21.839 --> 00:13:27.100
+actually take something almost linear in n.
+Almost linear in n is actually n times of
+
+00:13:27.100 --> 00:13:33.639
+function called alpha of n and this alpha
+of n is something which is the inverse of
+
+00:13:33.639 --> 00:13:38.370
+the Ackermann function, the Ackermann function
+is something which grows very fast. So, it
+
+00:13:38.370 --> 00:13:44.029
+is a function which grows faster than any
+explanation, now this is like the log of the
+
+00:13:44.029 --> 00:13:48.000
+inverse Ackermann, I mean the log of Ackermann.
+So, you know that for the exponential function,
+
+00:13:48.000 --> 00:13:52.790
+the inverse is the log. So, that is why log
+n is nice for us, it is slow log of 1000 is
+
+00:13:52.790 --> 00:13:58.029
+10, log of 1 billion is 20, 1 million is 20,
+log of 1 billion is 30 it was very slowly,
+
+00:13:58.029 --> 00:14:02.000
+because in other directions growing fast 2
+to the power 10, 2 to the power of 20, 2 to
+
+00:14:02.000 --> 00:14:06.000
+the power of 30 goes very fast.
+So, similarly Ackermann goes very fast, so
+
+00:14:06.000 --> 00:14:10.110
+if you take what is the corresponding log
+function, for what value is this the Ackermann
+
+00:14:10.110 --> 00:14:16.170
+inputs it grows very slowly. In fact, it is
+claim that alpha of n is at most 4 for any
+
+00:14:16.170 --> 00:14:20.029
+value of n that you are likely to encountered
+in a practical computing problem that you
+
+00:14:20.029 --> 00:14:23.600
+can solve.
+So, you can think of this has been something
+
+00:14:23.600 --> 00:14:29.130
+like order n, because we know that alpha of
+n is less than equal to 4. So, this is like
+
+00:14:29.130 --> 00:14:34.860
+4 n, so path compression gives as a drastic
+reduction from n log n which we would get
+
+00:14:34.860 --> 00:14:39.519
+without path compression to something which
+is linear. So, therefore, now by moving to
+
+00:14:39.519 --> 00:14:43.730
+this pointer base thing, we have actually
+achieved a considerable saving compare to
+
+00:14:43.730 --> 00:14:48.790
+the more direct array based implementation
+that behave in the last lecture.
+
+00:14:48.790 --> 00:14:54.500
+So, to summarise if we implement union find
+using nodes with pointers, then we can do
+
+00:14:54.500 --> 00:14:58.970
+of course, the initial set of that make union
+find and linear time, union now becomes a
+
+00:14:58.970 --> 00:15:03.439
+order 1 operation. Because, we just directly
+access the two roots and merge this smaller
+
+00:15:03.439 --> 00:15:10.600
+root with the bigger root and find now if
+you use this path compression trick, although
+
+00:15:10.600 --> 00:15:19.839
+and principle it is n log n for n operations,
+it is n alpha n for n operations if we use
+
+00:15:19.839 --> 00:15:20.360
+path compression.
+

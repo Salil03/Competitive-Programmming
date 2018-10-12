@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="range-queries.html">Range queries</a></h2>
+
+      <h3><span>Range queries with interval updates and point queries</span></h3>
+
+      <p>
+	So far, we have considered an array in which we make
+	updates at single positions and ask questions about
+	intervals.  What if we have, instead, interval updates
+	and point queries?
+      </p>
+
+      <h3><span>Paint (introductory version)</span></h3>
+
+      <p>
+	A painter paints a strip N squares wide
+      </p>
+
+      <pre>
+        ----------------------
+        | 1 | 2 | 3 | .... | N |
+        ----------------------
+      </pre>
+
+      <p>
+	In one step, the painter paints a continuous strip from
+	square i to square j, which we denote [i,j].
+	Periodically, we want to know the number of layers of
+	paint that have been applied at square p.
+      </p>
+
+      <p>
+	Assume we have a sequence of instructions of the form:
+      <p>
+
+	<pre>
+	  paint([i1,j1])
+	  paint([i2,j2])
+	  .
+	  .
+	  paint([ik,jk])
+	  layers(p)
+	</pre>
+
+      <p>
+	There are K paint operations and M queries.
+      </p>
+
+      <p>
+	<b>Naive solution:</b>
+      </p>
+
+      <p>
+	Initialize layers(p) = 0 for all 1 &le; p &le; N.
+      </p>
+
+      <p>
+	On each paint([i,j]), increment layers(p) for each i &le;
+	p &le; j
+      </p>
+
+      <p>
+	In the worst case, this could take O(N) time for each
+	paint operation.  A query can be answered in constant
+	time.  Thus, this solution takes time O(KN).
+      </p>
+
+      <p>
+	<b>Better solution:</b>
+      </p>
+
+      <p>
+	Maintain a segment tree, but what do we store at each node?
+      </p>
+
+      <p>
+	Recall that each node represents an interval.  For N = 8,
+	here are the intervals spanned by the nodes in the tree.
+      </p>
+
+      <pre>
+                              [1,8]
+                                |
+                 _______________|________________
+                |                                |
+              [1,4]                            [5,8]
+         _______|_______                _________|________
+        |               |              |                  |
+      [1,2]           [3,4]          [5,6]              [7,8]
+     ___|___         ___|___        ___|___            ___|___
+    |       |       |       |      |       |          |       |
+  [1,1]   [2,2]   [3,3]   [4,4]  [5,5]   [6,6]      [7,7]   [8,8]
+      </pre>
+
+      <p>
+	At each vertex v, record
+      </p>
+
+      <p>
+	<table align="center" width="80%">
+	  <tr>
+	    <td width="15%">coats(v)</td>
+	    <td width="5%">=</td>
+	    <td width="80%">
+	      number of paint strokes that contain the entire
+              interval Interval(v), but do not contain the entire
+              interval Interval(parent(v)) spanned by the parent
+              of v.
+	    </td>
+	  </tr>
+	</table>
+      </p>
+
+      <p>
+	How do we update this?
+      </p>
+
+      <p>
+	Consider an operation paint([i,j]):
+      </p>
+
+      <p>
+	If [i,j] = [1,N], update coats of the root node and stop.
+	For every other node, Interval(v) is contained in [i,j]
+	but so is Interval(parent(v)), so coats(v) is unchanged.
+      </p>
+
+      <p>
+	If [i,j] is not equal to [1,N], break up the interval
+	according to the children.
+      </p>
+
+      <p>
+	For instance, in the example above, suppose [i,j] =
+	[2,5].  This does not span [1,8] so we split [2,5] as
+	[2,4] and [5,5], send [2,4] down the left tree and [5,5]
+	down the right tree.
+      </p>
+
+      <p>
+	We repeat this recursively at these two children of the
+	root using the same rule.  Thus, on the left child of the
+	root, since [2,4] does not span [1,4], we further split
+	it as [2,2] and [3,4] and send [2,2] left and [3,4]
+	right.  [3,4] stops, but [2,2] goes down further to the
+	leaf labelled [2,2].
+      </p>
+
+      <p>
+	We update the coats(v) for every v where the
+	(sub)interval of [i,j] that reaches v matches
+	Interval(v).
+      </p>
+
+      <p>
+	As before, we can argue that each update takes time log
+	N.  Thus, over K paint operations, updating the entries
+	takes O(K log N) time (as opposed to O(KN) time in the
+	naive solution).
+      </p>
+
+      <p>
+	How do we answer a query of the form layers(p)?
+      </p>
+
+      <p>
+	We just have to add up coats(v) for all nodes on the path
+	from the root to [p,p].  How do we do this efficiently?
+	Recall that we have stored the tree in an array of size
+	2N-1.  The leaf nodes are in positions N to 2N-1.  Thus,
+	the leaf node corresponding to the interval [P,P] is at
+	position (N-1)+P.  We can start here and walk up to the
+	parent till we reach the root.
+      </p>
+
+      <p>
+	Alternatively, we can start at the root and walk down the
+	path to [P,P] by checking the current interval and
+	deciding whether to go left or right at each step.
+      </p>
+
+      <p>
+	This requires O(log N) steps for each query, or O(M log
+	N) steps for M queries.
+      </p>
+
+      <p>
+	Thus, overall, this takes O((K+M) log N) steps to update
+	information and answer queries.  If K,M and N are roughly
+	equal, this takes O(N log N) time whereas the naive
+	solution takes O(N^2) time.
+      </p>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

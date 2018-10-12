@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp-trees.html">Dynamic programming on
+        trees</a>&rarr;Coffee Shop (APIO Shortlist 2007)
+      </h2>
+
+      <p>
+        Given some stations arranged in a tree-like network, we
+        want to place coffee shops at some stations so that no
+        station is more than K hops away from a coffee shop.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        Since the network is a tree, we identify any one node as
+        the root and walk up from the leaves.
+      </p>
+
+      <p>
+        When we come to a node v, we assume we have processed its
+        subtrees and placed coffee shops.  We need to decide
+        whether to place a coffee shop at v.
+      </p>
+
+      <p>
+        The only reason to place a coffee shop at v is if there
+        is some node below v that cannot be serviced below v and
+        would become more than K hops away from a coffee shop if
+        there is no shop at v.
+      </p>
+
+      <p>
+        To compute this, we maintain two quantities:
+      </p>
+
+      <ul>
+        <li>C(v) : minimum depth of coffee shop below v</li>
+        <li>U(v) : maximum depth of unserved node below v</li>
+      </ul>
+
+      <p>
+        We first compute
+      </p>
+
+      <table>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;</td>
+          <td>C'(v)  = 1 +</td>
+          <td align="center">min</td>
+          <td>C(w)</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;</td>
+          <td></td>
+          <td><sub>w in child(v)</sub></td>
+        </tr>
+      </table>
+                
+      <p>
+        to find the minimum depth of a coffee shop from v without
+        placing a coffee shop at v.
+      </p>
+
+      <p>
+        Let {w1,w2,...,wn} be the children of v.  Even if we
+        don't place a coffee shop at v, an unserved node below
+        one child wi of v may get served (via v) by a coffee shop
+        below some other child wj of v.  Recall that we have
+        already computed C'(v), the shortest distance from v to a
+        coffee shop below it.  For each child w of v, compute
+      </p>
+
+      <ul>
+
+        <li> U'(w) = 0, if U(w) + 1 + C'(v) &le; k (node below w
+          can reach a coffee shop via v)
+        </li>
+
+        <li>
+          U'(w) = U(w), otherwise (cannot reach a coffee shop via
+          v)
+        </li>
+
+      </ul>
+
+      <p>
+        Now, we must place a coffee shop at v if U'(w) = k-1
+        (otherwise, after adding v without a coffee shop, the
+        unserviced node below w will be k hops away from v
+        without seeing a coffee shop and nearest coffee).
+      </p>
+
+      <p>
+	If we add a coffee shop at v, every node below v is
+        served, including v. So the 'maximum depth of unserved
+        node below v' is not defined. Defining it as 0 would
+        imply that v was not served. And, to ensure that the +1s
+        from executing "U(v) = 1+ max[w child of v] U'(w)" in the
+        other case does not interfere with our values, we define
+        U(v) to be -infinity.  So, U(v) = -infinity, where
+        'infinity' can be any number greater than the total
+        number of nodes in the tree.
+      </p>
+
+      <ul>
+        <li>C(v) = 0</li>
+        <li>U(v) = -infinity</li>
+      </ul>
+
+      <p>
+        Otherwise,
+      </p>
+
+      <ul>
+        <li>C(v) = C'(v)</li>
+        <li>U(v) =  1 + max<sub>w child of v</sub>  U'(w)</li>
+      </ul>
+
+      <p>
+        Finally, when we reach the root, we must put a coffee
+        shop if there is any unserviced node below it, or if it
+        is itself unserviced by anything below it.
+      </p>
+
+      <p>
+        To show that this solution is optimal, consider any other
+        solution.  Inductively, in every subtree, if our solution
+        puts a coffee shop, the other solution must have a
+        matching coffee shop (because we put coffee shops only
+        when absolutely necessary).  Our coffee shops are pushed
+        up as far as possible, which can only improve the total
+        number. 
+      </p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

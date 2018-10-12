@@ -1,0 +1,579 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.319 --> 00:00:06.420
+So, before we start the formal part of the
+course, I would like to discuss a few examples
+
+00:00:06.420 --> 00:00:10.269
+to motivate the kind of problems we will be
+looking at.
+
+00:00:10.269 --> 00:00:12.539
+So, we start with a problem of air travel.
+
+00:00:12.539 --> 00:00:18.830
+So, we have an airline; Barbet airlines, which
+serves several cities in the country.
+
+00:00:18.830 --> 00:00:23.210
+And of course, although it serves several
+cities, it does not really connect all these
+
+00:00:23.210 --> 00:00:24.210
+cities directly.
+
+00:00:24.210 --> 00:00:26.779
+Only some of the cities are connected by direct
+flights.
+
+00:00:26.779 --> 00:00:29.220
+And for other pairs of cities you have to
+take a hopping flight.
+
+00:00:29.220 --> 00:00:32.210
+You have to go via an intermediate city.
+
+00:00:32.210 --> 00:00:37.040
+So, our first goal maybe to compute every
+pair of cities, which are actually connected
+
+00:00:37.040 --> 00:00:39.120
+by this network served by this airline.
+
+00:00:39.120 --> 00:00:45.989
+So, how do we find out all pairs of cities
+A, B, such that A and B are connected by a
+
+00:00:45.989 --> 00:00:47.700
+sequence of flights.
+
+00:00:47.700 --> 00:00:50.530
+So, first we need to look at the network.
+
+00:00:50.530 --> 00:00:53.410
+So, this is a typical way that we might find
+the network.
+
+00:00:53.410 --> 00:00:58.129
+For example, if we open the in-flight magazine
+of an airline, you find a route map.
+
+00:00:58.129 --> 00:00:59.620
+And it is written like this.
+
+00:00:59.620 --> 00:01:04.010
+You have a physical map of the country and
+you have the cities which are served; marked
+
+00:01:04.010 --> 00:01:05.010
+out.
+
+00:01:05.010 --> 00:01:09.100
+There are about ten cities; Delhi, Varanasi,
+Ahmedabad, down to Trivandrum in the south.
+
+00:01:09.100 --> 00:01:11.520
+And you have some arrows indicating the flights.
+
+00:01:11.520 --> 00:01:14.470
+Now, some of these flights are in one direction.
+
+00:01:14.470 --> 00:01:18.040
+You can go from Delhi to Varanasi, but you
+cannot come back directly to Delhi.
+
+00:01:18.040 --> 00:01:19.729
+You must go to Ahmedabad and then come back.
+
+00:01:19.729 --> 00:01:20.930
+So, this is quite common.
+
+00:01:20.930 --> 00:01:26.119
+If you look at airline's schedules in airlines,
+you will find that there were these kind of
+
+00:01:26.119 --> 00:01:27.119
+triangular routes.
+
+00:01:27.119 --> 00:01:32.229
+Where you go around a triangle and you cannot
+go back directly without hopping in between.
+
+00:01:32.229 --> 00:01:36.759
+Some pairs of important cities; like in this
+case Mumbai and Delhi might be connected by
+
+00:01:36.759 --> 00:01:40.770
+flights in both directions or even Mumbai
+and Calcutta.
+
+00:01:40.770 --> 00:01:42.470
+And so now we have these ten cities.
+
+00:01:42.470 --> 00:01:47.200
+We want to know is it really possible go from
+say Varanasi to Trivandrum or is it not possible,
+
+00:01:47.200 --> 00:01:51.130
+is it possible to go from Hyderabad to Delhi
+or is it not possible.
+
+00:01:51.130 --> 00:01:57.650
+So, our first step is to model this problem
+in such a way that we retain the essential
+
+00:01:57.650 --> 00:02:01.680
+details, which are relevant to solving the
+problem and get rid of all the unnecessary
+
+00:02:01.680 --> 00:02:02.680
+details.
+
+00:02:02.680 --> 00:02:09.330
+So, in this case what we really would like
+to know is the structure of this network.
+
+00:02:09.330 --> 00:02:10.330
+Right.
+
+00:02:10.330 --> 00:02:12.380
+So, the map itself is not relevant.
+
+00:02:12.380 --> 00:02:16.860
+We just need to know how many cities are there,
+which are on the network and how are they
+
+00:02:16.860 --> 00:02:18.610
+connected by the flights.
+
+00:02:18.610 --> 00:02:25.520
+So, the picture below which has these gray
+circles and arrows represents this network.
+
+00:02:25.520 --> 00:02:30.610
+The cities are the gray circles and the flights
+are the arrows and the arrow heads indicates
+
+00:02:30.610 --> 00:02:31.610
+the direction.
+
+00:02:31.610 --> 00:02:34.330
+So, if there is an arrow head in one direction,
+it is a one directional flight; if there is
+
+00:02:34.330 --> 00:02:38.130
+an arrow head in both ends, its means it is
+a bidirectional flight.
+
+00:02:38.130 --> 00:02:40.320
+The actual names of the cities are not so
+relevant.
+
+00:02:40.320 --> 00:02:47.330
+So, we can call them 1, 2, 3, 4, 5 or a, b,
+c, d, e or whatever and solve the problem.
+
+00:02:47.330 --> 00:02:49.760
+So, this kind of a picture is called a graph.
+
+00:02:49.760 --> 00:02:53.670
+We will study graphs more formally when we
+come to this module in our course.
+
+00:02:53.670 --> 00:02:56.090
+But a graph is just a picture of this kind.
+
+00:02:56.090 --> 00:03:01.420
+So it has some nodes, these dots and edges.
+
+00:03:01.420 --> 00:03:08.840
+So, now one nice thing about moving to this
+abstract level is that the actual picture
+
+00:03:08.840 --> 00:03:11.430
+can be distorted without changing its meaning.
+
+00:03:11.430 --> 00:03:12.430
+So, we can move.
+
+00:03:12.430 --> 00:03:20.950
+For instance, if we look at this city here,
+right, we can move it to the right and it
+
+00:03:20.950 --> 00:03:25.840
+does not make any difference in terms of solving
+the problem.
+
+00:03:25.840 --> 00:03:33.060
+Or we could simplify the picture by moving,
+for instance, this edge outside, so that we
+
+00:03:33.060 --> 00:03:34.650
+get no crossing edges.
+
+00:03:34.650 --> 00:03:35.960
+And this is again the same picture.
+
+00:03:35.960 --> 00:03:39.490
+Though it looks quite different from the picture
+that we started with, this is again the same
+
+00:03:39.490 --> 00:03:40.490
+network.
+
+00:03:40.490 --> 00:03:44.992
+Now, in some situations it is useful to realize
+that the graph that we have looks like this;
+
+00:03:44.992 --> 00:03:46.730
+that there are no crossing edges.
+
+00:03:46.730 --> 00:03:48.920
+Technically, such a graph is called a planar
+graph.
+
+00:03:48.920 --> 00:03:52.670
+It can be drawn on a flat piece of paper without
+any edges crossing.
+
+00:03:52.670 --> 00:03:58.390
+For planar graphs, we might have better algorithms
+than for arbitrary graphs.
+
+00:03:58.390 --> 00:04:00.770
+Now what do you want to do with such a graph?
+
+00:04:00.770 --> 00:04:03.430
+So, in this case we want to compute what we
+call a path.
+
+00:04:03.430 --> 00:04:09.200
+That is the sequence of edges going from one
+city to another city; where of course the
+
+00:04:09.200 --> 00:04:10.200
+direction must be correct.
+
+00:04:10.200 --> 00:04:14.590
+So, you cannot go backwards, across an edge
+which is flying from A to B. You cannot take
+
+00:04:14.590 --> 00:04:17.540
+this flight from B to A, unless there is another
+flight.
+
+00:04:17.540 --> 00:04:23.440
+So, our first question is how do we take this
+picture and put it into form that we can manipulate
+
+00:04:23.440 --> 00:04:25.400
+using a program or an algorithm.
+
+00:04:25.400 --> 00:04:31.940
+So, we need a suitable data structure in order
+to represent this graph.
+
+00:04:31.940 --> 00:04:36.300
+Now given the way we represent the graph,
+we need to manipulate it to answer the question
+
+00:04:36.300 --> 00:04:37.300
+at hand.
+
+00:04:37.300 --> 00:04:38.300
+In this case, connectivity.
+
+00:04:38.300 --> 00:04:42.871
+How do we go from A to B or can we go from
+A to B or which all cities B can I reach from
+
+00:04:42.871 --> 00:04:43.871
+A?
+
+00:04:43.871 --> 00:04:50.140
+So, how do we design such an algorithm, given
+the way we have represented the cities in
+
+00:04:50.140 --> 00:04:51.500
+this graph?
+
+00:04:51.500 --> 00:04:54.900
+Does it depends on the representation, are
+there multiple representations, some of which
+
+00:04:54.900 --> 00:04:57.600
+gives us more or less efficient algorithm?
+
+00:04:57.600 --> 00:05:01.440
+These are all questions that we need to answer
+before we can decide on whether we have got
+
+00:05:01.440 --> 00:05:03.210
+the best solution at hand.
+
+00:05:03.210 --> 00:05:07.340
+Now, in terms of efficiency we have to look
+at what are the things that determine the
+
+00:05:07.340 --> 00:05:09.420
+complexity of a problem.
+
+00:05:09.420 --> 00:05:15.790
+It is fairly obvious in this particular case
+that if we have more cities, the problem is
+
+00:05:15.790 --> 00:05:17.130
+more complicated.
+
+00:05:17.130 --> 00:05:22.660
+So the number of cities, which we can call
+N, is certainly one parameter which determines
+
+00:05:22.660 --> 00:05:27.160
+how complicated the algorithm is going to
+be, or not how complicated the algorithm is
+
+00:05:27.160 --> 00:05:30.770
+going to be, or rather how long it is going
+to take to run.
+
+00:05:30.770 --> 00:05:35.420
+The other question which determines how complex
+the network is is how many direct flights
+
+00:05:35.420 --> 00:05:36.420
+there are...
+
+00:05:36.420 --> 00:05:38.840
+Obviously if there are fewer flights, there
+are fewer places, which can be connected and
+
+00:05:38.840 --> 00:05:42.020
+we have to explore fewer possibilities.
+
+00:05:42.020 --> 00:05:46.800
+So from this, it follows that computing the
+paths depends on both N and F. So, we will
+
+00:05:46.800 --> 00:05:49.590
+not have an algorithm which will always take
+say twenty steps.
+
+00:05:49.590 --> 00:05:56.180
+It will have to depend some number of steps
+depending on N and F. Now what is this dependency,
+
+00:05:56.180 --> 00:05:57.260
+how does it grow?
+
+00:05:57.260 --> 00:06:00.310
+If N doubles, does our algorithm take two
+times more time?
+
+00:06:00.310 --> 00:06:02.200
+Does it takes four times more time?
+
+00:06:02.200 --> 00:06:07.790
+If N term grows to factor of ten, does it
+takes ten times more or hundred times more
+
+00:06:07.790 --> 00:06:08.790
+time?
+
+00:06:08.790 --> 00:06:14.430
+The other question related to this is given
+this dependency on N and F what realistic
+
+00:06:14.430 --> 00:06:17.430
+size of networks can we handle?
+
+00:06:17.430 --> 00:06:21.550
+If the airline grows to twenty flights, we
+will still have be able to give our answer
+
+00:06:21.550 --> 00:06:22.550
+in a reasonable time.
+
+00:06:22.550 --> 00:06:26.810
+Remember that this kind of an answer is typically
+required when somebody is making an online
+
+00:06:26.810 --> 00:06:27.810
+booking or something.
+
+00:06:27.810 --> 00:06:32.050
+And you will want a reply in a few seconds,
+right, it is not enough to come back after
+
+00:06:32.050 --> 00:06:37.400
+an hour and say “yes, there is a flight
+from Trivandrum to Calcutta”.
+
+00:06:37.400 --> 00:06:40.300
+So, what is the limit of our efficiency?
+
+00:06:40.300 --> 00:06:44.050
+Can we scale this algorithm to cover airlines,
+multiple airlines?
+
+00:06:44.050 --> 00:06:49.560
+So, we have a website which actually says,
+across all airlines I can take you from place
+
+00:06:49.560 --> 00:06:56.560
+A to place B. That depends on how larger a
+value of N and F we can handle.
+
+00:06:56.560 --> 00:07:00.260
+And then of course the problem that we have
+looked at is a very simple problem; can I
+
+00:07:00.260 --> 00:07:04.530
+get from A to B. But very often it is not
+good enough to get from A to B. You want to
+
+00:07:04.530 --> 00:07:07.110
+get from A to B within some reasonable time
+frame.
+
+00:07:07.110 --> 00:07:13.900
+For instance, it is not usually acceptable
+to break journey overnight on aircraft.
+
+00:07:13.900 --> 00:07:18.580
+At the same time, you also do not want to
+spend more than the certain amount of time
+
+00:07:18.580 --> 00:07:19.910
+waiting in between flights.
+
+00:07:19.910 --> 00:07:22.710
+So, there are only some connections.
+
+00:07:22.710 --> 00:07:26.100
+Although there may be; theoretically there
+may be the connections, only some of them
+
+00:07:26.100 --> 00:07:27.660
+may actually be feasible.
+
+00:07:27.660 --> 00:07:30.630
+So, now our problem becomes a little more
+constrained.
+
+00:07:30.630 --> 00:07:36.340
+So, we do not just want to look at the connected
+paths from A to B. But connected paths A to
+
+00:07:36.340 --> 00:07:41.200
+B, which meet some additional constraints
+in terms of timing and other things.
+
+00:07:41.200 --> 00:07:45.169
+So, can we solve this problem with the same
+approach that we solve the simpler problem
+
+00:07:45.169 --> 00:07:49.930
+or do we need to take a radically different
+approach or do we need more information in
+
+00:07:49.930 --> 00:07:53.700
+order to decide or solve the problem.
+
+00:07:53.700 --> 00:07:57.750
+Suppose, as you would expect each sector on
+this thing has a cost.
+
+00:07:57.750 --> 00:08:01.060
+As a passenger, the cost would be the price
+of ticket.
+
+00:08:01.060 --> 00:08:07.930
+So, if you are trying to compute the best
+way to go from A to B, your motivation might
+
+00:08:07.930 --> 00:08:11.590
+be to choose the cheapest route in terms of
+the ticket cost.
+
+00:08:11.590 --> 00:08:15.320
+Of course cost is not only money, cost could
+be time as well.
+
+00:08:15.320 --> 00:08:20.120
+You might also want the quickest route from
+A to B, the one which involves the least waiting.
+
+00:08:20.120 --> 00:08:23.020
+So, it depends on what your priority is.
+
+00:08:23.020 --> 00:08:26.400
+Are you urgently required somewhere, in which
+case you do not mind paying more.
+
+00:08:26.400 --> 00:08:31.610
+Or, are you going on a vacation with the family;
+in which case, you have a relaxed time schedule,
+
+00:08:31.610 --> 00:08:33.890
+but you want to make sure you get value from
+money.
+
+00:08:33.890 --> 00:08:37.920
+From the airlines point of view there may
+be other questions.
+
+00:08:37.920 --> 00:08:42.479
+Periodically aircrafts have to be brought
+down for a day for maintenance.
+
+00:08:42.479 --> 00:08:47.550
+Now, you do not want to have so many aircrafts
+that you keep all the routes flying and wastefully
+
+00:08:47.550 --> 00:08:50.010
+keep planes unused.
+
+00:08:50.010 --> 00:08:55.480
+At the same time if you keep two few planes,
+then when you bring an aircraft down for maintenance
+
+00:08:55.480 --> 00:08:57.180
+you have to sacrifice some routes.
+
+00:08:57.180 --> 00:09:00.590
+Now, which routes should you sacrifice?
+
+00:09:00.590 --> 00:09:04.460
+So that, you ensure that the connectivity
+of the network remains the same.
+
+00:09:04.460 --> 00:09:08.220
+If you could go earlier from Trivandrum to
+Calcutta, during a maintenance shutdown you
+
+00:09:08.220 --> 00:09:11.530
+should still be able to go from Trivandrum
+to Calcutta; maybe by a different route.
+
+00:09:11.530 --> 00:09:16.430
+So, this is a problem to be addressed by the
+airlines staff; whereas the cheapest route
+
+00:09:16.430 --> 00:09:18.650
+might be a problem to be addressed by the
+customers.
+
+00:09:18.650 --> 00:09:23.660
+So, there are very many different kinds of
+questions you can ask about this basic air
+
+00:09:23.660 --> 00:09:26.140
+network that we have described using a graph.
+
+00:09:26.140 --> 00:09:28.950
+And we will see answers to some of these problems
+in this course.
+

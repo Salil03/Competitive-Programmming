@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a href="..\problems\index.html">Problems</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2><a href="heaps.html">Heaps</a></h2>
+
+      <h3><span>Building a heap</span></h3>
+
+      <p>
+	One way to construct a heap from a list or array is to
+	insert the elements one at a time.  This takes n log n
+	time, since we insert n elements and each insert takes
+	log n time.
+      </p>
+
+      <p>
+	A more efficient way is to work bottom up.  Suppose we
+	write out the contents of the array in the form of a binary tree.
+	For example, if we start with 7 5 6 15 2 1 18, the tree is
+      </p>
+
+      <pre>
+                    --7--
+                   /     \
+                  5       6
+                 / \     / \
+               15   2   1   18
+      </pre>
+
+      <p>
+	Notice that the nodes at the bottom level satisfy the
+	heap property, since they don't have any children.
+	Starting at these "leaf" nodes, we work up the tree,
+	combining heaps at the next level.
+      </p>
+
+      <p>
+	Each lowest level node (index greater than n div 2) is a
+	singleton heap.  For each node at level at second lowest
+	level, we locally adjust the values into 3 element heaps.
+	At the next level, we combine two 3 element heaps with a
+	new root into 7 element heaps.  Each higher level has 1/2
+	the number of nodes.
+      </p>
+
+      <p>
+	First step:
+      </p>
+
+      <pre>
+                  5            2            6            1
+                 / \    ==>   / \          / \    ==>   / \
+               15   2       15   5        1   18       6   18
+      </pre>
+
+      <p>
+	Second step:
+      </p>
+
+      <pre>
+         --7--                --1--                  --1--
+        /     \              /     \                /     \
+       2       1    ==>     2       7     ==>      2       6
+      / \     / \          / \     / \            / \     / \
+    15   5   6   18      15   5   6   18        15   5   7   18
+      </pre>
+
+      <p>
+	What is the complexity?
+      </p>
+
+      <p>
+	Naively, it looks like n log n since we fix the heap n/2
+	times and each fix takes log n.
+      </p>
+
+      <p>
+	To fix the heap at the root of n nodes, we need to make a
+	heap at each of its children (trees of size n/2) and then
+	fix the root (walk down upto log n steps flipping
+	values).
+      </p>
+
+      <p>
+	Notice that later steps take more operations but there
+	are only half as many corrections to make.  Overall, if
+	you add up the operations, it turns out to be O(n).
+      </p>
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Basic topics</h3>
+      <ul class="menu">
+	<li><a href="introduction.html">Introduction</a></li>
+	<li><a href="efficiency.html">Efficiency</a></li>
+	<li><a href="binarysearch.html">Searching</a></li>
+	<li><a href="sorting.html">Sorting</a></li>
+	<li><a href="graphs.html">Basic Graph Algorithms</a></li>
+	<li><a href="dp.html">Dynamic Programming</a></li>
+	<li><a href="greedy.html">Greedy Algorithms</a></li>
+	<li><a href="shortest-paths.html">Computing Shortest Paths</a></li>
+	<li><a href="heaps.html">Heaps</a></li>
+	<li><a href="permutations.html">Permutations</a></li>
+	<li><a href="dags.html">Directed Acyclic Graphs</a></li>
+	<li><a href="prefix-sums.html">Computing Prefix Sums</a></li>
+	<li><a href="sliding-window.html">Sliding Window Algorithms</a></li>
+      </ul>
+
+      <h3>Advanced topics</h3>
+      <ul class="menu">
+	<li><a href="advanced-graph-algorithms.html">Advanced Graph Algorithms</a></li>
+	<li><a href="dp-trees.html">Dynamic Programming on Trees</a></li>
+	<li><a href="range-queries.html">Range Queries</a></li>
+	<li><a href="network-flows.html">Network Flows</a></li>
+	<li><a href="games.html">Games and Strategies</a></li>
+	<li><a href="geometry.html">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="">Topics</a>|</li>
+                  <li><a href="..\problems\index.html">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

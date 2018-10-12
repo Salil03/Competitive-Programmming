@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\dp-trees.html">Dynamic programming on
+        trees</a>&rarr;Rivers (IOI 2005)
+      </h2>
+
+      <p>
+        Nearly all of the Kingdom of Byteland is covered by
+        forests and rivers. Small rivers meet to form bigger
+        rivers, which also meet and, in the end, all the rivers
+        flow together into one big river. The big river meets the
+        sea near Bytetown.
+      </p>
+
+      <p>
+        There are N lumberjacks' villages in Byteland, each
+        placed near a river. Currently, there is a big sawmill in
+        Bytetown that processes all trees cut in the Kingdom. The
+        trees float from the villages down the rivers to the
+        sawmill in Bytetown.
+      </p>
+
+      <p>
+        The king of Byteland decided to build K additional
+        sawmills in villages to reduce the cost of transporting
+        the trees downriver.
+      </p>
+
+      <p>
+        After building the sawmills, the trees need not float to
+        Bytetown, but can be processed in the first sawmill they
+        encounter downriver. Obviously, the trees cut near a
+        village with a sawmill need not be transported by
+        river. It should be noted that the rivers in Byteland do
+        not fork. Therefore, for each village, there is a unique
+        way downriver from the village to Bytetown.
+      </p>
+
+      <p>
+        The king's accountants calculated how many trees are cut
+        by each village per year. You must decide where to build
+        the sawmills to minimize the total cost of transporting
+        the trees per year. River transportation costs one cent
+        per kilometre, per tree.
+      </p>
+
+      <p>
+        Example:
+      </p>
+
+      <pre>
+   Bytetown        1            1
+      ---    1    ---    10    ---     5    ---
+     | 0 |<------| 1 |<-------| 2 |<-------| 3 | 10
+      ---         ---          --- <--      ---
+                                      |
+                                      |3
+                                      |     ---
+                                       ----| 4 | 1
+                                            ---
+                                            </pre>
+
+      <p>
+        The nodes {1,2,3,4} are villages and the edges are
+        rivers. The number of trees to be cut is written by the
+        side of each village.  The length of each river is
+        written by the edge.  2 sawmills are to be placed.
+      </p>
+
+      <p>
+        The solution in this case is to place the mills at
+        villages 2 and 3, which incurs a cost of 4.
+      </p>
+
+      <p>
+        <b>Input:</b> The number of villages N (&le; 100), the
+        number of additional sawmills to be built K (&le; 50),
+        the number of trees cut near each village W_i (&le;
+        10000), and descriptions of the rivers,
+      </p>
+
+      <p>
+        <b>Output:</b> The minimal cost of river transportation
+        after building additional sawmills.
+      </p>
+
+      <p><a href="rivers-soln.html#solution">Solution</a></p>
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\greedy.html">Greedy Algorithms</a>&rarr;Sails (IOI 2007)
+      </h2>
+
+      <p>
+        A new pirate sailing ship is being built. The ship has N
+        masts (poles) divided into unit sized segments - the
+        height of a mast is equal to the number of its
+        segments. Each mast is fitted with a number of sails and
+        each sail exactly fits into one segment. Sails on one
+        mast can be arbitrarily distributed among different
+        segments, but each segment can be fitted with at most one
+        sail.
+      </p>
+
+      <p>
+        Different configurations of sails generate different
+        amounts of thrust when exposed to the wind. Sails in
+        front of other sails at the same height get less wind and
+        contribute less thrust. For each sail we define its
+        inefficiency as the total number of sails that are behind
+        this sail and at the same height. Note that "in front of"
+        and "behind" relate to the orientation of the ship: in
+        the figure below, "in front of" means to the left, and
+        "behind" means to the right.
+      </p>
+
+      <p>
+        The total inefficiency of a configuration is the sum of
+        the inefficiencies of all individual sails.
+      </p>
+
+      <p>
+        Example
+      </p>
+
+      <pre>
+                    /|
+                  / 0|
+                  ---+
+                    /|    /|          /|
+                  / 2|  / 1|        / 0|
+                  ---+  ---+        ---+
+              /|     |     |          /|    /|
+            / 2|     |     |        / 1|  / 0|
+            ---+     +     +        ---+  ---+
+               |    /|     |           |    /|
+               |  / 1|     |           |  / 0|
+               +  ---+     +           +  ---+
+              /|     |     |    /|    /|     |
+            / 2|     |     |   /1|   /0|     |
+            ---+     +     +   --+   --+     |
+      Front    |     |     |     |     |     |     Rear
+       ----------------------------------------------
+        \                                          /
+          -----------------------------------------
+      </pre>
+
+      <p>
+        This ship has 6 masts, of heights 3, 5, 4, 2, 4 and 3
+        from front (left side of image) to back.  This
+        distribution of sails gives a total inefficiency of
+        10. The individual inefficiency of each sail is written
+        inside the sail.
+      </p>
+
+      <p>
+        Write a program that, given the height and the number of
+        sails on each of the N masts, determines the smallest
+        possible total inefficiency.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        <b>Observation 1</b>
+      </p>
+
+      <p>
+        The inefficiency of a level is determined by the number
+        of sails at that level.  The order of the masts does not
+        matter, so we can rearrange them in ascending order of
+        height.
+      </p>
+
+      <p>
+        <b>Greedy strategy:</b>
+      </p>
+
+      <p>
+        Place the sails from front (shortest) mast to rear
+        (tallest) mast.  For each new mast, place each sail on
+        the level from the bottom that has least number so far.
+        (As you go back and the masts increase in height, so new
+        levels have count 0.)
+      </p>
+
+      <p>
+        Is this greedy strategy correct?
+      </p>
+
+      <p>
+        Given any optimal placement, we can show that we can
+        transform step by step it into something that the greedy
+        strategy will produce.  (This is the standard way to
+        prove a greedy algorithm is correct &mdash; "exchange"
+        argument.)
+      </p>
+
+      <p>
+        Initially, all levels have 0.  So, any placement of the
+        first mast is consistent with the greedy suggestion.
+      </p>
+
+      <p>
+        Let us assume that upto the first K masts, we have
+        perturbed the optimal solution to look like greedy.  We
+        now show that we can rearrange the (K+1)st mast to also
+        be consistent with greedy without losing optimality.
+      </p>
+
+      <p>
+        Why is the (K+1)st mast not compatible with greedy?
+      </p>
+
+      <p>
+        There is (at least) one mast that is in the wrong place
+        according to greedy, and the greedy slot is vacant.
+      </p>
+
+      <pre>
+
+              l1          o         r1
+
+              l2          *         r2
+
+   <------------------->     <----------------->
+    1 to K is greedy     K+1  K+2 onwards is not greedy
+      </pre>
+
+      <p>
+        Assume that l1 &lt; l2, so we want to move the mast from
+        * to o.
+      </p>
+
+      <p>
+        Suppose we move the mast from l2 to l1.
+      </p>
+
+      <p>
+        The new inefficiency is
+      </p>
+
+      <p align="center">
+         old + (l1 - l2) + (r1 - r2)
+      </p>
+
+      <p>
+        This is less than or equal to old provided
+      </p>
+
+      <p align="center">
+         (r1 - r2) &le; (l2 - l1)
+      </p>
+
+      <p>
+        If this inequality holds, we are done.
+      </p>
+
+      <p>
+        What if this inequality does not hold?
+      </p>
+
+      <p align="center">
+         r1 - r2 &gt; l2 - l1 &gt; 0
+      </p>
+
+      <p>
+        Therefore, r1 is at least 1.  Since r1 - r2 &gt; 0, there
+        is at least one position where r1 has a sail and r2 does
+        not.  We move one sail from r1 to r2.
+      </p>
+
+      <p>
+        Now, the new cost is
+      </p>
+
+      <p align="center">
+         old + (l1 - l2) + (r1 - r2) + ((l2 + r2) - (l1 + r1))
+      </p>
+
+      <p>
+        which is just the same as old.
+      </p>
+
+      <p>
+      <b>Implementing greedy</b>
+      </p>
+
+      <p>
+        Maintain a min-heap with pairs of the form (level,
+        sails).  When we reach a new mast, insert (l,0) for each
+        newly added level.
+      </p>
+
+      <p>
+        This will take time O(number of sails &times; log
+        (levels)), which gets 40% of the marks.
+      </p>
+
+      <p>
+      A more efficient implementation:
+      </p>
+
+      <p>
+        Store the levels sorted in descending order.  Instead of
+        keeping the absolute value of sails per level, keep the
+        difference of each level with respect to the previous
+        level in the sorted sequence.
+      </p>
+
+      <p>
+        e.g., if the levels are ordered as
+      </p>   
+
+      <pre>
+     10  10   9   8   8   7   7   7   7   0   0
+      </pre>
+
+      <p>   
+        we store the differences
+      </p>
+
+      <pre>
+           10   0  -1  -1   0  -1   0   0   0  -7   0
+      </pre>
+
+      <p>
+        When we process a new mast, we first append the new empty
+        levels at the right of this list.
+      </p>
+
+      <p>
+        Now we want to add K sails to the levels with the lowest
+        occupancy, namely the last K.  This means we have to
+        update the last K difference values.
+      </p>
+
+      <p>
+        In general, to update a segment [i,j], we only need to
+        change the values at the left and right end &mdash;
+        decrease the difference i - (i-1) by 1, or increase the
+        entry at i by 1, and increase the difference at (j+1) - j
+        by 1, or reduce the entry at j+1 by 1.  If one endpoint
+        of the segment to be updated is the right end, we only
+        have to update the left endpoint.
+      </p>
+
+      <p>
+        For instance, if we add 6 sails from the right to the
+        sequence above, we get
+      </p>
+
+      <pre>
+     10   0  -1  -1   0   0   0   0   0  -7   0
+                          <------------------->
+                              updated levels
+      </pre>
+
+      <p>   
+        This difference list corresponds to the updated level values
+      </p>
+
+      <pre>
+           10  10   9   8   8   8   8   8   8   1   1
+      </pre>
+
+      <p>
+        after adding 1 to the last 6 entries.
+      </p>
+
+      <p>
+        What if we added only 4 entries, not 6?  The new
+        difference list would have been
+      </p>
+
+      <pre>
+     10   0  -1  -1   0  -1   0   1   0  -7   0
+                                  <----------->
+      </pre>
+
+      <p>
+        This corresponds to the updated level values
+      </p>
+
+      <pre>
+     10  10   9   8   8   7   7   8   8   1   1
+      </pre>
+
+      <p> which correctly captures the fact that the last 4
+        entries have been incremented, but this list is not in
+        sorted order.
+      </p>
+
+     <p>
+       The problem is that the updated segment ended in the
+       middle of a "level group" of 7's.  It is not difficult to
+       see that the only values that are not in sorted order are
+       the elements at the right end of the level group that was
+       only partially incremented.
+     </p>
+
+     <p>
+       When we update part of level group, we have to shift the
+       elements from the right of the group to the left end.  In
+       this case, the final sorted sequence we should have is
+     </p>
+
+     <pre>
+     10  10   9   8   8   8   8   7   7   1   1
+     </pre>
+
+     <p>
+       whose difference sequence is
+     </p>
+
+     <pre>
+     10   0  -1  -1   0   0   0  -1   0  -6   0
+     </pre>
+
+     <p>
+       This corresponds to taking the level group of 7's in the
+       original sequence and incrementing a segment [6,7] by 1,
+       so we increase the value at position 6 and decrease the
+       value at position 7+1 = 8, as described for a general
+       [i,j] segment earlier.
+     </p>
+
+     <pre>
+                          level group
+                         <------------>
+     10   0  -1  -1   0  -1   0   0   0  -7   0
+                         <---->          <---->
+                         update          update
+
+     10   0  -1  -1   0   0   0  -1   0  -6   0
+     </pre>
+
+     <p>
+       This gives us the overall update procedure for adding K
+       sails on a mast:
+     </p>
+
+     <ul>
+
+       <li> Count the last K levels from the right.  If this ends at the
+         boundary of a level group, do a simple update for the interval
+         [N-K+1,N].</li>
+
+       <li> Otherwise, update everything to the right of the
+         incomplete level group as usual and separately update
+         the left end of the level group.</li>
+
+     </ul>
+
+     <p>
+       How do we find the end point of a level group?  A level
+       group [A,B] consists of a contiguous interval of 0's, so
+       we need to find the next non-zero value to the left and
+       right of a given position K from the right.  To get full
+       credit, this has to be done using a segment tree.  For
+       each interval of the sequence of levels, store the
+       position of first nonzero position from the right end of
+       an interval and the first nonzero position from the left
+       end of an internval.  Using this, we can find the
+       endpoints of the level group containing a given position K
+       in time proportional to log(number of levels).  This
+       segment tree can also be updted in time proportional to
+       log(number of levels).
+     </p>
+
+     <p>
+       Overall, the complexity is then O(number of masts &times;
+       log (max levels)).
+     </p>
+
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>

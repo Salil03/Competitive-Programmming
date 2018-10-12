@@ -1,0 +1,796 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.699 --> 00:00:07.209
+So, we are now ready to look at another algorithm
+called Quick sort. So, quick sort was invented
+
+00:00:07.209 --> 00:00:14.870
+by a computer scientist called Tony Hoare
+in the early 1960’s; that is about 50 years
+
+00:00:14.870 --> 00:00:19.490
+ago. And Tony Hoare is a very well-known computer
+scientist and he has in fact won The Turing
+
+00:00:19.490 --> 00:00:25.540
+Award which is one of the highest achievements
+awarded for academic computer scientist.
+
+00:00:25.540 --> 00:00:30.210
+So, what is the purpose of quick sort? Well,
+the purpose of quick sort is to overcome some
+
+00:00:30.210 --> 00:00:35.000
+of the shortcomings that we saw in the merge
+sort. So, one of the things that we saw in
+
+00:00:35.000 --> 00:00:39.500
+the merge sort is that because of the merge
+operation, we need extra storage and so, this
+
+00:00:39.500 --> 00:00:42.829
+makes merge sort a little expensive.
+
+00:00:42.829 --> 00:00:48.670
+So, we also observed that the reason that
+we need this extra storage is because we have
+
+00:00:48.670 --> 00:00:53.530
+in the merge operation that we might be pulling
+out elements from both sides, when we are
+
+00:00:53.530 --> 00:00:57.470
+populating the merged array. So, basically
+some elements on the right might be smaller
+
+00:00:57.470 --> 00:01:01.980
+than some elements on the left and this is
+what results in merging. So, can we divide
+
+00:01:01.980 --> 00:01:06.880
+everything. So, that this does not happen,
+everything on the left is smaller and everything
+
+00:01:06.880 --> 00:01:12.090
+on the right is larger, is it possible to
+do a divide and conquer in this fashion?
+
+00:01:12.090 --> 00:01:17.939
+Well, if this is the case, then what we need
+to do is, we need to put the middle value
+
+00:01:17.939 --> 00:01:22.499
+in the center. So, supposing we can find the
+median. So, remember what the median is, the
+
+00:01:22.499 --> 00:01:27.039
+median is the value such that exactly half
+the values in the array are bigger and half
+
+00:01:27.039 --> 00:01:31.770
+are smaller. So, now we move everything which
+is smaller than m to the left half. So, we
+
+00:01:31.770 --> 00:01:37.689
+have a set of values here which are less than
+or equal to m and then we have on the right
+
+00:01:37.689 --> 00:01:40.350
+side something which is strictly greater than
+m.
+
+00:01:40.350 --> 00:01:44.569
+So, of course, we have to do this shifting,
+but the claim is that we can do this shifting
+
+00:01:44.569 --> 00:01:49.689
+in linear time and we will see a way to do
+this. So, assuming we can do this, pick a
+
+00:01:49.689 --> 00:01:54.630
+value m which is the median and shift everything
+smaller than m to the left, then this is roughly
+
+00:01:54.630 --> 00:01:59.079
+going to be the half point, because m is a
+value which splits the array into two parts,
+
+00:01:59.079 --> 00:02:01.419
+those which are smaller are half and those
+bigger are half.
+
+00:02:01.419 --> 00:02:05.569
+Now, I do this recursive thing, I sort this
+and I sort this and now remember there is
+
+00:02:05.569 --> 00:02:08.540
+no need to merge, because everything on the
+left is already smaller than everything on
+
+00:02:08.540 --> 00:02:13.120
+the right. So, I can just go ahead and assume
+the array is sorted. So, if I do this, then
+
+00:02:13.120 --> 00:02:17.629
+by the analysis as for merge sort, I have
+a recurrence which is t of n is 2 times t
+
+00:02:17.629 --> 00:02:21.260
+n by 2 plus n and we know this is order n
+log n.
+
+00:02:21.260 --> 00:02:26.090
+So, this will give us the same complexity
+as merge sort, but it will avoid some of the
+
+00:02:26.090 --> 00:02:31.519
+overheads involved with creating extra space.
+Because, when I do the recursive call here,
+
+00:02:31.519 --> 00:02:35.790
+I can easily sort this part in place and this
+part in place, because I do not need to refer
+
+00:02:35.790 --> 00:02:38.280
+to the other part at all when I do this solution.
+
+00:02:38.280 --> 00:02:46.490
+So, of course, there must be a catch and the
+catch is how do we find the median? Right
+
+00:02:46.490 --> 00:02:50.299
+at the beginning of our discussion, we said
+that one of the reasons that we want to sort
+
+00:02:50.299 --> 00:02:54.970
+is to do statistical things like find the
+median. So, if we have sorted the array, then
+
+00:02:54.970 --> 00:03:00.049
+the median value is the middle value, but
+of course, our goal now is to sort the array.
+
+00:03:00.049 --> 00:03:03.980
+So, we cannot assume that we have the median,
+because we have already seen that sorting
+
+00:03:03.980 --> 00:03:07.239
+is an easy way to find the median. So, it
+is a kind of the chicken and egg problem,
+
+00:03:07.239 --> 00:03:13.799
+we cannot use the median to sort.
+So, what quick sort Tony Hoare algorithms
+
+00:03:13.799 --> 00:03:19.330
+says, do not necessarily pick the medium,
+just picks some value in A and do what we
+
+00:03:19.330 --> 00:03:23.200
+said. So, you pick up this pivot and then
+you break it up into two parts, those which
+
+00:03:23.200 --> 00:03:29.769
+are smaller than the pivot and those that
+are bigger than the pivot. So, the pivot is
+
+00:03:29.769 --> 00:03:33.700
+just some value in the array, it need not
+be the median and we will see that if that
+
+00:03:33.700 --> 00:03:38.180
+is not the median, then this results in some
+problem in terms of the worst case complexity,
+
+00:03:38.180 --> 00:03:41.709
+but let us just ignore it.
+So, we just pick some value in the array and
+
+00:03:41.709 --> 00:03:45.269
+we take all those values smaller than that,
+move it to the left, all those which are bigger
+
+00:03:45.269 --> 00:03:49.950
+than that move it to the right. And then,
+we sort them recursively and then we are guaranteed
+
+00:03:49.950 --> 00:03:53.049
+that nothing on the left needs to be combined
+with anything on the right after this. So,
+
+00:03:53.049 --> 00:03:55.930
+the resulting array is sorted.
+
+00:03:55.930 --> 00:04:02.599
+So, this is quick sort, choose a pivot element.
+So, for example, you might just pick up the
+
+00:04:02.599 --> 00:04:07.609
+very first value in the array as the pivot
+elemet. Partition this array into the lower
+
+00:04:07.609 --> 00:04:14.470
+and upper part. So, the lower part is those
+which are less than the pivot, the upper part
+
+00:04:14.470 --> 00:04:21.150
+is that which is greater than the pivot. So,
+the crucial step is this partitioning, we
+
+00:04:21.150 --> 00:04:26.430
+will see how to do this partitioning, that
+is what we will see now. Then, we move this
+
+00:04:26.430 --> 00:04:32.140
+pivot here. So, that it is in the correct
+place and now we recursively sort this part
+
+00:04:32.140 --> 00:04:35.550
+and this part and we are done, because nothing
+needs to move.
+
+00:04:35.550 --> 00:04:43.950
+So, here is a kind of high level description
+of the algorithm through an example. So, supposing
+
+00:04:43.950 --> 00:04:49.460
+this is my array, then I pick the first element
+as the pivot namely 43. So, with respect to
+
+00:04:49.460 --> 00:04:54.360
+43, I now partition this array. So, that everything
+smaller than 43. So, what are the elements
+
+00:04:54.360 --> 00:05:03.610
+smaller than 43 here, we have 32, 22 and 13.
+So, these elements should come to the left
+
+00:05:03.610 --> 00:05:07.270
+and the elements which are bigger namely 78,
+63, 57, 91 should go to the right.
+
+00:05:07.270 --> 00:05:15.340
+So, I do this partitioning and how do I do
+this partitioning, well I kind of… So, I
+
+00:05:15.340 --> 00:05:21.410
+brought everything to the left and then after
+this, I recursively sort the left. So, this
+
+00:05:21.410 --> 00:05:25.850
+is no longer assumed to be sorted it just
+has everything smaller than 43, this is not
+
+00:05:25.850 --> 00:05:29.170
+sorted, there are everything bigger than.
+Then, recursively if I assume I can sort it,
+
+00:05:29.170 --> 00:05:32.550
+then I have sorted the entire array, because
+now nothing in the yellow side needs to be
+
+00:05:32.550 --> 00:05:37.850
+combined with green side, the red pivot value
+separates these two.
+
+00:05:37.850 --> 00:05:44.630
+So, the first thing that we need to understand
+is how to do this partition. So, there are
+
+00:05:44.630 --> 00:05:49.370
+two ways to partition. So, we will look at
+one in detail and show some code for it and
+
+00:05:49.370 --> 00:05:53.810
+then we will look at another through an example
+and you will have to write the code by yourself,
+
+00:05:53.810 --> 00:05:59.570
+if you are interested. So, here is one way
+to partition. So, I start with the pivot element
+
+00:05:59.570 --> 00:06:04.980
+at the left and now I have this entire range
+of values to the right which are unsorted.
+
+00:06:04.980 --> 00:06:11.281
+So, I will put two indices which I will indicate
+in this picture with two color pointers, a
+
+00:06:11.281 --> 00:06:15.580
+yellow pointer and a green pointer, their
+significance will become a little clearer
+
+00:06:15.580 --> 00:06:19.710
+once we move a couple of steps in the algorithm.
+So, what we do is that everything to the right
+
+00:06:19.710 --> 00:06:24.740
+of the green pointer. So, the green pointer
+indicates the end of the part which has already
+
+00:06:24.740 --> 00:06:39.280
+been partitioned. So, anything to the right
+of the green pointer is unpartitioned and
+
+00:06:39.280 --> 00:06:44.940
+the yellow pointer on the other hand is going
+to indicate. So, this is going to indicate
+
+00:06:44.940 --> 00:06:50.370
+the limit of the lower part.
+So, I need. So, basically in general I am
+
+00:06:50.370 --> 00:06:58.110
+going to have this picture. So, I am going
+to have the pivot here, then I am going to
+
+00:06:58.110 --> 00:07:05.710
+have the lower part here which I have already
+found. Then, I am going to have the upper
+
+00:07:05.710 --> 00:07:13.360
+part here, these are the elements I have already
+scanned and partitioned and then I have the
+
+00:07:13.360 --> 00:07:18.012
+part that is to do. So, in the beginning everything
+is to do and there is no lower part and there
+
+00:07:18.012 --> 00:07:20.570
+is no upper part.
+So, what I am saying that we will keep these
+
+00:07:20.570 --> 00:07:27.240
+pointers like this. So, this thing will point
+to the end of this and this thing will point
+
+00:07:27.240 --> 00:07:33.140
+to the end of this. So, this is what we want
+to achieve. So, we start as I said with this
+
+00:07:33.140 --> 00:07:39.440
+picture. So, what we do is, if we see something
+which is lower, then I extend the lower part
+
+00:07:39.440 --> 00:07:44.190
+and I am move to the next element, again we
+see something that is lower. So, we extend
+
+00:07:44.190 --> 00:07:47.210
+the lower part. So, if this point would be
+saying is that the lower part has two values
+
+00:07:47.210 --> 00:07:51.740
+32 and 22 and the upper part is empty and
+everything from 78 onwards is not sorted.
+
+00:07:51.740 --> 00:07:57.960
+Now, I look at 78. So, 78 is bigger than 43.
+So, the lower part stays here and now I have
+
+00:07:57.960 --> 00:08:06.610
+a non empty upper part namely 78. Now, I look
+at 63, once again 63 belongs to the upper
+
+00:08:06.610 --> 00:08:12.560
+part. So, again I move this forward, 57 again
+belongs to the upper part. So, I move it forward,
+
+00:08:12.560 --> 00:08:16.480
+91 again I move it forward. So, the first
+interesting thing happens when I come to 13.
+
+00:08:16.480 --> 00:08:22.360
+So, now, when I come to 13, I find that it
+must going to the lower part, but the lower
+
+00:08:22.360 --> 00:08:25.760
+part is far away.
+So, how do I achieve this. So, what I will
+
+00:08:25.760 --> 00:08:30.970
+do is, I know that this element to the right
+of the lower pointer. So, this is bigger than
+
+00:08:30.970 --> 00:08:37.830
+P and this element is smaller than P. So,
+one way to achieve what I need is to exchange
+
+00:08:37.830 --> 00:08:45.620
+these two values. So, I exchange 13 and 78.
+So, I take 13, I label it as lower, then I
+
+00:08:45.620 --> 00:08:50.080
+exchange and move both points. So, this is
+a forward partitioning algorithm which keeps
+
+00:08:50.080 --> 00:08:55.670
+reducing the length of the un partition part,
+if I see something which is upper, I just
+
+00:08:55.670 --> 00:08:59.450
+move the green pointer. If I see something
+that is lower, I exchange that lower element
+
+00:08:59.450 --> 00:09:04.400
+with the first part of the upper thing and
+then I extend both partitions.
+
+00:09:04.400 --> 00:09:10.000
+Then, finally, at this point I still do not
+have the final thing, but I want this pivot
+
+00:09:10.000 --> 00:09:15.130
+element to be in between these two. So, now
+the point is that I know that this is the
+
+00:09:15.130 --> 00:09:19.700
+last. So, what is to the right of the yellow
+pointer is the first upper limit and what
+
+00:09:19.700 --> 00:09:23.440
+is to the left of the yellow pointer is the
+last lower thing. So, I can exchange the 43
+
+00:09:23.440 --> 00:09:28.982
+and 13 and then I get the final array partitioned
+as I want with the pivot in the middle, the
+
+00:09:28.982 --> 00:09:32.620
+lower part on the left and upper part on the
+right.
+
+00:09:32.620 --> 00:09:38.310
+So, this is how we do quick sort in general.
+So, in general now remember that after we
+
+00:09:38.310 --> 00:09:41.230
+do this partitioning, we are going to have
+to quick sort this part and quick sort this
+
+00:09:41.230 --> 00:09:47.680
+part. So, the recursive calls will be sorting
+different segments. So, it is useful to say
+
+00:09:47.680 --> 00:09:52.750
+for each call that I am sorting from some
+left limit to some right limit. So, in general
+
+00:09:52.750 --> 00:09:56.810
+quick sort will take the array and it will
+take two pointers, it will say sort from l
+
+00:09:56.810 --> 00:10:01.110
+to r minus 1.
+Now, if this length is small, in other words,
+
+00:10:01.110 --> 00:10:05.070
+if I have only one value, if r minus l is
+less than or equal to 1, if either I have
+
+00:10:05.070 --> 00:10:09.040
+only one value or if I have no values to sort,
+then I do nothing. So, this is the base case.
+
+00:10:09.040 --> 00:10:13.080
+So, this is a recursive value algorithm, if
+the sorting, array to be sorted has only one
+
+00:10:13.080 --> 00:10:19.620
+element we do nothing. Otherwise, using the
+terminology of the previous example, we use
+
+00:10:19.620 --> 00:10:25.930
+the yellow to indicate the position of the
+yellow pointer and we use green to indicate
+
+00:10:25.930 --> 00:10:30.730
+the position of the green pointer. So, these
+two variables indicate the position of these
+
+00:10:30.730 --> 00:10:33.990
+two arrows.
+So, remember that we start to the right of
+
+00:10:33.990 --> 00:10:41.650
+the pivot. So, initially we have at the position
+l, we have the pivot and r minus 1 is the
+
+00:10:41.650 --> 00:10:47.440
+last index. So, this is our pivot P. So, our
+initial thing is to say that put both these
+
+00:10:47.440 --> 00:10:53.761
+pointers here. So, initially yellow is l plus
+1. So, that is this position and we start
+
+00:10:53.761 --> 00:10:59.351
+now moving the green. So, green starts at
+l plus 1 and goes until r minus 1. So, if
+
+00:10:59.351 --> 00:11:07.670
+we see that the green value is smaller than
+the pivot. So, this is the pivot. So, A of
+
+00:11:07.670 --> 00:11:11.670
+l is the pivot.
+So, if the green value, the value I am looking
+
+00:11:11.670 --> 00:11:15.990
+at under the green pointer is smaller, then
+I do this exchange. So, if I am here somewhere
+
+00:11:15.990 --> 00:11:22.150
+and I have this green value, then what happens
+is if this is smaller, then I exchange these
+
+00:11:22.150 --> 00:11:27.830
+two values. So, that is what this is saying,
+swap A the element at position yellow and
+
+00:11:27.830 --> 00:11:31.730
+the element at position green and A should
+be swapped and then, I will also increment
+
+00:11:31.730 --> 00:11:35.270
+the yellow pointer. The green point is being
+incremented anyway at every step.
+
+00:11:35.270 --> 00:11:45.990
+So, finally, after this loop I have done this
+partitioning to the extent where I have the
+
+00:11:45.990 --> 00:11:53.040
+pivot element, I have the lower part and the
+upper part. And now what I want to do is,
+
+00:11:53.040 --> 00:11:58.700
+I want to move the pivot to the center, at
+this point I have the yellow pointer here
+
+00:11:58.700 --> 00:12:04.040
+and the green pointer here. So, I need to
+take the last element here and exchange it
+
+00:12:04.040 --> 00:12:09.800
+with the pivot and that is what this is doing.
+It is saying exchange the value at position
+
+00:12:09.800 --> 00:12:14.060
+l with the value at position yellow minus
+1, now having done this, now I want to recursively
+
+00:12:14.060 --> 00:12:19.050
+sort. So, I want to sort from the beginning
+l up to the left of this yellow pointer. So,
+
+00:12:19.050 --> 00:12:23.540
+I sort from l to yellow, then I want to sort
+everything on the right. So, I start with
+
+00:12:23.540 --> 00:12:27.560
+yellow plus 1 and sort until r. So, these
+are the two recursive calls. But, now the
+
+00:12:27.560 --> 00:12:33.910
+important thing is that at this point everything
+between l and yellow is smaller than the pivot,
+
+00:12:33.910 --> 00:12:37.940
+everything beyond yellow plus 1 up to r is
+bigger than the pivot. So, after these two
+
+00:12:37.940 --> 00:12:44.910
+sorting sub recursive calls to quick sort
+nothing more needs to be done, we are done.
+
+00:12:44.910 --> 00:12:51.529
+So, as I said this partitioning strategy can
+also be implemented in a different way and
+
+00:12:51.529 --> 00:12:57.350
+in fact, this is the original partitioning
+strategy proposed by Tony Hoare. So, in his
+
+00:12:57.350 --> 00:13:04.020
+original strategy, the idea was to not start
+from one end and sweep until you claim all
+
+00:13:04.020 --> 00:13:09.860
+the elements, but you start at opposite ends.
+So, you start building up in some sense, the
+
+00:13:09.860 --> 00:13:16.160
+you start building up the lower side from
+here and you start building up the upper side
+
+00:13:16.160 --> 00:13:20.710
+from here.
+And gradually the lower side grows, until
+
+00:13:20.710 --> 00:13:23.860
+it can expend no more, the upper side goes
+and then everything is in place and then,
+
+00:13:23.860 --> 00:13:29.290
+you do the final swap as before. So, here
+what you do is, you start with again I will
+
+00:13:29.290 --> 00:13:33.430
+use the same color thing. So, yellow refers
+to lower green refers to upper. So, what I
+
+00:13:33.430 --> 00:13:37.920
+will do is, I will take the yellow pointer
+and keep scanning until I find the value which
+
+00:13:37.920 --> 00:13:43.470
+is not yellow. So, 32 is smaller than 43.
+So, remember that we have trying to grow the
+
+00:13:43.470 --> 00:13:47.480
+yellow partition is the lower partition.
+So, we are trying to include in the lower
+
+00:13:47.480 --> 00:13:50.770
+partition everything smaller than 43 and we
+are trying to include in the upper partition
+
+00:13:50.770 --> 00:13:55.899
+everything bigger than 43. So, I keep moving
+the yellow thing until I find the first error
+
+00:13:55.899 --> 00:14:01.100
+in some sense. So, 32 is smaller than 43.
+So, I skip over it, 22 is also smaller than
+
+00:14:01.100 --> 00:14:07.200
+43. So, I skip over it and now I reach a value
+72. So, at this point my partition ends here
+
+00:14:07.200 --> 00:14:09.700
+and 72 cannot be included, because it is bigger
+than 43.
+
+00:14:09.700 --> 00:14:15.190
+Now, I start on right hand side and I look
+for the position, where I can include things
+
+00:14:15.190 --> 00:14:19.330
+in the upper thing, but the very first thing
+I see 13 should not be there. So, at this
+
+00:14:19.330 --> 00:14:26.210
+point upper limit is here. So, now, what I
+do is, I exchange these two values, if I exchange
+
+00:14:26.210 --> 00:14:33.460
+these two values, then this will become 13,
+this will become 78 and then, I will be able
+
+00:14:33.460 --> 00:14:40.960
+to shift these two boundaries by 1. So, this
+is the basic step in this partitioning strategy.
+
+00:14:40.960 --> 00:14:45.490
+So, at the next step what I do is, I exchange
+the 13 and 78 and no I say that I have the
+
+00:14:45.490 --> 00:14:55.500
+lower thing up to here and I have an upper
+thing up to here. So, this is the invariant
+
+00:14:55.500 --> 00:15:00.180
+now, we have the lower thing on the left part
+and upper thing on the right part and in between
+
+00:15:00.180 --> 00:15:05.390
+we have the unsorted elements, but we have
+these two indicators, the left most unsorted…
+
+00:15:05.390 --> 00:15:09.770
+the left most unpartitioned element, the right
+most unpartitioned element.
+
+00:15:09.770 --> 00:15:13.730
+So, now, I again a start doing the same thing,
+I move the yellow right, until I can no longer
+
+00:15:13.730 --> 00:15:17.700
+extend lower, here I cannot extend it anyway,
+because 63 should already not be there. So,
+
+00:15:17.700 --> 00:15:21.420
+I cannot move this partition. On the other
+hand, the upper partition can move, because
+
+00:15:21.420 --> 00:15:26.940
+91 is bigger. So, I will move it left, 57
+is still bigger. So, I will move it left again,
+
+00:15:26.940 --> 00:15:30.100
+63 is still bigger. So, I will move it left
+again.
+
+00:15:30.100 --> 00:15:35.770
+And now I find that the right partition indicator
+has moved to the left of the left partition.
+
+00:15:35.770 --> 00:15:43.541
+So, when this exchange happens, then we terminate
+this partition. So, when the right boundary
+
+00:15:43.541 --> 00:15:47.930
+crosses the left boundary, then we have finished
+partitioning of the elements, because there
+
+00:15:47.930 --> 00:15:52.890
+is nothing in between the two elements to
+be partitioning any more. So, once we have
+
+00:15:52.890 --> 00:15:57.080
+terminated, now we have the same problem as
+before which is that we want to move this
+
+00:15:57.080 --> 00:16:01.740
+element to the center, but now remember that
+at this point, when this thing terminates,
+
+00:16:01.740 --> 00:16:06.010
+the right marker is pointing to the end point
+of the lower limit.
+
+00:16:06.010 --> 00:16:10.980
+So, I can just exchange these two. So, I can
+exchange the 13 and 43. So, I take this there
+
+00:16:10.980 --> 00:16:17.149
+to move this here and then, I get my answer.
+So, if I move this and then, I simultaneously
+
+00:16:17.149 --> 00:16:21.330
+move the green pointer, now I have a pointer
+to the last of the lower elements, I have
+
+00:16:21.330 --> 00:16:24.850
+a pointer to the first of the upper elements
+and now I can apply quick sort recursively
+
+00:16:24.850 --> 00:16:30.610
+to this part and to this part.
+So, we will not write Pseudo code or describe
+
+00:16:30.610 --> 00:16:36.000
+this algorithm in more detail, but you can
+definitely try and work out similar way of
+
+00:16:36.000 --> 00:16:39.870
+keeping these indices moving as we did for
+the earlier partitioning and see if you can
+
+00:16:39.870 --> 00:16:44.000
+get it right, this is also discussed in many
+of the books. So, both these partition algorithms
+
+00:16:44.000 --> 00:16:47.670
+appear in text books and you can choose which
+ever you find easier.
+
+00:16:47.670 --> 00:16:51.970
+In both cases remember that there is a basic
+invariant condition, there are these two markers
+
+00:16:51.970 --> 00:16:55.630
+and these two markers indicate the part which
+has already when partition, the limits of
+
+00:16:55.630 --> 00:17:00.120
+the lower and the upper part. And then, there
+is an unpartitioned part and when the unpartitioned
+
+00:17:00.120 --> 00:17:01.329
+part becomes empty you are done.
+

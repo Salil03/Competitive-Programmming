@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<meta name="Description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<meta name="robots" content="all,follow">
+
+<!-- CSS --> 
+<link rel="stylesheet" href="styles\default.css" type="text/css" media="screen, projection, tv">
+<link rel="stylesheet" href="styles\print.css" type="text/css" media="print">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img\iarcslogo.png" type="image/x-icon">
+</head>
+
+<body id="top">
+<div id="wrapper">
+
+	<div class="header">
+	<h1><span><a href="http://www.iarcs.org.in/inoi"><span id="color">Indian Computing Olympiad</span></a></span></h1>
+	<p id="about">Training Material</p>
+
+	<a href="#skip-menu" class="hidden">Skip menu</a> <!-- Skip menu -->
+	<div id="menu-box">
+	  <ul id="web">
+	    <li><a href="..\contact\index.html">Contact</a></li>
+	    <li><a href="..\iindex\index.html">Index</a></li>
+	    <li><a class="active" id="first" href="index-1.html">Problems</a></li>
+	    <li><a href="../topics">Topics</a></li>
+	    <li><a href="..\index-1.html">Home</a></li>
+	  </ul>
+	</div>
+
+	</div> <!-- Header end -->
+
+<hr class="noscreen">
+
+<div id="skip-menu"></div>
+
+<div class="page">
+  <div class="col-r">
+    <div class="col-r-in">
+
+      <h2>
+        <a href="..\topics\advanced-graph-algorithms.html">Advanced Graph Algorithms</a>&rarr;One Way Roads
+      </h2>
+
+      <p>
+        Given a network of intersections and roads, turn all the
+        roads into one-way roads such that every pair of
+        intersections is still connected by a path.  If it is
+        possible, give such an orientation, else print NO.
+      </p>
+
+      <div id="solution">
+        <h2>Solution</h2>
+      </div>
+
+      <p>
+        Observations:
+      </p>
+
+      <ol>
+
+        <li>
+          <p>
+            If there is a solution, every pair of vertices must
+            be part of a cycle in the original undirected graph.
+          </p>
+
+          <p>
+            (For every pair of vertices u and v, there is a path
+            from u to v and a path from v to u.  Let i&rarr;j be
+            a directed edge on the route from u to v.  There must
+            be a path that returns from v to u without using this
+            edge.)
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Can we use the DFS tree to orient the edges?  Orient
+            tree edges down and back edges up.  This will work,
+            if the original graph can be oriented.
+          </p>
+        </li>
+
+      </ol>
+
+      <p>
+        How do we check, however, if the graph can be oriented.
+        If not, how do we identify the "bad" edges?
+      </p>
+
+      <p>
+        Consider an example.
+      </p>
+      
+      <pre>
+              b
+             / \
+            /   \
+           a     c
+            \   / \
+             \ /   \
+              d-----e
+             / \    |
+            /   \   |
+           i-----j  |
+                    f
+                   / \
+                  /   \
+                 g-----h
+
+DFS tree:
+
+    [1]  a..........
+         |          .
+    [2]  b           .
+         |           .
+    [3]  c.......... .
+         |          ..
+    [4]  e---------- .
+         |          \.
+    [5]  f.     [8]  d.
+         | .         | .
+    [6]  g .    [9]  i .
+         | .         | .
+    [7]  h.    [10]  j.
+      </pre>
+
+      <p>
+        Here, if we orient tree edges down and back edges up, we
+        cannot get from {f,g,h} to the rest of the graph.
+      </p>
+
+      <p>
+        This is because the edge (e,f) is a "cut-edge" or a
+        bridge.  The graph becomes disconnected if (e,f) is
+        deleted.
+      </p>
+
+      <p>
+        Observe that low(f) = 5 is strictly greater than
+        DFS_number(e) = 4.  It is not difficult to argue that
+        this is a general property of bridges.
+      </p>
+
+      <p align="center">
+        A tree edge (u,v) is a bridge iff low(v) &gt DFS_number(u)
+      </p>
+
+      <p>
+        The end points of a bridge will always be cut vertices.
+        However, it is not necessary that an edge joining two cut
+        vertices is always a bridge.  For instance:
+      </p>
+
+      <pre>
+                /\        /\
+               /  \      /  \
+               ----x----y----
+                   |    |
+                   |    |
+                    ----
+      </pre>
+
+      <p>
+        Here x and y are cut vertices, but the edge (x,y) is not
+        a bridge.
+      </p>
+
+      <p>
+	Example 2:
+      </p>
+
+      <pre>
+                                     DFS
+
+    a---------f--------g----i         a1.....
+    |       / |        |   /          |      .
+    |     /   |        | /          ..b2      .
+    |   /     |        h           .  | \     .
+    | /       |                    .  c3  e5  .
+    b-------- d                    .  |   |  .
+    | \                             ..d4  f6.
+    |   \                                 |
+    c--- d                                g7.
+                                          |  .
+                                          h8 .
+                                          |  .
+                                          i9.
+      </pre>
+
+      <p>
+        f-g is critical because low(g) &lt; DFS_number(f)
+      </p>
+
+
+      <hr class="noscreen">
+      <br>
+
+
+    </div>
+  </div> <!-- Right column end -->
+
+
+    <hr class="noscreen">
+
+  <div class="col-l">
+    <div class="col-l-in">
+      <h3>Problems related to</h3>
+      <ul class="menu">
+        <li><a href="index-1.html#binarysearch">Searching</a></li>
+        <li><a href="index-1.html#sorting">Sorting</a></li>
+        <li><a href="index-1.html#graphs">Basic Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp">Dynamic Programming</a></li>
+        <li><a href="index-1.html#greedy">Greedy Algorithms</a></li>
+        <li><a href="">Computing Shortest Paths</a></li>
+        <li><a href="index-1.html#heaps">Heaps</a></li>
+        <li><a href="index-1.html#permutations">Permutations</a></li>
+        <li><a href="index-1.html#dags">Directed Acyclic Graphs</a></li>
+        <li><a href="index-1.html#prefix-sums">Computing Prefix Sums</a></li>
+        <li><a href="index-1.html#sliding-window">Sliding Window Algorithms</a></li>
+        <li><a href="index-1.html#advanced-graph-algorithms">Advanced Graph Algorithms</a></li>
+        <li><a href="index-1.html#dp-trees">Dynamic Programming on Trees</a></li>
+        <li><a href="index-1.html#range-queries">Range Queries</a></li>
+        <li><a href="index-1.html#network-flows">Network Flows</a></li>
+        <li><a href="index-1.html">Games and Strategies</a></li>
+        <li><a href="index-1.html#geometry">Geometry</a></li>
+      </ul>
+
+
+      <br>
+
+    </div>
+  </div> <!-- Left column end -->
+
+  <div class="cleaner">&nbsp;</div>
+
+        </div> <!-- Page end -->
+
+        <div id="footer">
+                <ul>
+                  <li><a href="..\index-1.html">Home</a>|</li>
+                  <li><a href="../topics">Topics</a>|</li>
+                  <li><a href="">Problems</a>|</li>
+                  <li><a href="..\iindex\index.html">Index</a>|</li>
+                  <li><a href="..\contact\index.html">Contact</a></li>
+                </ul>
+
+        <p><a href="#" onclick="print();" title="Javascript needed for a Print">Print</a> | <a href="#top">Top</a>&uarr;</p>
+        </div> <!-- Footer end -->
+
+</div> <!-- Wrapper end -->
+
+<p id="backlinks">&copy;IARCS 2012&ndash;2016</p>
+<p id="backlinks"><a href="http://www.pestujemeweb.cz/">Pěstujeme web</a> | visit: <a href="http://www.junglegym.cz/" title="Skluzavky Jungle Gym">Skluzavky</a></p>
+
+</body>
+</html>
