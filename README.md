@@ -20,7 +20,4 @@ My practice folder to compete at [INOI](https://www.iarcs.org.in/inoi/) and [ZCO
 Development is still active
 
 ## Contributing
-Pull requests are welcome only for book. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Pull requests are welcome only for books. For major changes, please open an issue first to discuss what you would like to change.
