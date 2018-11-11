@@ -1,44 +1,30 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int n, b, h, w;
-    while (cin >> n >> b >> h >> w)
+    int a,n,k;
+    cin >> a >> n >> k;
+    int arr[k] = {0};
+    for(int i = 0; i<a; i++)
     {
-        int p;
-        int ans = INT_MAX;
-        bool allow = false;
-        while (h--)
+        for(int j = 0; j<k; j++)
         {
-            cin >> p;
-            int a;
-            for (int i = 0; i < w; i++)
+            if(arr[j] < n)
             {
-                cin >> a;
-                if (a >= n)
-                {
-                    allow = true;
-                }
+                arr[j]++;
+                break;
             }
-            if (allow == true)
+            else
             {
-                if (p * n < ans)
-                {
-                    ans = p * n;
-                }
+                arr[j] = 0;
             }
-            allow = false;
         }
-        if (ans <= b)
-        {
-            cout << ans << "\n";
-        }
-        else
-        {
-            cout << "stay home\n";
-        }
+    }
+    for(int i = 0; i<k; i++)
+    {
+        cout << arr[i] << " ";
     }
 }
