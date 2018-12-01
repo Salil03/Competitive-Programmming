@@ -1,8 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long LL;
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);	
+    int t;
+    cin >> t;
+    while(t--)
+    {
+		string s;
+        int n,i,cur=0;
+		LL ans=0;
+		cin >> n >> s;
+	    for(i=0; i<n; i++)
+        {
+            if(s[i]=='1')
+            {
+                cur++;
+                ans+=(long long)(cur);
+            }
+        }
+		cout << ans << endl;
+    }
+    return 0;
 }
