@@ -1,58 +1,18 @@
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
+#include<stdio.h>
 using namespace std;
 int main()
 {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
-        string str;
-        cin >> str;
-        int l = str.length();
-        if (l % 2 == 0)
-        {
-            int hash[26] = {0};
-            for (int i = 0; i < l; i++)
-            {
-                hash[str[i] - 'a']++;
-            }
-            int d = 0;
-            int flag = 0;
-            for (int j = 0; j < 26; j++)
-            {
-
-                if (hash[j] % 2 != 0)
-                {
-                    flag = 1;
-                    d++;
-                }
-            }
-            if (flag == 1)
-                cout << d - 1 << "\n";
-            else
-                cout << d << "\n";
-        }
-        else
-        {
-            int hash[26] = {0};
-            for (int i = 0; i < l; i++)
-            {
-                hash[str[i] - 'a']++;
-            }
-            int d = 0;
-            int flag = 0;
-            for (int j = 0; j < 26; j++)
-            {
-
-                if (hash[j] % 2 != 0)
-                {
-
-                    d++;
-                }
-            }
-
-            cout << d - 1 << "\n";
-        }
-    }
+	char arr[50], final[50];
+	gets(arr);
+	int i =0;
+	for(int k = 0; k<50; k++)
+	{
+		if(arr[k] != 'a' && arr[k] != 'e' && arr[k] != 'i' && arr[k] != 'o' && arr[k] != 'u' && arr[k] != 'A' && arr[k] != 'E' && arr[k] != 'I' && arr[k] != 'O' && arr[k] != 'U')
+		{
+			final[i] = arr[k];
+			i++;
+		}
+	}
+	puts(final);
 }

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-
+using namespace std;
 void solve(int arr[], int n, int k)
 {
     int temp;
-    std::vector<std::pair<int, int>> v;
+    vector<pair<int, int>> v;
     for (int i = 0; i < n-2; ++i)
     {
         if (arr[i] == 5)
@@ -13,7 +13,7 @@ void solve(int arr[], int n, int k)
                 if (arr[j] == 7)
                 {
                     temp = (j - i) +1;
-                    v.push_back(std::make_pair(i, j));
+                    v.push_back(make_pair(i, j));
                 }
             }
         }
@@ -38,22 +38,25 @@ void solve(int arr[], int n, int k)
         count  = 0;
     }
 
-    std::cout << min << "\n";
+    cout << min << "\n";
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
     int t;
-    std::cin >> t;
+    cin >> t;
     for (int i = 0; i < t; ++i)
     {
         int n, k;
-        std::cin >> n >> k;
+        cin >> n >> k;
         char s;
         int arr[n];
         for (int i = 0; i < n; i++)
         {
-            std::cin >> s;
+            cin >> s;
             if (s == 'X')
             {
                 arr[i] = 5;

@@ -20,7 +20,7 @@ int solve(vector<int> big, vector<int> small) {
         }
     }
     sort(big.begin(), big.end());
-    sort(small.begin(), small.end());   
+    sort(small.begin(), small.end());
     return big[n - 1] + small[n - 1];
 }
 
@@ -33,7 +33,7 @@ int main() {
         cin >> x;
         a.push_back(x);
     }
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
         int x;
         cin >> x;
