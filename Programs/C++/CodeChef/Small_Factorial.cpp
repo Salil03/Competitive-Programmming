@@ -1,25 +1,22 @@
 #include <iostream>
+#include<boost/multiprecision/cpp_int.hpp>
+using boost::multiprecision::cpp_int;
 using namespace std;
-int factorial(int x)
+cpp_int factorial(int x)
 {
-    if (x == 0 || x == 1)
+    if(x == 0)
     {
         return 1;
     }
-    else
-    {
-        return x * factorial(x - 1);
-    }
+    return x*factorial(x-1);
 }
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    int t = 0, n = 0;
+    int t;
     cin >> t;
-    while (t--)
+    while(t--)
     {
+        int n;
         cin >> n;
         cout << factorial(n) << "\n";
     }
