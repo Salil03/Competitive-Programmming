@@ -1,13 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define watch(x) cout << "\n" << (#x) << " is " << (x) << endl
+#define watch(x) cerr << "\n" << (#x) << " is " << (x) << endl
+#define a_macro(args...) sum(args...)
 const double PI  = 3.141592653589793238463;
 const int INF = 0x3f3f3f3f;
 const int MOD = 1000000007;
 
 /*
-Name: Salil Gokhale
+$alil03
 Solution Begins here
 */
 
@@ -16,5 +17,5 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	cout << gcd(24, 60);
+	char n = 's', m = '3', f = 'e';
 }
