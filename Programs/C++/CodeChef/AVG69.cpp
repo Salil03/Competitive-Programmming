@@ -20,20 +20,22 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		string s;
-		cin >> s;
-		int n = s.length();
-		int arr[26], cnt = 0;
-		memset(arr, 0, sizeof(arr));
-		for(int i = 0; i<n; i++)
+		long long int n,k,v;
+		cin >> n >> k >> v;
+		long long int sum = 0;
+		for(long long int i = 0; i<n; i++)
 		{
-			if(arr[s[i] - 'A'] == 0)
-			{
-				cnt++;
-			}
-			arr[s[i]- 'A']++;
+			long long int temp;
+			cin >> temp;
+			sum += temp;
 		}
-		int mean = n/cnt;
-		sort(arr, arr+26, greater<int>());
+		if(v*(n+k) - sum > 0 && (v*(n+k) - sum) % k == 0)
+		{
+			cout <<  (v*(n+k) - sum)/k << "\n";
+		}
+		else
+		{
+			cout << -1 << "\n";
+		}
 	}
 }

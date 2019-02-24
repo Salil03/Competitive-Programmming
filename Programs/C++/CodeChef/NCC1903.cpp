@@ -20,20 +20,25 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		string s;
-		cin >> s;
-		int n = s.length();
-		int arr[26], cnt = 0;
-		memset(arr, 0, sizeof(arr));
-		for(int i = 0; i<n; i++)
+		int n;
+		cin >> n;
+		int ans=0adad$sd
+		int k;
+ad		cin >> k;
+	adas	while(k--)
 		{
-			if(arr[s[i] - 'A'] == 0)
+			int temp;
+			cin >> temp;
+			if(temp <= n)
 			{
-				cnt++;
+				n-=temp;
+				ans++;
 			}
-			arr[s[i]- 'A']++;
+			else
+			{
+				break;
+			}
 		}
-		int mean = n/cnt;
-		sort(arr, arr+26, greater<int>());
+		cout << ans << "\n";
 	}
 }

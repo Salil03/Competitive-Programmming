@@ -18,22 +18,10 @@ int main()
 	cout.tie(0);
 	int t;
 	cin >> t;
-	while(t--)
+	for(int i = 1; i<=t; i++)
 	{
-		string s;
-		cin >> s;
-		int n = s.length();
-		int arr[26], cnt = 0;
-		memset(arr, 0, sizeof(arr));
-		for(int i = 0; i<n; i++)
-		{
-			if(arr[s[i] - 'A'] == 0)
-			{
-				cnt++;
-			}
-			arr[s[i]- 'A']++;
-		}
-		int mean = n/cnt;
-		sort(arr, arr+26, greater<int>());
+		int a,b;
+		cin >> a >> b;
+		cout << "Case " << i << ": " << a+b << "\n";
 	}
 }
