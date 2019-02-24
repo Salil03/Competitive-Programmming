@@ -16,24 +16,25 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	int t;
-	cin >> t;
-	while(t--)
+	int x,y,z;
+	cin >> x >> y >> z;
+	int a,b,c;
+	cin >> a >> b >> c;
+	if(a < x)
 	{
-		string s;
-		cin >> s;
-		int n = s.length();
-		int arr[26], cnt = 0;
-		memset(arr, 0, sizeof(arr));
-		for(int i = 0; i<n; i++)
-		{
-			if(arr[s[i] - 'A'] == 0)
-			{
-				cnt++;
-			}
-			arr[s[i]- 'A']++;
-		}
-		int mean = n/cnt;
-		sort(arr, arr+26, greater<int>());
+		cout << "NO";
+		return 0;
 	}
+	if(a-x + b < y)
+	{
+		cout << "NO";
+		return 0;
+	}
+	if(a-x + b - y + c < z)
+	{
+		cout << "NO";
+		return 0;
+	}
+	cout << "YES";
+	return 0;
 }

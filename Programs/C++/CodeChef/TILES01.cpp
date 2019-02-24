@@ -1,15 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
-int fibo(int n)
+
+#define watch(x) cerr << "\n" << (#x) << " is " << (x) << endl
+const double PI  = 3.141592653589793238463;
+const int INF = 0x3f3f3f3f;
+const int MOD = 1000000007;
+
+/*
+$alil03
+Solution Begins here
+*/
+int fib(int n)
 {
-	int dp[n +1];
-	dp[1] = 1;
-	dp[2] = 2;
-	for(int i = 3; i<=n; i++)
-	{
-		dp[i] = dp[i-1]%15746 + dp[i-2]%15746;
-	}
-	return dp[n]%15746;
+    int a = 1, b = 1, c, i;
+    if( n == 1 || n==2)
+      return n;
+    for (i = 2; i <= n; i++)
+    {
+      c = (a + b)%15746;
+      a = b%15746;
+      b = c%15746;
+    }
+    return b%15746;
 }
 int main()
 {
@@ -18,5 +30,5 @@ int main()
 	cout.tie(0);
 	int n;
 	cin >> n;
-	cout << fibo(n)%15746;
+	cout << fib(n);
 }

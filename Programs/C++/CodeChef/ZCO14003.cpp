@@ -16,24 +16,18 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	int t;
-	cin >> t;
-	while(t--)
+	int n;
+	cin >>n;
+	long long int arr[n];
+	for(int i = 0; i<n; i++)
 	{
-		string s;
-		cin >> s;
-		int n = s.length();
-		int arr[26], cnt = 0;
-		memset(arr, 0, sizeof(arr));
-		for(int i = 0; i<n; i++)
-		{
-			if(arr[s[i] - 'A'] == 0)
-			{
-				cnt++;
-			}
-			arr[s[i]- 'A']++;
-		}
-		int mean = n/cnt;
-		sort(arr, arr+26, greater<int>());
+		cin >> arr[i];
 	}
+	sort(arr, arr+n, greater<int>());
+	long long int maximum = -1;
+	for(int i = 0; i<n; i++)
+	{
+		maximum = max(maximum, arr[i]*(i+1));
+	}
+	cout << maximum;
 }
