@@ -1,46 +1,61 @@
 #include<bits/stdc++.h>
-long long counts[1000001] = {0};
-long long N, T, answer;
-
 using namespace std;
+
+#define watch(x) cerr << "\n" << (#x) << " is " << (x) << endl
+const double PI  = 3.141592653589793238463;
+const int INF = 0x3f3f3f3f;
+const int MOD = 1000000007;
+
+/*
+$alil03
+Solution Begins here
+*/
 
 int main()
 {
-	cin >> N >> T;
-	long long *s = new long long[N];
-	for (long long i = 0; i < N; ++i)
-		cin >> s[i];
-
-	sort(s, s + N);
-	for (long long k = 2; k < (N - 1); ++k)
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	int n,t;
+	cin >> n >> t;
+	int arr[n];
+	for(int i = 0; i<n; i++)
 	{
-		if (s[k] >= T)
-			break;		// to exit this loop (optional: to reduce time further)
-
-		long long j = k - 1;
-		for (long long i = 0; i < j; ++i)
+		cin >> arr[i];
+	}
+	sort(arr, arr+n);
+	long long int ans = 0;
+	for(int i = 0; i<n-3; i++)
+	{
+		if(arr[i] > t)
 		{
-			if (s[i] + s[j] < T)
-			{
-				++counts[s[i] + s[j]];
-			}
-			else
-			{
-				break;// to exit this loop (optional: to reduce time further)
-			}
+			break;
 		}
-		for (long long l = k + 1; l < N; ++l)
+		for(int j = i+1; j<n-2; j++)
 		{
-			if ((T - (s[k] + s[l])) >= 0)
+			if(arr[i] + arr[j] > t)
 			{
-				answer += counts[T - (s[k] + s[l])];
+				break;
 			}
-			else
+			for(int k = j+1; k<n-1; k++)
 			{
-				break;	// to exit this loop (optional: to reduce time further)
+				if(arr[i] + arr[j] + arr[k] > t)
+				{
+					break;
+				}
+				for(int l = k+1; l<n; l++)
+				{
+					if(arr[i] + arr[j] + arr[k] + arr[l] > t)
+					{
+						break;
+					}
+					if(arr[i] + arr[j] + arr[k] + arr[l] == t)
+					{
+						ans++;
+					}
+				}
 			}
 		}
 	}
-	cout << answer;
-	return 0;
+	cout << ans;
 }
