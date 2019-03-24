@@ -11,14 +11,6 @@ $alil03
 Solution Begins here
 */
 
-int dp(int n, int arr[])
-{
-	if(n == 0 || n== 1 || n==2)
-	{
-		return 0;
-	}
-}
-
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -27,8 +19,27 @@ int main()
 	int n;
 	cin >> n;
 	int arr[n];
-	for(int i = 0; i<n;i++)
+	for(int i =0; i<n; i++)
 	{
 		cin >> arr[i];
 	}
+	int maximum = -INF, sum = 0;
+	for(int i = n-1; i>=0; i--)
+	{
+		sum = arr[i];
+		for(int j = i-1; j>=0; j--)
+		{
+			if(arr[j] < arr[j+1])
+			{
+				sum += arr[j];
+			}
+			else
+			{
+				sum += max(arr[j+1]-1,0);
+				arr[j] = max(arr[j+1]-1,0);;
+			}
+		}
+		maximum = max(maximum, sum);
+	}
+	cout << maximum;
 }

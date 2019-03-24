@@ -1,148 +1,51 @@
-#include <iostream>
-#include <algorithm>
-#include <functional>
-
+#include<bits/stdc++.h>
 using namespace std;
 
+#define watch(x) cerr << "\n" << (#x) << " is " << (x) << endl
+const double PI  = 3.141592653589793238463;
+const long long int INF = 0x3f3f3f3f3f3f3f3f;
+const long long int MOD = 1000000007;
 
-struct exam
-{
-    int starttime;
-    int endtime;
-};
-
-
-bool examcompare(exam lhs, exam rhs)
-{
-    return lhs.starttime<rhs.starttime;
-};
+/*
+$alil03
+Solution Begins here
+*/
 
 int main()
 {
-
-    long long int counter=0, noofleave=0, noofreturn=0, noofexams=0, bestleave=0, bestreturn=0, trip=0, besttrip=99999999;
-
-    cin>>noofexams>>noofleave>>noofreturn;
-
-    long int leavearray[noofleave], returnarray[noofreturn];
-    exam examarray[noofexams];
-
-
-
-    for(counter=0; counter<noofexams; counter++)
-    {
-        cin>>examarray[counter].starttime>>examarray[counter].endtime;
-    }
-
-    for(counter=0; counter<noofleave; counter++)
-    {
-        cin>>leavearray[counter];
-    }
-
-    for(counter=0; counter<noofreturn; counter++)
-    {
-        cin>>returnarray[counter];
-    }
-
-
-    sort(examarray, examarray+noofexams, examcompare);
-
-    sort(leavearray, leavearray+noofleave);
-
-    sort(returnarray, returnarray+noofreturn);
-
-    long int low=0, high=0, mid=0;
-
-    for(counter=0; counter<noofexams; counter++)
-    {
-        if(leavearray[0]>examarray[counter].starttime)
-        {
-            continue;
-        }
-
-        else if(leavearray[noofleave-1]<=examarray[counter].starttime)
-        {
-            bestleave=leavearray[noofleave-1];
-        }
-
-        else
-        {
-            low=0;
-            high=noofleave-1;
-
-            while(low!=high)
-            {
-                mid=(high+low)/2;
-
-                if(leavearray[mid]<=examarray[counter].starttime)
-                {
-                    low=mid+1;
-                }
-
-                else
-                {
-                    high=mid;
-                }
-
-            }
-
-            bestleave=leavearray[high-1];
-        }
-
-        if(returnarray[noofreturn-1]<examarray[counter].endtime)
-        {
-            continue;
-        }
-
-        else if(returnarray[noofreturn-1]==examarray[counter].endtime)
-        {
-            bestreturn=returnarray[noofreturn-1];
-        }
-
-        else
-        {
-            low=0;
-            high=noofreturn-1;
-
-            while(low!=high)
-            {
-                mid=(high+low)/2;
-
-                if(returnarray[mid]<=examarray[counter].endtime)
-                {
-                    low=mid+1;
-                }
-
-                else
-                {
-                    high=mid;
-                }
-
-            }
-
-            if(returnarray[high-1]==examarray[counter].endtime)
-            {
-                bestreturn=returnarray[high-1];
-            }
-
-            else
-            {
-                bestreturn=returnarray[high];
-            }
-
-        }
-
-        trip=(bestreturn-bestleave)+1;
-
-        if(trip<besttrip)
-        {
-            besttrip=trip;
-        }
-
-    }
-
-
-cout<<besttrip;
-
-    return 0;
-    }
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	long long int n,x,y;
+	cin >> n >> x >> y;
+	pair<long long int,long long int> contest[n];
+	for(long long int i = 0; i<n; i++)
+	{
+		cin >> contest[i].first >> contest[i].second;
+	}
+	sort(contest, contest + n);
+	long long int v[x];
+	for(long long int i = 0; i<x; i++)
+	{
+		cin >> v[i];
+	}
+	long long int w[y];
+	for(long long int i = 0; i<y; i++)
+	{
+		cin >> w[i];
+	}
+	sort(v, v+x);
+	sort(w, w+y);
+	long long int minimum = INF;
+	for(long long int i = 0; i<n; i++)
+	{
+		auto s = upper_bound(v, v+x, contest[i].first);
+		s--;
+		auto e = upper_bound(w, w+y, contest[i].second-1);
+		if(*e > *s)
+		{
+			minimum = min(minimum, *e - *s +1);
+		}
+	}
+	cout << minimum;
+}
