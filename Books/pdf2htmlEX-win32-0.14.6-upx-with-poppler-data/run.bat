@@ -1,1 +1,1 @@
-pdf2htmlex.exe --zoom 2 --optimize-text 1 --font-size-multiplier 10 %USERPROFILE%\Downloads\Competitive_Programming_Notebook.pdf index.html
+pdf2htmlex.exe --hdpi 360 --vdpi 360 --font-format ttf --zoom 2 --optimize-text 1 --font-size-multiplier 10 %USERPROFILE%\Downloads\Competitive_Programming_Notebook.pdf index.html
