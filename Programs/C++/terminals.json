@@ -1,0 +1,29 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "Compile_file",
+      "description": "This is a description",
+      "focus": true,
+      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 0"
+    },
+    {
+      "name": "Run_file",
+      "description": "This is a description",
+      "focus": true,
+      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 1"
+    },
+    {
+      "name": "Compile",
+      "description": "This is a description",
+      "focus": true,
+      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 2"
+    },
+    {
+      "name": "Run",
+      "description": "This is a description",
+      "focus": true,
+      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 3"
+    }
+  ]
+}
