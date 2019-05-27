@@ -5,25 +5,25 @@
       "name": "Compile_file",
       "description": "This is a description",
       "focus": true,
-      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 0"
+      "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/compile.py [fileBasenameNoExtension] [file] 0"
     },
     {
       "name": "Run_file",
       "description": "This is a description",
       "focus": true,
-      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 1"
+      "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/compile.py [fileBasenameNoExtension] [file] 1"
     },
     {
       "name": "Compile",
       "description": "This is a description",
       "focus": true,
-      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 2"
+      "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/compile.py [fileBasenameNoExtension] [file] 2"
     },
     {
       "name": "Run",
       "description": "This is a description",
       "focus": true,
-      "command": "cd [fileDirname] && python C:\\FFmpeg\\bin\\compile.py [fileBasenameNoExtension] [file] 3"
+      "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/compile.py [fileBasenameNoExtension] [file] 3"
     }
   ]
 }
