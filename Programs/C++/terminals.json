@@ -24,6 +24,12 @@
       "description": "This is a description",
       "focus": true,
       "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/compile.py [fileBasenameNoExtension] [file] 3"
+    },
+    {
+      "name": "Parser",
+      "description": "This is a description",
+      "focus": true,
+      "command": "cd [fileDirname] && python3 /home/salil/Documents/Competitive-Programmming/Programs/C++/problem_parser.py"
     }
   ]
 }
