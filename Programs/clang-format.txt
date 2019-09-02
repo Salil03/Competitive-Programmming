@@ -1,0 +1,12 @@
+﻿---
+BasedOnStyle: LLVM
+AllowShortIfStatementsOnASingleLine: 'false'
+AllowShortLoopsOnASingleLine: 'false'
+BreakBeforeBraces: Allman
+ColumnLimit: '1'
+IndentCaseLabels: 'false'
+IndentWidth: '4'
+TabWidth: '4'
+UseTab: Always
+
+...
