@@ -1,3 +1,11 @@
+//OPTIMIZATIONS
+#pragma GCC optimize("O3")
+//(UNCOMMENT WHEN HAVING LOTS OF RECURSIONS)
+//#pragma comment(linker, "/stack:200000000")
+//(UNCOMMENT WHEN NEEDED)
+//#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
+//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,tune=native")
+//OPTIMIZATIONS
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,11 +23,26 @@ URL: url
 Solution Begins here
 */
 
-int supw(int rest, int n)
+int dp[1000000][3] = {{0}};
+
+int work(int day, int rest, int n, int arr[])
 {
-	if (n == 0)
+	if (dp[day][rest] != -1)
 	{
-		return 0;
+		return dp[day][rest];
+	}
+	else
+	{
+		if (rest == 1 || rest == 0)
+		{
+			dp[day][rest] = min(work(day + 1, rest + 1, n, arr), work(day + 1, 0, n, arr) + arr[day]);
+			return dp[day][rest];
+		}
+		else
+		{
+			dp[day][rest] = work(day + 1, 0, n, arr) + arr[day];
+			return dp[day][rest];
+		}
 	}
 }
 
@@ -35,4 +58,15 @@ int main()
 	{
 		cin >> arr[i];
 	}
+	for (int i = 0; i <= n; i++)
+	{
+		dp[i][0] = -1;
+		dp[i][1] = -1;
+		dp[i][2] = -1;
+	}
+	dp[n - 1][0] = 0;
+	dp[n - 1][1] = 0;
+	dp[n - 1][2] = arr[n - 1];
+	work(0, 0, n, arr);
+	cout << dp[0][0];
 }
