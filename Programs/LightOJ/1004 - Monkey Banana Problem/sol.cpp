@@ -22,32 +22,52 @@ int main()
 	cout.tie(0);
 	int t;
 	cin >> t;
-	while (t--)
+	for (int temp = 1; temp <= t; temp++)
 	{
 		int n;
 		cin >> n;
-		int arr[2 * n - 1][n];
-		for (int i = 0; i < 2 * n - 1; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				arr[i][j] = 0;
-			}
-		}
-		for (int i = 0; i < 2 * n - 1; i++)
+		int arr[2 * n - 1][n] = {{0}}; // n = 4
+		for (int i = 0; i < n; i++)
 		{
 			for (int j = 0; j <= i; j++)
 			{
 				cin >> arr[i][j];
 			}
 		}
-		for (int i = 0; i < 2 * n - 1; i++)
+		for (int i = n; i < 2 * n - 1; i++)
 		{
-			for (int j = 0; j < n; j++)
+			for (int j = 0; j < 2 * n - i - 1; j++)
 			{
-				cout << arr[i][j] << " ";
+				cin >> arr[i][j];
 			}
-			cout << "\n";
 		}
+		int dp[2 * n - 1][n] = {{0}};
+		dp[0][0] = arr[0][0];
+		for (int i = 1; i < n; i++)
+		{
+			for (int j = 0; j <= i; j++)
+			{
+				if (j == 0)
+				{
+					dp[i][j] = arr[i][j] + dp[i - 1][j];
+				}
+				else if (j == i)
+				{
+					dp[i][j] = arr[i][j] + dp[i - 1][j - 1];
+				}
+				else
+				{
+					dp[i][j] = arr[i][j] + max(dp[i - 1][j], dp[i - 1][j - 1]);
+				}
+			}
+		}
+		for (int i = n; i < 2 * n - 1; i++)
+		{
+			for (int j = 0; j < 2 * n - i - 1; j++)
+			{
+				dp[i][j] = arr[i][j] + max(dp[i - 1][j], dp[i - 1][j + 1]);
+			}
+		}
+		cout << "Case " << temp << ": " << dp[2 * n - 2][0] << "\n";
 	}
 }

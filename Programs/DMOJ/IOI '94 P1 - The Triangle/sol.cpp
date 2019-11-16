@@ -22,20 +22,6 @@ URL: url
 
 Solution Begins here
 */
-int arr[200][200];
-int dp[200][200];
-int points(int row, int column, int n)
-{
-	if (dp[row][column] != -1)
-	{
-		return dp[row][column];
-	}
-	else
-	{
-		dp[row][column] = max(points(row + 1, column, n), points(row + 1, column + 1, n)) + arr[row][column];
-		return dp[row][column];
-	}
-}
 
 int main()
 {
@@ -44,6 +30,7 @@ int main()
 	cout.tie(0);
 	int n;
 	cin >> n;
+	int arr[n][n];
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -53,22 +40,31 @@ int main()
 	}
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j <= i; j++)
+		for (int j = 0; j < n; j++)
 		{
 			cin >> arr[i][j];
 		}
 	}
-	for (int i = 0; i < n; i++)
+	long long dp[n][n] = {{0}};
+	dp[0][0] = arr[0][0];
+	for (int i = 1; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			dp[i][j] = -1;
+			if (j == 0)
+			{
+				dp[i][j] = dp[i - 1][j] + arr[i][j];
+			}
+			else
+			{
+				dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j]) + arr[i][j];
+			}
 		}
 	}
-	for (int i = 0; i <= n; i++)
+	long long maximum = 0;
+	for (int i = 0; i < n; i++)
 	{
-		dp[n - 1][i] = arr[n - 1][i];
+		maximum = max(maximum, dp[n - 1][i]);
 	}
-	points(0, 0, n);
-	cout << dp[0][0];
+	cout << maximum;
 }

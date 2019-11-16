@@ -25,24 +25,43 @@ URL: url
 
 Solution Begins here
 */
-int dp(int days, int trans, bool buff, int n, int k)
-{
-	if(buff)
-	[
-		return max(arr[days] + dp(days-1, trans-1, 0, n,k) , dp(days-1, trans, ))
-	]
-}
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
 	int n, k;
 	cin >> n >> k;
+	k /= 2;
 	int arr[n];
 	for (int i = 0; i < n; i++)
 	{
 		cin >> arr[i];
 	}
+	int dp[n][k + 1];
+	for (int i = 0; i <= k; i++)
+	{
+		dp[0][i] = 0;
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 0; j <= k; j++)
+		{
+			if (j == 0)
+			{
+				dp[i][j] = 0;
+				continue;
+			}
+			int maximum = INT_MIN;
+			for (int t = 0; t < i; t++)
+			{
+				maximum = max(maximum, dp[t][j - 1] + arr[i] - arr[t]);
+			}
+			dp[i][j] = max(maximum, dp[i - 1][j]);
+		}
+	}
+	int ans = -2;
+	for (int i = 0; i <= k; i++)
+	{
+		ans = max(ans, dp[n - 1][i]);
+	}
+	cout << ans;
 }

@@ -1,4 +1,5 @@
 //OPTIMIZATIONS
+#pragma GCC optimize("O3")
 //(UNCOMMENT WHEN HAVING LOTS OF RECURSIONS)
 //#pragma comment(linker, "/stack:200000000")
 //(UNCOMMENT WHEN NEEDED)
@@ -33,36 +34,36 @@ int main()
 	cout.tie(0);
 	int n, t;
 	cin >> n >> t;
-	vector<int> arr;
-	int temp;
+	int arr[n];
 	for (int i = 0; i < n; i++)
 	{
-		cin >> temp;
-		if (temp < t - 2)
-		{
-			arr.emplace_back(temp);
-		}
+		cin >> arr[i];
 	}
-	n = arr.size();
-	ll cnt = 0;
-	ll mp[t] = {0};
+	sort(arr, arr + n);
+	int cnt = 0;
+	map<int, int> mp;
 	for (int i = 2; i < n - 1; i++)
 	{
+		if (arr[i] > t)
+		{
+			break;
+		}
 		for (int j = 0; j <= i - 2; j++)
 		{
-			if (arr[j] + arr[i - 1] < t - 1)
+			if (arr[j] + arr[i - 1] > t)
 			{
-				mp[arr[j] + arr[i - 1]]++;
+				break;
 			}
+			mp[arr[j] + arr[i - 1]]++;
 		}
 		for (int j = i + 1; j < n; j++)
 		{
-			if (t - arr[i] - arr[j] > 0 && mp[t - arr[i] - arr[j]])
+			if (arr[j] + arr[i] > t)
 			{
-				cnt += mp[t - arr[i] - arr[j]];
+				break;
 			}
+			cnt += mp[t - arr[i] - arr[j]];
 		}
 	}
 	cout << cnt;
-	return 0;
 }
