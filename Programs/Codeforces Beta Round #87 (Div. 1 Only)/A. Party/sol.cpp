@@ -26,6 +26,18 @@ URL: url
 
 Solution Begins here
 */
+int level[2010] = {0};
+void tree(int node, int parent, vector<int> graph[])
+{
+	for (auto u : graph[node])
+	{
+		if (u != parent)
+		{
+			level[u] = level[node] + 1;
+			tree(u, node, graph);
+		}
+	}
+}
 
 int main()
 {
@@ -34,47 +46,24 @@ int main()
 	cout.tie(0);
 	int n;
 	cin >> n;
-	int arr[n + 1] = {0};
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> arr[i];
-	}
 	vector<int> graph[n + 1];
+	vector<int> boss;
 	for (int i = 1; i <= n; i++)
 	{
-		if (arr[i] != -1)
+		int x;
+		cin >> x;
+		if (x == -1)
 		{
-			graph[i].push_back(arr[i]);
+			boss.push_back(i);
+		}
+		else
+		{
+			graph[x].push_back(i);
 		}
 	}
-	for (int i = 1; i <= n; i++)
+	for (int i : boss)
 	{
-		if (arr[i] == -1)
-		{
-			continue;
-		}
-		bool visited[n + 1] = {0};
-		queue<int> q;
-		q.push(i);
-		visited[i] = 1;
-		while (!q.empty())
-		{
-			int s = q.front();
-			q.pop();
-			for (auto u : graph[s])
-			{
-				if (visited[u])
-				{
-					continue;
-				}
-				visited[u] = 1;
-				for (auto v : graph[u])
-				{
-					graph[s].push_back(v);
-				}
-			}
-		}
+		tree(i, -1, graph);
 	}
-	vector<int> final;
-	bool visited[n + 1] = {0};
+	cout << *max_element(level, level + 2010) + 1 << "\n";
 }

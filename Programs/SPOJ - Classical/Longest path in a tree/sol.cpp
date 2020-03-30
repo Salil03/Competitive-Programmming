@@ -12,21 +12,21 @@ typedef unsigned long long uu;
 typedef long long int lll;
 typedef unsigned long long int uuu;
 using namespace std;
-
+ 
 #define watch(x) cerr << "\n" \
 					  << (#x) << " is " << (x) << endl
 #define cel(x, y) 1 + ((x - 1) / y)
 const double PI = 3.141592653589793238463;
 const int MOD = 1000000007;
-
+ 
 /*
 $alil03
-
+ 
 URL: url
-
+ 
 Solution Begins here
 */
-
+ 
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -86,4 +86,4 @@ int main()
 		}
 	}
 	cout << *max_element(distance, distance + n + 1);
-}
+} 

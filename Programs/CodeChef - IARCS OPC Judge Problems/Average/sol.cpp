@@ -26,29 +26,32 @@ URL: url
 
 Solution Begins here
 */
-
+bool mp[1000000000] = {};
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	int n;
+	lll n;
 	cin >> n;
-	int arr[n];
+	lll arr[n];
 	for (int i = 0; i < n; i++)
 	{
 		cin >> arr[i];
 	}
-	sort(arr, arr + n);
-	int ans = 0;
 	for (int i = 0; i < n - 1; i++)
 	{
-		int sum = 2 * arr[i];
-		unordered_map<int, int> mp;
 		for (int j = i + 1; j < n; j++)
 		{
-			ans += mp[sum - arr[j]];
-			mp[arr[j]]++;
+			mp[arr[i] + arr[j]] = true;
+		}
+	}
+	lll ans = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (mp[arr[i] * 2])
+		{
+			ans++;
 		}
 	}
 	cout << ans;

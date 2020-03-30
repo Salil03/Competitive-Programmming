@@ -25,24 +25,11 @@ Solution Begins here
 
 int dp[1000000][3];
 
-int money(int day, int work, int n, int arr[])
+int money(int day, int work)
 {
 	if (dp[day][work] != -1)
 	{
 		return dp[day][work];
-	}
-	else
-	{
-		if (work == 0 || work == 1)
-		{
-			dp[day][work] = max(money(day + 1, work + 1, n, arr) + arr[day], money(day + 1, 0, n, arr));
-			return dp[day][work];
-		}
-		else
-		{
-			dp[day][work] = money(day + 1, 0, n, arr);
-			return dp[day][work];
-		}
 	}
 }
 
@@ -64,9 +51,13 @@ int main()
 		dp[i][1] = -1;
 		dp[i][2] = -1;
 	}
-	dp[n - 1][0] = arr[n - 1];
-	dp[n - 1][1] = arr[n - 1];
-	dp[n - 1][2] = 0;
-	money(0, 0, n, arr);
-	cout << dp[0][0];
+	dp[0][0] = 0;
+	dp[0][1] = 0;
+	dp[0][2] = 0;
+	dp[1][0] = arr[0];
+	dp[1][1] = arr[0];
+	dp[1][2] = arr[0];
+	dp[2][0] = arr[1];
+	dp[2][1] = arr[1];
+	dp[2][2] = arr[1];
 }
