@@ -34,4 +34,60 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	string s;
+	lll maximum = 0, sum = 0;
+	while (cin >> s)
+	{
+		lll n = s.length();
+		for (int i = 0; i < n; i++)
+		{
+			if (s[i] == 'o')
+			{
+				sum += 100;
+			}
+			else if (s[i] == 'e')
+			{
+				sum += 10;
+			}
+			else if (s[i] == 'g')
+			{
+				sum += 1;
+			}
+			else if (s[i] == 'a')
+			{
+				sum += 0;
+			}
+			else if (s[i] == 'b')
+			{
+				sum -= 1;
+			}
+			else if (s[i] == 'i')
+			{
+				sum -= 10;
+			}
+			else if (s[i] == 'u')
+			{
+				sum -= 100;
+			}
+			else
+			{
+				break;
+			}
+			maximum = max(maximum, sum);
+			if (sum <= 0)
+			{
+				sum = 0;
+			}
+		}
+		if (s[n - 1] == '.')
+		{
+			cout << maximum << "\n";
+			return 0;
+		}
+		else if (s[n - 1] == ',')
+		{
+			cout << maximum << "\n";
+			maximum = 0;
+			sum = 0;
+		}
+	}
 }
