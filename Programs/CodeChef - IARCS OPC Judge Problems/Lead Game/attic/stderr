@@ -1,0 +1,5 @@
+c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - IARCS OPC Judge Problems\Lead Game\sol.cpp: In function 'int main()':
+c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - IARCS OPC Judge Problems\Lead Game\sol.cpp:73:27: error: 'struct std::pair<bool, int>' has no member named 'secon'; did you mean 'second'?
+   73 |   cout << 1 << " " << win.secon
+      |                           ^~~~~
+      |                           second
