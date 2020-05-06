@@ -4,20 +4,14 @@ My practice folder to compete at [INOI](https://www.iarcs.org.in/inoi/) and [ZCO
 
 ## Installation
 
-### Requirements
-* [Mingw g++ 6.3.0](http://www.mingw.org/)
-* PDF Reader for books
 
 
 ## Usage
 
-* **`Books` has competitive programming books**
+* **`ICPC Notebook` has a notebook for ICPC with code templates**
 
 * **`Programs` has various problem solutions**
 
 ## Development
 
 Development is still active
-
-## Contributing
-Pull requests are welcome only for books. For major changes, please open an issue first to discuss what you would like to change.
