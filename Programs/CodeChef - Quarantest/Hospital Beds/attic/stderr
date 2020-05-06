@@ -1,7 +1,5 @@
 c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp: In function 'int main()':
-c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp:83:14: error: expected ';' before '}' token
-   83 |        no = 1
-      |              ^
-      |              ;
-   84 |      }
-      |      ~        
+c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp:89:22: error: expected ';' before 'else'
+   89 |    cout << "UNSAFE\n" else cout << "SAFE\n";
+      |                      ^~~~~
+      |                      ;
