@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build active file",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-DACMX",
+                "--debug",
+                "${file}",
+                "-o",
+                "${fileDirname}/attic/${fileBasenameNoExtension}"
+            ]
+        }
+    ]
+}

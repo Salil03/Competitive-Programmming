@@ -1,93 +1,88 @@
+//OPTIMIZATIONS
+#pragma GCC optimize("O3")
+//(UNCOMMENT WHEN HAVING LOTS OF RECURSIONS)
+//#pragma comment(linker, "/stack:200000000")
+//(UNCOMMENT WHEN NEEDED)
+//#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
+//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,tune=native")
+//OPTIMIZATIONS
 #include <bits/stdc++.h>
-#define ll long long
-#define pb push_back
-#define rep(i, a, n) for (ll i = a; i < n; i++)
-#define per(i, a, n) for (ll i = n - 1; i >= a; i--)
-#define fi first
-#define se second
-#define maxn 200005
-#define VL vector<ll>
-#define all(x) (x).begin(), (x).end()
-#define flash                         \
-	ios_base::sync_with_stdio(false); \
-	cin.tie(NULL);
+typedef long long ll;
+typedef unsigned long long uu;
+typedef long long int lll;
+typedef unsigned long long int uuu;
+using namespace std;
 
+#define watch(x) cerr << "\n" \
+					  << (#x) << " is " << (x) << endl
+#define cel(x, y) 1 + ((x - 1) / y)
+const double PI = 3.141592653589793238463;
+const int MOD = 1000000007;
+const long long int INF = 0x3f3f3f3f3f3f3f3f;
+
+/*
+$alil03
+
+URL: url
+
+Solution Begins here
+*/
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-	ll t;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	int t;
 	cin >> t;
 
 	while (t--)
 	{
-		ll n;
+		int n, flag = 0;
 		cin >> n;
 
-		ll a[n + 1][n + 1] = {0};
+		int a[n][n];
 
-		rep(i, 0, n)
+		for (int i = 0; i < n; i++)
 		{
-			rep(j, 0, n)
-					cin >>
-				a[i][j];
+			for (int j = 0; j < n; j++)
+				cin >> a[i][j];
 		}
+		/*
+        for(int i=0;i<n;i++)
+        {
+            for(int j =0;j<n;j++)
+                cout<<a[i][j]<<" ";
+            cout<<endl;
+        }*/
 
-		ll no = 0;
-
-		rep(i, 0, n)
+		for (int i = 0; i < n; i++)
 		{
-			rep(j, 0, n)
+			for (int j = 0; j < n; j++)
 			{
+				//     cout<<i<<" "<<j<<endl;
+
 				if (a[i][j] == 1)
 				{
-					if (i == 0)
+					if ((i - 1 >= 0 && a[i - 1][j] == 1) || (j - 1 >= 0 && a[i][j - 1] == 1) || (i + 1 < n && a[i + 1][j] == 1) || (j + 1 < n && a[i][j + 1] == 1))
 					{
-						if (j == 0)
-						{
-							if ((a[i][j + 1] != 0 && (j + 1) < n) || (a[i + 1][j] != 0 && (i + 1) < n))
-								no = 1;
-						}
-						else if (j == n - 1)
-						{
-							if ((a[i][j - 1] != 0 && (j - 1) >= 0) || (a[i + 1][j] != 0 && (i + 1) < n))
-								no = 1;
-						}
-						else
-						{
-							if ((a[i][j + 1] != 0 && (j + 1) < n) || (a[i][j - 1] != 0 && (j - 1) >= 0) || (a[i + 1][j] != 0 && (i + 1) < n))
-								no = 1;
-						}
-					}
-					else if (i == n - 1)
-					{
-						if (j == 0)
-						{
-							if ((a[i][j + 1] != 0 && (j + 1) < n) || (a[i - 1][j] != 0 && (i - 1) >= 0))
-								no = 1;
-						}
-						else if (j == n - 1)
-						{
-							if ((a[i][j - 1] != 0 && (j - 1) >= 0) || (a[i - 1][j] != 0 && (i - 1) >= 0))
-								no = 1;
-						}
-						else
-						{
-							if ((a[i][j + 1] != 0 && (j + 1) < n) || (a[i][j - 1] != 0 && (j - 1) >= 0) || (a[i - 1][j] != 0 && (i - 1) >= 0))
-								no = 1;
-						}
-					}
-					else
-					{
-						if ((a[i][j + 1] != 0 && (j + 1) < n) || (a[i][j - 1] != 0 && (j - 1) >= 0) || (a[i - 1][j] != 0 && (i - 1) >= 0) || (a[i + 1][j] != 0 && (i + 1) < n))
-							no = 1;
+						flag = 1;
+						break;
 					}
 				}
 			}
+			// cout<<"flag = "<<flag<<endl;
+			if (flag == 1)
+				break;
 		}
-		if (no == 1)
+
+		if (flag == 1)
 			cout << "UNSAFE\n";
 		else
 			cout << "SAFE\n";
 	}
+
+	return 0;
 }

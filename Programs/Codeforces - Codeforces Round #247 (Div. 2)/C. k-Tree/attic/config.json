@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #247 (Div. 2)\\C. k-Tree\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. k-Tree",
+      "group": "Codeforces - Codeforces Round #247 (Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/431/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

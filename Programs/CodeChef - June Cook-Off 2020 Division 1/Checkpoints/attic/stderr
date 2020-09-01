@@ -1,0 +1,814 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:53:31:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Klong long int[m[K' to '[01m[Kstd::map<int, std::vector<int> >::key_type[m[K' {aka '[01m[Kint[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   53 |    diagonals[[01;35m[Kpoints[i].second - points[i].first[m[K].push_back(i);
+      |              [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:62:23:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Klong long int[m[K' to '[01m[Kint[m[K' may change value [[01;35m[K-Wconversion[m[K]
+   62 |     int x = [01;35m[Kpoints[j].first[m[K;
+      |             [01;35m[K~~~~~~~~~~^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:63:23:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Klong long int[m[K' to '[01m[Kint[m[K' may change value [[01;35m[K-Wconversion[m[K]
+   63 |     int y = [01;35m[Kpoints[j].second[m[K;
+      |             [01;35m[K~~~~~~~~~~^~~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:63:9:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[Ky[m[K' [[01;35m[K-Wunused-variable[m[K]
+   63 |     int [01;35m[Ky[m[K = points[j].second;
+      |         [01;35m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:72:19:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Klong long int[m[K' to '[01m[Kint[m[K' may change value [[01;35m[K-Wconversion[m[K]
+   72 |      for (int k : [01;35m[Kj[m[K)
+      |                   [01;35m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:22:[m[K [01;31m[Kerror: [m[Kno match for '[01m[Koperator<<[m[K' (operand types are '[01m[Kstd::basic_ostream<char>[m[K' and '[01m[K<unresolved overloaded function type>[m[K')
+   79 |   [01;31m[Kcout << cnt << " " << size[m[K << "\n";
+      |   [01;31m[K~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:108:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  108 |       [01;36m[Koperator[m[K<<(__ostream_type& (*__pf)(__ostream_type&))
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:108:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&)[m[K' {aka '[01m[Kstd::basic_ostream<char>& (*)(std::basic_ostream<char>&)[m[K'}
+  108 |       operator<<([01;36m[K__ostream_type& (*__pf)(__ostream_type&)[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:117:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>][m[K'
+  117 |       [01;36m[Koperator[m[K<<(__ios_type& (*__pf)(__ios_type&))
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:117:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&)[m[K' {aka '[01m[Kstd::basic_ios<char>& (*)(std::basic_ios<char>&)[m[K'}
+  117 |       operator<<([01;36m[K__ios_type& (*__pf)(__ios_type&)[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:127:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  127 |       [01;36m[Koperator[m[K<<(ios_base& (*__pf) (ios_base&))
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:127:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::ios_base& (*)(std::ios_base&)[m[K'
+  127 |       operator<<([01;36m[Kios_base& (*__pf) (ios_base&)[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~^~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:166:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  166 |       [01;36m[Koperator[m[K<<(long __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:166:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Klong int[m[K'
+  166 |       operator<<([01;36m[Klong __n[m[K)
+      |                  [01;36m[K~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:170:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  170 |       [01;36m[Koperator[m[K<<(unsigned long __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:170:32:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Klong unsigned int[m[K'
+  170 |       operator<<([01;36m[Kunsigned long __n[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:174:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  174 |       [01;36m[Koperator[m[K<<(bool __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:174:23:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kbool[m[K'
+  174 |       operator<<([01;36m[Kbool __n[m[K)
+      |                  [01;36m[K~~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\ostream:702[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:91:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+   91 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:92:22:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kshort int[m[K'
+   92 |     operator<<([01;36m[Kshort __n[m[K)
+      |                [01;36m[K~~~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:181:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  181 |       [01;36m[Koperator[m[K<<(unsigned short __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:181:33:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kshort unsigned int[m[K'
+  181 |       operator<<([01;36m[Kunsigned short __n[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\ostream:702[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:105:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  105 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:106:20:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kint[m[K'
+  106 |     operator<<([01;36m[Kint __n[m[K)
+      |                [01;36m[K~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:192:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  192 |       [01;36m[Koperator[m[K<<(unsigned int __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:192:31:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kunsigned int[m[K'
+  192 |       operator<<([01;36m[Kunsigned int __n[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:201:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  201 |       [01;36m[Koperator[m[K<<(long long __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:201:28:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Klong long int[m[K'
+  201 |       operator<<([01;36m[Klong long __n[m[K)
+      |                  [01;36m[K~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:205:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  205 |       [01;36m[Koperator[m[K<<(unsigned long long __n)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:205:37:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Klong long unsigned int[m[K'
+  205 |       operator<<([01;36m[Kunsigned long long __n[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:220:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  220 |       [01;36m[Koperator[m[K<<(double __f)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:220:25:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kdouble[m[K'
+  220 |       operator<<([01;36m[Kdouble __f[m[K)
+      |                  [01;36m[K~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:224:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  224 |       [01;36m[Koperator[m[K<<(float __f)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:224:24:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kfloat[m[K'
+  224 |       operator<<([01;36m[Kfloat __f[m[K)
+      |                  [01;36m[K~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:232:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  232 |       [01;36m[Koperator[m[K<<(long double __f)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:232:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Klong double[m[K'
+  232 |       operator<<([01;36m[Klong double __f[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:245:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>][m[K'
+  245 |       [01;36m[Koperator[m[K<<(const void* __p)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:245:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kconst void*[m[K'
+  245 |       operator<<([01;36m[Kconst void* __p[m[K)
+      |                  [01;36m[K~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:250:7:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::nullptr_t) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::nullptr_t = std::nullptr_t][m[K'
+  250 |       [01;36m[Koperator[m[K<<(nullptr_t)
+      |       [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:250:18:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::nullptr_t[m[K'
+  250 |       operator<<([01;36m[Knullptr_t[m[K)
+      |                  [01;36m[K^~~~~~~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\ostream:702[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:119:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>][m[K'
+  119 |     [01;36m[Kbasic_ostream<_CharT, _Traits>[m[K::
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:120:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::basic_ostream<char>::__streambuf_type*[m[K' {aka '[01m[Kstd::basic_streambuf<char>*[m[K'}
+  120 |     operator<<([01;36m[K__streambuf_type* __sbin[m[K)
+      |                [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\regex:62[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:110[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\regex.h:1553:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Ch_type, class _Ch_traits, class _Bi_iter> std::basic_ostream<_CharT, _Traits>& std::__cxx11::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::sub_match<_Bi_iter>&)[m[K'
+ 1553 |     [01;36m[Koperator[m[K<<(basic_ostream<_Ch_type, _Ch_traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\regex.h:1553:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Bi_iter[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:45[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\cstddef:130:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntegerType> constexpr std::__byte_op_t<_IntegerType> std::operator<<(std::byte, _IntegerType)[m[K'
+  130 |     [01;36m[Koperator[m[K<<(byte __b, _IntegerType __shift) noexcept
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\cstddef:130:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntegerType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\bits\basic_string.h:48[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\string:55[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\bits\locale_classes.h:40[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\bits\ios_base.h:41[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ios:42[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\string_view:582:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::basic_string_view<_CharT, _Traits>) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  582 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\string_view:583:43:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::basic_string_view<char>[m[K'
+  583 |         [01;36m[Kbasic_string_view<_CharT,_Traits> __str[m[K)
+      |         [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\string:55[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\bits\locale_classes.h:40[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\bits\ios_base.h:41[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ios:42[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\basic_string.h:6416:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&)[m[K'
+ 6416 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\basic_string.h:6416:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Alloc[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\bits\ios_base.h:46[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ios:42[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\system_error:217:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)[m[K'
+  217 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\system_error:217:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst std::error_code&[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:506:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  506 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:506:62:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kchar[m[K'
+  506 |     operator<<(basic_ostream<_CharT, _Traits>& __out, [01;36m[K_CharT __c[m[K)
+      |                                                       [01;36m[K~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:511:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)[m[K'
+  511 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:511:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kchar[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:517:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)[m[K'
+  517 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, char __c)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:517:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kchar[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:523:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)[m[K'
+  523 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, signed char __c)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:523:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Ksigned char[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:528:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)[m[K'
+  528 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:528:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kunsigned char[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:548:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  548 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:548:69:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kconst char*[m[K'
+  548 |     operator<<(basic_ostream<_CharT, _Traits>& __out, [01;36m[Kconst _CharT* __s[m[K)
+      |                                                       [01;36m[K~~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\ostream:702[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:321:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)[m[K'
+  321 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\ostream.tcc:321:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst char*[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:565:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)[m[K'
+  565 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const char* __s)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:565:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst char*[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:578:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)[m[K'
+  578 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:578:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst signed char*[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:583:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)[m[K'
+  583 |     [01;36m[Koperator[m[K<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:583:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst unsigned char*[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\istream:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\sstream:38[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\complex:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:691:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Ostream, class _Tp> typename std::enable_if<std::__and_<std::__not_<std::is_lvalue_reference<_Tp> >, std::__is_convertible_to_basic_ostream<_Ostream>, std::__is_insertable<typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type, const _Tp&, void> >::value, typename std::__is_convertible_to_basic_ostream<_Tp>::__ostream_type>::type std::operator<<(_Ostream&&, const _Tp&)[m[K'
+  691 |     [01;36m[Koperator[m[K<<(_Ostream&& __os, const _Tp& __x)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\ostream:691:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Tp[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\ccomplex:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:54[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\complex:548:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::complex<_Tp>&)[m[K'
+  548 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\complex:548:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Tp[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:66[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bitset:1538:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits, long long unsigned int _Nb> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::bitset<_Nb>&)[m[K'
+ 1538 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bitset:1538:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Nb[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:79:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Resetiosflags)[m[K'
+   79 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Resetiosflags __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:79:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::_Resetiosflags[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:109:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setiosflags)[m[K'
+  109 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Setiosflags __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:109:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::_Setiosflags[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:143:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setbase)[m[K'
+  143 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Setbase __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:143:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::_Setbase[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:178:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setfill<_CharT>) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  178 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Setfill<_CharT> __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:178:71:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::_Setfill<char>[m[K'
+  178 |     operator<<(basic_ostream<_CharT, _Traits>& __os, [01;36m[K_Setfill<_CharT> __f[m[K)
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:208:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setprecision)[m[K'
+  208 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Setprecision __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:208:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::_Setprecision[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:238:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setw)[m[K'
+  238 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Setw __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:238:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::_Setw[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:311:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits, class _MoneyT> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Put_money<_MoneyT>)[m[K'
+  311 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Put_money<_MoneyT> __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:311:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_MoneyT[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:72[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:363:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Kstd::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Put_time<_CharT>) [with _CharT = char; _Traits = std::char_traits<char>][m[K'
+  363 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __os, _Put_time<_CharT> __f)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\iomanip:363:72:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from '[01m[K<unresolved overloaded function type>[m[K' to '[01m[Kstd::_Put_time<char>[m[K'
+  363 |     operator<<(basic_ostream<_CharT, _Traits>& __os, [01;36m[K_Put_time<_CharT> __f[m[K)
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\memory:81[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:82[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Ch, class _Tr, class _Tp, __gnu_cxx::_Lock_policy _Lp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__shared_ptr<_Tp, _Lp>&)[m[K'
+   66 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_Ch, _Tr>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\shared_ptr.h:66:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Tp[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\valarray:603[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Dom1, class _Dom2> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_Expr, std::_Expr, _Dom1, _Dom2>, typename std::__fun<std::__shift_left, typename _Dom1::value_type>::result_type> std::operator<<(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::_Expr<_Dom2, typename _Dom2::value_type>&)[m[K'
+  413 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(<<, __shift_left)
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  '[01m[Kstd::basic_ostream<char>[m[K' is not derived from '[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\valarray:603[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_Expr, std::_Constant, _Dom, typename _Dom::value_type>, typename std::__fun<std::__shift_left, typename _Dom1::value_type>::result_type> std::operator<<(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const typename _Dom::value_type&)[m[K'
+  413 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(<<, __shift_left)
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  '[01m[Kstd::basic_ostream<char>[m[K' is not derived from '[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\valarray:603[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_Constant, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__shift_left, typename _Dom1::value_type>::result_type> std::operator<<(const typename _Dom::value_type&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K'
+  413 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(<<, __shift_left)
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Dom[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\valarray:603[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_Expr, std::_ValArray, _Dom, typename _Dom::value_type>, typename std::__fun<std::__shift_left, typename _Dom1::value_type>::result_type> std::operator<<(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::valarray<typename _Dom::value_type>&)[m[K'
+  413 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(<<, __shift_left)
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  '[01m[Kstd::basic_ostream<char>[m[K' is not derived from '[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\valarray:603[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_ValArray, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__shift_left, typename _Dom1::value_type>::result_type> std::operator<<(const std::valarray<typename _Dom::value_type>&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K'
+  413 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(<<, __shift_left)
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\valarray_after.h:413:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Dom[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_ValArray, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__shift_left, _Tp>::result_type> std::operator<<(const std::valarray<_Tp>&, const std::valarray<_Tp>&)[m[K'
+ 1193 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(<<, __shift_left)
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  '[01m[Kstd::basic_ostream<char>[m[K' is not derived from '[01m[Kconst std::valarray<_Tp>[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_ValArray, std::_Constant, _Tp, _Tp>, typename std::__fun<std::__shift_left, _Tp>::result_type> std::operator<<(const std::valarray<_Tp>&, const typename std::valarray<_Tp>::value_type&)[m[K'
+ 1193 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(<<, __shift_left)
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  '[01m[Kstd::basic_ostream<char>[m[K' is not derived from '[01m[Kconst std::valarray<_Tp>[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:95[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__shift_left, std::_Constant, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__shift_left, _Tp>::result_type> std::operator<<(const typename std::valarray<_Tp>::value_type&, const std::valarray<_Tp>&)[m[K'
+ 1193 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(<<, __shift_left)
+      | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\valarray:1193:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_Tp[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\future:39[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:105[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\thread:322:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::thread::id)[m[K'
+  322 |     [01;36m[Koperator[m[K<<(basic_ostream<_CharT, _Traits>& __out, thread::id __id)
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\thread:322:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kstd::thread::id[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:49[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.h:1298:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RandomNumberEngine, long long unsigned int __w, class _UIntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::independent_bits_engine<_RandomNumberEngine, __w, _UIntType>&)[m[K'
+ 1298 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.h:1298:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RandomNumberEngine[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:877:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::uniform_int_distribution<_IntType>&)[m[K'
+  877 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:877:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:936:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::uniform_real_distribution<_IntType>&)[m[K'
+  936 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:936:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2129:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::cauchy_distribution<_RealType>&)[m[K'
+ 2129 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2129:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:998:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::bernoulli_distribution&)[m[K'
+  998 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:998:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[Kstd::size[m[K' (type '[01m[K<unresolved overloaded function type>[m[K') to type '[01m[Kconst std::bernoulli_distribution&[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1080:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::geometric_distribution<_IntType>&)[m[K'
+ 1080 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1080:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1737:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::exponential_distribution<_RealType>&)[m[K'
+ 1737 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1737:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2528:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::weibull_distribution<_RealType>&)[m[K'
+ 2528 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2528:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2604:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::extreme_value_distribution<_RealType>&)[m[K'
+ 2604 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2604:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:154:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _UIntType, _UIntType __a, _UIntType __c, _UIntType __m, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::linear_congruential_engine<_UIntType, __a, __c, __m>&)[m[K'
+  154 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:154:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_UIntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:476:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _UIntType1, long long unsigned int __w1, long long unsigned int __n1, long long unsigned int __m1, long long unsigned int __r1, _UIntType1 __a1, long long unsigned int __u1, _UIntType1 __d1, long long unsigned int __s1, _UIntType1 __b1, long long unsigned int __t1, _UIntType1 __c1, long long unsigned int __l1, _UIntType1 __f1, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>&)[m[K'
+  476 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:476:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_UIntType1[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:632:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _UIntType, long long unsigned int __w, long long unsigned int __s, long long unsigned int __r, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::subtract_with_carry_engine<_UIntType, __w, __s, __r>&)[m[K'
+  632 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:632:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_UIntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:702:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RandomNumberEngine, long long unsigned int __p, long long unsigned int __r, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::discard_block_engine<_RandomNumberEngine, __p, __r>&)[m[K'
+  702 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:702:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RandomNumberEngine[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:831:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RandomNumberEngine, long long unsigned int __k, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::shuffle_order_engine<_RandomNumberEngine, __k>&)[m[K'
+  831 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:831:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RandomNumberEngine[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1195:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::negative_binomial_distribution<_IntType>&)[m[K'
+ 1195 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1195:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1406:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::poisson_distribution<_IntType>&)[m[K'
+ 1406 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1406:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1673:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::binomial_distribution<_IntType>&)[m[K'
+ 1673 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1673:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1904:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType1, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::normal_distribution<_RealType>&)[m[K'
+ 1904 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1904:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType1[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1969:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::lognormal_distribution<_RealType>&)[m[K'
+ 1969 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:1969:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2042:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::chi_squared_distribution<_RealType>&)[m[K'
+ 2042 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2042:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2206:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::fisher_f_distribution<_RealType>&)[m[K'
+ 2206 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2206:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2281:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::student_t_distribution<_RealType>&)[m[K'
+ 2281 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2281:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2450:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType1, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::gamma_distribution<_RealType>&)[m[K'
+ 2450 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2450:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType1[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2740:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _IntType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::discrete_distribution<_IntType>&)[m[K'
+ 2740 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2740:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_IntType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2950:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::piecewise_constant_distribution<_RealType>&)[m[K'
+ 2950 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:2950:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\random:51[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:108[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:3166:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _RealType, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::piecewise_linear_distribution<_RealType>&)[m[K'
+ 3166 |     [01;36m[Koperator[m[K<<(std::basic_ostream<_CharT, _Traits>& __os,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\random.tcc:3166:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - June Cook-Off 2020 Division 1\Checkpoints\sol.cpp:79:25:[m[K [01;36m[Knote: [m[K  couldn't deduce template parameter '[01m[K_RealType[m[K'
+   79 |   cout << cnt << " " << [01;36m[Ksize[m[K << "\n";
+      |                         [01;36m[K^~~~[m[K

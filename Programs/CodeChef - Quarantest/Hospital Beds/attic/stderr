@@ -1,5 +1,7 @@
-c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp: In function 'int main()':
-c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp:89:22: error: expected ';' before 'else'
-   89 |    cout << "UNSAFE\n" else cout << "SAFE\n";
-      |                      ^~~~~
-      |                      ;
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Quarantest\Hospital Beds\sol.cpp:78:10:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[K}[m[K' token
+   78 |     break
+      |          [01;31m[K^[m[K
+      |          [32m[K;[m[K
+   79 |   [32m[K}[m[K
+      |   [32m[K~[m[K       

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #647 (Div. 2) - Thanks, Algo Muse!\\A. Johnny and Ancient Computer\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Johnny and Ancient Computer",
+      "group": "Codeforces - Codeforces Round #647 (Div. 2) - Thanks, Algo Muse!",
+      "url": "https://codeforces.com/contest/1362/problem/0",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

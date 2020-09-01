@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - Practice(Beginner)\\Dinosaurs Football\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Dinosaurs Football",
+      "group": "CodeChef - Practice(Beginner)",
+      "url": "https://www.codechef.com/problems/MXCH",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

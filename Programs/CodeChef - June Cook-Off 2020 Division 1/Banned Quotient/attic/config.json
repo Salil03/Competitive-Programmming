@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - June Cook-Off 2020 Division 1\\Banned Quotient\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Banned Quotient",
+      "group": "CodeChef - June Cook-Off 2020 Division 1",
+      "url": "https://www.codechef.com/COOK119A/problems/BANQUNT",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

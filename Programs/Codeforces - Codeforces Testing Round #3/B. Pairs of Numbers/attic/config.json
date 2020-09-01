@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Testing Round #3\\B. Pairs of Numbers\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Pairs of Numbers",
+      "group": "Codeforces - Codeforces Testing Round #3",
+      "url": "https://codeforces.com/problemset/problem/134/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
