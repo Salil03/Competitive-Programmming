@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #667 (Div. 3)\\B. Minimum Product\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Minimum Product",
+      "group": "Codeforces - Codeforces Round #667 (Div. 3)",
+      "url": "https://codeforces.com/contest/1409/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

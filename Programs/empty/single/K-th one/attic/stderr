@@ -1,0 +1,6 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\K-th one\sol.cpp:[m[K In function '[01m[Klll query(std::vector<long long int>&, std::vector<long long int>&, lll, lll, lll, lll)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\K-th one\sol.cpp:120:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  120 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\K-th one\attic\sol.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status

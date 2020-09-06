@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Central-European Olympiad in Informatics, CEOI 2020, Day 2 (IOI, Unofficial Mirror Contest, Unrated)\\C. Chess Rush\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Chess Rush",
+      "group": "Codeforces - Central-European Olympiad in Informatics, CEOI 2020, Day 2 (IOI, Unofficial Mirror Contest, Unrated)",
+      "url": "https://codeforces.com/problemset/problem/1403/C",
+      "memoryLimit": 256,
+      "timeLimit": 1500
+    }
+  }
+}

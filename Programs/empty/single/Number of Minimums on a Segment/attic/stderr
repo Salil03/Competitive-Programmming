@@ -1,0 +1,6 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Number of Minimums on a Segment\sol.cpp:[m[K In function '[01m[Kvoid build(std::pair<long long int, long long int>*, lll, std::vector<std::pair<long long int, long long int> >, lll, lll)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Number of Minimums on a Segment\sol.cpp:79:16:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} and '[01m[Kstd::vector<std::pair<long long int, long long int> >::size_type[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+   79 |         if ([01;35m[Klx < v.size()[m[K)
+      |             [01;35m[K~~~^~~~~~~~~~[m[K
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Number of Minimums on a Segment\attic\sol.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status

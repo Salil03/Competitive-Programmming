@@ -1,0 +1,15 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\The Lazy Cow\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\The Lazy Cow\sol.cpp:61:46:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[Kl[m[K'
+   61 |     for (lll i = 0; i <= min(2 * k, MAXX - 1)[01;31m[K [m[K[32m[Kl[m[K; i++)
+      |                                              [01;31m[K^[m[K[32m[K~[m[K
+      |                                              [32m[K;[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\The Lazy Cow\sol.cpp:61:47:[m[K [01;31m[Kerror: [m[K'[01m[Kl[m[K' was not declared in this scope
+   61 |     for (lll i = 0; i <= min(2 * k, MAXX - 1) [01;31m[Kl[m[K; i++)
+      |                                               [01;31m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\The Lazy Cow\sol.cpp:61:48:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K)[m[K' before '[01m[K;[m[K' token
+   61 |     for [34m[K([m[Klll i = 0; i <= min(2 * k, MAXX - 1) l[01;31m[K;[m[K i++)
+      |         [34m[K~[m[K                                      [01;31m[K^[m[K
+      |                                                [32m[K)[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\The Lazy Cow\sol.cpp:61:50:[m[K [01;31m[Kerror: [m[K'[01m[Ki[m[K' was not declared in this scope
+   61 |     for (lll i = 0; i <= min(2 * k, MAXX - 1) l; [01;31m[Ki[m[K++)
+      |                                                  [01;31m[K^[m[K

@@ -1,0 +1,18 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:20:69:[m[K [01;31m[Kerror: [m[Kno matching function for call to '[01m[Kpretty_print_array(std::vector<long long int>&, lll)[m[K'
+   20 |                         << (#x) << " is " << pretty_print_array(x, n[01;31m[K)[m[K << endl
+      |                                                                     [01;31m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:72:5:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[Kdbga[m[K'
+   72 |     [01;36m[Kdbga[m[K(tree, 4 * n);
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:17[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class T> pretty_print::array_wrapper_n<T> pretty_print_array(const T*, size_t)[m[K'
+  415 | inline pretty_print::array_wrapper_n<T> [01;36m[Kpretty_print_array[m[K(const T * const a, size_t n)
+      |                                         [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:20:69:[m[K [01;36m[Knote: [m[K  mismatched types '[01m[Kconst T*[m[K' and '[01m[Kstd::vector<long long int>[m[K'
+   20 |                         << (#x) << " is " << pretty_print_array(x, n[01;36m[K)[m[K << endl
+      |                                                                     [01;36m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment Tree for the Sum\sol.cpp:72:5:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[Kdbga[m[K'
+   72 |     [01;36m[Kdbga[m[K(tree, 4 * n);
+      |     [01;36m[K^~~~[m[K

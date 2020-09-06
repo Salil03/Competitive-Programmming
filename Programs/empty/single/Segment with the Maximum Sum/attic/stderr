@@ -1,0 +1,9 @@
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\bits\specfun.h:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\cmath:1927[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:41[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment with the Maximum Sum\sol.cpp:9[m[K:
+c:\mingw\include\c++\9.2.0\bits\stl_algobase.h: In instantiation of '[01m[Kconstexpr const _Tp& std::max(const _Tp&, const _Tp&, _Compare) [with _Tp = long long int; _Compare = long long int][m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\Segment with the Maximum Sum\sol.cpp:97:93:[m[K   required from here
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algobase.h:271:17:[m[K [01;31m[Kerror: [m[K'[01m[K__comp[m[K' cannot be used as a function
+  271 |       if ([01;31m[K__comp(__a, __b)[m[K)
+      |           [01;31m[K~~~~~~^~~~~~~~~~[m[K

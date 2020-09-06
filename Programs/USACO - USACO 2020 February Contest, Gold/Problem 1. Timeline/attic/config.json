@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\USACO - USACO 2020 February Contest, Gold\\Problem 1. Timeline\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Problem 1. Timeline",
+      "group": "USACO - USACO 2020 February Contest, Gold",
+      "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=1017",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #667 (Div. 3)\D. Decrease the Sum of Digits\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #667 (Div. 3)\D. Decrease the Sum of Digits\sol.cpp:65:21:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} and '[01m[Kuuu[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+   65 |         if ([01;35m[Kdig_sum <= s[m[K)
+      |             [01;35m[K~~~~~~~~^~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #667 (Div. 3)\D. Decrease the Sum of Digits\sol.cpp:71:24:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} and '[01m[Kuuu[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+   71 |         while ([01;35m[Kdig_sum > s[m[K)
+      |                [01;35m[K~~~~~~~~^~~[m[K
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #667 (Div. 3)\D. Decrease the Sum of Digits\attic\sol.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status

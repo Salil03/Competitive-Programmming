@@ -3,12 +3,19 @@
         "g++",
         "-fdiagnostics-color=always",
         "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-DDEBUG",
+        "-ggdb3",
         "-DACMX",
         "$CODE",
         "-o",
         "$OUTPUT",
         "--debug"
     ],
-    "run": ["$OUTPUT"],
+    "run": [
+        "$OUTPUT"
+    ],
     "ext": "cpp"
 }
