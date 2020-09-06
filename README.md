@@ -1,6 +1,4 @@
-    # Competitive Programming
-
-My practice folder to compete at [INOI](https://www.iarcs.org.in/inoi/) and [ZCO](https://www.iarcs.org.in/inoi/current.php#zco2019) 2019-20.
+    # Competitive Programming Repository
 
 ## Installation
 
