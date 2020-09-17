@@ -1,0 +1,7 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\First element at least X\sol.cpp:[m[K In function '[01m[Kvoid update(std::vector<long long int>&, lll, lll, lll, lll, lll)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\First element at least X\sol.cpp:66:25:[m[K [01;31m[Kerror: [m[K'[01m[Karr[m[K' was not declared in this scope
+   66 |         update(maximum, [01;31m[Karr[m[K, value, idx, 2 * curr + 1, l, m);
+      |                         [01;31m[K^~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\empty\single\First element at least X\sol.cpp:70:25:[m[K [01;31m[Kerror: [m[K'[01m[Karr[m[K' was not declared in this scope
+   70 |         update(maximum, [01;31m[Karr[m[K, value, idx, 2 * curr + 2, m, r);
+      |                         [01;31m[K^~~[m[K

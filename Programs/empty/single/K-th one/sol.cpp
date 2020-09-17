@@ -53,69 +53,47 @@ void build_sum(vector<lll> &arr, vector<lll> &sum, lll idx, lll l, lll r)
     sum[idx] = sum[2 * idx + 1] + sum[2 * idx + 2];
 }
 
-void build_one(vector<lll> &last_one, vector<lll> &arr, lll idx, lll l, lll r)
-{
-    if (l == r - 1)
-    {
-        if (arr[l] == 1)
-        {
-            last_one[idx] = l;
-        }
-        return;
-    }
-    lll m = (l + r) / 2;
-    build_one(last_one, arr, 2 * idx + 1, l, m);
-    build_one(last_one, arr, 2 * idx + 2, m, r);
-    last_one[idx] = max(last_one[2 * idx + 1], last_one[2 * idx + 2]);
-}
-
-void update(vector<lll> &sum, vector<lll> &last_one, lll idx, lll curr, lll l, lll r)
+void update(vector<lll> &sum, lll idx, lll curr, lll l, lll r)
 {
     if (l == r - 1)
     {
         if (sum[curr] == 0)
         {
             sum[curr] = 1;
-            last_one[curr] = l;
         }
         else
         {
             sum[curr] = 0;
-            last_one[curr] = -1;
         }
         return;
     }
     lll m = (l + r) / 2;
     if (idx < m)
     {
-        update(sum, last_one, idx, 2 * curr + 1, l, m);
+        update(sum, idx, 2 * curr + 1, l, m);
     }
     else
     {
-        update(sum, last_one, idx, 2 * curr + 2, m, r);
+        update(sum, idx, 2 * curr + 2, m, r);
     }
     sum[curr] = sum[2 * curr + 1] + sum[2 * curr + 2];
-    last_one[curr] = max(last_one[2 * idx + 1], last_one[2 * idx + 2]);
 }
 
-lll query(vector<lll> &sum, vector<lll> &last_one, lll k, lll idx, lll l, lll r)
+lll query(vector<lll> &sum, lll k, lll idx, lll l, lll r)
 {
-    dbg(idx);
-    dbg(l);
-    dbg(r);
-    dbg(sum[idx]);
+    if (l == r - 1)
+    {
+        return l;
+    }
     lll m = (l + r) / 2;
-    if (sum[idx] == k)
+    lll left = sum[2 * idx + 1];
+    if (k <= left)
     {
-        return last_one[idx];
+        return query(sum, k, 2 * idx + 1, l, m);
     }
-    else if (sum[idx] > k)
+    else
     {
-        return query(sum, last_one, k, 2 * idx + 1, l, m);
-    }
-    else if (sum[idx] < k)
-    {
-        return query(sum, last_one, k - sum[idx], idx + 1, r, 2 * r - l);
+        return query(sum, k - left, 2 * idx + 2, m, r);
     }
 }
 
@@ -134,10 +112,7 @@ int main()
         cin >> arr[i];
     }
     vector<lll> sum(4 * n, 0);
-    vector<lll> last_one(4 * n, -1);
     build_sum(arr, sum, 0, 0, n);
-    build_one(last_one, arr, 0, 0, n);
-    dbg(last_one);
     dbg(sum);
     while (m--)
     {
@@ -145,13 +120,12 @@ int main()
         cin >> x >> y;
         if (x == 1)
         {
-            update(sum, last_one, y, 0, 0, n);
-            dbg(last_one);
+            update(sum, y, 0, 0, n);
             dbg(sum);
         }
         else
         {
-            cout << query(sum, last_one, y + 1, 0, 0, n) << "\n";
+            cout << query(sum, y + 1, 0, 0, n) << "\n";
         }
     }
 }

@@ -1,0 +1,16 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:116:17:[m[K [01;31m[Kerror: [m[Kmacro "dbg" passed 2 arguments, but takes just 1
+  116 |     dbg(final, n[01;31m[K)[m[K;
+      |                 [01;31m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:21:[m[K [01;36m[Knote: [m[Kmacro "dbg" defined here
+   21 | #define dbg(x) cerr << "\n" \
+      | 
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:109:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Kint[m[K' and '[01m[Kstd::vector<std::vector<long long int> >::size_type[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+  109 |     for (int i = 0; [01;35m[Ki < components.size()[m[K; i++)
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:111:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Kint[m[K' and '[01m[Kstd::vector<long long int>::size_type[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+  111 |         for (int j = 0; [01;35m[Kj < components[i].size()[m[K; j++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Chef and Frogs\sol.cpp:116:5:[m[K [01;31m[Kerror: [m[K'[01m[Kdbg[m[K' was not declared in this scope
+  116 |     [01;31m[Kdbg[m[K(final, n);
+      |     [01;31m[K^~~[m[K

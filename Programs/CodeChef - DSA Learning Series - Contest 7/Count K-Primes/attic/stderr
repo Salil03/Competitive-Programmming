@@ -1,1 +1,8 @@
-[01m[Kg++:[m[K [01;31m[Kerror: [m[Kunrecognized command line option '[01m[K--DEBUG[m[K'
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Count K-Primes\sol.cpp:[m[K In function '[01m[Kvoid precompute(lll, lll)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Count K-Primes\sol.cpp:48:25:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K-Wunused-value[m[K]
+   48 |     for (lll i = idx; [01;35m[Ki < MAX[m[K, i += num)
+      |                       [01;35m[K~~^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - DSA Learning Series - Contest 7\Count K-Primes\sol.cpp:48:40:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[K)[m[K' token
+   48 |     for (lll i = idx; i < MAX, i += num[01;31m[K)[m[K
+      |                                        [01;31m[K^[m[K
+      |                                        [32m[K;[m[K

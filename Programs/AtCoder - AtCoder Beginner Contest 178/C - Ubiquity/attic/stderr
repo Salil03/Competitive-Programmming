@@ -1,0 +1,5 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Beginner Contest 178\C - Ubiquity\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Beginner Contest 178\C - Ubiquity\sol.cpp:61:30:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[Kdp2[m[K'
+   61 |         cout << dp1[i] << " "[01;31m[K [m[K[32m[Kdp2[m[K[i] << dp3[i] << "\n"
+      |                              [01;31m[K^[m[K[32m[K~~~[m[K
+      |                              [32m[K;[m[K

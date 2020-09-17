@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - DSA Learning Series - Contest 4\\Stacks\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Stacks",
+      "group": "CodeChef - DSA Learning Series - Contest 4",
+      "url": "https://www.codechef.com/LRNDSA04/problems/STACKS",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

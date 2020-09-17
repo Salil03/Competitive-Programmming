@@ -4,5 +4,14 @@
   },
   "bruteSolution": {},
   "generator": {},
-  "checker": {}
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Count K-Primes",
+      "group": "CodeChef - DSA Learning Series - Contest 7",
+      "url": "https://www.codechef.com/LRNDSA07/problems/KPRIME",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
 }

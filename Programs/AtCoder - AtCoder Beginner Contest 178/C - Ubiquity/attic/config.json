@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\AtCoder - AtCoder Beginner Contest 178\\C - Ubiquity\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C - Ubiquity",
+      "group": "AtCoder - AtCoder Beginner Contest 178",
+      "url": "https://atcoder.jp/contests/abc178/tasks/abc178_c",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}
