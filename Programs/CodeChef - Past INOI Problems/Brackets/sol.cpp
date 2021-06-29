@@ -27,18 +27,53 @@ URL: url
 Solution Begins here
 */
 
+lll dp[710][710];
+
+lll recur(lll left, lll right, lll k, lll v[], lll b[])
+{
+	if (left >= right)
+	{
+		return 0;
+	}
+	if (left == right - 1)
+	{
+		if (b[right] - b[left] == k)
+		{
+			return max(0LL, v[left] + v[right]);
+		}
+		return 0;
+	}
+	if (dp[left][right] != -1)
+	{
+		return dp[left][right];
+	}
+	lll ans = recur(left + 1, right, k, v, b);
+	for (lll i = left + 1; i <= right; i++)
+	{
+		if (b[i] - b[left] == k)
+		{
+			ans = max(ans, v[left] + recur(left + 1, i - 1, k, v, b) + v[i] + recur(i + 1, right, k, v, b));
+		}
+	}
+	return dp[left][right] = ans;
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-	int r, c, n;
-	cin >> r >> c >> n;
-	bool arr[r][c] = {{0}};
-	while (n--)
+	lll n, k;
+	cin >> n >> k;
+	lll v[n], b[n];
+	memset(dp, -1, sizeof dp);
+	for (lll i = 0; i < n; i++)
 	{
-		int x, y;
-		cin >> x >> y;
-		arr[x][y] = 1;
+		cin >> v[i];
 	}
+	for (lll i = 0; i < n; i++)
+	{
+		cin >> b[i];
+	}
+	cout << recur(0, n - 1, k, v, b);
 }

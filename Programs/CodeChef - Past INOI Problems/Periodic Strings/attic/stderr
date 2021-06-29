@@ -1,0 +1,7 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Periodic Strings\sol.cpp:[m[K In function '[01m[Klll dp(lll, lll)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Periodic Strings\sol.cpp:61:32:[m[K [01;31m[Kerror: [m[Kinvalid operands of types '[01m[K__gnu_cxx::__promote_2<int, long long int, double, double>::__type[m[K' {aka '[01m[Kdouble[m[K'} and '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} to binary '[01m[Koperator%[m[K'
+   61 |     return [32m[K(pow(2, len) - ans)[m[K [01;31m[K%[m[K [34m[Km[m[K;
+      |            [32m[K~~~~~~~~~~~~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~[m[K
+      |                         [32m[K|[m[K        [34m[K|[m[K
+      |                         [32m[K|[m[K        [34m[Klll {aka long long int}[m[K
+      |                         [32m[K__gnu_cxx::__promote_2<int, long long int, double, double>::__type {aka double}[m[K

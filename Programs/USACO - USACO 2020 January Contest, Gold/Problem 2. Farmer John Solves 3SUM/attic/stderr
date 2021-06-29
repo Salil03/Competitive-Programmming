@@ -1,0 +1,9 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2020 January Contest, Gold\Problem 2. Farmer John Solves 3SUM\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2020 January Contest, Gold\Problem 2. Farmer John Solves 3SUM\sol.cpp:69:25:[m[K [01;31m[Kerror: [m[K'[01m[Kmp[m[K' was not declared in this scope; did you mean '[01m[Kdp[m[K'?
+   69 |                 curr += [01;31m[Kmp[m[K[-arr[b]];
+      |                         [01;31m[K^~[m[K
+      |                         [32m[Kdp[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2020 January Contest, Gold\Problem 2. Farmer John Solves 3SUM\sol.cpp:73:17:[m[K [01;31m[Kerror: [m[K'[01m[Kmp[m[K' was not declared in this scope; did you mean '[01m[Kdp[m[K'?
+   73 |                 [01;31m[Kmp[m[K[arr[i] + arr[b] + 1000000]++;
+      |                 [01;31m[K^~[m[K
+      |                 [32m[Kdp[m[K

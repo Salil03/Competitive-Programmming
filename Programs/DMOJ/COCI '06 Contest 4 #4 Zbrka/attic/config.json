@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\COCI '06 Contest 4 #4 Zbrka\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "COCI '06 Contest 4 #4 Zbrka",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/coci06c4p4",
+      "memoryLimit": 64,
+      "timeLimit": 1500
+    }
+  }
+}

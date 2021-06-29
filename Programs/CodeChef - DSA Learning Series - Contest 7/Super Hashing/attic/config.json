@@ -1,0 +1,21 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - DSA Learning Series - Contest 7\\Super Hashing\\sol.cpp"
+  },
+  "bruteSolution": {
+    "value": "c:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - DSA Learning Series - Contest 7\\Super Hashing\\brute.cpp"
+  },
+  "generator": {
+    "value": "c:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - DSA Learning Series - Contest 7\\Super Hashing\\gen.py"
+  },
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Super Hashing",
+      "group": "CodeChef - DSA Learning Series - Contest 7",
+      "url": "https://www.codechef.com/LRNDSA07/problems/AUHASH",
+      "memoryLimit": 256,
+      "timeLimit": 1500
+    }
+  }
+}

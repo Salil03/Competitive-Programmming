@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\IOI '07 P4 - Miners\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "IOI '07 P4 - Miners",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ioi07p4",
+      "memoryLimit": 16,
+      "timeLimit": 1500
+    }
+  }
+}

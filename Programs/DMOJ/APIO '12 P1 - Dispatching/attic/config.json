@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\APIO '12 P1 - Dispatching\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "APIO '12 P1 - Dispatching",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/apio12p1",
+      "memoryLimit": 256,
+      "timeLimit": 600
+    }
+  }
+}

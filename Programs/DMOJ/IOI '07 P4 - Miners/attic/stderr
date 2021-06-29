@@ -1,0 +1,14 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '07 P4 - Miners\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '07 P4 - Miners\sol.cpp:155:48:[m[K [01;31m[Kerror: [m[K'[01m[Kb[m[K' was not declared in this scope
+  155 |                         lll res1 = dp[idx + 1][[01;31m[Kb[m[K][curr][c][d];
+      |                                                [01;31m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '07 P4 - Miners\sol.cpp:155:57:[m[K [01;31m[Kerror: [m[K'[01m[Kc[m[K' was not declared in this scope
+  155 |                         lll res1 = dp[idx + 1][b][curr][[01;31m[Kc[m[K][d];
+      |                                                         [01;31m[K^[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '07 P4 - Miners\sol.cpp:155:60:[m[K [01;31m[Kerror: [m[K'[01m[Kd[m[K' was not declared in this scope; did you mean '[01m[Kdp[m[K'?
+  155 |                         lll res1 = dp[idx + 1][b][curr][c][[01;31m[Kd[m[K];
+      |                                                            [01;31m[K^[m[K
+      |                                                            [32m[Kdp[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '07 P4 - Miners\sol.cpp:156:48:[m[K [01;31m[Kerror: [m[K'[01m[Ka[m[K' was not declared in this scope
+  156 |                         lll res2 = dp[idx + 1][[01;31m[Ka[m[K][b][d][curr];
+      |                                                [01;31m[K^[m[K

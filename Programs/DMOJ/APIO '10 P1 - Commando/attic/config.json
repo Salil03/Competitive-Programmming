@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\APIO '10 P1 - Commando\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "APIO '10 P1 - Commando",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/apio10p1",
+      "memoryLimit": 64,
+      "timeLimit": 1500
+    }
+  }
+}

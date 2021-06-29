@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\IOI '00 P1 - Palindrome\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "IOI '00 P1 - Palindrome",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ioi00p1",
+      "memoryLimit": 32,
+      "timeLimit": 1000
+    }
+  }
+}

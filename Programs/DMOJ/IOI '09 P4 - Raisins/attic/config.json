@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\IOI '09 P4 - Raisins\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "IOI '09 P4 - Raisins",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ioi09p4",
+      "memoryLimit": 128,
+      "timeLimit": 3000
+    }
+  }
+}

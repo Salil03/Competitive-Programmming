@@ -30,7 +30,17 @@ Solution Begins here
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
+	lll n;
+	cin >> n;
+	lll dp[n + 1][2];
+	dp[0][0] = 1;
+	dp[0][1] = 0;
+	dp[1][0] = 0;
+	dp[1][1] = 3;
+	for (int i = 2; i <= n; i++)
+	{
+		dp[i][0] = dp[i - 1][1] % MOD;
+		dp[i][1] = (3 * dp[i - 1][0] % MOD + 2 * dp[i - 1][1] % MOD) % MOD;
+	}
+	cout << dp[n][0] % MOD;
 }

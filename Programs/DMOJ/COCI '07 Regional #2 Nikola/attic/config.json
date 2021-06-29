@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\COCI '07 Regional #2 Nikola\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "COCI '07 Regional #2 Nikola",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/crci07p2",
+      "memoryLimit": 32,
+      "timeLimit": 1500
+    }
+  }
+}

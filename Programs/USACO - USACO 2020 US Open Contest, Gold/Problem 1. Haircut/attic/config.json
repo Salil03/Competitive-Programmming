@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\USACO - USACO 2020 US Open Contest, Gold\\Problem 1. Haircut\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Problem 1. Haircut",
+      "group": "USACO - USACO 2020 US Open Contest, Gold",
+      "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=1041",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\Appleby Contest '19 P5 - Matrix Operation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Appleby Contest '19 P5 - Matrix Operation",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ac19p5",
+      "memoryLimit": 1,
+      "timeLimit": 2000
+    }
+  }
+}

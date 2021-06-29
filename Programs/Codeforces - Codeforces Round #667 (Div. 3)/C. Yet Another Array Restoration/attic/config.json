@@ -4,7 +4,9 @@
   },
   "bruteSolution": {},
   "generator": {},
-  "checker": {},
+  "checker": {
+    "value": "c:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #667 (Div. 3)\\C. Yet Another Array Restoration\\attic\\checker.cpp"
+  },
   "companionConfig": {
     "value": {
       "name": "C. Yet Another Array Restoration",

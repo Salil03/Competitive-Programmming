@@ -1,0 +1,4 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\COCI '06 Contest 1 #5 Bond\attic\checker.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Ktestlib.h: No such file or directory
+    1 | #include [01;31m[K"testlib.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.

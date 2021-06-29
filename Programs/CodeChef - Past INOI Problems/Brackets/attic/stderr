@@ -1,0 +1,46 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:[m[K In function '[01m[Klll recur(lll, lll, lll, lll*, lll*)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:40:36:[m[K [01;31m[Kerror: [m[Kno matching function for call to '[01m[Kmax(int, lll)[m[K'
+   40 |    return max(0, v[left] + v[right][01;31m[K)[m[K;
+      |                                    [01;31m[K^[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\bits\specfun.h:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\cmath:1927[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:41[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algobase.h:222:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp> constexpr const _Tp& std::max(const _Tp&, const _Tp&)[m[K'
+  222 |     [01;36m[Kmax[m[K(const _Tp& __a, const _Tp& __b)
+      |     [01;36m[K^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algobase.h:222:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:40:36:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter '[01m[Kconst _Tp[m[K' ('[01m[Kint[m[K' and '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'})
+   40 |    return max(0, v[left] + v[right][01;36m[K)[m[K;
+      |                                    [01;36m[K^[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\bits\specfun.h:45[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\cmath:1927[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:41[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algobase.h:268:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp, class _Compare> constexpr const _Tp& std::max(const _Tp&, const _Tp&, _Compare)[m[K'
+  268 |     [01;36m[Kmax[m[K(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     [01;36m[K^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algobase.h:268:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:40:36:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter '[01m[Kconst _Tp[m[K' ('[01m[Kint[m[K' and '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'})
+   40 |    return max(0, v[left] + v[right][01;36m[K)[m[K;
+      |                                    [01;36m[K^[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\algorithm:62[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:65[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algo.h:3456:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp> constexpr _Tp std::max(std::initializer_list<_Tp>)[m[K'
+ 3456 |     [01;36m[Kmax[m[K(initializer_list<_Tp> __l)
+      |     [01;36m[K^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algo.h:3456:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:40:36:[m[K [01;36m[Knote: [m[K  mismatched types '[01m[Kstd::initializer_list<_Tp>[m[K' and '[01m[Kint[m[K'
+   40 |    return max(0, v[left] + v[right][01;36m[K)[m[K;
+      |                                    [01;36m[K^[m[K
+In file included from [01m[Kc:\mingw\include\c++\9.2.0\algorithm:62[m[K,
+                 from [01m[Kc:\mingw\include\c++\9.2.0\x86_64-w64-mingw32\bits\stdc++.h:65[m[K,
+                 from [01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:9[m[K:
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algo.h:3462:5:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class _Tp, class _Compare> constexpr _Tp std::max(std::initializer_list<_Tp>, _Compare)[m[K'
+ 3462 |     [01;36m[Kmax[m[K(initializer_list<_Tp> __l, _Compare __comp)
+      |     [01;36m[K^~~[m[K
+[01m[Kc:\mingw\include\c++\9.2.0\bits\stl_algo.h:3462:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - Past INOI Problems\Brackets\sol.cpp:40:36:[m[K [01;36m[Knote: [m[K  mismatched types '[01m[Kstd::initializer_list<_Tp>[m[K' and '[01m[Kint[m[K'
+   40 |    return max(0, v[left] + v[right][01;36m[K)[m[K;
+      |                                    [01;36m[K^[m[K

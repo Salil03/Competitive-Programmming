@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\CCC '00 S4 - Golf\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "CCC '00 S4 - Golf",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ccc00s4",
+      "memoryLimit": 16,
+      "timeLimit": 1000
+    }
+  }
+}

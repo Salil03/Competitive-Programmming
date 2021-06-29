@@ -1,0 +1,6 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '02 P4 - Batch Scheduling\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '02 P4 - Batch Scheduling\sol.cpp:73:9:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[Kdp[m[K' [[01;35m[K-Wunused-variable[m[K]
+   73 |     lll [01;35m[Kdp[m[K[2][900][300];
+      |         [01;35m[K^~[m[K
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file c:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '02 P4 - Batch Scheduling\attic\sol.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - DSA Learning Series - Contest 7\\Subtraction Game 2\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Subtraction Game 2",
+      "group": "CodeChef - DSA Learning Series - Contest 7",
+      "url": "https://www.codechef.com/LRNDSA07/problems/AMSGAME2",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

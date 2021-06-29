@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\USACO - USACO 2020 January Contest, Gold\\Problem 1. Time is Mooney\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Problem 1. Time is Mooney",
+      "group": "USACO - USACO 2020 January Contest, Gold",
+      "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=993",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

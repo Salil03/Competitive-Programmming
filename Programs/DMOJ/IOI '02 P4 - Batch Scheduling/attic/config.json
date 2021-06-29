@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\DMOJ\\IOI '02 P4 - Batch Scheduling\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "IOI '02 P4 - Batch Scheduling",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/ioi02p4",
+      "memoryLimit": 32,
+      "timeLimit": 1500
+    }
+  }
+}

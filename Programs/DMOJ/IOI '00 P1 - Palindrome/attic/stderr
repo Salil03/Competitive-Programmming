@@ -1,0 +1,19 @@
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:[m[K In function '[01m[Kint dp(int, int, std::string)[m[K':
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:45:9:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   45 |     if ([01;31m[Ktable[m[K[l][r] != -1)
+      |         [01;31m[K^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:51:16:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   51 |         return [01;31m[Ktable[m[K[l][r] = 0;
+      |                [01;31m[K^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:57:20:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   57 |             return [01;31m[Ktable[m[K[l][r] = 0;
+      |                    [01;31m[K^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:61:20:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   61 |             return [01;31m[Ktable[m[K[l][r] = 1;
+      |                    [01;31m[K^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:66:16:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   66 |         return [01;31m[Ktable[m[K[l][r] = dp(l + 1, r - 1, s);
+      |                [01;31m[K^~~~~[m[K
+[01m[KC:\Users\prash\Documents\Salil\Programming\Competitive-Programmming\Programs\DMOJ\IOI '00 P1 - Palindrome\sol.cpp:70:16:[m[K [01;31m[Kerror: [m[K'[01m[Ktable[m[K' was not declared in this scope
+   70 |         return [01;31m[Ktable[m[K[l][r] = min(dp(l + 1, r, s), dp(l, r - 1, s)) + 1;
+      |                [01;31m[K^~~~~[m[K

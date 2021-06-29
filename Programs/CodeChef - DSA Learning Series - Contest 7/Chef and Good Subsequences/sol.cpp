@@ -63,7 +63,7 @@ int main()
     // freopen("file.out", "w", stdout);
     lll n, k;
     cin >> n >> k;
-    lll arr[n];s
+    lll arr[n];
     for (lll i = 0; i < n; i++)
     {
         cin >> arr[i];

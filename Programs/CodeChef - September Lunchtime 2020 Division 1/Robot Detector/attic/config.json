@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - September Lunchtime 2020 Division 1\\Robot Detector\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Robot Detector",
+      "group": "CodeChef - September Lunchtime 2020 Division 1",
+      "url": "https://www.codechef.com/LTIME88A/problems/UKROBOT",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
