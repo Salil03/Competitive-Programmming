@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Technocup 2022 - Elimination Round 1\\A. Windblume Ode\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Windblume Ode",
+      "group": "Codeforces - Technocup 2022 - Elimination Round 1",
+      "url": "https://codeforces.com/contest/1583/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\prash\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - SnackDown 2021 - Online Round 1A\\Dance Moves\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Dance Moves",
+      "group": "CodeChef - SnackDown 2021 - Online Round 1A",
+      "url": "https://www.codechef.com/SNCK1A21/problems/DANCEMOVES",
+      "memoryLimit": 256,
+      "timeLimit": 500
+    }
+  }
+}
