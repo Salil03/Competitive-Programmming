@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #764 (Div. 3)\\C. Division by Two and Permutation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Division by Two and Permutation",
+      "group": "Codeforces - Codeforces Round #764 (Div. 3)",
+      "url": "https://codeforces.com/contest/1624/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

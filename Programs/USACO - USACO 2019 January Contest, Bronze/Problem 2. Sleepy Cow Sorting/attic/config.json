@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\USACO - USACO 2019 January Contest, Bronze\\Problem 2. Sleepy Cow Sorting\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Problem 2. Sleepy Cow Sorting",
+      "group": "USACO - USACO 2019 January Contest, Bronze",
+      "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=892",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - CodeChef Starters 21 Division 2 (Rated)\\The Melancholy of Problem Setter\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "The Melancholy of Problem Setter",
+      "group": "CodeChef - CodeChef Starters 21 Division 2 (Rated)",
+      "url": "https://www.codechef.com/START21B/problems/SOS",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

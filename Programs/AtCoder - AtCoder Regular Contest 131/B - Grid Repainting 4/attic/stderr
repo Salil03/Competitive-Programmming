@@ -1,0 +1,25 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:148:45:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[K}[m[K' token
+  148 |                                 make = false
+      |                                             [01;31m[K^[m[K
+      |                                             [32m[K;[m[K
+  149 |                             [32m[K}[m[K
+      |                             [32m[K~[m[K                
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:152:45:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[K}[m[K' token
+  152 |                                 make = false
+      |                                             [01;31m[K^[m[K
+      |                                             [32m[K;[m[K
+  153 |                             [32m[K}[m[K
+      |                             [32m[K~[m[K                
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:156:45:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K;[m[K' before '[01m[K}[m[K' token
+  156 |                                 make = false
+      |                                             [01;31m[K^[m[K
+      |                                             [32m[K;[m[K
+  157 |                             [32m[K}[m[K
+      |                             [32m[K~[m[K                
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\AtCoder - AtCoder Regular Contest 131\B - Grid Repainting 4\sol.cpp:160:50:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[K__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type[m[K' {aka '[01m[Kchar[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+  160 |                                 grid[i][j] = [01;35m[K'1' + k[m[K;
+      |                                              [01;35m[K~~~~^~~[m[K

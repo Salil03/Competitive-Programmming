@@ -1,0 +1,7 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - October Cook-Off 2021 Division 2\01 Subsequence\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - October Cook-Off 2021 Division 2\01 Subsequence\sol.cpp:100:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} and '[01m[Kstd::vector<long long int>::size_type[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+  100 |         for (lll i = 0; [01;35m[Ki < even.size()[m[K && i < odd.size(); i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - October Cook-Off 2021 Division 2\01 Subsequence\sol.cpp:100:46:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: '[01m[Klll[m[K' {aka '[01m[Klong long int[m[K'} and '[01m[Kstd::vector<long long int>::size_type[m[K' {aka '[01m[Klong long unsigned int[m[K'} [[01;35m[K-Wsign-compare[m[K]
+  100 |         for (lll i = 0; i < even.size() && [01;35m[Ki < odd.size()[m[K; i++)
+      |                                            [01;35m[K~~^~~~~~~~~~~~[m[K

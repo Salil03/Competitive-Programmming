@@ -1,7 +1,4 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/c++,code
-# Edit at https://www.toptal.com/developers/gitignore?templates=c++,code
-
 ### C++ ###
 # Prerequisites
 *.d
@@ -43,5 +40,3 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-# End of https://www.toptal.com/developers/gitignore/api/c++,code

@@ -1,0 +1,13 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\And Or Union\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\And Or Union\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\And Or Union\sol.cpp:97:25:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around comparison in operand of '[01m[K&[m[K' [[01;35m[K-Wparentheses[m[K]
+   97 |                 if ([01;35m[Kans < arr[i][m[K & arr[j])
+      |                     [01;35m[K~~~~^~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\And Or Union\sol.cpp:109:17:[m[K [01;31m[Kerror: [m[K'[01m[Ksum[m[K' was not declared in this scope
+  109 |                 [01;31m[Ksum[m[K = sum & (ans | arr[0]);
+      |                 [01;31m[K^~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\And Or Union\sol.cpp:112:17:[m[K [01;31m[Kerror: [m[K'[01m[Ksum[m[K' was not declared in this scope
+  112 |         cout << [01;31m[Ksum[m[K << "\n";
+      |                 [01;31m[K^~~[m[K

@@ -1,0 +1,24 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:74:18:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around assignment used as truth value [[01;35m[K-Wparentheses[m[K]
+   74 |         if (curr [01;35m[K=[m[K INT_MIN)
+      |                  [01;35m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:20:64:[m[K [01;31m[Kerror: [m[Kno matching function for call to '[01m[Kpretty_print_array(lll [m], lll*)[m[K'
+   20 |                         << (#x) << " is " << [01;31m[Kpretty_print_array(x, n)[m[K << endl
+      |                                              [01;31m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:91:9:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[Kdbga[m[K'
+   91 |         [01;36m[Kdbga[m[K(arr, arr + m);
+      |         [01;36m[K^~~~[m[K
+In file included from [01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:17[m[K:
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class T> pretty_print::array_wrapper_n<T> pretty_print_array(const T*, size_t)[m[K'
+  415 | inline pretty_print::array_wrapper_n<T> [01;36m[Kpretty_print_array[m[K(const T * const a, size_t n)
+      |                                         [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:91:23:[m[K [01;36m[Knote: [m[K  cannot convert '[01m[K(((lll*)(& arr)) + ((sizetype)(((long long unsigned int)m) * 8)))[m[K' (type '[01m[Klll*[m[K' {aka '[01m[Klong long int*[m[K'}) to type '[01m[Ksize_t[m[K' {aka '[01m[Klong long unsigned int[m[K'}
+   91 |         dbga(arr, [01;36m[Karr + m[m[K);
+      |                   [01;36m[K~~~~^~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #142 (Div. 1)\A. Shifts\sol.cpp:20:68:[m[K [01;36m[Knote: [m[Kin definition of macro '[01m[Kdbga[m[K'
+   20 |                         << (#x) << " is " << pretty_print_array(x, [01;36m[Kn[m[K) << endl
+      |                                                                    [01;36m[K^[m[K

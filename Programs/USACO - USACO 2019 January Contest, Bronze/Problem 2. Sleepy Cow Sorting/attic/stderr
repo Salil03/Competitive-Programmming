@@ -1,0 +1,21 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:20:64:[m[K [01;31m[Kerror: [m[Kno matching function for call to '[01m[Kpretty_print_array(std::vector<long long int>&, lll&)[m[K'
+   20 |                         << (#x) << " is " << [01;31m[Kpretty_print_array(x, n)[m[K << endl
+      |                                              [01;31m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:87:9:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[Kdbga[m[K'
+   87 |         [01;36m[Kdbga[m[K(arr, n);
+      |         [01;36m[K^~~~[m[K
+In file included from [01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:17[m[K:
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[Kcandidate: '[01m[Ktemplate<class T> pretty_print::array_wrapper_n<T> pretty_print_array(const T*, size_t)[m[K'
+  415 | inline pretty_print::array_wrapper_n<T> [01;36m[Kpretty_print_array[m[K(const T * const a, size_t n)
+      |                                         [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/prettyprint.hpp:415:41:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:20:64:[m[K [01;36m[Knote: [m[K  mismatched types '[01m[Kconst T*[m[K' and '[01m[Kstd::vector<long long int>[m[K'
+   20 |                         << (#x) << " is " << [01;36m[Kpretty_print_array(x, n)[m[K << endl
+      |                                              [01;36m[K~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\USACO - USACO 2019 January Contest, Bronze\Problem 2. Sleepy Cow Sorting\sol.cpp:87:9:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[Kdbga[m[K'
+   87 |         [01;36m[Kdbga[m[K(arr, n);
+      |         [01;36m[K^~~~[m[K

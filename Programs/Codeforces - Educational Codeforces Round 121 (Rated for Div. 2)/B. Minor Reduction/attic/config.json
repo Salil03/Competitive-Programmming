@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 121 (Rated for Div. 2)\\B. Minor Reduction\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Minor Reduction",
+      "group": "Codeforces - Educational Codeforces Round 121 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1626/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

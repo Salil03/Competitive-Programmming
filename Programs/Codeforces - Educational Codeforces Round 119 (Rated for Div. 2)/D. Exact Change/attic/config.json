@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 119 (Rated for Div. 2)\\D. Exact Change\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Exact Change",
+      "group": "Codeforces - Educational Codeforces Round 119 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1620/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

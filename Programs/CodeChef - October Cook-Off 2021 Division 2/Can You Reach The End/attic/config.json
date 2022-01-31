@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - October Cook-Off 2021 Division 2\\Can You Reach The End\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Can You Reach The End",
+      "group": "CodeChef - October Cook-Off 2021 Division 2",
+      "url": "https://www.codechef.com/COOK134B/problems/RECHEND",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

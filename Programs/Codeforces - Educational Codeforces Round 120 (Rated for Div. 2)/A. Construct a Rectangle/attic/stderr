@@ -1,0 +1,10 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)\A. Construct a Rectangle\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)\A. Construct a Rectangle\sol.cpp:[m[K In function '[01m[Kint main()[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)\A. Construct a Rectangle\sol.cpp:99:6:[m[K [01;31m[Kerror: [m[Kexpected '[01m[K}[m[K' at end of input
+   99 |     }
+      |      [01;31m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)\A. Construct a Rectangle\sol.cpp:47:1:[m[K [01;36m[Knote: [m[Kto match this '[01m[K{[m[K'
+   47 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #761 (Div. 2)\\D1. Too Many Impostors (easy version)\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D1. Too Many Impostors (easy version)",
+      "group": "Codeforces - Codeforces Round #761 (Div. 2)",
+      "url": "https://codeforces.com/contest/1617/problem/D1",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

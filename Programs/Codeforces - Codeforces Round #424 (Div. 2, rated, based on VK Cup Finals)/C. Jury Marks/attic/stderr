@@ -1,0 +1,16 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #424 (Div. 2, rated, based on VK Cup Finals)\C. Jury Marks\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algobase.h:71[m[K,
+                 from [01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/specfun.h:45[m[K,
+                 from [01m[KC:/msys64/mingw64/include/c++/11.2.0/cmath:1927[m[K,
+                 from [01m[KC:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/stdc++.h:41[m[K:
+C:/msys64/mingw64/include/c++/11.2.0/bits/predefined_ops.h: In instantiation of '[01m[Kconstexpr bool __gnu_cxx::__ops::_Iter_negate<_Predicate>::operator()(_Iterator) [with _Iterator = bool*; _Predicate = bool][m[K':
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algobase.h:2069:14:[m[K   required from '[01m[Kconstexpr _RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = bool*; _Predicate = __gnu_cxx::__ops::_Iter_negate<bool>][m[K'
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algo.h:106:28:[m[K   required from '[01m[Kconstexpr _InputIterator std::__find_if_not(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = bool*; _Predicate = __gnu_cxx::__ops::_Iter_pred<bool>][m[K'
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algo.h:513:32:[m[K   required from '[01m[Kconstexpr _IIter std::find_if_not(_IIter, _IIter, _Predicate) [with _IIter = bool*; _Predicate = bool][m[K'
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algo.h:453:40:[m[K   required from '[01m[Kconstexpr bool std::all_of(_IIter, _IIter, _Predicate) [with _IIter = bool*; _Predicate = bool][m[K'
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #424 (Div. 2, rated, based on VK Cup Finals)\C. Jury Marks\sol.cpp:83:19:[m[K   required from here
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/predefined_ops.h:395:31:[m[K [01;31m[Kerror: [m[Kexpression cannot be used as a function
+  395 |         { return !bool([01;31m[K_M_pred(*__it)[m[K); }
+      |                        [01;31m[K~~~~~~~^~~~~~~[m[K

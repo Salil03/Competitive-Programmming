@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\AtCoder - TOYOTA SYSTEMS Programming Contest 2021(AtCoder Beginner Contest 228)\\E - Integer Sequence Fair\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E - Integer Sequence Fair",
+      "group": "AtCoder - TOYOTA SYSTEMS Programming Contest 2021(AtCoder Beginner Contest 228)",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_e",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\AtCoder - AtCoder Regular Contest 132\\B - Shift and Reverse\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B - Shift and Reverse",
+      "group": "AtCoder - AtCoder Regular Contest 132",
+      "url": "https://atcoder.jp/contests/arc132/tasks/arc132_b",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

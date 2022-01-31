@@ -1,5 +1,6 @@
+    # Competitive Programming Repository
 
 
 * **`ICPC Notebook` has a notebook for ICPC with code templates**
 
-* **`Programs` has various problem solutions**
+* **`Programs` has solutions**

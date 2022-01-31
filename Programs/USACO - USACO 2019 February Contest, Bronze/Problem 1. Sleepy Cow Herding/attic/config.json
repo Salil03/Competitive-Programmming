@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\USACO - USACO 2019 February Contest, Bronze\\Problem 1. Sleepy Cow Herding\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Problem 1. Sleepy Cow Herding",
+      "group": "USACO - USACO 2019 February Contest, Bronze",
+      "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=915",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

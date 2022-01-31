@@ -1,0 +1,21 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - October Cook-Off 2021 Division 2\\01 Subsequence\\sol.cpp"
+  },
+  "bruteSolution": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - October Cook-Off 2021 Division 2\\01 Subsequence\\brute.cpp"
+  },
+  "generator": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - October Cook-Off 2021 Division 2\\01 Subsequence\\gen.py"
+  },
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "01 Subsequence",
+      "group": "CodeChef - October Cook-Off 2021 Division 2",
+      "url": "https://www.codechef.com/COOK134B/problems/ZEROONE",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #756 (Div. 3)\\C. Polycarp Recovers the Permutation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Polycarp Recovers the Permutation",
+      "group": "Codeforces - Codeforces Round #756 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1611/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

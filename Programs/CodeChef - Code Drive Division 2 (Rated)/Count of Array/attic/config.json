@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\CodeChef - Code Drive Division 2 (Rated)\\Count of Array\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Count of Array",
+      "group": "CodeChef - Code Drive Division 2 (Rated)",
+      "url": "https://www.codechef.com/CDRV21B/problems/CNTARRAY",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

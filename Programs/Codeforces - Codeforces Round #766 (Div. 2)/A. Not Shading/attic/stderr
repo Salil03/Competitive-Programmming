@@ -1,0 +1,4 @@
+[01m[Kc:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\Codeforces - Codeforces Round #766 (Div. 2)\A. Not Shading\attic\checker.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Ktestlib.h: No such file or directory
+    1 | #include [01;31m[K"testlib.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.

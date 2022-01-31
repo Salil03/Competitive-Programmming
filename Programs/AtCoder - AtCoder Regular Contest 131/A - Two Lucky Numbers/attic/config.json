@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\AtCoder - AtCoder Regular Contest 131\\A - Two Lucky Numbers\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - Two Lucky Numbers",
+      "group": "AtCoder - AtCoder Regular Contest 131",
+      "url": "https://atcoder.jp/contests/arc131/tasks/arc131_a",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,185 @@
+In file included from [01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\wcmp.cpp:1[m[K:
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In function '[01m[Kbool __testlib_prelimIsNaN(double)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:329:17:[m[K [01;35m[Kwarning: [m[Kcomparing floating-point with '[01m[K==[m[K' or '[01m[K!=[m[K' is unsafe [[01;35m[K-Wfloat-equal[m[K]
+  329 |     return (([01;35m[Kra != ra[m[K) == true) && ((ra == ra) == false) && ((1.0 > ra) == false) && ((1.0 < ra) == false);
+      |              [01;35m[K~~~^~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:329:41:[m[K [01;35m[Kwarning: [m[Kcomparing floating-point with '[01m[K==[m[K' or '[01m[K!=[m[K' is unsafe [[01;35m[K-Wfloat-equal[m[K]
+  329 |     return ((ra != ra) == true) && (([01;35m[Kra == ra[m[K) == false) && ((1.0 > ra) == false) && ((1.0 < ra) == false);
+      |                                      [01;35m[K~~~^~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kbool pattern::matches(const string&) const[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1042:42:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Ks[m[K' shadows a member of '[01m[Kpattern[m[K' [[01;35m[K-Wshadow[m[K]
+ 1042 | bool pattern::matches([01;35m[Kconst std::string& s[m[K) const
+      |                       [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:523:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+  523 |     std::string [01;36m[Ks[m[K;
+      |                 [01;36m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kbool pattern::matches(const string&, size_t) const[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1103:42:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Ks[m[K' shadows a member of '[01m[Kpattern[m[K' [[01;35m[K-Wshadow[m[K]
+ 1103 | bool pattern::matches([01;35m[Kconst std::string& s[m[K, size_t pos) const
+      |                       [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:523:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+  523 |     std::string [01;36m[Ks[m[K;
+      |                 [01;36m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[Kpattern::pattern(std::string)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1304:30:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Ks[m[K' shadows a member of '[01m[Kpattern[m[K' [[01;35m[K-Wshadow[m[K]
+ 1304 | pattern::pattern([01;35m[Kstd::string s[m[K): s(s), from(0), to(0)
+      |                  [01;35m[K~~~~~~~~~~~~^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:523:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+  523 |     std::string [01;36m[Ks[m[K;
+      |                 [01;36m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[Kpattern::pattern(std::string)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1304:30:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Ks[m[K' shadows a member of '[01m[Kpattern[m[K' [[01;35m[K-Wshadow[m[K]
+ 1304 | pattern::pattern([01;35m[Kstd::string s[m[K): s(s), from(0), to(0)
+      |                  [01;35m[K~~~~~~~~~~~~^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:523:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+  523 |     std::string [01;36m[Ks[m[K;
+      |                 [01;36m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[Kpattern::pattern(std::string)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1304:30:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Ks[m[K' shadows a member of '[01m[Kpattern[m[K' [[01;35m[K-Wshadow[m[K]
+ 1304 | pattern::pattern([01;35m[Kstd::string s[m[K): s(s), from(0), to(0)
+      |                  [01;35m[K~~~~~~~~~~~~^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:523:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+  523 |     std::string [01;36m[Ks[m[K;
+      |                 [01;36m[K^[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kint FileInputStreamReader::getc(FILE*)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1541:20:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1541 |     int getc([01;35m[KFILE* file[m[K)
+      |              [01;35m[K~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1528:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1528 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KFileInputStreamReader::FileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:63:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                            [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1529:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1529 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:38:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                           [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1528:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1528 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KFileInputStreamReader::FileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:63:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                            [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1529:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1529 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:38:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                           [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1528:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1528 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KFileInputStreamReader::FileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:63:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                            [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1529:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1529 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1566:38:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1566 |     FileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                           [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1528:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1528 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KBufferedFileInputStreamReader::BufferedFileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:71:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                                    [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1647:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1647 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:46:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                                   [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1641:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1641 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KBufferedFileInputStreamReader::BufferedFileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:71:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                                    [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1647:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1647 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:46:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                                   [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1641:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1641 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KBufferedFileInputStreamReader::BufferedFileInputStreamReader(FILE*, const string&)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:71:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kname[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader(std::FILE* file, [01;35m[Kconst std::string& name[m[K): file(file), name(name), line(1)
+      |                                                    [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1647:17:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1647 |     std::string [01;36m[Kname[m[K;
+      |                 [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1687:46:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kfile[m[K' shadows a member of '[01m[KBufferedFileInputStreamReader[m[K' [[01;35m[K-Wshadow[m[K]
+ 1687 |     BufferedFileInputStreamReader([01;35m[Kstd::FILE* file[m[K, const std::string& name): file(file), name(name), line(1)
+      |                                   [01;35m[K~~~~~~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1641:16:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1641 |     std::FILE* [01;36m[Kfile[m[K;
+      |                [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KValidatorBoundsHit::ValidatorBoundsHit(bool, bool)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:50:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KmaxHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit(bool minHit = false, [01;35m[Kbool maxHit = false[m[K): minHit(minHit), maxHit(maxHit)
+      |                                             [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2051:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2051 |     bool [01;36m[KmaxHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:29:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KminHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit([01;35m[Kbool minHit = false[m[K, bool maxHit = false): minHit(minHit), maxHit(maxHit)
+      |                        [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2050:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2050 |     bool [01;36m[KminHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KValidatorBoundsHit::ValidatorBoundsHit(bool, bool)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:50:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KmaxHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit(bool minHit = false, [01;35m[Kbool maxHit = false[m[K): minHit(minHit), maxHit(maxHit)
+      |                                             [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2051:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2051 |     bool [01;36m[KmaxHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:29:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KminHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit([01;35m[Kbool minHit = false[m[K, bool maxHit = false): minHit(minHit), maxHit(maxHit)
+      |                        [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2050:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2050 |     bool [01;36m[KminHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In constructor '[01m[KValidatorBoundsHit::ValidatorBoundsHit(bool, bool)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:50:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KmaxHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit(bool minHit = false, [01;35m[Kbool maxHit = false[m[K): minHit(minHit), maxHit(maxHit)
+      |                                             [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2051:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2051 |     bool [01;36m[KmaxHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2053:29:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[KminHit[m[K' shadows a member of '[01m[KValidatorBoundsHit[m[K' [[01;35m[K-Wshadow[m[K]
+ 2053 |     ValidatorBoundsHit([01;35m[Kbool minHit = false[m[K, bool maxHit = false): minHit(minHit), maxHit(maxHit)
+      |                        [01;35m[K~~~~~^~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2050:10:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 2050 |     bool [01;36m[KminHit[m[K;
+      |          [01;36m[K^~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kvoid InStream::quit(TResult, const char*)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2529:42:[m[K [01;35m[Kwarning: [m[Kcomparing floating-point with '[01m[K==[m[K' or '[01m[K!=[m[K' is unsafe [[01;35m[K-Wfloat-equal[m[K]
+ 2529 |                     if ([01;35m[K__testlib_points == std::numeric_limits<float>::infinity()[m[K)
+      |                         [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kvoid InStream::init(std::string, TMode)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2660:49:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kmode[m[K' shadows a member of '[01m[KInStream[m[K' [[01;35m[K-Wshadow[m[K]
+ 2660 | void InStream::init(std::string fileName, [01;35m[KTMode mode[m[K)
+      |                                           [01;35m[K~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1787:11:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1787 |     TMode [01;36m[Kmode[m[K;
+      |           [01;36m[K^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:[m[K In member function '[01m[Kvoid InStream::init(FILE*, TMode)[m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:2686:41:[m[K [01;35m[Kwarning: [m[Kdeclaration of '[01m[Kmode[m[K' shadows a member of '[01m[KInStream[m[K' [[01;35m[K-Wshadow[m[K]
+ 2686 | void InStream::init(std::FILE* f, [01;35m[KTMode mode[m[K)
+      |                                   [01;35m[K~~~~~~^~~~[m[K
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\acmx\checkers\testlib.h:1787:11:[m[K [01;36m[Knote: [m[Kshadowed declaration is here
+ 1787 |     TMode [01;36m[Kmode[m[K;
+      |           [01;36m[K^~~~[m[K

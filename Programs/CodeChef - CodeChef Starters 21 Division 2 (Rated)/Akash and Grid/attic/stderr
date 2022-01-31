@@ -1,0 +1,12 @@
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\Akash and Grid\sol.cpp:30:65:[m[K [01;35m[Kwarning: [m[Kconversion from '[01m[Kstd::chrono::duration<long long int, std::ratio<1, 1000000000> >::rep[m[K' {aka '[01m[Klong long int[m[K'} to '[01m[Kstd::mersenne_twister_engine<unsigned int, 32, 624, 397, 31, 2567483615, 11, 4294967295, 7, 2636928640, 15, 4022730752, 18, 1812433253>::result_type[m[K' {aka '[01m[Kunsigned int[m[K'} may change value [[01;35m[K-Wconversion[m[K]
+   30 | mt19937 rng([01;35m[Kchrono::steady_clock::now().time_since_epoch().count()[m[K);
+      |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/specfun.h:45[m[K,
+                 from [01m[KC:/msys64/mingw64/include/c++/11.2.0/cmath:1927[m[K,
+                 from [01m[KC:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/stdc++.h:41[m[K,
+                 from [01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\Akash and Grid\sol.cpp:9[m[K:
+C:/msys64/mingw64/include/c++/11.2.0/bits/stl_algobase.h: In instantiation of '[01m[Kconstexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare) [with _Tp = long long int; _Compare = long long int][m[K':
+[01m[KC:\Users\salil\Documents\Salil\Programming\Competitive-Programmming\Programs\CodeChef - CodeChef Starters 21 Division 2 (Rated)\Akash and Grid\sol.cpp:58:20:[m[K   required from here
+[01m[KC:/msys64/mingw64/include/c++/11.2.0/bits/stl_algobase.h:281:17:[m[K [01;31m[Kerror: [m[K'[01m[K__comp[m[K' cannot be used as a function
+  281 |       if ([01;31m[K__comp(__b, __a)[m[K)
+      |           [01;31m[K~~~~~~^~~~~~~~~~[m[K
