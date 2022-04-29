@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #784 (Div. 4)\\G. Fall Down\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "G. Fall Down",
+      "group": "Codeforces - Codeforces Round #784 (Div. 4)",
+      "url": "https://codeforces.com/contest/1669/problem/G",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

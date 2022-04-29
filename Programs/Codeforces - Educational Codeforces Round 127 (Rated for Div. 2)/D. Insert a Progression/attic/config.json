@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)\\D. Insert a Progression\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Insert a Progression",
+      "group": "Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1671/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

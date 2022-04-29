@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #783 (Div. 2)\\D. Optimal Partition\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Optimal Partition",
+      "group": "Codeforces - Codeforces Round #783 (Div. 2)",
+      "url": "https://codeforces.com/contest/1668/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #780 (Div. 3)\\F1. Promising String (easy version)\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F1. Promising String (easy version)",
+      "group": "Codeforces - Codeforces Round #780 (Div. 3)",
+      "url": "https://codeforces.com/contest/1660/problem/F1",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #579 (Div. 3)\\D2. Remove the Substring (hard version)\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D2. Remove the Substring (hard version)",
+      "group": "Codeforces - Codeforces Round #579 (Div. 3)",
+      "url": "https://codeforces.com/contest/1203/problem/D2",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

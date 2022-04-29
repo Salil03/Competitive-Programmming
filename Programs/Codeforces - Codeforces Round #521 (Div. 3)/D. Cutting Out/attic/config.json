@@ -1,0 +1,19 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #521 (Div. 3)\\D. Cutting Out\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #521 (Div. 3)\\D. Cutting Out\\attic\\checker.cpp"
+  },
+  "companionConfig": {
+    "value": {
+      "name": "D. Cutting Out",
+      "group": "Codeforces - Codeforces Round #521 (Div. 3)",
+      "url": "https://codeforces.com/contest/1077/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - ICPC-De-Tryst\\H. Elden Game\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "H. Elden Game",
+      "group": "Codeforces - ICPC-De-Tryst",
+      "url": "https://codeforces.com/gym/378271/problem/H",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

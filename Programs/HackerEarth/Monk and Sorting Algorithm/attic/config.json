@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\HackerEarth\\Monk and Sorting Algorithm\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Monk and Sorting Algorithm",
+      "group": "HackerEarth",
+      "url": "https://www.hackerearth.com/problem/algorithm/monk-and-sorting-algorithm-3aa7826d/",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

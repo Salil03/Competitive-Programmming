@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - ICPC-De-Tryst\\E. GCD MaxST\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. GCD MaxST",
+      "group": "Codeforces - ICPC-De-Tryst",
+      "url": "https://codeforces.com/gym/378271/problem/E",
+      "memoryLimit": 256,
+      "timeLimit": 1500
+    }
+  }
+}

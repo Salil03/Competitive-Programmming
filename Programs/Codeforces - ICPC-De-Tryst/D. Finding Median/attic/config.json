@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - ICPC-De-Tryst\\D. Finding Median\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Finding Median",
+      "group": "Codeforces - ICPC-De-Tryst",
+      "url": "https://codeforces.com/gym/378271/problem/D",
+      "memoryLimit": 50,
+      "timeLimit": 1000
+    }
+  }
+}

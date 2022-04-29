@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Google Coding Competitions - Round 1B 2022 - Code Jam 2022\\Controlled Inflation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Controlled Inflation",
+      "group": "Google Coding Competitions - Round 1B 2022 - Code Jam 2022",
+      "url": "https://codingcompetitions.withgoogle.com/codejam/round/000000000087711b/0000000000accfdb",
+      "memoryLimit": 1024,
+      "timeLimit": 5000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #779 (Div. 2)\\B. Marin and Anti-coprime Permutation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Marin and Anti-coprime Permutation",
+      "group": "Codeforces - Codeforces Round #779 (Div. 2)",
+      "url": "https://codeforces.com/contest/1658/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

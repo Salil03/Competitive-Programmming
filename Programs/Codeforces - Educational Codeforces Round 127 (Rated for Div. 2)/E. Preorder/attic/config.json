@@ -1,0 +1,21 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)\\E. Preorder\\sol.cpp"
+  },
+  "bruteSolution": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)\\E. Preorder\\brute.cpp"
+  },
+  "generator": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)\\E. Preorder\\gen.py"
+  },
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. Preorder",
+      "group": "Codeforces - Educational Codeforces Round 127 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1671/problem/E",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}
