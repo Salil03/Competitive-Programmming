@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #833 (Div. 2)\\C. Zero-Sum Prefixes\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Zero-Sum Prefixes",
+      "group": "Codeforces - Codeforces Round #833 (Div. 2)",
+      "url": "https://codeforces.com/contest/1748/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

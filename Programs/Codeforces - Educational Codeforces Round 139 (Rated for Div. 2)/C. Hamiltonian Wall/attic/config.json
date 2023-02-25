@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 139 (Rated for Div. 2)\\C. Hamiltonian Wall\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Hamiltonian Wall",
+      "group": "Codeforces - Educational Codeforces Round 139 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1766/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

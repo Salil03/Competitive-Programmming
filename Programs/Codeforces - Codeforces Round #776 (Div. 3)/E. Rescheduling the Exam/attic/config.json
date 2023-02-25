@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #776 (Div. 3)\\E. Rescheduling the Exam\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. Rescheduling the Exam",
+      "group": "Codeforces - Codeforces Round #776 (Div. 3)",
+      "url": "https://codeforces.com/contest/1650/problem/E",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

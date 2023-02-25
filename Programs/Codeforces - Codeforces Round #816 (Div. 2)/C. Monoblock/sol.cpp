@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+typedef long long ll;
+typedef unsigned long long uu;
+typedef long long int lll;
+typedef unsigned long long int uuu;
+
+#if defined(DEBUG)
+#include "prettyprint.hpp"
+#define dbga(x, n) cerr << "\n" \
+                        << (#x) << " is " << pretty_print_array(x, n) << endl
+#define dbg(x) cerr << "\n" \
+                    << (#x) << " is " << x << endl
+#endif
+
+#if !defined(DEBUG)
+#define dbga(x, n)
+#define dbg(x)
+#endif
+
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+// uniform_int_distribution < lll>(low, high)(rng)
+// uniform_real_distribution<double>(low, high)(rng)
+
+typedef tree<lll, null_type, less<lll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+typedef tree<pair<lll, lll>, null_type, less<pair<lll, lll>>, rb_tree_tag, tree_order_statistics_node_update> ordered_multiset;
+// gp_hash_table<int, int> table; unordered map
+
+#define cel(x, y) 1 + ((x - 1) / y)
+const double PI = 3.141592653589793238463;
+const int MOD = 1000000007;
+const long long int INF = 0x3f3f3f3f3f3f3f3f;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    // freopen("file.in", "r", stdin);
+    // freopen("file.out", "w", stdout);
+    lll n, m;
+    cin >> n >> m;
+    vector<lll> arr(n);
+    for (lll i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    vector<pair<lll, lll>> blocks;
+    lll cnt = 1;
+    for (lll i = 1; i < n; i++)
+    {
+        if (arr[i] == arr[i - 1])
+        {
+            cnt++;
+        }
+        else
+        {
+            blocks.push_back({arr[i - 1], cnt});
+            cnt = 1;
+        }
+    }
+    blocks.push_back({arr[n - 1], cnt});
+    dbg(blocks);
+    lll length = blocks.size();
+    lll sum = 0;
+    vector<lll> pref(length, 0), curr(length, 0);
+    for (lll i = 0; i < length - 1; i++)
+    {
+        curr[i + 1] = curr[i] + pref[i] + 2 * blocks[i].second;
+        pref[i + 1] = pref[i] + blocks[i].second;
+    }
+    for (lll i = 0; i < length; i++)
+    {
+        sum += (blocks[i].second * (blocks[i].second + 1)) / 2;
+        sum += blocks[i].second * curr[i];
+    }
+    dbg(sum);
+}

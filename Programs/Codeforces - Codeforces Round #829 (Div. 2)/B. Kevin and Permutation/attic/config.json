@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #829 (Div. 2)\\B. Kevin and Permutation\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Kevin and Permutation",
+      "group": "Codeforces - Codeforces Round #829 (Div. 2)",
+      "url": "https://codeforces.com/contest/1754/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #459 (Div. 1)\\A. The Monster\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. The Monster",
+      "group": "Codeforces - Codeforces Round #459 (Div. 1)",
+      "url": "https://codeforces.com/problemset/problem/917/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

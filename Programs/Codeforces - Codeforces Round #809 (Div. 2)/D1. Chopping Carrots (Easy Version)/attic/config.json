@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Round #809 (Div. 2)\\D1. Chopping Carrots (Easy Version)\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D1. Chopping Carrots (Easy Version)",
+      "group": "Codeforces - Codeforces Round #809 (Div. 2)",
+      "url": "https://codeforces.com/contest/1706/problem/D1",
+      "memoryLimit": 64,
+      "timeLimit": 4000
+    }
+  }
+}

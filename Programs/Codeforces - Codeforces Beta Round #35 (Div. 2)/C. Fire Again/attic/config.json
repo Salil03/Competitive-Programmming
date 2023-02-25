@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Codeforces Beta Round #35 (Div. 2)\\C. Fire Again\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Fire Again",
+      "group": "Codeforces - Codeforces Beta Round #35 (Div. 2)",
+      "url": "https://codeforces.com/contest/35/problem/C",
+      "memoryLimit": 64,
+      "timeLimit": 2000
+    }
+  }
+}
