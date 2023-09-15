@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Tryst Lockout Prelims\\D. Continuous XORs\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Continuous XORs",
+      "group": "Codeforces - Tryst Lockout Prelims",
+      "url": "https://codeforces.com/group/X2EKxNtqj8/contest/429635/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

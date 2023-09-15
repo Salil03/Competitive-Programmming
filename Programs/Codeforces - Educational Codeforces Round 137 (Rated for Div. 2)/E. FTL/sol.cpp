@@ -1,44 +1,86 @@
+// you can use includes, for example:
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
 using namespace std;
-typedef long long ll;
-typedef unsigned long long uu;
-typedef long long int lll;
-typedef unsigned long long int uuu;
+// you can write to stdout for debugging purposes, e.g.
+// cout << "this is a debug message" << endl;
 
-#if defined(DEBUG)
-#include "prettyprint.hpp"
-#define dbga(x, n) cerr << "\n" \
-                        << (#x) << " is " << pretty_print_array(x, n) << endl
-#define dbg(x) cerr << "\n" \
-                    << (#x) << " is " << x << endl
-#endif
+long long int solution(vector<long long int> &A)
+{
+    long long int n = A.size();
+    long long int maximum = 0;
+    vector<long long int> subset1, subset2, subset3;
+    for (int num1 = 0; num1 < (1 << n); num1++)
+    {
+        subset1.clear();
+        long long int curr_sum1 = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if ((num1 >> j) & 1)
+            {
+                curr_sum1 += A[j];
+            }
+            else
+            {
+                subset1.push_back(A[j]);
+            }
+        }
+        long long int size1 = subset1.size();
+        for (long long int num2 = 0; num2 < (1 << size1); num2++)
+        {
+            subset2.clear();
+            long long int curr_sum2 = 0;
+            for (int j = 0; j < size1; j++)
+            {
+                if ((num2 >> j) & 1)
+                {
+                    curr_sum2 += subset1[j];
+                }
+                else
+                {
+                    subset2.push_back(subset1[j]);
+                }
+            }
+            long long int size2 = subset2.size();
+            for (long long int num3 = 0; num3 < (1 << size2); num3++)
+            {
+                subset3.clear();
+                long long int curr_sum3 = 0;
+                for (int j = 0; j < size2; j++)
+                {
+                    if ((num3 >> j) & 1)
+                    {
+                        curr_sum3 += subset2[j];
+                    }
+                    else
+                    {
+                        subset3.push_back(subset2[j]);
+                    }
+                }
+                long long int size3 = subset3.size();
+                for (long long int num4 = 0; num4 < (1 << size3); num4++)
+                {
+                    long long int curr_sum4 = 0;
+                    for (int j = 0; j < size3; j++)
+                    {
+                        if ((num4 >> j) & 1)
+                        {
+                            curr_sum4 += subset3[j];
+                        }
+                    }
+                    if (curr_sum1 == curr_sum2 && curr_sum1 == curr_sum3 && curr_sum1 == curr_sum4)
+                    {
+                        maximum = max(maximum, curr_sum1);
+                    }
+                }
+            }
+        }
+    }
 
-#if !defined(DEBUG)
-#define dbga(x, n)
-#define dbg(x)
-#endif
-
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-// uniform_int_distribution < lll>(low, high)(rng)
-// uniform_real_distribution<double>(low, high)(rng)
-
-typedef tree<lll, null_type, less<lll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
-typedef tree<pair<lll, lll>, null_type, less<pair<lll, lll>>, rb_tree_tag, tree_order_statistics_node_update> ordered_multiset;
-// gp_hash_table<int, int> table; unordered map
-
-#define cel(x, y) 1 + ((x - 1) / y)
-const double PI = 3.141592653589793238463;
-const int MOD = 1000000007;
-const long long int INF = 0x3f3f3f3f3f3f3f3f;
+    return maximum;
+}
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    // freopen("file.in", "r", stdin);
-    // freopen("file.out", "w", stdout);
+    vector<long long int> A = {2, 2, 2, 2, 2, 10, 10, 10};
+    cout << solution(A);
 }

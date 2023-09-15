@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Week #1\\H. Planet Nine\\sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "H. Planet Nine",
+      "group": "Codeforces - Week #1",
+      "url": "https://codeforces.com/group/wlb0UYQSQF/contest/470038/problem/H",
+      "memoryLimit": 512,
+      "timeLimit": 1000
+    }
+  }
+}

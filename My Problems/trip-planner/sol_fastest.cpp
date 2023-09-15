@@ -43,18 +43,22 @@ int main()
 	// freopen("file.out", "w", stdout);
 	lll n, m;
 	cin >> n >> m;
-	lll start, end;
-	cin >> start >> end;
-	vector<vector<lll>> distinct_primes(n + 1, vector<lll>());
-	vector<vector<lll>> divisors(n + 1, vector<lll>());
+	lll x, y;
+	cin >> x >> y;
+	vector<vector<pair<lll, lll>>> divisors(n + 1, vector<pair<lll, lll>>());
 	for (lll i = 1; i <= n; i++)
 	{
+		divisors[i].emplace_back(make_pair(1, 0));
 		lll k = i;
 		for (lll j = 2; j * j <= k; j++)
 		{
 			if (k % j == 0)
 			{
-				distinct_primes[i].emplace_back(j);
+				lll len = divisors[i].size();
+				for (lll divisor = 0; divisor < len; divisor++)
+				{
+					divisors[i].emplace_back(make_pair(j * divisors[i][divisor].first, divisors[i][divisor].second + 1));
+				}
 			}
 			while (k % j == 0)
 			{
@@ -63,95 +67,72 @@ int main()
 		}
 		if (k >= 2)
 		{
-			distinct_primes[i].emplace_back(k);
-		}
-	}
-	for (lll idx = 1; idx <= n; idx++)
-	{
-		lll num = (1 << distinct_primes[idx].size());
-		for (lll i = 0; i < num; i++)
-		{
-			lll prod = 1;
-			for (lll j = 0; j < (lll)distinct_primes[idx].size(); j++)
+			lll len = divisors[i].size();
+			for (lll divisor = 0; divisor < len; divisor++)
 			{
-				if (i & (1 << j))
-				{
-					prod *= distinct_primes[idx][j];
-				}
+				divisors[i].emplace_back(make_pair(k * divisors[i][divisor].first, divisors[i][divisor].second + 1));
 			}
-			divisors[idx].emplace_back(prod);
 		}
 	}
-	lll table[n + 1][2][2] = {0};
-	lll sum_table[n + 1][2][2] = {0};
+	lll dp[n + 1][2][2] = {0};
+	lll dp_sum[n + 1][2][2] = {0};
 	for (lll idx = 1; idx <= n; idx++)
 	{
 		for (lll mass = 0; mass <= 1; mass++)
 		{
-			if (idx == start && mass == 0)
+			if (idx == x && mass == 0)
 			{
-				table[idx][0][mass] = 1;
+				dp[idx][0][mass] = 1;
 			}
 			else
 			{
-				table[idx][0][mass] = 0;
+				dp[idx][0][mass] = 0;
 			}
-			table[idx][1][mass] = 0;
-			sum_table[idx][0][mass] = 0;
-			sum_table[idx][1][mass] = 0;
+			dp[idx][1][mass] = 0;
+			dp_sum[idx][0][mass] = 0;
+			dp_sum[idx][1][mass] = 0;
 		}
 	}
-	for (auto divisor : divisors[start])
+	for (auto divisor : divisors[x])
 	{
-		sum_table[divisor][0][0] = 1;
+		dp_sum[divisor.first][0][0] = 1;
 	}
 	for (lll k = 1; k <= m; k++)
 	{
 		for (lll idx = 1; idx <= n; idx++)
 		{
-			table[idx][1][0] = sum_table[1][0][0];
-			table[idx][1][1] = sum_table[1][0][1];
-			lll num = (1 << distinct_primes[idx].size());
-			for (lll i = 0; i < num; i++)
+			dp[idx][1][0] = dp_sum[1][0][0];
+			dp[idx][1][1] = dp_sum[1][0][1];
+			for (auto divisor : divisors[idx])
 			{
-				lll cnt = 0;
-				lll prod = 1;
-				for (lll j = 0; j < (lll)distinct_primes[idx].size(); j++)
+				if (divisor.second & 1)
 				{
-					if (i & (1 << j))
-					{
-						cnt++;
-						prod *= distinct_primes[idx][j];
-					}
-				}
-				if (cnt & 1)
-				{
-					table[idx][1][0] = (table[idx][1][0] - sum_table[prod][0][1]) % MOD;
-					table[idx][1][1] = (table[idx][1][1] - sum_table[prod][0][0]) % MOD;
+					dp[idx][1][0] = (dp[idx][1][0] - dp_sum[divisor.first][0][1]) % MOD;
+					dp[idx][1][1] = (dp[idx][1][1] - dp_sum[divisor.first][0][0]) % MOD;
 				}
 				else
 				{
-					table[idx][1][0] = (table[idx][1][0] + sum_table[prod][0][1]) % MOD;
-					table[idx][1][1] = (table[idx][1][1] + sum_table[prod][0][0]) % MOD;
+					dp[idx][1][0] = (dp[idx][1][0] + dp_sum[divisor.first][0][1]) % MOD;
+					dp[idx][1][1] = (dp[idx][1][1] + dp_sum[divisor.first][0][0]) % MOD;
 				}
 			}
 			for (auto divisor : divisors[idx])
 			{
-				sum_table[divisor][1][0] = (sum_table[divisor][1][0] + table[idx][1][0]) % MOD;
-				sum_table[divisor][1][1] = (sum_table[divisor][1][1] + table[idx][1][1]) % MOD;
+				dp_sum[divisor.first][1][0] = (dp_sum[divisor.first][1][0] + dp[idx][1][0]) % MOD;
+				dp_sum[divisor.first][1][1] = (dp_sum[divisor.first][1][1] + dp[idx][1][1]) % MOD;
 			}
 		}
 		for (lll idx = 1; idx <= n; idx++)
 		{
-			table[idx][0][0] = table[idx][1][0];
-			table[idx][0][1] = table[idx][1][1];
-			sum_table[idx][0][0] = sum_table[idx][1][0];
-			sum_table[idx][0][1] = sum_table[idx][1][1];
-			table[idx][1][0] = 0;
-			table[idx][1][1] = 0;
-			sum_table[idx][1][0] = 0;
-			sum_table[idx][1][1] = 0;
+			dp[idx][0][0] = dp[idx][1][0];
+			dp[idx][0][1] = dp[idx][1][1];
+			dp_sum[idx][0][0] = dp_sum[idx][1][0];
+			dp_sum[idx][0][1] = dp_sum[idx][1][1];
+			dp[idx][1][0] = 0;
+			dp[idx][1][1] = 0;
+			dp_sum[idx][1][0] = 0;
+			dp_sum[idx][1][1] = 0;
 		}
 	}
-	cout << (table[end][0][1] % MOD + MOD) % MOD << "\n";
+	cout << (dp[y][0][1] % MOD + MOD) % MOD << "\n";
 }

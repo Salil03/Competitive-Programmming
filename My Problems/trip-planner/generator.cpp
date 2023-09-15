@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 	// 	int n = rnd.next(min_n, max_n);
 	int n = atoi(argv[1]);
 	int m = atoi(argv[2]);
-	cout << n << " " << m << "\n";
-	cout << rnd.next(1, n) << " " << rnd.next(1, n);
+	cout << n << " " << m << endl;
+	cout << rnd.next(1, n) << " ";
+	cout << rnd.next(1, n) << endl;
 }

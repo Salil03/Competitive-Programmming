@@ -1,0 +1,21 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 153 (Rated for Div. 2)\\C. Game on Permutation\\sol.cpp"
+  },
+  "bruteSolution": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 153 (Rated for Div. 2)\\C. Game on Permutation\\brute.cpp"
+  },
+  "generator": {
+    "value": "c:\\Users\\salil\\Documents\\Salil\\Programming\\Competitive-Programmming\\Programs\\Codeforces - Educational Codeforces Round 153 (Rated for Div. 2)\\C. Game on Permutation\\gen.py"
+  },
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Game on Permutation",
+      "group": "Codeforces - Educational Codeforces Round 153 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1860/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -46,6 +46,7 @@ int main()
 	lll start, end;
 	cin >> start >> end;
 	vector<vector<lll>> distinct_primes(n + 1, vector<lll>());
+	vector<vector<lll>> divisors(n + 1, vector<lll>());
 	for (lll i = 1; i <= n; i++)
 	{
 		lll k = i;
@@ -63,6 +64,22 @@ int main()
 		if (k >= 2)
 		{
 			distinct_primes[i].emplace_back(k);
+		}
+	}
+	for (lll idx = 1; idx <= n; idx++)
+	{
+		lll num = (1 << distinct_primes[idx].size());
+		for (lll i = 0; i < num; i++)
+		{
+			lll prod = 1;
+			for (lll j = 0; j < (lll)distinct_primes[idx].size(); j++)
+			{
+				if (i & (1 << j))
+				{
+					prod *= distinct_primes[idx][j];
+				}
+			}
+			divisors[idx].emplace_back(prod);
 		}
 	}
 	lll table[n + 1][2][2] = {0};
@@ -84,18 +101,9 @@ int main()
 			sum_table[idx][1][mass] = 0;
 		}
 	}
-	lll num = (1 << distinct_primes[start].size());
-	for (lll i = 0; i < num; i++)
+	for (auto divisor : divisors[start])
 	{
-		lll prod = 1;
-		for (lll j = 0; j < (lll)distinct_primes[start].size(); j++)
-		{
-			if (i & (1 << j))
-			{
-				prod *= distinct_primes[start][j];
-			}
-		}
-		sum_table[prod][0][0] = 1;
+		sum_table[divisor][0][0] = 1;
 	}
 	for (lll k = 1; k <= m; k++)
 	{
@@ -103,7 +111,7 @@ int main()
 		{
 			table[idx][1][0] = sum_table[1][0][0];
 			table[idx][1][1] = sum_table[1][0][1];
-			num = (1 << distinct_primes[idx].size());
+			lll num = (1 << distinct_primes[idx].size());
 			for (lll i = 0; i < num; i++)
 			{
 				lll cnt = 0;
@@ -127,18 +135,10 @@ int main()
 					table[idx][1][1] = (table[idx][1][1] + sum_table[prod][0][0]) % MOD;
 				}
 			}
-			for (lll i = 0; i < num; i++)
+			for (auto divisor : divisors[idx])
 			{
-				lll prod = 1;
-				for (lll j = 0; j < (lll)distinct_primes[idx].size(); j++)
-				{
-					if (i & (1 << j))
-					{
-						prod *= distinct_primes[idx][j];
-					}
-				}
-				sum_table[prod][1][0] = (sum_table[prod][1][0] + table[idx][1][0]) % MOD;
-				sum_table[prod][1][1] = (sum_table[prod][1][1] + table[idx][1][1]) % MOD;
+				sum_table[divisor][1][0] = (sum_table[divisor][1][0] + table[idx][1][0]) % MOD;
+				sum_table[divisor][1][1] = (sum_table[divisor][1][1] + table[idx][1][1]) % MOD;
 			}
 		}
 		for (lll idx = 1; idx <= n; idx++)
